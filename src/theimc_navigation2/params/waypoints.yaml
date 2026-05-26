@@ -1,0 +1,45 @@
+# theimc_navigation2/params/waypoints.yaml (수정 권장)
+
+waypoints:
+  - pose:
+      header:
+        frame_id: map  # 지도가 정의된 프레임 ID
+      pose:
+        position:
+          x: 0.5
+          y: 0.177
+          z: 0.0
+        orientation:
+          x: 0.0
+          y: 0.0
+          z: 0.0
+          w: -1.0  # yaw 0.0을 나타내는 쿼터니언 (z, w만 유효)
+    actions: [] # Waypoint 도달 후 수행할 사용자 정의 액션 리스트 (옵션)
+  - pose:
+      header:
+        frame_id: map
+      pose:
+        position:
+          x: 2.0
+          y: 0.5
+          z: 0.0
+        orientation:
+          x: 0.0
+          y: 0.0
+          z: 0.0
+          w: 1.0  # yaw 0.0을 나타내는 쿼터니언
+    actions: []
+  - pose:
+      header:
+        frame_id: map
+      pose:
+        position:
+          x: 3.0
+          y: 1.0
+          z: 0.0
+        orientation:
+          x: 0.0
+          y: 0.0
+          z: 0.707 # yaw 1.57 (약 90도) 근사값
+          w: 0.707
+    actions: []

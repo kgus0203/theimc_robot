@@ -1,0 +1,4 @@
+[console_scripts]
+bringup_node = theimc_bringup.theimc_bringup:main
+robot_agent_node = theimc_bringup.robot_agent_node:main
+

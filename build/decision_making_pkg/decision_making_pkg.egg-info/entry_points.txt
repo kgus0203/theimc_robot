@@ -1,0 +1,4 @@
+[console_scripts]
+rail_approach_action_server_node = decision_making_pkg.rail_approach_action_server_node:main
+rail_pd_controller_node = decision_making_pkg.rail_pd_controller_node:main
+

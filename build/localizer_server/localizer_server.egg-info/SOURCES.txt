@@ -1,0 +1,13 @@
+package.xml
+setup.cfg
+setup.py
+localizer_server/__init__.py
+localizer_server/global_localization.py
+localizer_server.egg-info/PKG-INFO
+localizer_server.egg-info/SOURCES.txt
+localizer_server.egg-info/dependency_links.txt
+localizer_server.egg-info/entry_points.txt
+localizer_server.egg-info/requires.txt
+localizer_server.egg-info/top_level.txt
+localizer_server.egg-info/zip-safe
+resource/localizer_server
