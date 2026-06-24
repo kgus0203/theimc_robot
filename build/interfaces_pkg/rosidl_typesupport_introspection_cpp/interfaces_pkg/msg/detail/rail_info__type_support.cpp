@@ -37,7 +37,7 @@ void RailInfo_fini_function(void * message_memory)
   typed_message->~RailInfo();
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember RailInfo_message_member_array[11] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember RailInfo_message_member_array[14] = {
   {
     "header",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_MESSAGE,  // type
@@ -224,13 +224,64 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember RailInfo_mess
     nullptr,  // fetch(index, &value) function pointer
     nullptr,  // assign(index, value) function pointer
     nullptr  // resize(index) function pointer
+  },
+  {
+    "rail_bbox_width",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(interfaces_pkg::msg::RailInfo, rail_bbox_width),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr,  // fetch(index, &value) function pointer
+    nullptr,  // assign(index, value) function pointer
+    nullptr  // resize(index) function pointer
+  },
+  {
+    "rail_bbox_height",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(interfaces_pkg::msg::RailInfo, rail_bbox_height),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr,  // fetch(index, &value) function pointer
+    nullptr,  // assign(index, value) function pointer
+    nullptr  // resize(index) function pointer
+  },
+  {
+    "rail_bbox_area_ratio",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(interfaces_pkg::msg::RailInfo, rail_bbox_area_ratio),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr,  // fetch(index, &value) function pointer
+    nullptr,  // assign(index, value) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers RailInfo_message_members = {
   "interfaces_pkg::msg",  // message namespace
   "RailInfo",  // message name
-  11,  // number of fields
+  14,  // number of fields
   sizeof(interfaces_pkg::msg::RailInfo),
   RailInfo_message_member_array,  // message members
   RailInfo_init_function,  // function to initialize message memory (memory has to be allocated)

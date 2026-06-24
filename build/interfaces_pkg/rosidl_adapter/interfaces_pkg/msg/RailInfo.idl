@@ -28,6 +28,12 @@ module interfaces_pkg {
       string distance;
 
       float confidence;
+
+      float rail_bbox_width;
+
+      float rail_bbox_height;
+
+      float rail_bbox_area_ratio;
     };
   };
 };

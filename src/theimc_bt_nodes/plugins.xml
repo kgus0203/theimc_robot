@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<library path="theimc_bt_nodes">
+  <class
+    name="theimc_bt_nodes/GoToPose"
+    type="theimc_bt_nodes::GoToPose"
+    base_class_type="BT::TreeNode">
+    <description>BehaviorTree.CPP node that sends a NavigateToPose goal.</description>
+  </class>
+  <class
+    name="theimc_bt_nodes/WaitForMissionTrigger"
+    type="theimc_bt_nodes::WaitForMissionTrigger"
+    base_class_type="BT::TreeNode">
+    <description>BehaviorTree.CPP node that waits for a mission trigger.</description>
+  </class>
+</library>

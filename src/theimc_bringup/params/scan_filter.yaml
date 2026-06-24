@@ -4,8 +4,8 @@ scan_filter_chain:
       name: angle_filter
       type: laser_filters/LaserScanAngularBoundsFilter
       params:
-        lower_angle: -1.57
-        upper_angle: 1.57
+        lower_angle: -3.14
+        upper_angle: 3.14
 # 0 rad      = 정면
 # +1.57 rad  = 왼쪽
 # -1.57 rad  = 오른쪽

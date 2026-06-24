@@ -1,12 +1,14 @@
 import os
 
 from ament_index_python.packages import get_package_share_directory
+
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.actions import TimerAction, ExecuteProcess
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+
 from launch_ros.actions import Node
-from launch.actions import TimerAction
 
 
 ARGUMENTS = [
@@ -22,38 +24,43 @@ ARGUMENTS = [
 def generate_launch_description():
 
     pkg_share_navigation2 = get_package_share_directory('theimc_navigation2')
-    pkg_share_nav2_bringup = get_package_share_directory('nav2_bringup')  # 이건 nav2 원래 있는 거
+    pkg_share_nav2_bringup = get_package_share_directory('nav2_bringup')
 
-    # RViz
-    # params_nav2_rviz = PathJoinSubstitution([pkg_share_navigation2, 'rviz', 'nav2_default_view.rviz'])
-    # params_nav2_rviz = PathJoinSubstitution([pkg_share_nav2_bringup, 'rivz', 'nav2_default_view.rviz'])
+    # ---------------------------------------------------------
+    # Path 설정
+    # ---------------------------------------------------------
+    params_nav2_map = PathJoinSubstitution([
+        pkg_share_navigation2,
+        'maps',
+        'map.yaml'
+    ])
 
-    # Map
-    params_nav2_map = PathJoinSubstitution([pkg_share_navigation2, 'maps', 'map.yaml'])
-
-    # Nav2 params
-    params_nav2 = PathJoinSubstitution([pkg_share_navigation2, 'params', 'theimc_nav2_params.yaml'])
-
-    # Twist mux params
-    params_twist_mux = PathJoinSubstitution([pkg_share_navigation2, 'params', 'twist_mux.yaml'])
-
-    # Keepout filter params
-    params_keepout_filter = os.path.join(
+    params_nav2 = PathJoinSubstitution([
         pkg_share_navigation2,
         'params',
-        'keepout_filter.yaml'
+        'theimc_nav2_params.yaml'
+    ])
+
+    keepout_map_yaml = os.path.join(
+        pkg_share_navigation2,
+        'maps',
+        'keepout_map.yaml'
     )
 
-    # Bringup launch
-    launch_nav2_bringup = PathJoinSubstitution([pkg_share_nav2_bringup, 'launch', 'bringup_launch.py'])
+    launch_nav2_bringup = PathJoinSubstitution([
+        pkg_share_nav2_bringup,
+        'launch',
+        'bringup_launch.py'
+    ])
 
+    # ---------------------------------------------------------
     # Launch Config
-    map_yaml = LaunchConfiguration('map')
-    params_file = LaunchConfiguration('params_file')
+    # ---------------------------------------------------------
     use_sim_time = LaunchConfiguration('use_sim_time')
-    keepout_params_file = LaunchConfiguration('filter_mask_params_file')
 
+    # ---------------------------------------------------------
     # Declare Launch Args
+    # ---------------------------------------------------------
     dla_map_yaml_cmd = DeclareLaunchArgument(
         'map',
         default_value=params_nav2_map,
@@ -66,25 +73,8 @@ def generate_launch_description():
         description='Full path to the ROS2 parameters file to use for all launched nodes'
     )
 
-    declare_filter_mask_params_file_cmd = DeclareLaunchArgument(
-        'filter_mask_params_file',
-        default_value=params_keepout_filter,
-        description='Full path to keepout filter yaml file'
-    )
-
-    nav2_bringup_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([launch_nav2_bringup]),
-        launch_arguments={
-            'use_sim_time': use_sim_time,
-            'map': map_yaml,
-            'params_file': params_file,
-            'autostart': 'true'
-        }.items()
-    )
-
     # ---------------------------------------------------------
-    # [추가] Keepout Filter Mask Map Server
-    # keepout mask map을 publish하는 map_server
+    # Keepout Filter Mask Map Server
     # ---------------------------------------------------------
     filter_mask_server_cmd = Node(
         package='nav2_map_server',
@@ -92,14 +82,17 @@ def generate_launch_description():
         name='filter_mask_server',
         output='screen',
         parameters=[
-            keepout_params_file,
-            {'use_sim_time': use_sim_time}
+            {
+                'use_sim_time': use_sim_time,
+                'yaml_filename': keepout_map_yaml,
+                'topic_name': '/keepout_filter_mask',
+                'frame_id': 'map'
+            }
         ]
     )
 
     # ---------------------------------------------------------
-    # [추가] Costmap Filter Info Server
-    # Nav2 costmap filter가 mask 정보를 받을 수 있게 해주는 서버
+    # Costmap Filter Info Server
     # ---------------------------------------------------------
     costmap_filter_info_server_cmd = Node(
         package='nav2_map_server',
@@ -107,90 +100,151 @@ def generate_launch_description():
         name='costmap_filter_info_server',
         output='screen',
         parameters=[
-            keepout_params_file,
-            {'use_sim_time': use_sim_time}
+            {
+                'use_sim_time': use_sim_time,
+                'filter_info_topic': '/costmap_filter_info',
+                'type': 0,
+                'mask_topic': '/keepout_filter_mask',
+                'base': 0.0,
+                'multiplier': 1.0
+            }
         ]
     )
 
     # ---------------------------------------------------------
-    # [추가] Keepout Filter Lifecycle Manager
-    # filter_mask_server, costmap_filter_info_server를 active 상태로 만들어줌
+    # Keepout lifecycle 직접 처리
+    #
+    # 노드가 ROS graph에 보일 때까지 기다린 다음
+    # unconfigured -> configure
+    # inactive -> activate
+    # 순서로 처리
     # ---------------------------------------------------------
-    filter_lifecycle_manager_cmd = Node(
-        package='nav2_lifecycle_manager',
-        executable='lifecycle_manager',
-        name='lifecycle_manager_costmap_filters',
+    bringup_keepout_filters_cmd = ExecuteProcess(
+        cmd=[
+            'bash',
+            '-lc',
+            '''
+            echo "[KEEP_OUT] Waiting for /filter_mask_server..."
+            until ros2 node list | grep -qx "/filter_mask_server"; do
+              sleep 0.5
+            done
+
+            echo "[KEEP_OUT] Waiting for /costmap_filter_info_server..."
+            until ros2 node list | grep -qx "/costmap_filter_info_server"; do
+              sleep 0.5
+            done
+
+            echo "[KEEP_OUT] Configure /filter_mask_server if needed..."
+            STATE=$(ros2 lifecycle get /filter_mask_server 2>/dev/null | awk '{print $1}')
+            echo "[KEEP_OUT] /filter_mask_server state: $STATE"
+            if [ "$STATE" = "unconfigured" ]; then
+              ros2 lifecycle set /filter_mask_server configure
+              sleep 1.0
+            fi
+
+            echo "[KEEP_OUT] Activate /filter_mask_server if needed..."
+            STATE=$(ros2 lifecycle get /filter_mask_server 2>/dev/null | awk '{print $1}')
+            echo "[KEEP_OUT] /filter_mask_server state: $STATE"
+            if [ "$STATE" = "inactive" ]; then
+              ros2 lifecycle set /filter_mask_server activate
+              sleep 1.0
+            fi
+
+            echo "[KEEP_OUT] Configure /costmap_filter_info_server if needed..."
+            STATE=$(ros2 lifecycle get /costmap_filter_info_server 2>/dev/null | awk '{print $1}')
+            echo "[KEEP_OUT] /costmap_filter_info_server state: $STATE"
+            if [ "$STATE" = "unconfigured" ]; then
+              ros2 lifecycle set /costmap_filter_info_server configure
+              sleep 1.0
+            fi
+
+            echo "[KEEP_OUT] Activate /costmap_filter_info_server if needed..."
+            STATE=$(ros2 lifecycle get /costmap_filter_info_server 2>/dev/null | awk '{print $1}')
+            echo "[KEEP_OUT] /costmap_filter_info_server state: $STATE"
+            if [ "$STATE" = "inactive" ]; then
+              ros2 lifecycle set /costmap_filter_info_server activate
+              sleep 1.0
+            fi
+
+            echo "[KEEP_OUT] Final states:"
+            ros2 lifecycle get /filter_mask_server
+            ros2 lifecycle get /costmap_filter_info_server
+            '''
+        ],
+        output='screen'
+    )
+
+    # ---------------------------------------------------------
+    # Nav2 Bringup
+    #
+    # 여기서는 LaunchConfiguration('map')을 쓰지 않고
+    # params_nav2_map을 직접 넘겨서
+    # launch configuration 'map' does not exist 에러를 피함
+    # ---------------------------------------------------------
+    nav2_bringup_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([launch_nav2_bringup]),
+        launch_arguments={
+            'use_sim_time': use_sim_time,
+            'map': params_nav2_map,
+            'params_file': params_nav2,
+            'autostart': 'true'
+        }.items()
+    )
+
+    # ---------------------------------------------------------
+    # Last Pose Manager
+    #
+    # /amcl_pose를 저장하고, 다음 부팅 때 /initialpose로 자동 publish
+    # Nav2/AMCL이 실행된 뒤 동작해야 하므로 TimerAction으로 지연 실행
+    # ---------------------------------------------------------
+    last_pose_manager_node = Node(
+        package='theimc_bringup',
+        executable='last_pose_manager_node',
+        name='last_pose_manager_node',
         output='screen',
-        parameters=[
-            {'use_sim_time': use_sim_time},
-            {'autostart': True},
-            {'node_names': [
-                'filter_mask_server',
-                'costmap_filter_info_server'
-            ]}
-        ]
+        parameters=[{
+            'pose_file': '/home/jeff/theimc_robot/config/last_pose.yaml',
+            'auto_publish_initial_pose': True,
+            'publish_delay_sec': 5.0,
+            'save_interval_sec': 2.0,
+            'max_xy_covariance': 1.0,
+            'max_yaw_covariance': 1.0,
+        }]
     )
 
     # ---------------------------------------------------------
-    # [추가] Docking Server Node
-    # ---------------------------------------------------------
-    # docking_server_cmd = Node(
-    #     package='opennav_docking',
-    #     executable='docking_server',
-    #     name='docking_server',
-    #     output='screen',
-    #     parameters=[
-    #         params_file,  # docking_server 설정이 들어있는 파라미터 파일
-    #         {'use_sim_time': use_sim_time}
-    #     ]
-    # )
-
-    # ---------------------------------------------------------
-    # [추가] Docking Lifecycle Manager
-    # docking_server를 활성화(Active) 상태로 만들어줍니다.
-    # ---------------------------------------------------------
-    # docking_lifecycle_manager = Node(
-    #     package='nav2_lifecycle_manager',
-    #     executable='lifecycle_manager',
-    #     name='lifecycle_manager_docking',
-    #     output='screen',
-    #     parameters=[
-    #         {'use_sim_time': use_sim_time},
-    #         {'autostart': True},
-    #         {'node_names': ['docking_server']}
-    #     ]
-    # )
-
-    # 3. Route Server (주석 처리됨)
-    # route_server_cmd = Node(...)
-
-    # 4. Route Server Lifecycle Manager (주석 처리됨)
-    # route_server_lifecycle_manager = Node(...)
-
-    # 5. Waypoint Follower
-    # waypoint_yaml = PathJoinSubstitution([pkg_share_navigation2, 'params', 'waypoints.yaml'])
-    # waypoint_follower_cmd = Node(
-    #     package='nav2_waypoint_follower',
-    #     executable='waypoint_follower',
-    #     name='waypoint_follower',
-    #     output='screen',
-    #     parameters=[{'use_sim_time': use_sim_time},
-    #                 {'waypoints_file': waypoint_yaml}]
-    # )
-
     # Launch Description
+    # ---------------------------------------------------------
     ld = LaunchDescription(ARGUMENTS)
 
     ld.add_action(dla_map_yaml_cmd)
     ld.add_action(dla_params_nav2_cmd)
-    ld.add_action(declare_filter_mask_params_file_cmd)
 
-    # Nav2 실행
-    ld.add_action(nav2_bringup_launch)
-
-    # Keepout filter 실행
+    # 1. Keepout filter 서버 실행
     ld.add_action(filter_mask_server_cmd)
     ld.add_action(costmap_filter_info_server_cmd)
-    ld.add_action(filter_lifecycle_manager_cmd)
 
+    # 2. 노드 뜨는 것 기다렸다가 configure/activate
+    ld.add_action(
+        TimerAction(
+            period=2.0,
+            actions=[bringup_keepout_filters_cmd]
+        )
+    )
+
+    # 3. Keepout 서버가 active 된 뒤 Nav2 실행
+    ld.add_action(
+        TimerAction(
+            period=10.0,
+            actions=[nav2_bringup_launch]
+        )
+    )
+    
+    # 4. Nav2/AMCL 실행 후 last pose manager 실행
+    ld.add_action(
+        TimerAction(
+            period=15.0,
+            actions=[last_pose_manager_node]
+        )
+    )
     return ld

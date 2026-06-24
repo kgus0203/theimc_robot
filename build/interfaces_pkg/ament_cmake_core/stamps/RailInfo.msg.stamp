@@ -13,3 +13,7 @@ uint32 img_height
 float32 angle_deg
 string distance
 float32 confidence
+
+float32 rail_bbox_width
+float32 rail_bbox_height
+float32 rail_bbox_area_ratio

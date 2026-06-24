@@ -80,6 +80,12 @@ cdr_serialize(
   cdr << ros_message.distance;
   // Member: confidence
   cdr << ros_message.confidence;
+  // Member: rail_bbox_width
+  cdr << ros_message.rail_bbox_width;
+  // Member: rail_bbox_height
+  cdr << ros_message.rail_bbox_height;
+  // Member: rail_bbox_area_ratio
+  cdr << ros_message.rail_bbox_area_ratio;
   return true;
 }
 
@@ -126,6 +132,15 @@ cdr_deserialize(
 
   // Member: confidence
   cdr >> ros_message.confidence;
+
+  // Member: rail_bbox_width
+  cdr >> ros_message.rail_bbox_width;
+
+  // Member: rail_bbox_height
+  cdr >> ros_message.rail_bbox_height;
+
+  // Member: rail_bbox_area_ratio
+  cdr >> ros_message.rail_bbox_area_ratio;
 
   return true;
 }  // NOLINT(readability/fn_size)
@@ -203,6 +218,24 @@ get_serialized_size(
   // Member: confidence
   {
     size_t item_size = sizeof(ros_message.confidence);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: rail_bbox_width
+  {
+    size_t item_size = sizeof(ros_message.rail_bbox_width);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: rail_bbox_height
+  {
+    size_t item_size = sizeof(ros_message.rail_bbox_height);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: rail_bbox_area_ratio
+  {
+    size_t item_size = sizeof(ros_message.rail_bbox_area_ratio);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -342,6 +375,33 @@ max_serialized_size_RailInfo(
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
   }
 
+  // Member: rail_bbox_width
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint32_t);
+    current_alignment += array_size * sizeof(uint32_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
+  }
+
+  // Member: rail_bbox_height
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint32_t);
+    current_alignment += array_size * sizeof(uint32_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
+  }
+
+  // Member: rail_bbox_area_ratio
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint32_t);
+    current_alignment += array_size * sizeof(uint32_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
+  }
+
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
     // All members are plain, and type is not empty.
@@ -350,7 +410,7 @@ max_serialized_size_RailInfo(
     using DataType = interfaces_pkg::msg::RailInfo;
     is_plain =
       (
-      offsetof(DataType, confidence) +
+      offsetof(DataType, rail_bbox_area_ratio) +
       last_member_size
       ) == ret_val;
   }

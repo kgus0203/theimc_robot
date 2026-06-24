@@ -72,6 +72,9 @@ class RailInfo(metaclass=Metaclass_RailInfo):
         '_angle_deg',
         '_distance',
         '_confidence',
+        '_rail_bbox_width',
+        '_rail_bbox_height',
+        '_rail_bbox_area_ratio',
     ]
 
     _fields_and_field_types = {
@@ -86,6 +89,9 @@ class RailInfo(metaclass=Metaclass_RailInfo):
         'angle_deg': 'float',
         'distance': 'string',
         'confidence': 'float',
+        'rail_bbox_width': 'float',
+        'rail_bbox_height': 'float',
+        'rail_bbox_area_ratio': 'float',
     }
 
     SLOT_TYPES = (
@@ -99,6 +105,9 @@ class RailInfo(metaclass=Metaclass_RailInfo):
         rosidl_parser.definition.BasicType('uint32'),  # noqa: E501
         rosidl_parser.definition.BasicType('float'),  # noqa: E501
         rosidl_parser.definition.UnboundedString(),  # noqa: E501
+        rosidl_parser.definition.BasicType('float'),  # noqa: E501
+        rosidl_parser.definition.BasicType('float'),  # noqa: E501
+        rosidl_parser.definition.BasicType('float'),  # noqa: E501
         rosidl_parser.definition.BasicType('float'),  # noqa: E501
     )
 
@@ -118,6 +127,9 @@ class RailInfo(metaclass=Metaclass_RailInfo):
         self.angle_deg = kwargs.get('angle_deg', float())
         self.distance = kwargs.get('distance', str())
         self.confidence = kwargs.get('confidence', float())
+        self.rail_bbox_width = kwargs.get('rail_bbox_width', float())
+        self.rail_bbox_height = kwargs.get('rail_bbox_height', float())
+        self.rail_bbox_area_ratio = kwargs.get('rail_bbox_area_ratio', float())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -169,6 +181,12 @@ class RailInfo(metaclass=Metaclass_RailInfo):
         if self.distance != other.distance:
             return False
         if self.confidence != other.confidence:
+            return False
+        if self.rail_bbox_width != other.rail_bbox_width:
+            return False
+        if self.rail_bbox_height != other.rail_bbox_height:
+            return False
+        if self.rail_bbox_area_ratio != other.rail_bbox_area_ratio:
             return False
         return True
 
@@ -336,3 +354,48 @@ class RailInfo(metaclass=Metaclass_RailInfo):
             assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
                 "The 'confidence' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
         self._confidence = value
+
+    @builtins.property
+    def rail_bbox_width(self):
+        """Message field 'rail_bbox_width'."""
+        return self._rail_bbox_width
+
+    @rail_bbox_width.setter
+    def rail_bbox_width(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, float), \
+                "The 'rail_bbox_width' field must be of type 'float'"
+            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
+                "The 'rail_bbox_width' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
+        self._rail_bbox_width = value
+
+    @builtins.property
+    def rail_bbox_height(self):
+        """Message field 'rail_bbox_height'."""
+        return self._rail_bbox_height
+
+    @rail_bbox_height.setter
+    def rail_bbox_height(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, float), \
+                "The 'rail_bbox_height' field must be of type 'float'"
+            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
+                "The 'rail_bbox_height' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
+        self._rail_bbox_height = value
+
+    @builtins.property
+    def rail_bbox_area_ratio(self):
+        """Message field 'rail_bbox_area_ratio'."""
+        return self._rail_bbox_area_ratio
+
+    @rail_bbox_area_ratio.setter
+    def rail_bbox_area_ratio(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, float), \
+                "The 'rail_bbox_area_ratio' field must be of type 'float'"
+            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
+                "The 'rail_bbox_area_ratio' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
+        self._rail_bbox_area_ratio = value

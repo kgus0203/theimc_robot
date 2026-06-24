@@ -1,6 +1,13 @@
 package.xml
 setup.cfg
 setup.py
+../../build/theimc_bringup/theimc_bringup.egg-info/PKG-INFO
+../../build/theimc_bringup/theimc_bringup.egg-info/SOURCES.txt
+../../build/theimc_bringup/theimc_bringup.egg-info/dependency_links.txt
+../../build/theimc_bringup/theimc_bringup.egg-info/entry_points.txt
+../../build/theimc_bringup/theimc_bringup.egg-info/requires.txt
+../../build/theimc_bringup/theimc_bringup.egg-info/top_level.txt
+../../build/theimc_bringup/theimc_bringup.egg-info/zip-safe
 launch/camera.launch.py
 launch/rail.launch.py
 launch/theimc_bringup.launch.py
@@ -9,6 +16,7 @@ params/theimc_ydlidar.yaml
 resource/theimc_bringup
 rviz/theimc_bringup.rviz
 theimc_bringup/__init__.py
+theimc_bringup/last_pose_manager_node.py
 theimc_bringup/robot_agent_node.py
 theimc_bringup/theimc_bringup.py
 theimc_bringup.egg-info/PKG-INFO

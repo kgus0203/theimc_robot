@@ -137,7 +137,7 @@ controller_server:
     precise_goal_checker:
       plugin: "nav2_controller::SimpleGoalChecker"
       xy_goal_tolerance: 0.25
-      yaw_goal_tolerance: 1.57 # 90도
+      yaw_goal_tolerance: 0.5 # 1.57 # 90도
       stateful: True
 
     progress_checker:
@@ -158,7 +158,7 @@ controller_server:
     FollowPath:
       plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
 
-      desired_linear_vel: 0.10
+      desired_linear_vel: 0.18
 
       lookahead_dist: 0.55
       min_lookahead_dist: 0.45
@@ -167,19 +167,20 @@ controller_server:
       use_velocity_scaled_lookahead_dist: false
 
       # 도착지점 빙글빙글 방지
-      use_rotate_to_heading: false
-      rotate_to_heading_min_angle: 0.80
-      rotate_to_heading_angular_vel: 0.08
+      use_rotate_to_heading: true
+      rotate_to_heading_min_angle: 0.35 # 제자리 회전을 발동시키는 각도 기준 (0.35는 약 20도) 오차가 이 값보다 크면 일단 제자리에서 방향부터 맞추게 됨
+      rotate_to_heading_angular_vel: 0.3 # 제자리 회전할 때 얼마나 빠르게 돌지
 
       max_angular_accel: 0.5
       max_angular_decel: 0.5
 
       allow_reversing: false
 
-      use_regulated_linear_velocity_scaling: true
+      use_cost_regulated_linear_velocity_scaling: false
+      use_regulated_linear_velocity_scaling: false
       regulated_linear_scaling_min_radius: 1.2
       regulated_linear_scaling_min_speed: 0.05
-      min_approach_linear_velocity: 0.05
+      min_approach_linear_velocity: 0.08
 
       use_collision_detection: false
 
@@ -200,8 +201,8 @@ smoother_server:
 local_costmap:
   local_costmap:
     ros__parameters:
-      update_frequency: 5.0
-      publish_frequency: 2.0
+      update_frequency: 10.0
+      publish_frequency: 5.0
       global_frame: odom
       robot_base_frame: base_footprint
       use_sim_time: False
@@ -210,21 +211,22 @@ local_costmap:
       height: 3
       resolution: 0.06
       transform_tolerance: 0.5
-      footprint: "[[-0.35, -0.35], [-0.35, 0.35], [0.35, 0.35], [0.35, -0.35]]"
-      footprint_padding: 0.1
+      # footprint: "[[-0.35, -0.35], [-0.35, 0.35], [0.35, 0.35], [0.35, -0.35]]"
+      # footprint_padding: 0.1
+      robot_radius: 0.5 # 판떼기가 90에 바퀴가 나와있어서 좀 크게
 
       plugins: ["obstacle_layer", "inflation_layer"]
 
-      filters: ["keepout_filter"]
-      keepout_filter:
-       plugin: "nav2_costmap_2d::KeepoutFilter"
-       enabled: True
-       filter_info_topic: "/costmap_filter_info"
+      # filters: ["keepout_filter"]
+      # keepout_filter:
+      #  plugin: "nav2_costmap_2d::KeepoutFilter"
+      #  enabled: True
+      #  filter_info_topic: "/costmap_filter_info"
 
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 2.0
-        inflation_radius: 0.55
+        cost_scaling_factor: 5.0
+        inflation_radius: 0.25
 
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
@@ -261,13 +263,15 @@ local_costmap:
 global_costmap:
   global_costmap:
     ros__parameters:
-      update_frequency: 1.0
+      update_frequency: 2.0
       publish_frequency: 1.0
       global_frame: map
       robot_base_frame: base_footprint
       use_sim_time: False
-      footprint: "[[-0.35, -0.35], [-0.35, 0.35], [0.35, 0.35], [0.35, -0.35]]"
-      footprint_padding: 0.1
+      # footprint: "[[-0.35, -0.35], [-0.35, 0.35], [0.35, 0.35], [0.35, -0.35]]"
+      # footprint: "[[0.35, 0.25], [0.35, -0.25], [-0.35, -0.25], [-0.35, 0.25]]"
+      robot_radius: 0.5 # 판떼기가 90에 바퀴가 나와있어서 좀 크게
+      # footprint_padding: 0.1
       transform_tolerance: 0.5
       resolution: 0.06
       track_unknown_space: true
@@ -307,8 +311,8 @@ global_costmap:
 
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 2.0
-        inflation_radius: 0.55
+        cost_scaling_factor: 3.0
+        inflation_radius: 0.35
 
       always_send_full_costmap: True
 

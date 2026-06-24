@@ -5,6 +5,7 @@ import rclpy
 from rclpy.node import Node
 
 from interfaces_pkg.msg import DetectionArray, RailInfo
+from std_msgs.msg import Bool
 
 
 def clamp(v, lo, hi):
@@ -15,25 +16,34 @@ class RailInfoExtractorNode(Node):
     def __init__(self):
         super().__init__('rail_info_extractor_node')
 
+        self.declare_parameter('enable', False)
+        self.declare_parameter('perception_enable_topic', '/rail_perception_enable')
+
         self.declare_parameter('detections_topic', '/detections')
         self.declare_parameter('rail_info_topic', '/rail_info')
         self.declare_parameter('target_class_name', 'rail_start')
 
         self.declare_parameter('img_width', 640)
         self.declare_parameter('img_height', 480)
-        self.declare_parameter('near_ratio', 0.85)
-        self.declare_parameter('middle_ratio', 0.30)
+        self.declare_parameter('near_ratio', 0.80)
+        self.declare_parameter('middle_ratio', 0.40)
 
         self.declare_parameter('publish_hz', 20.0)
-        self.declare_parameter('hold_sec', 1.5)
+        self.declare_parameter('hold_sec', 1.0)
         self.declare_parameter('min_score', 0.25)
 
         # smoothing: 0에 가까울수록 부드럽고 느림, 1에 가까울수록 즉각 반응
         self.declare_parameter('ema_alpha_cx', 0.35)
         self.declare_parameter('ema_alpha_cy', 0.35)
         self.declare_parameter('ema_alpha_angle', 0.25)
+        self.declare_parameter('ema_alpha_bbox', 0.35)
 
         self.declare_parameter('debug_log', False)
+
+        self.enable = bool(self.get_parameter('enable').value)
+        self.perception_enable_topic = str(
+            self.get_parameter('perception_enable_topic').value
+        )
 
         detections_topic = self.get_parameter('detections_topic').value
         rail_info_topic = self.get_parameter('rail_info_topic').value
@@ -51,6 +61,7 @@ class RailInfoExtractorNode(Node):
         self.ema_alpha_cx = float(self.get_parameter('ema_alpha_cx').value)
         self.ema_alpha_cy = float(self.get_parameter('ema_alpha_cy').value)
         self.ema_alpha_angle = float(self.get_parameter('ema_alpha_angle').value)
+        self.ema_alpha_bbox = float(self.get_parameter('ema_alpha_bbox').value)
 
         self.debug_log = bool(self.get_parameter('debug_log').value)
 
@@ -58,6 +69,12 @@ class RailInfoExtractorNode(Node):
             DetectionArray,
             detections_topic,
             self.detections_callback,
+            10
+        )
+        self.enable_sub = self.create_subscription(
+            Bool,
+            self.perception_enable_topic,
+            self.perception_enable_callback,
             10
         )
         self.pub = self.create_publisher(RailInfo, rail_info_topic, 10)
@@ -71,14 +88,44 @@ class RailInfoExtractorNode(Node):
         self.filtered_angle = 0.0
         self.filtered_conf = 0.0
         self.filtered_distance = 'far'
+        self.filtered_bbox_width = 0.0
+        self.filtered_bbox_height = 0.0
+        self.filtered_bbox_area_ratio = 0.0
         self.has_valid_rail = False
 
         self.get_logger().info(
             f'RailInfoExtractorNode started: target_class_name={self.target_class_name}'
         )
 
+    def reset_state(self):
+        self.last_seen_time = None
+
+        self.filtered_cx = None
+        self.filtered_cy = None
+        self.filtered_angle = 0.0
+        self.filtered_conf = 0.0
+        self.filtered_distance = 'far'
+        self.filtered_bbox_width = 0.0
+        self.filtered_bbox_height = 0.0
+        self.filtered_bbox_area_ratio = 0.0
+        self.has_valid_rail = False
+
+    def perception_enable_callback(self, msg: Bool):
+        prev = self.enable
+        self.enable = bool(msg.data)
+
+        if prev != self.enable:
+            if self.enable:
+                self.get_logger().info('[RAIL_INFO] ENABLED')
+            else:
+                self.get_logger().info('[RAIL_INFO] DISABLED - reset state')
+                self.reset_state()
+
     def detections_callback(self, msg: DetectionArray):
         self.last_header = msg.header
+    
+        if not self.enable:
+            return
 
         det = self._select_best_rail_detection(msg)
         if det is None:
@@ -94,16 +141,37 @@ class RailInfoExtractorNode(Node):
 
         raw_cx = self._get_bbox_center_x(det)
         raw_cy = self._get_bbox_center_y(det)
+        raw_bbox_width = self._get_bbox_width(det)
+        raw_bbox_height = self._get_bbox_height(det)
+        raw_bbox_area_ratio = self._get_bbox_area_ratio(raw_bbox_width, raw_bbox_height)
         raw_angle = self._estimate_angle_deg(det)
 
         if self.filtered_cx is None:
             self.filtered_cx = raw_cx
             self.filtered_cy = raw_cy
             self.filtered_angle = raw_angle
+            self.filtered_bbox_width = raw_bbox_width
+            self.filtered_bbox_height = raw_bbox_height
+            self.filtered_bbox_area_ratio = raw_bbox_area_ratio
         else:
             self.filtered_cx = self._ema(self.filtered_cx, raw_cx, self.ema_alpha_cx)
             self.filtered_cy = self._ema(self.filtered_cy, raw_cy, self.ema_alpha_cy)
             self.filtered_angle = self._ema(self.filtered_angle, raw_angle, self.ema_alpha_angle)
+            self.filtered_bbox_width = self._ema(
+                self.filtered_bbox_width,
+                raw_bbox_width,
+                self.ema_alpha_bbox
+            )
+            self.filtered_bbox_height = self._ema(
+                self.filtered_bbox_height,
+                raw_bbox_height,
+                self.ema_alpha_bbox
+            )
+            self.filtered_bbox_area_ratio = self._ema(
+                self.filtered_bbox_area_ratio,
+                raw_bbox_area_ratio,
+                self.ema_alpha_bbox
+            )
 
         self.filtered_angle = clamp(self.filtered_angle, -30.0, 30.0)
         self.filtered_conf = score
@@ -116,7 +184,8 @@ class RailInfoExtractorNode(Node):
             self.get_logger().info(
                 f'update rail: raw_cx={raw_cx:.1f}, raw_cy={raw_cy:.1f}, '
                 f'f_cx={self.filtered_cx:.1f}, f_cy={self.filtered_cy:.1f}, '
-                f'angle={self.filtered_angle:.2f}, score={score:.3f}, dist={self.filtered_distance}'
+                f'angle={self.filtered_angle:.2f}, score={score:.3f}, '
+                f'dist={self.filtered_distance}, bbox_area={self.filtered_bbox_area_ratio:.3f}'
             )
 
     def timer_publish(self):
@@ -129,6 +198,19 @@ class RailInfoExtractorNode(Node):
         rail_info.img_height = self.img_height
         rail_info.img_cx = float(self.img_width) / 2.0
         rail_info.img_cy = float(self.img_height) / 2.0
+
+        if not self.enable:
+            rail_info.has_rail = False
+            rail_info.rail_cx = 0.0
+            rail_info.rail_cy = 0.0
+            rail_info.angle_deg = 0.0
+            rail_info.distance = 'far'
+            rail_info.confidence = 0.0
+            rail_info.rail_bbox_width = 0.0
+            rail_info.rail_bbox_height = 0.0
+            rail_info.rail_bbox_area_ratio = 0.0
+            self.pub.publish(rail_info)
+            return
 
         now = time.time()
         alive = (
@@ -144,6 +226,9 @@ class RailInfoExtractorNode(Node):
             rail_info.angle_deg = 0.0
             rail_info.distance = 'far'
             rail_info.confidence = 0.0
+            rail_info.rail_bbox_width = 0.0
+            rail_info.rail_bbox_height = 0.0
+            rail_info.rail_bbox_area_ratio = 0.0
             self.pub.publish(rail_info)
             return
 
@@ -153,6 +238,9 @@ class RailInfoExtractorNode(Node):
         rail_info.angle_deg = float(self.filtered_angle)
         rail_info.distance = self.filtered_distance
         rail_info.confidence = float(self.filtered_conf)
+        rail_info.rail_bbox_width = float(self.filtered_bbox_width)
+        rail_info.rail_bbox_height = float(self.filtered_bbox_height)
+        rail_info.rail_bbox_area_ratio = float(self.filtered_bbox_area_ratio)
 
         self.pub.publish(rail_info)
 
@@ -320,6 +408,48 @@ class RailInfoExtractorNode(Node):
             return float(bbox.cy)
 
         return 0.0
+
+    def _get_bbox_width(self, det) -> float:
+        bbox = getattr(det, 'bbox', None)
+        if bbox is None:
+            return 0.0
+
+        if hasattr(bbox, 'size'):
+            size = bbox.size
+            if hasattr(size, 'x'):
+                return float(size.x)
+
+        if hasattr(bbox, 'width'):
+            return float(bbox.width)
+        if hasattr(bbox, 'w'):
+            return float(bbox.w)
+
+        return 0.0
+
+    def _get_bbox_height(self, det) -> float:
+        bbox = getattr(det, 'bbox', None)
+        if bbox is None:
+            return 0.0
+
+        if hasattr(bbox, 'size'):
+            size = bbox.size
+            if hasattr(size, 'y'):
+                return float(size.y)
+
+        if hasattr(bbox, 'height'):
+            return float(bbox.height)
+        if hasattr(bbox, 'h'):
+            return float(bbox.h)
+
+        return 0.0
+
+    def _get_bbox_area_ratio(self, bbox_width: float, bbox_height: float) -> float:
+        image_area = float(self.img_width * self.img_height)
+        if image_area <= 0.0:
+            return 0.0
+
+        bbox_area = max(0.0, bbox_width) * max(0.0, bbox_height)
+        return float(clamp(bbox_area / image_area, 0.0, 1.0))
 
     def _safe_get_xy_x(self, p):
         if hasattr(p, 'point') and hasattr(p.point, 'x'):

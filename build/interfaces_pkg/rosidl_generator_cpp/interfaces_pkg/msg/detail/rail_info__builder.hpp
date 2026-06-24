@@ -21,16 +21,64 @@ namespace msg
 namespace builder
 {
 
+class Init_RailInfo_rail_bbox_area_ratio
+{
+public:
+  explicit Init_RailInfo_rail_bbox_area_ratio(::interfaces_pkg::msg::RailInfo & msg)
+  : msg_(msg)
+  {}
+  ::interfaces_pkg::msg::RailInfo rail_bbox_area_ratio(::interfaces_pkg::msg::RailInfo::_rail_bbox_area_ratio_type arg)
+  {
+    msg_.rail_bbox_area_ratio = std::move(arg);
+    return std::move(msg_);
+  }
+
+private:
+  ::interfaces_pkg::msg::RailInfo msg_;
+};
+
+class Init_RailInfo_rail_bbox_height
+{
+public:
+  explicit Init_RailInfo_rail_bbox_height(::interfaces_pkg::msg::RailInfo & msg)
+  : msg_(msg)
+  {}
+  Init_RailInfo_rail_bbox_area_ratio rail_bbox_height(::interfaces_pkg::msg::RailInfo::_rail_bbox_height_type arg)
+  {
+    msg_.rail_bbox_height = std::move(arg);
+    return Init_RailInfo_rail_bbox_area_ratio(msg_);
+  }
+
+private:
+  ::interfaces_pkg::msg::RailInfo msg_;
+};
+
+class Init_RailInfo_rail_bbox_width
+{
+public:
+  explicit Init_RailInfo_rail_bbox_width(::interfaces_pkg::msg::RailInfo & msg)
+  : msg_(msg)
+  {}
+  Init_RailInfo_rail_bbox_height rail_bbox_width(::interfaces_pkg::msg::RailInfo::_rail_bbox_width_type arg)
+  {
+    msg_.rail_bbox_width = std::move(arg);
+    return Init_RailInfo_rail_bbox_height(msg_);
+  }
+
+private:
+  ::interfaces_pkg::msg::RailInfo msg_;
+};
+
 class Init_RailInfo_confidence
 {
 public:
   explicit Init_RailInfo_confidence(::interfaces_pkg::msg::RailInfo & msg)
   : msg_(msg)
   {}
-  ::interfaces_pkg::msg::RailInfo confidence(::interfaces_pkg::msg::RailInfo::_confidence_type arg)
+  Init_RailInfo_rail_bbox_width confidence(::interfaces_pkg::msg::RailInfo::_confidence_type arg)
   {
     msg_.confidence = std::move(arg);
-    return std::move(msg_);
+    return Init_RailInfo_rail_bbox_width(msg_);
   }
 
 private:

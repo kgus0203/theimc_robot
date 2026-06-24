@@ -164,6 +164,33 @@ bool interfaces_pkg__msg__rail_info__convert_from_py(PyObject * _pymsg, void * _
     ros_message->confidence = (float)PyFloat_AS_DOUBLE(field);
     Py_DECREF(field);
   }
+  {  // rail_bbox_width
+    PyObject * field = PyObject_GetAttrString(_pymsg, "rail_bbox_width");
+    if (!field) {
+      return false;
+    }
+    assert(PyFloat_Check(field));
+    ros_message->rail_bbox_width = (float)PyFloat_AS_DOUBLE(field);
+    Py_DECREF(field);
+  }
+  {  // rail_bbox_height
+    PyObject * field = PyObject_GetAttrString(_pymsg, "rail_bbox_height");
+    if (!field) {
+      return false;
+    }
+    assert(PyFloat_Check(field));
+    ros_message->rail_bbox_height = (float)PyFloat_AS_DOUBLE(field);
+    Py_DECREF(field);
+  }
+  {  // rail_bbox_area_ratio
+    PyObject * field = PyObject_GetAttrString(_pymsg, "rail_bbox_area_ratio");
+    if (!field) {
+      return false;
+    }
+    assert(PyFloat_Check(field));
+    ros_message->rail_bbox_area_ratio = (float)PyFloat_AS_DOUBLE(field);
+    Py_DECREF(field);
+  }
 
   return true;
 }
@@ -310,6 +337,39 @@ PyObject * interfaces_pkg__msg__rail_info__convert_to_py(void * raw_ros_message)
     field = PyFloat_FromDouble(ros_message->confidence);
     {
       int rc = PyObject_SetAttrString(_pymessage, "confidence", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // rail_bbox_width
+    PyObject * field = NULL;
+    field = PyFloat_FromDouble(ros_message->rail_bbox_width);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "rail_bbox_width", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // rail_bbox_height
+    PyObject * field = NULL;
+    field = PyFloat_FromDouble(ros_message->rail_bbox_height);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "rail_bbox_height", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // rail_bbox_area_ratio
+    PyObject * field = NULL;
+    field = PyFloat_FromDouble(ros_message->rail_bbox_area_ratio);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "rail_bbox_area_ratio", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

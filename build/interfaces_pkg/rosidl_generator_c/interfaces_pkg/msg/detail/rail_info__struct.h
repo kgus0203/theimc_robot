@@ -37,6 +37,9 @@ typedef struct interfaces_pkg__msg__RailInfo
   float angle_deg;
   rosidl_runtime_c__String distance;
   float confidence;
+  float rail_bbox_width;
+  float rail_bbox_height;
+  float rail_bbox_area_ratio;
 } interfaces_pkg__msg__RailInfo;
 
 // Struct for a sequence of interfaces_pkg__msg__RailInfo.

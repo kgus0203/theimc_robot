@@ -42,6 +42,9 @@ interfaces_pkg__msg__RailInfo__init(interfaces_pkg__msg__RailInfo * msg)
     return false;
   }
   // confidence
+  // rail_bbox_width
+  // rail_bbox_height
+  // rail_bbox_area_ratio
   return true;
 }
 
@@ -64,6 +67,9 @@ interfaces_pkg__msg__RailInfo__fini(interfaces_pkg__msg__RailInfo * msg)
   // distance
   rosidl_runtime_c__String__fini(&msg->distance);
   // confidence
+  // rail_bbox_width
+  // rail_bbox_height
+  // rail_bbox_area_ratio
 }
 
 bool
@@ -120,6 +126,18 @@ interfaces_pkg__msg__RailInfo__are_equal(const interfaces_pkg__msg__RailInfo * l
   if (lhs->confidence != rhs->confidence) {
     return false;
   }
+  // rail_bbox_width
+  if (lhs->rail_bbox_width != rhs->rail_bbox_width) {
+    return false;
+  }
+  // rail_bbox_height
+  if (lhs->rail_bbox_height != rhs->rail_bbox_height) {
+    return false;
+  }
+  // rail_bbox_area_ratio
+  if (lhs->rail_bbox_area_ratio != rhs->rail_bbox_area_ratio) {
+    return false;
+  }
   return true;
 }
 
@@ -161,6 +179,12 @@ interfaces_pkg__msg__RailInfo__copy(
   }
   // confidence
   output->confidence = input->confidence;
+  // rail_bbox_width
+  output->rail_bbox_width = input->rail_bbox_width;
+  // rail_bbox_height
+  output->rail_bbox_height = input->rail_bbox_height;
+  // rail_bbox_area_ratio
+  output->rail_bbox_area_ratio = input->rail_bbox_area_ratio;
   return true;
 }
 

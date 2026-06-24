@@ -64,8 +64,6 @@ class BringUp(Node):
         self.wheel_radius = 0.085
         self.max_lin_vel_x = 0.5
         self.max_ang_vel_z = 1.0
-        
-        self.max_rail_vel = 0.5
 
         # --- 변수 초기화 ---
         self.odom_pose = OdomPose()
@@ -84,10 +82,8 @@ class BringUp(Node):
 
         # Subscriber & Publisher
         self.sub_cmd_vel = self.create_subscription(Twist, 'cmd_vel', self.cb_cmd_vel_msg, qos_profile)
-        self.sub_cmd_rail = self.create_subscription(Twist, 'cmd_rail', self.cb_cmd_rail_msg, qos_profile)
-        
         self.sub_rail_cmd = self.create_subscription(String, 'rail_command', self.cb_rail_cmd_msg, qos_profile)
-
+        self.pub_rail_status = self.create_publisher(String, 'rail_status', qos_profile)
         self.pub_joint_states = self.create_publisher(JointState, 'joint_states', qos_profile)
         self.pub_odom = self.create_publisher(Odometry, 'odom', qos_profile)
         self.pub_odom_tf = TransformBroadcaster(self)
@@ -123,30 +119,29 @@ class BringUp(Node):
             except serial.SerialException as e:
                 self.get_logger().error(f"Failed to send DETECTED: {e}")
                 
-        elif command == "EXIT":
+        elif command == "BACK":
             try:
-                self.pico_serial.write(b"EXIT\n")
-                self.get_logger().info("Sent [EXIT] command to STM32.")
+                self.pico_serial.write(b"BACK\n")
+                self.get_logger().info("Sent [BACK] command to STM32.")
             except serial.SerialException as e:
-                self.get_logger().error(f"Failed to send EXIT: {e}")
+                self.get_logger().error(f"Failed to send BACK: {e}")
+
+        elif command == "FORWARD":
+            try:
+                self.pico_serial.write(b"FORWARD\n")
+                self.get_logger().info("Sent [FORWARD] command to STM32.")
+            except serial.SerialException as e:
+                self.get_logger().error(f"Failed to send FORWARD: {e}")
+        
+        elif command == "STOP":
+            try:
+                self.pico_serial.write(b"STOP\n")
+                self.get_logger().info("Sent [STOP] command to STM32.")
+            except serial.SerialException as e:
+                self.get_logger().error(f"Failed to send STOP: {e}")
         else:
             self.get_logger().warn(f"Unknown rail command received: {command}")
-        
-    def cb_cmd_rail_msg(self, cmd_rail_msg):
-        # 레일이 2개의 값을 받는다면 linear.x와 linear.y 등으로 매핑하여 사용합니다.
-        # 예시로 linear.x와 angular.z를 사용했습니다.
-        r_v1 = cmd_rail_msg.linear.x
-        r_v2 = cmd_rail_msg.angular.z
 
-        # 데드존 및 속도 제한 로직 (필요시)
-        if abs(r_v1) < 0.01: r_v1 = 0.0
-        if abs(r_v2) < 0.01: r_v2 = 0.0
-        
-        r_v1 = max(-self.max_rail_vel, min(self.max_rail_vel, r_v1))
-        r_v2 = max(-self.max_rail_vel, min(self.max_rail_vel, r_v2))
-
-        # Prefix "RAIL"을 명시하여 전송
-        self.send_serial_command("RAIL", r_v1, r_v2)
 
     def send_serial_command(self, cmd_type, val1, val2):
         try:
@@ -168,6 +163,14 @@ class BringUp(Node):
                     line = self.pico_serial.readline().decode('utf-8', errors='ignore').strip()
                     if "ODOM" in line:
                         latest_odom_line = line
+
+                    elif "STATE" in line:
+                        parts = line.split(',')
+                        if len(parts) >= 2:
+                            status_msg = String()
+                            status_msg.data = parts[1].strip()
+                            self.pub_rail_status.publish(status_msg)
+                            self.get_logger().info(f"Published rail status: {status_msg.data}")
 
                 # 최신 ODOM 데이터가 존재할 경우에만 파싱 및 Publish 진행
                 if latest_odom_line:
@@ -244,7 +247,6 @@ class BringUp(Node):
 
     def _send_stop_commands(self):
         self.send_serial_command("CMD", 0.0, 0.0)
-        self.send_serial_command("RAIL", 0.0, 0.0)
 
 def main(args=None):
     rclpy.init(args=args)

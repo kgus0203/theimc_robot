@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <Sequence name="HomeRailThreeTimes">
+      <WaitForMissionTrigger/>
+      <GoToPose x="0.17" y="-0.82" yaw="0.0"/>
+      <GoToPose x="-1.2" y="-2.8" yaw="0.0"/>
+      <GoToPose x="0.17" y="-0.82" yaw="0.0"/>
+      <GoToPose x="-1.2" y="-2.8" yaw="0.0"/>
+      <GoToPose x="0.17" y="-0.82" yaw="0.0"/>
+      <GoToPose x="-1.2" y="-2.8" yaw="0.0"/>
+      <GoToPose x="0.17" y="-0.82" yaw="0.0"/>
+    </Sequence>
+  </BehaviorTree>
+</root>

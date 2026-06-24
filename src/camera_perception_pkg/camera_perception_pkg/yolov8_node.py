@@ -44,6 +44,7 @@ from interfaces_pkg.msg import Detection
 from interfaces_pkg.msg import DetectionArray
 
 from std_srvs.srv import SetBool
+from std_msgs.msg import Bool
 
 
 class Yolov8Node(LifecycleNode):
@@ -55,17 +56,18 @@ class Yolov8Node(LifecycleNode):
         # 딥러닝 모델 pt 파일명 작성
         #self.declare_parameter("model", "yolov8m.pt")
         # self.declare_parameter("model", "best.pt")
-        self.declare_parameter("model","/home/jeff/theimc_robot/src/camera_perception_pkg/test/best.pt")
+        self.declare_parameter("model","/home/jeff/theimc_robot/src/camera_perception_pkg/test/best_260624.pt")
         
         # 추론 하드웨어 선택 (cpu / gpu) 
         # self.declare_parameter("device", "cpu")
         self.declare_parameter("device", "cuda:0")
         #----------------------------------------------
         
-        self.declare_parameter("threshold", 0.5)
-        self.declare_parameter("enable", True)
+        self.declare_parameter("threshold", 0.65)
+        self.declare_parameter("enable", False)
+        self.declare_parameter("perception_enable_topic", "/rail_perception_enable")
         self.declare_parameter("image_reliability",
-                               QoSReliabilityPolicy.RELIABLE)
+                               QoSReliabilityPolicy.BEST_EFFORT)
 
         self.get_logger().info('Yolov8Node created')
 
@@ -84,6 +86,10 @@ class Yolov8Node(LifecycleNode):
         self.enable = self.get_parameter(
             "enable").get_parameter_value().bool_value
 
+        self.perception_enable_topic = self.get_parameter(
+            "perception_enable_topic"
+        ).get_parameter_value().string_value
+
         self.reliability = self.get_parameter(
             "image_reliability").get_parameter_value().integer_value
 
@@ -99,6 +105,12 @@ class Yolov8Node(LifecycleNode):
         self._srv = self.create_service(
             SetBool, "enable", self.enable_cb
         )
+        self._enable_sub = self.create_subscription(
+            Bool,
+            self.perception_enable_topic,
+            self.perception_enable_cb,
+            10
+        )
         self.cv_bridge = CvBridge()
 
         return TransitionCallbackReturn.SUCCESS
@@ -107,6 +119,16 @@ class Yolov8Node(LifecycleNode):
         self.enable = request.data
         response.success = True
         return response
+        
+    def perception_enable_cb(self, msg: Bool):
+        prev = self.enable
+        self.enable = bool(msg.data)
+
+        if prev != self.enable:
+            if self.enable:
+                self.get_logger().info("[YOLOV8] perception ENABLED by topic")
+            else:
+                self.get_logger().info("[YOLOV8] perception DISABLED by topic")
 
     def on_activate(self, state: LifecycleState) -> TransitionCallbackReturn:
         self.get_logger().info(f'Activating {self.get_name()}')
@@ -247,12 +269,12 @@ class Yolov8Node(LifecycleNode):
         return keypoints_list
 
     def image_cb(self, msg: Image) -> None:
-        print(msg.header)
+        if not self.enable:
+            return
 
-        if self.enable:
-
-            # convert image + predict
+        try:
             cv_image = self.cv_bridge.imgmsg_to_cv2(msg)
+
             results = self.yolo.predict(
                 source=cv_image,
                 verbose=False,
@@ -260,46 +282,54 @@ class Yolov8Node(LifecycleNode):
                 conf=self.threshold,
                 device=self.device
             )
+
             results: Results = results[0].cpu()
 
-            if results.boxes:
-                hypothesis = self.parse_hypothesis(results)
-                boxes = self.parse_boxes(results)
+            detections_msg = DetectionArray()
+            detections_msg.header = msg.header
 
-            if results.masks:
+            has_boxes = results.boxes is not None and len(results.boxes) > 0
+            has_masks = results.masks is not None and len(results.masks) > 0
+            has_keypoints = results.keypoints is not None and len(results.keypoints) > 0
+
+            if not has_boxes:
+                self._pub.publish(detections_msg)
+                return
+
+            hypothesis = self.parse_hypothesis(results)
+            boxes = self.parse_boxes(results)
+
+            masks = []
+            if has_masks:
                 masks = self.parse_masks(results)
 
-            if results.keypoints:
+            keypoints = []
+            if has_keypoints:
                 keypoints = self.parse_keypoints(results)
 
-            # create detection msgs
-            detections_msg = DetectionArray()
-
-            for i in range(len(results)):
-
+            for i in range(len(boxes)):
                 aux_msg = Detection()
 
-                if results.boxes:
-                    aux_msg.class_id = hypothesis[i]["class_id"]
-                    aux_msg.class_name = hypothesis[i]["class_name"]
-                    aux_msg.score = hypothesis[i]["score"]
+                aux_msg.class_id = hypothesis[i]["class_id"]
+                aux_msg.class_name = hypothesis[i]["class_name"]
+                aux_msg.score = hypothesis[i]["score"]
+                aux_msg.bbox = boxes[i]
 
-                    aux_msg.bbox = boxes[i]
-
-                if results.masks:
+                if i < len(masks):
                     aux_msg.mask = masks[i]
 
-                if results.keypoints:
+                if i < len(keypoints):
                     aux_msg.keypoints = keypoints[i]
 
                 detections_msg.detections.append(aux_msg)
 
-            # publish detections
-            detections_msg.header = msg.header
             self._pub.publish(detections_msg)
 
             del results
             del cv_image
+
+        except Exception as e:
+            self.get_logger().error(f"[YOLOV8] image_cb error: {str(e)}")
 
 
 def main():

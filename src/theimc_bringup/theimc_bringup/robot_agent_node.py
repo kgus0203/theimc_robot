@@ -15,6 +15,8 @@ from geometry_msgs.msg import PoseWithCovarianceStamped, Twist
 from nav2_msgs.action import NavigateToPose
 from action_msgs.msg import GoalStatus
 from std_srvs.srv import Trigger
+from std_msgs.msg import String
+
 
 from interfaces_pkg.action import RailApproach
 
@@ -104,6 +106,14 @@ class RobotAgent(Node):
         self.cmd_vel_pub = self.create_publisher(
             Twist,
             "/cmd_vel_web",
+            10,
+        )
+
+        # 레일 이탈 명령 publisher
+        # rail 제어 노드가 이 토픽을 subscribe해서 "EXIT" 등을 처리하는 구조
+        self.rail_cmd_pub = self.create_publisher(
+            String,
+            "/rail_command",
             10,
         )
 
@@ -418,6 +428,19 @@ class RobotAgent(Node):
                     x_tolerance=payload.get("x_tolerance", 0.08),
                     angle_tolerance=payload.get("angle_tolerance", 1.0),
                     allow_reverse_align=payload.get("allow_reverse_align", True),
+                    command_id=command_id,
+                    source="single",
+                )
+            
+            # elif cmd_type == "rail_exit":
+            #     self.handle_rail_exit(
+            #         command_id=command_id,
+            #         source="single",
+            #     )
+            elif cmd_type == "rail_motor":
+                cmd_type = payload.get("action")
+                self.handle_rail_motor(
+                    cmd_type = cmd_type,
                     command_id=command_id,
                     source="single",
                 )
@@ -960,6 +983,50 @@ class RobotAgent(Node):
             self.rail_goal_handle = None
 
         self.rail_active = False
+
+    # def handle_rail_exit(self, command_id=None, source="single"):
+    #     # Nav2 goal이나 rail approach가 살아있으면 먼저 정리
+    #     self.cancel_nav_goal()
+    #     self.cancel_rail_goal()
+
+    #     # 혹시 jog/nav 속도 명령이 남아있을 수 있으니 정지
+    #     self.publish_cmd_vel(0.0, 0.0)
+
+    #     msg = String()
+    #     msg.data = "EXIT"
+    #     self.rail_cmd_pub.publish(msg)
+
+    #     if source == "routine":
+    #         self.mode = "AUTO"
+    #     else:
+    #         self.mode = "IDLE"
+
+    #     self.task_state = "RAIL_EXIT_SENT"
+
+    #     self.publish_event("RAIL_EXIT_SENT", {
+    #         "command_id": command_id,
+    #         "source": source,
+    #         "cmd": "EXIT",
+    #         "topic": "/rail_command",
+    #     })
+
+    #     # 단일 명령이면 여기서 끝
+    #     # 루틴 step으로 실행된 경우 다음 step으로 넘어가게 처리
+    #     self.finish_current_step(True, "rail exit command sent")
+    def handle_rail_motor(self, cmd_type=None,command_id=None, source="single"):
+        # Nav2 goal이나 rail approach가 살아있으면 먼저 정리
+        self.cancel_nav_goal()
+        self.cancel_rail_goal()
+
+        # 혹시 jog/nav 속도 명령이 남아있을 수 있으니 정지
+        self.publish_cmd_vel(0.0, 0.0)
+
+        msg = String()
+        msg.data = cmd_type
+        self.rail_cmd_pub.publish(msg)
+
+
+
 
     # ========================================================
     # CAPTURE SERVICE

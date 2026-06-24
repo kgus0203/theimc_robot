@@ -52,18 +52,13 @@ class Yolov8VisualizerNode(LifecycleNode):
         self._class_to_color = {}
         self.cv_bridge = CvBridge()
 
-        # params
-        self.declare_parameter("image_reliability",
-                               QoSReliabilityPolicy.RELIABLE)
-
         self.get_logger().info("Debug node created")
 
     def on_configure(self, state: LifecycleState) -> TransitionCallbackReturn:
         self.get_logger().info(f'Configuring {self.get_name()}')
 
         self.image_qos_profile = QoSProfile(
-            reliability=self.get_parameter(
-                "image_reliability").get_parameter_value().integer_value,
+            reliability=QoSReliabilityPolicy.BEST_EFFORT,
             history=QoSHistoryPolicy.KEEP_LAST,
             durability=QoSDurabilityPolicy.VOLATILE,
             depth=1

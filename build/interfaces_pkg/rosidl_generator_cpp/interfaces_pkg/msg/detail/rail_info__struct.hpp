@@ -54,6 +54,9 @@ struct RailInfo_
       this->angle_deg = 0.0f;
       this->distance = "";
       this->confidence = 0.0f;
+      this->rail_bbox_width = 0.0f;
+      this->rail_bbox_height = 0.0f;
+      this->rail_bbox_area_ratio = 0.0f;
     }
   }
 
@@ -74,6 +77,9 @@ struct RailInfo_
       this->angle_deg = 0.0f;
       this->distance = "";
       this->confidence = 0.0f;
+      this->rail_bbox_width = 0.0f;
+      this->rail_bbox_height = 0.0f;
+      this->rail_bbox_area_ratio = 0.0f;
     }
   }
 
@@ -111,6 +117,15 @@ struct RailInfo_
   using _confidence_type =
     float;
   _confidence_type confidence;
+  using _rail_bbox_width_type =
+    float;
+  _rail_bbox_width_type rail_bbox_width;
+  using _rail_bbox_height_type =
+    float;
+  _rail_bbox_height_type rail_bbox_height;
+  using _rail_bbox_area_ratio_type =
+    float;
+  _rail_bbox_area_ratio_type rail_bbox_area_ratio;
 
   // setters for named parameter idiom
   Type & set__header(
@@ -177,6 +192,24 @@ struct RailInfo_
     const float & _arg)
   {
     this->confidence = _arg;
+    return *this;
+  }
+  Type & set__rail_bbox_width(
+    const float & _arg)
+  {
+    this->rail_bbox_width = _arg;
+    return *this;
+  }
+  Type & set__rail_bbox_height(
+    const float & _arg)
+  {
+    this->rail_bbox_height = _arg;
+    return *this;
+  }
+  Type & set__rail_bbox_area_ratio(
+    const float & _arg)
+  {
+    this->rail_bbox_area_ratio = _arg;
     return *this;
   }
 
@@ -253,6 +286,15 @@ struct RailInfo_
       return false;
     }
     if (this->confidence != other.confidence) {
+      return false;
+    }
+    if (this->rail_bbox_width != other.rail_bbox_width) {
+      return false;
+    }
+    if (this->rail_bbox_height != other.rail_bbox_height) {
+      return false;
+    }
+    if (this->rail_bbox_area_ratio != other.rail_bbox_area_ratio) {
       return false;
     }
     return true;
