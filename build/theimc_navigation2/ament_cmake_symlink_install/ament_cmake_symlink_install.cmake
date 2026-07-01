@@ -321,8 +321,8 @@ include("/home/jeff/theimc_robot/build/theimc_navigation2/ament_cmake_symlink_in
 # install(PROGRAMS "scripts/button_publisher.py" "DESTINATION" "lib/theimc_navigation2")
 ament_cmake_symlink_install_programs("/home/jeff/theimc_robot/src/theimc_navigation2" PROGRAMS "scripts/button_publisher.py" "DESTINATION" "lib/theimc_navigation2")
 
-# install(DIRECTORY "launch" "maps" "params" "rviz" "scripts" "behavior_trees" "bt_xml" "DESTINATION" "share/theimc_navigation2")
-ament_cmake_symlink_install_directory("/home/jeff/theimc_robot/src/theimc_navigation2" DIRECTORY "launch" "maps" "params" "rviz" "scripts" "behavior_trees" "bt_xml" "DESTINATION" "share/theimc_navigation2")
+# install(DIRECTORY "launch" "maps" "params" "rviz" "scripts" "behavior_trees" "DESTINATION" "share/theimc_navigation2")
+ament_cmake_symlink_install_directory("/home/jeff/theimc_robot/src/theimc_navigation2" DIRECTORY "launch" "maps" "params" "rviz" "scripts" "behavior_trees" "DESTINATION" "share/theimc_navigation2")
 
 # install(FILES "/home/jeff/theimc_robot/build/theimc_navigation2/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/theimc_navigation2" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/jeff/theimc_robot/src/theimc_navigation2" FILES "/home/jeff/theimc_robot/build/theimc_navigation2/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/theimc_navigation2" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

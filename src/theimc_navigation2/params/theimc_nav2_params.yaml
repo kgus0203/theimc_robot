@@ -117,7 +117,7 @@ bt_navigator_rclcpp_node:
 
 controller_server:
   ros__parameters:
-    cmd_vel_topic: /cmd_vel_nav # 이렇게 들어가고 mux에서 cmd_vel이 나감 
+    cmd_vel_topic: /cmd_vel # 이렇게 들어가고 mux에서 cmd_vel이 나감 
     use_sim_time: False
     controller_frequency: 10.0
 
@@ -168,11 +168,11 @@ controller_server:
 
       # 도착지점 빙글빙글 방지
       use_rotate_to_heading: true
-      rotate_to_heading_min_angle: 0.35 # 제자리 회전을 발동시키는 각도 기준 (0.35는 약 20도) 오차가 이 값보다 크면 일단 제자리에서 방향부터 맞추게 됨
+      rotate_to_heading_min_angle: 0.2 # 제자리 회전을 발동시키는 각도 기준 (0.35는 약 20도) 오차가 이 값보다 크면 일단 제자리에서 방향부터 맞추게 됨
       rotate_to_heading_angular_vel: 0.3 # 제자리 회전할 때 얼마나 빠르게 돌지
 
-      max_angular_accel: 0.5
-      max_angular_decel: 0.5
+      max_angular_accel: 1.0
+      max_angular_decel: 1.0
 
       allow_reversing: false
 
@@ -226,7 +226,7 @@ local_costmap:
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 5.0
-        inflation_radius: 0.25
+        inflation_radius: 0.55
 
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
@@ -312,7 +312,7 @@ global_costmap:
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 3.0
-        inflation_radius: 0.35
+        inflation_radius: 0.55
 
       always_send_full_costmap: True
 
@@ -366,8 +366,8 @@ behavior_server:
     transform_tolerance: 1.0
     use_sim_time: False
     simulate_ahead_time: 2.0
-    max_rotational_vel: 0.1
-    min_rotational_vel: 0.05
+    max_rotational_vel: 0.3
+    min_rotational_vel: 0.1
 
 robot_state_publisher:
   ros__parameters:
@@ -382,19 +382,3 @@ waypoint_follower:
       plugin: "nav2_waypoint_follower::WaitAtWaypoint"
       enabled: True
       waypoint_pause_duration: 200
-
-# velocity_smoother:
-#   ros__parameters:
-#     use_sim_time: False
-#     smoothing_frequency: 20.0
-#     scale_velocities: false
-#     feedback: "OPEN_LOOP"
-
-#     max_velocity: [0.12, 0.0, 0.12]
-#     min_velocity: [-0.02, 0.0, -0.12]
-
-#     max_accel: [0.15, 0.0, 0.25]
-#     max_decel: [-0.15, 0.0, -0.25]
-
-#     deadband_velocity: [0.0, 0.0, 0.0]
-#     velocity_timeout: 0.5

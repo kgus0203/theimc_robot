@@ -1,10 +1,18 @@
 file(REMOVE_RECURSE
   "CMakeFiles/theimc_bt_nodes.dir/src/go_to_pose.cpp.o"
   "CMakeFiles/theimc_bt_nodes.dir/src/go_to_pose.cpp.o.d"
+  "CMakeFiles/theimc_bt_nodes.dir/src/publish_rail_command.cpp.o"
+  "CMakeFiles/theimc_bt_nodes.dir/src/publish_rail_command.cpp.o.d"
+  "CMakeFiles/theimc_bt_nodes.dir/src/rail_approach.cpp.o"
+  "CMakeFiles/theimc_bt_nodes.dir/src/rail_approach.cpp.o.d"
   "CMakeFiles/theimc_bt_nodes.dir/src/register_nodes.cpp.o"
   "CMakeFiles/theimc_bt_nodes.dir/src/register_nodes.cpp.o.d"
   "CMakeFiles/theimc_bt_nodes.dir/src/wait_for_mission_trigger.cpp.o"
   "CMakeFiles/theimc_bt_nodes.dir/src/wait_for_mission_trigger.cpp.o.d"
+  "CMakeFiles/theimc_bt_nodes.dir/src/wait_for_rail_state.cpp.o"
+  "CMakeFiles/theimc_bt_nodes.dir/src/wait_for_rail_state.cpp.o.d"
+  "CMakeFiles/theimc_bt_nodes.dir/src/wait_seconds.cpp.o"
+  "CMakeFiles/theimc_bt_nodes.dir/src/wait_seconds.cpp.o.d"
   "libtheimc_bt_nodes.pdb"
   "libtheimc_bt_nodes.so"
 )

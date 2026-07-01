@@ -7,9 +7,33 @@
     <description>BehaviorTree.CPP node that sends a NavigateToPose goal.</description>
   </class>
   <class
+    name="theimc_bt_nodes/PublishRailCommand"
+    type="theimc_bt_nodes::PublishRailCommand"
+    base_class_type="BT::TreeNode">
+    <description>BehaviorTree.CPP node that publishes a rail command.</description>
+  </class>
+  <class
+    name="theimc_bt_nodes/RailApproach"
+    type="theimc_bt_nodes::RailApproach"
+    base_class_type="BT::TreeNode">
+    <description>BehaviorTree.CPP node that sends a RailApproach goal.</description>
+  </class>
+  <class
+    name="theimc_bt_nodes/WaitForRailState"
+    type="theimc_bt_nodes::WaitForRailState"
+    base_class_type="BT::TreeNode">
+    <description>BehaviorTree.CPP node that waits for a rail state.</description>
+  </class>
+  <class
     name="theimc_bt_nodes/WaitForMissionTrigger"
     type="theimc_bt_nodes::WaitForMissionTrigger"
     base_class_type="BT::TreeNode">
     <description>BehaviorTree.CPP node that waits for a mission trigger.</description>
+  </class>
+  <class
+    name="theimc_bt_nodes/WaitSeconds"
+    type="theimc_bt_nodes::WaitSeconds"
+    base_class_type="BT::TreeNode">
+    <description>BehaviorTree.CPP node that waits for a fixed duration.</description>
   </class>
 </library>

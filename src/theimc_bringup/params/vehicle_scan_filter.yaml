@@ -1,0 +1,14 @@
+scan_filter_chain:
+  ros__parameters:
+    filter1:
+      name: vehicle_body_filter
+      type: laser_filters/StaticLaserScanPolygonFilter
+      params:
+        polygon_frame: base_link
+
+        # 실제 값은 launch에서 URDF를 읽어 덮어쓴다.
+        polygon: "[[-0.1, -0.1], [-0.1, 0.1], [0.1, 0.1], [0.1, -0.1]]"
+
+        polygon_padding: 0.02
+        invert: false
+        transform_timeout: 5.0

@@ -8,6 +8,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(ament_index_cpp REQUIRED)
 find_package(behaviortree_cpp_v3 REQUIRED)
+find_package(interfaces_pkg REQUIRED)
 find_package(nav2_behavior_tree REQUIRED)
 find_package(nav2_msgs REQUIRED)
 find_package(pluginlib REQUIRED)
@@ -17,8 +18,12 @@ find_package(std_msgs REQUIRED)
 
 add_library(${PROJECT_NAME} SHARED
   src/go_to_pose.cpp
+  src/publish_rail_command.cpp
+  src/rail_approach.cpp
   src/register_nodes.cpp
+  src/wait_for_rail_state.cpp
   src/wait_for_mission_trigger.cpp
+  src/wait_seconds.cpp
 )
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE BT_PLUGIN_EXPORT)
@@ -31,6 +36,7 @@ target_include_directories(${PROJECT_NAME}
 
 ament_target_dependencies(${PROJECT_NAME}
   behaviortree_cpp_v3
+  interfaces_pkg
   nav2_behavior_tree
   nav2_msgs
   rclcpp
@@ -43,6 +49,7 @@ add_executable(mission_bt_runner src/mission_bt_runner.cpp)
 ament_target_dependencies(mission_bt_runner
   ament_index_cpp
   behaviortree_cpp_v3
+  interfaces_pkg
   nav2_behavior_tree
   rclcpp
 )
@@ -71,6 +78,7 @@ ament_export_libraries(${PROJECT_NAME})
 ament_export_dependencies(
   ament_index_cpp
   behaviortree_cpp_v3
+  interfaces_pkg
   nav2_behavior_tree
   nav2_msgs
   rclcpp

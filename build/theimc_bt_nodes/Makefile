@@ -271,6 +271,54 @@ src/mission_bt_runner.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mission_bt_runner.dir/build.make CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.s
 .PHONY : src/mission_bt_runner.cpp.s
 
+src/publish_rail_command.o: src/publish_rail_command.cpp.o
+.PHONY : src/publish_rail_command.o
+
+# target to build an object file
+src/publish_rail_command.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/publish_rail_command.cpp.o
+.PHONY : src/publish_rail_command.cpp.o
+
+src/publish_rail_command.i: src/publish_rail_command.cpp.i
+.PHONY : src/publish_rail_command.i
+
+# target to preprocess a source file
+src/publish_rail_command.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/publish_rail_command.cpp.i
+.PHONY : src/publish_rail_command.cpp.i
+
+src/publish_rail_command.s: src/publish_rail_command.cpp.s
+.PHONY : src/publish_rail_command.s
+
+# target to generate assembly for a file
+src/publish_rail_command.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/publish_rail_command.cpp.s
+.PHONY : src/publish_rail_command.cpp.s
+
+src/rail_approach.o: src/rail_approach.cpp.o
+.PHONY : src/rail_approach.o
+
+# target to build an object file
+src/rail_approach.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/rail_approach.cpp.o
+.PHONY : src/rail_approach.cpp.o
+
+src/rail_approach.i: src/rail_approach.cpp.i
+.PHONY : src/rail_approach.i
+
+# target to preprocess a source file
+src/rail_approach.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/rail_approach.cpp.i
+.PHONY : src/rail_approach.cpp.i
+
+src/rail_approach.s: src/rail_approach.cpp.s
+.PHONY : src/rail_approach.s
+
+# target to generate assembly for a file
+src/rail_approach.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/rail_approach.cpp.s
+.PHONY : src/rail_approach.cpp.s
+
 src/register_nodes.o: src/register_nodes.cpp.o
 .PHONY : src/register_nodes.o
 
@@ -319,6 +367,54 @@ src/wait_for_mission_trigger.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/wait_for_mission_trigger.cpp.s
 .PHONY : src/wait_for_mission_trigger.cpp.s
 
+src/wait_for_rail_state.o: src/wait_for_rail_state.cpp.o
+.PHONY : src/wait_for_rail_state.o
+
+# target to build an object file
+src/wait_for_rail_state.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/wait_for_rail_state.cpp.o
+.PHONY : src/wait_for_rail_state.cpp.o
+
+src/wait_for_rail_state.i: src/wait_for_rail_state.cpp.i
+.PHONY : src/wait_for_rail_state.i
+
+# target to preprocess a source file
+src/wait_for_rail_state.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/wait_for_rail_state.cpp.i
+.PHONY : src/wait_for_rail_state.cpp.i
+
+src/wait_for_rail_state.s: src/wait_for_rail_state.cpp.s
+.PHONY : src/wait_for_rail_state.s
+
+# target to generate assembly for a file
+src/wait_for_rail_state.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/wait_for_rail_state.cpp.s
+.PHONY : src/wait_for_rail_state.cpp.s
+
+src/wait_seconds.o: src/wait_seconds.cpp.o
+.PHONY : src/wait_seconds.o
+
+# target to build an object file
+src/wait_seconds.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/wait_seconds.cpp.o
+.PHONY : src/wait_seconds.cpp.o
+
+src/wait_seconds.i: src/wait_seconds.cpp.i
+.PHONY : src/wait_seconds.i
+
+# target to preprocess a source file
+src/wait_seconds.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/wait_seconds.cpp.i
+.PHONY : src/wait_seconds.cpp.i
+
+src/wait_seconds.s: src/wait_seconds.cpp.s
+.PHONY : src/wait_seconds.s
+
+# target to generate assembly for a file
+src/wait_seconds.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/wait_seconds.cpp.s
+.PHONY : src/wait_seconds.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -342,12 +438,24 @@ help:
 	@echo "... src/mission_bt_runner.o"
 	@echo "... src/mission_bt_runner.i"
 	@echo "... src/mission_bt_runner.s"
+	@echo "... src/publish_rail_command.o"
+	@echo "... src/publish_rail_command.i"
+	@echo "... src/publish_rail_command.s"
+	@echo "... src/rail_approach.o"
+	@echo "... src/rail_approach.i"
+	@echo "... src/rail_approach.s"
 	@echo "... src/register_nodes.o"
 	@echo "... src/register_nodes.i"
 	@echo "... src/register_nodes.s"
 	@echo "... src/wait_for_mission_trigger.o"
 	@echo "... src/wait_for_mission_trigger.i"
 	@echo "... src/wait_for_mission_trigger.s"
+	@echo "... src/wait_for_rail_state.o"
+	@echo "... src/wait_for_rail_state.i"
+	@echo "... src/wait_for_rail_state.s"
+	@echo "... src/wait_seconds.o"
+	@echo "... src/wait_seconds.i"
+	@echo "... src/wait_seconds.s"
 .PHONY : help
 
 

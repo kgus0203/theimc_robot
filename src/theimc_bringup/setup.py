@@ -36,6 +36,8 @@ setup(
         'console_scripts': [
             'bringup_node = theimc_bringup.theimc_bringup:main',
             'robot_agent_node = theimc_bringup.robot_agent_node:main',
+            'last_pose_manager_node = theimc_bringup.last_pose_manager_node:main',
+            'isaac_vslam_odom_adapter_node = theimc_bringup.isaac_vslam_odom_adapter_node:main'
         ],
     }, 
 )

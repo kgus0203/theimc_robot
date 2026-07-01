@@ -24,7 +24,7 @@ int main(int argc, char ** argv)
   const auto server_timeout = std::chrono::milliseconds(
     node->declare_parameter<int>("server_timeout", 20));
   const auto wait_for_service_timeout = std::chrono::milliseconds(
-    node->declare_parameter<int>("wait_for_service_timeout", 1000));
+    node->declare_parameter<int>("wait_for_service_timeout", 10000));
 
   auto blackboard = BT::Blackboard::create();
   blackboard->set<rclcpp::Node::SharedPtr>("node", node);
@@ -42,21 +42,34 @@ int main(int argc, char ** argv)
       node->get_logger(),
       "Mission BT started. Waiting for std_msgs/msg/Bool true on /mission_trigger");
 
-    auto status = BT::NodeStatus::RUNNING;
     rclcpp::WallRate loop_rate(bt_loop_duration);
-    while (rclcpp::ok() && status == BT::NodeStatus::RUNNING) {
-      status = tree.tickRoot();
-      loop_rate.sleep();
+
+    while (rclcpp::ok()) {
+      auto status = BT::NodeStatus::RUNNING;
+      while (rclcpp::ok() && status == BT::NodeStatus::RUNNING) {
+        status = tree.tickRoot();
+        loop_rate.sleep();
+      }
+
+      if (!rclcpp::ok()) {
+        break;
+      }
+
+      if (status == BT::NodeStatus::SUCCESS) {
+        RCLCPP_INFO(
+          node->get_logger(),
+          "Mission BT completed successfully. Waiting for next /mission_trigger");
+      } else {
+        RCLCPP_ERROR(
+          node->get_logger(),
+          "Mission BT failed. Resetting tree and waiting for next /mission_trigger");
+      }
+
+      tree.haltTree();
     }
 
-    if (!rclcpp::ok()) {
-      tree.haltTree();
-      RCLCPP_INFO(node->get_logger(), "Mission BT stopped");
-    } else if (status == BT::NodeStatus::SUCCESS) {
-      RCLCPP_INFO(node->get_logger(), "Mission BT completed successfully");
-    } else {
-      RCLCPP_ERROR(node->get_logger(), "Mission BT failed");
-    }
+    tree.haltTree();
+    RCLCPP_INFO(node->get_logger(), "Mission BT stopped");
   } catch (const std::exception & exception) {
     RCLCPP_FATAL(node->get_logger(), "Mission BT error: %s", exception.what());
     rclcpp::shutdown();

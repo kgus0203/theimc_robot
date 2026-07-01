@@ -1,0 +1,16 @@
+[INFO] [launch]: All log files can be found below /home/jeff/.ros/log/2026-06-26-11-23-57-403806-jeff-desktop-58624
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [map_server-1]: process started with pid [58654]
+[INFO] [costmap_filter_info_server-2]: process started with pid [58656]
+[INFO] [twist_mux-3]: process started with pid [58658]
+[costmap_filter_info_server-2] [INFO] [1782440637.635690221] [costmap_filter_info_server]: This is costmap filter info publisher
+[twist_mux-3] [INFO] [1782440637.671179151] [twist_mux]: Topic handler 'topics.navigation' subscribed to topic '/cmd_vel_nav': timeout = 0.500000s , priority = 20.
+[twist_mux-3] [INFO] [1782440637.704893408] [twist_mux]: Topic handler 'topics.rail' subscribed to topic '/cmd_vel_rail': timeout = 0.500000s , priority = 30.
+[twist_mux-3] [INFO] [1782440637.726918613] [twist_mux]: Topic handler 'topics.teleop' subscribed to topic '/cmd_vel_teleop': timeout = 0.500000s , priority = 100.
+[twist_mux-3] [INFO] [1782440637.733130717] [twist_mux]: Topic handler 'topics.web_jog' subscribed to topic '/cmd_vel_web': timeout = 0.500000s , priority = 90.
+[twist_mux-3] [INFO] [1782440637.737516276] [twist_mux]: Topic handler 'locks.emergency_stop' subscribed to topic '/emergency_stop': timeout = None , priority = 255.
+[map_server-1] [INFO] [1782440637.795198127] [filter_mask_server]: 
+[map_server-1] 	filter_mask_server lifecycle node launched. 
+[map_server-1] 	Waiting on external lifecycle transitions to activate
+[map_server-1] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[map_server-1] [INFO] [1782440637.795699581] [filter_mask_server]: Creating

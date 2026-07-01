@@ -22,7 +22,7 @@ find_package(nav2_behavior_tree REQUIRED)
 # =======================================================
 # src/check_button_condition.cpp 파일을 공유 라이브러리(.so)로 빌드
 add_library(check_button_condition_plugin SHARED src/check_button_condition.cpp)
-
+target_compile_definitions(check_button_condition_plugin PRIVATE BT_PLUGIN_EXPORT)
 # 빌드한 라이브러리에 의존성 연결
 ament_target_dependencies(check_button_condition_plugin
   rclcpp

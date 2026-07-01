@@ -1,0 +1,13 @@
+[0.000000] (-) TimerEvent: {}
+[0.000918] (-) JobUnselected: {'identifier': 'camera_perception_pkg'}
+[0.001108] (-) JobUnselected: {'identifier': 'debug_pkg'}
+[0.001195] (-) JobUnselected: {'identifier': 'decision_making_pkg'}
+[0.001389] (-) JobUnselected: {'identifier': 'interfaces_pkg'}
+[0.001565] (-) JobUnselected: {'identifier': 'localizer_server'}
+[0.001758] (-) JobUnselected: {'identifier': 'sllidar_ros2'}
+[0.001877] (-) JobUnselected: {'identifier': 'theimc_bringup'}
+[0.002020] (-) JobUnselected: {'identifier': 'theimc_bt_nodes'}
+[0.002080] (-) JobUnselected: {'identifier': 'theimc_description'}
+[0.002126] (-) JobUnselected: {'identifier': 'theimc_navigation2'}
+[0.002167] (-) JobUnselected: {'identifier': 'theimc_teleop'}
+[0.002208] (-) EventReactorShutdown: {}

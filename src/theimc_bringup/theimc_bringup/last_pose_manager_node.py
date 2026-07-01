@@ -13,6 +13,7 @@ import yaml
 import math
 
 import rclpy
+from rclpy.duration import Duration
 from rclpy.node import Node
 
 from geometry_msgs.msg import PoseWithCovarianceStamped
@@ -29,6 +30,7 @@ class LastPoseManagerNode(Node):
         self.declare_parameter('auto_publish_initial_pose', True)
         self.declare_parameter('publish_delay_sec', 5.0)
         self.declare_parameter('save_interval_sec', 2.0)
+        self.declare_parameter('initial_pose_stamp_offset_sec', 0.2)
 
         # covariance가 너무 크면 위치가 불안정한 상태일 수 있으니 저장하지 않기 위한 기준
         self.declare_parameter('max_xy_covariance', 1.0)
@@ -38,6 +40,9 @@ class LastPoseManagerNode(Node):
         self.auto_publish_initial_pose = self.get_parameter('auto_publish_initial_pose').value
         self.publish_delay_sec = self.get_parameter('publish_delay_sec').value
         self.save_interval_sec = self.get_parameter('save_interval_sec').value
+        self.initial_pose_stamp_offset_sec = (
+            self.get_parameter('initial_pose_stamp_offset_sec').value
+        )
         self.max_xy_covariance = self.get_parameter('max_xy_covariance').value
         self.max_yaw_covariance = self.get_parameter('max_yaw_covariance').value
 
@@ -158,7 +163,10 @@ class LastPoseManagerNode(Node):
                 return
 
             msg = PoseWithCovarianceStamped()
-            msg.header.stamp = self.get_clock().now().to_msg()
+            msg.header.stamp = (
+                self.get_clock().now()
+                - Duration(seconds=self.initial_pose_stamp_offset_sec)
+            ).to_msg()
             msg.header.frame_id = data.get('frame_id', 'map')
 
             msg.pose.pose.position.x = float(data['x'])

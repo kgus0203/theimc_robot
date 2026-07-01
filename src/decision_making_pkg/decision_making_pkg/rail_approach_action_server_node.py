@@ -35,6 +35,10 @@ class RailApproachActionServer(Node):
         self.declare_parameter('pulse_forward_sec', 1.0)
 
         self.declare_parameter('angular_speed', 0.08)
+
+        self.declare_parameter('min_angular_speed', 0.08)
+        self.declare_parameter('min_linear_speed', 0.05)
+
         self.declare_parameter('rail_timeout_sec', 0.5)
         self.declare_parameter('success_topic', '/rail_approach_success')
         self.declare_parameter('rail_command_topic', '/rail_command')
@@ -92,6 +96,13 @@ class RailApproachActionServer(Node):
             goal_callback=self.goal_callback,
             cancel_callback=self.cancel_callback,
             callback_group=self.cb_group
+        )
+
+        self.min_angular_speed = float(
+            self.get_parameter('min_angular_speed').value
+        )
+        self.min_linear_speed = float(
+            self.get_parameter('min_linear_speed').value
         )
 
         self.success_pub = self.create_publisher(
@@ -154,6 +165,17 @@ class RailApproachActionServer(Node):
     def clamp(self, value, min_value, max_value):
         return max(min_value, min(max_value, value))
 
+    def apply_min_abs_speed(self, value, min_abs_value):
+        if abs(value) < 1e-6:
+            return 0.0
+
+        if abs(value) >= min_abs_value:
+            return value
+
+        if value > 0.0:
+            return min_abs_value
+        return -min_abs_value
+        
     def get_angle_turn_speed(self, angle_error):
         if abs(angle_error) < 1e-6:
             return 0.0
@@ -173,6 +195,7 @@ class RailApproachActionServer(Node):
 
     def get_proportional_turn_speed(self, angle_error, x_error, k_angle, k_x):
         angular = k_angle * angle_error - k_x * x_error
+        angular = self.apply_min_abs_speed(angular, self.min_angular_speed)
         return self.clamp(angular, -self.angular_speed, self.angular_speed)
 
     def get_field(self, msg, name, default_value):
@@ -232,7 +255,10 @@ class RailApproachActionServer(Node):
         forward_start_x_tolerance = max(x_tolerance, 0.35)
         close_x_tolerance = forward_start_x_tolerance
 
-        forward_linear_speed = self.pulse_linear_speed * 0.8
+        forward_linear_speed = forward_linear_speed = max(
+            self.pulse_linear_speed * 0.8,
+            self.min_linear_speed
+        )
         forward_k_angle = 0.01
         forward_k_x = 0.16
         align_k_angle = 0.008
@@ -356,10 +382,11 @@ class RailApproachActionServer(Node):
                     state = 'PULSE_FORWARD'
                     pulse_end_time = now + self.pulse_forward_sec
                     cmd.linear.x = forward_linear_speed
-                    cmd.angular.z = self.clamp(
-                        forward_k_angle * angle_error - forward_k_x * x_error,
-                        -self.angular_speed,
-                        self.angular_speed
+                    cmd.angular.z = self.get_proportional_turn_speed(
+                        angle_error,
+                        x_error,
+                        forward_k_angle,
+                        forward_k_x
                     )
 
             elif state == 'PULSE_FORWARD':

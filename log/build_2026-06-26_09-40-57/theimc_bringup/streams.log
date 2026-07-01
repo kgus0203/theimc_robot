@@ -1,0 +1,18 @@
+[1.425s] Invoking command in '/home/jeff/theimc_robot/build/theimc_bringup': PYTHONPATH=/home/jeff/theimc_robot/build/theimc_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/theimc_bringup/build --no-deps symlink_data
+[2.010s] running develop
+[2.396s] running egg_info
+[2.397s] writing theimc_bringup.egg-info/PKG-INFO
+[2.397s] writing dependency_links to theimc_bringup.egg-info/dependency_links.txt
+[2.397s] writing entry points to theimc_bringup.egg-info/entry_points.txt
+[2.398s] writing requirements to theimc_bringup.egg-info/requires.txt
+[2.398s] writing top-level names to theimc_bringup.egg-info/top_level.txt
+[2.402s] reading manifest file 'theimc_bringup.egg-info/SOURCES.txt'
+[2.404s] writing manifest file 'theimc_bringup.egg-info/SOURCES.txt'
+[2.407s] running build_ext
+[2.407s] Creating /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc-bringup.egg-link (link to .)
+[2.409s] Installing bringup_node script to /home/jeff/theimc_robot/install/theimc_bringup/lib/theimc_bringup
+[2.410s] Installing robot_agent_node script to /home/jeff/theimc_robot/install/theimc_bringup/lib/theimc_bringup
+[2.410s] 
+[2.410s] Installed /home/jeff/theimc_robot/build/theimc_bringup
+[2.411s] running symlink_data
+[2.501s] Invoked command in '/home/jeff/theimc_robot/build/theimc_bringup' returned '0': PYTHONPATH=/home/jeff/theimc_robot/build/theimc_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/theimc_bringup/build --no-deps symlink_data

@@ -1,0 +1,57 @@
+[0.000000] (-) TimerEvent: {}
+[0.000882] (-) JobUnselected: {'identifier': 'camera_perception_pkg'}
+[0.001088] (-) JobUnselected: {'identifier': 'debug_pkg'}
+[0.001365] (-) JobUnselected: {'identifier': 'decision_making_pkg'}
+[0.001822] (-) JobUnselected: {'identifier': 'interfaces_pkg'}
+[0.002054] (-) JobUnselected: {'identifier': 'localizer_server'}
+[0.002308] (-) JobUnselected: {'identifier': 'sllidar_ros2'}
+[0.002395] (-) JobUnselected: {'identifier': 'theimc_bringup'}
+[0.002465] (-) JobUnselected: {'identifier': 'theimc_bt_nodes'}
+[0.002529] (-) JobUnselected: {'identifier': 'theimc_description'}
+[0.002593] (-) JobUnselected: {'identifier': 'theimc_navigation2'}
+[0.002660] (theimc_teleop) JobQueued: {'identifier': 'theimc_teleop', 'dependencies': OrderedDict()}
+[0.002731] (theimc_teleop) JobStarted: {'identifier': 'theimc_teleop'}
+[0.099931] (-) TimerEvent: {}
+[0.200485] (-) TimerEvent: {}
+[0.301053] (-) TimerEvent: {}
+[0.401565] (-) TimerEvent: {}
+[0.502016] (-) TimerEvent: {}
+[0.602633] (-) TimerEvent: {}
+[0.703258] (-) TimerEvent: {}
+[0.803831] (-) TimerEvent: {}
+[0.904419] (-) TimerEvent: {}
+[1.004952] (-) TimerEvent: {}
+[1.105425] (-) TimerEvent: {}
+[1.205944] (-) TimerEvent: {}
+[1.306485] (-) TimerEvent: {}
+[1.407114] (-) TimerEvent: {}
+[1.466745] (theimc_teleop) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/jeff/theimc_robot/build/theimc_teleop/build', '--no-deps', 'symlink_data'], 'cwd': '/home/jeff/theimc_robot/build/theimc_teleop', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'jeff', 'SSH_CLIENT': '192.168.0.78 50054 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/jeff/.vscode-server/cli/servers/Stable-8761a5560cfd65fdd19ce7e2bd18dab5c0a4d84e/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/usr/local/cuda/lib64:/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_navigation2/lib:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/home/jeff/theimc_robot/install/interfaces_pkg/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'BROWSER': '/home/jeff/.vscode-server/cli/servers/Stable-8761a5560cfd65fdd19ce7e2bd18dab5c0a4d84e/server/bin/helpers/browser.sh', 'MOTD_SHOWN': 'pam', 'HOME': '/home/jeff', 'TERM_PROGRAM_VERSION': '1.122.1', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-213dda4b-e5dc-4f46-bde5-08cd5ce88d9b.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/jeff/.vscode-server/cli/servers/Stable-8761a5560cfd65fdd19ce7e2bd18dab5c0a4d84e/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/jeff/.vscode-server/cli/servers/Stable-8761a5560cfd65fdd19ce7e2bd18dab5c0a4d84e/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/jeff/theimc_robot/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'jeff', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '2', 'ISAAC_ROS_WS': '/home/jeff/workspaces/isaac_ros-dev', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/usr/local/cuda/bin:/home/jeff/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/jeff/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/jeff/.vscode-server/cli/servers/Stable-8761a5560cfd65fdd19ce7e2bd18dab5c0a4d84e/server/bin/remote-cli:/home/jeff/.local/bin:/usr/local/cuda/bin:/opt/ros/humble/bin:/home/jeff/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-fd5918f53d.sock', 'TERM_PROGRAM': 'vscode', 'ROS_DOMAIN_ID': '25', 'AMENT_PREFIX_PATH': '/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/theimc:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/jeff/theimc_robot/build/theimc_teleop', 'LC_ALL': 'en_US.UTF-8', 'COPILOT_DEBUG_NONCE': '9cd3e80f4c7a86ddb6d68b146da0d7da', 'SSH_CONNECTION': '192.168.0.78 50054 192.168.0.55 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/jeff/theimc_robot/build/theimc_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/theimc_teleop/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/theimc_teleop:/home/jeff/theimc_robot/install/theimc_teleop/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/theimc_bringup:/home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/localizer_server:/home/jeff/theimc_robot/install/localizer_server/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/decision_making_pkg:/home/jeff/theimc_robot/install/decision_making_pkg/lib/python3.10/site-packages:/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages:/home/jeff/theimc_robot/build/debug_pkg:/home/jeff/theimc_robot/install/debug_pkg/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/camera_perception_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/interfaces_pkg'}, 'shell': False}
+[1.507246] (-) TimerEvent: {}
+[1.607814] (-) TimerEvent: {}
+[1.708386] (-) TimerEvent: {}
+[1.808990] (-) TimerEvent: {}
+[1.909574] (-) TimerEvent: {}
+[2.010257] (-) TimerEvent: {}
+[2.064903] (theimc_teleop) StdoutLine: {'line': b'running develop\n'}
+[2.110369] (-) TimerEvent: {}
+[2.210951] (-) TimerEvent: {}
+[2.311593] (-) TimerEvent: {}
+[2.412259] (-) TimerEvent: {}
+[2.454094] (theimc_teleop) StdoutLine: {'line': b'running egg_info\n'}
+[2.454782] (theimc_teleop) StdoutLine: {'line': b'writing theimc_teleop.egg-info/PKG-INFO\n'}
+[2.455201] (theimc_teleop) StdoutLine: {'line': b'writing dependency_links to theimc_teleop.egg-info/dependency_links.txt\n'}
+[2.455594] (theimc_teleop) StdoutLine: {'line': b'writing entry points to theimc_teleop.egg-info/entry_points.txt\n'}
+[2.455934] (theimc_teleop) StdoutLine: {'line': b'writing requirements to theimc_teleop.egg-info/requires.txt\n'}
+[2.456269] (theimc_teleop) StdoutLine: {'line': b'writing top-level names to theimc_teleop.egg-info/top_level.txt\n'}
+[2.459921] (theimc_teleop) StdoutLine: {'line': b"reading manifest file 'theimc_teleop.egg-info/SOURCES.txt'\n"}
+[2.461373] (theimc_teleop) StdoutLine: {'line': b"writing manifest file 'theimc_teleop.egg-info/SOURCES.txt'\n"}
+[2.464521] (theimc_teleop) StdoutLine: {'line': b'running build_ext\n'}
+[2.464965] (theimc_teleop) StdoutLine: {'line': b'Creating /home/jeff/theimc_robot/install/theimc_teleop/lib/python3.10/site-packages/theimc-teleop.egg-link (link to .)\n'}
+[2.466799] (theimc_teleop) StdoutLine: {'line': b'Installing teleop_keyboard script to /home/jeff/theimc_robot/install/theimc_teleop/lib/theimc_teleop\n'}
+[2.467339] (theimc_teleop) StdoutLine: {'line': b'\n'}
+[2.467682] (theimc_teleop) StdoutLine: {'line': b'Installed /home/jeff/theimc_robot/build/theimc_teleop\n'}
+[2.467954] (theimc_teleop) StdoutLine: {'line': b'running symlink_data\n'}
+[2.512349] (-) TimerEvent: {}
+[2.548378] (theimc_teleop) CommandEnded: {'returncode': 0}
+[2.594609] (theimc_teleop) JobEnded: {'identifier': 'theimc_teleop', 'rc': 0}
+[2.596826] (-) EventReactorShutdown: {}

@@ -3,13 +3,13 @@
   <BehaviorTree ID="MainTree">
     <Sequence name="HomeRailThreeTimes">
       <WaitForMissionTrigger/>
-      <GoToPose x="0.17" y="-0.82" yaw="0.0"/>
-      <GoToPose x="-1.2" y="-2.8" yaw="0.0"/>
-      <GoToPose x="0.17" y="-0.82" yaw="0.0"/>
-      <GoToPose x="-1.2" y="-2.8" yaw="0.0"/>
-      <GoToPose x="0.17" y="-0.82" yaw="0.0"/>
-      <GoToPose x="-1.2" y="-2.8" yaw="0.0"/>
-      <GoToPose x="0.17" y="-0.82" yaw="0.0"/>
+      <GoToPose x="-0.5739" y="-0.8692" yaw="-0.0186"/>
+      <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
+      <GoToPose x="-0.5739" y="-0.8692" yaw="-0.0186"/>
+      <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
+      <GoToPose x="-0.5739" y="-0.8692" yaw="-0.0186"/>
+      <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
+      <GoToPose x="-0.5739" y="-0.8692" yaw="-0.0186"/>
     </Sequence>
   </BehaviorTree>
 </root>
