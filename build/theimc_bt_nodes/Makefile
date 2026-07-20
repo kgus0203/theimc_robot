@@ -223,6 +223,54 @@ mission_bt_runner/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mission_bt_runner.dir/build.make CMakeFiles/mission_bt_runner.dir/build
 .PHONY : mission_bt_runner/fast
 
+src/for_each_rail.o: src/for_each_rail.cpp.o
+.PHONY : src/for_each_rail.o
+
+# target to build an object file
+src/for_each_rail.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/for_each_rail.cpp.o
+.PHONY : src/for_each_rail.cpp.o
+
+src/for_each_rail.i: src/for_each_rail.cpp.i
+.PHONY : src/for_each_rail.i
+
+# target to preprocess a source file
+src/for_each_rail.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/for_each_rail.cpp.i
+.PHONY : src/for_each_rail.cpp.i
+
+src/for_each_rail.s: src/for_each_rail.cpp.s
+.PHONY : src/for_each_rail.s
+
+# target to generate assembly for a file
+src/for_each_rail.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/for_each_rail.cpp.s
+.PHONY : src/for_each_rail.cpp.s
+
+src/get_rail_pose.o: src/get_rail_pose.cpp.o
+.PHONY : src/get_rail_pose.o
+
+# target to build an object file
+src/get_rail_pose.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/get_rail_pose.cpp.o
+.PHONY : src/get_rail_pose.cpp.o
+
+src/get_rail_pose.i: src/get_rail_pose.cpp.i
+.PHONY : src/get_rail_pose.i
+
+# target to preprocess a source file
+src/get_rail_pose.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/get_rail_pose.cpp.i
+.PHONY : src/get_rail_pose.cpp.i
+
+src/get_rail_pose.s: src/get_rail_pose.cpp.s
+.PHONY : src/get_rail_pose.s
+
+# target to generate assembly for a file
+src/get_rail_pose.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/get_rail_pose.cpp.s
+.PHONY : src/get_rail_pose.cpp.s
+
 src/go_to_pose.o: src/go_to_pose.cpp.o
 .PHONY : src/go_to_pose.o
 
@@ -343,6 +391,30 @@ src/register_nodes.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/register_nodes.cpp.s
 .PHONY : src/register_nodes.cpp.s
 
+src/return_home_requested.o: src/return_home_requested.cpp.o
+.PHONY : src/return_home_requested.o
+
+# target to build an object file
+src/return_home_requested.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/return_home_requested.cpp.o
+.PHONY : src/return_home_requested.cpp.o
+
+src/return_home_requested.i: src/return_home_requested.cpp.i
+.PHONY : src/return_home_requested.i
+
+# target to preprocess a source file
+src/return_home_requested.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/return_home_requested.cpp.i
+.PHONY : src/return_home_requested.cpp.i
+
+src/return_home_requested.s: src/return_home_requested.cpp.s
+.PHONY : src/return_home_requested.s
+
+# target to generate assembly for a file
+src/return_home_requested.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/return_home_requested.cpp.s
+.PHONY : src/return_home_requested.cpp.s
+
 src/wait_for_mission_trigger.o: src/wait_for_mission_trigger.cpp.o
 .PHONY : src/wait_for_mission_trigger.o
 
@@ -432,6 +504,12 @@ help:
 	@echo "... uninstall"
 	@echo "... mission_bt_runner"
 	@echo "... theimc_bt_nodes"
+	@echo "... src/for_each_rail.o"
+	@echo "... src/for_each_rail.i"
+	@echo "... src/for_each_rail.s"
+	@echo "... src/get_rail_pose.o"
+	@echo "... src/get_rail_pose.i"
+	@echo "... src/get_rail_pose.s"
 	@echo "... src/go_to_pose.o"
 	@echo "... src/go_to_pose.i"
 	@echo "... src/go_to_pose.s"
@@ -447,6 +525,9 @@ help:
 	@echo "... src/register_nodes.o"
 	@echo "... src/register_nodes.i"
 	@echo "... src/register_nodes.s"
+	@echo "... src/return_home_requested.o"
+	@echo "... src/return_home_requested.i"
+	@echo "... src/return_home_requested.s"
 	@echo "... src/wait_for_mission_trigger.o"
 	@echo "... src/wait_for_mission_trigger.i"
 	@echo "... src/wait_for_mission_trigger.s"

@@ -9,7 +9,7 @@ from nav_msgs.msg import Odometry
 from rclpy.node import Node
 from rclpy.qos import HistoryPolicy, QoSProfile, ReliabilityPolicy
 from sensor_msgs.msg import Imu, JointState
-from std_msgs.msg import String
+from std_msgs.msg import String, Float32
 
 
 def quaternion_from_euler(roll, pitch, yaw):
@@ -62,10 +62,11 @@ class BringUp(Node):
         self.use_stm_wheel = self.get_parameter(
             'use_stm_wheel'
         ).get_parameter_value().bool_value
+        
 
         # Serial port
         self.serial_port = '/dev/stm32_link'
-        self.baud_rate = 576000
+        self.baud_rate = 230400
         self.serial_timeout = 0.1
 
         try:
@@ -130,9 +131,6 @@ class BringUp(Node):
             qos_profile,
         )
 
-        # Raw wheel odometry only.
-        # robot_localization publishes the final /odom topic and
-        # odom -> base_footprint TF.
         self.pub_odom = self.create_publisher(
             Odometry,
             '/wheel/odom',
@@ -146,6 +144,12 @@ class BringUp(Node):
         self.pub_rail_state = self.create_publisher(
             String,
             '/rail_state',
+            qos_profile,
+        )
+
+        self.pub_tof = self.create_publisher(
+            Float32,
+            '/tof_distance',
             qos_profile,
         )
 
@@ -173,7 +177,8 @@ class BringUp(Node):
 
     def cb_rail_cmd_msg(self, msg):
         command = msg.data.strip().upper()
-        if command in ['DETECTED', 'FORWARD', 'BACK', 'STOP']:
+        # OUT 명령어가 추가되었습니다.
+        if command in ['DETECTED', 'FORWARD', 'BACK', 'STOP', 'OUT', 'ON']:
             try:
                 pico_msg = command + '\n'
                 self.pico_serial.write(pico_msg.encode('utf-8'))
@@ -192,6 +197,7 @@ class BringUp(Node):
             )
 
     def cb_cmd_rail_msg(self, cmd_rail_msg):
+        # RAIL 명령어는 이미 여기서 Twist 메시지(속도값)를 통해 처리됩니다.
         rail_velocity_1 = cmd_rail_msg.linear.x
         rail_velocity_2 = cmd_rail_msg.angular.z
 
@@ -243,6 +249,7 @@ class BringUp(Node):
             latest_odom_line = None
             latest_wheel_line = None
             latest_imu_line = None
+            latest_tof_line = None
 
             while self.pico_serial.in_waiting > 0:
                 line = (
@@ -250,20 +257,21 @@ class BringUp(Node):
                     .decode('utf-8', errors='ignore')
                     .strip()
                 )
-                # print(line) 
                 if self.use_stm_odom and 'ODOM' in line:
                     latest_odom_line = line
                 elif self.use_stm_wheel and 'WHEEL' in line:
                     latest_wheel_line = line
                 elif self.use_stm_imu and 'IMU' in line:
                     latest_imu_line = line
-                elif any(keyword in line for keyword in ('TOF', 'ODOM', 'WHEEL', 'IMU')):
+                elif 'TOF' in line:  
+                    latest_tof_line = line
+                elif any(keyword in line for keyword in ('ODOM', 'WHEEL', 'IMU')):
                     pass
                 else:
                     if line.startswith('STATE,'):
                         rail_state = line.split(',', 1)[1].strip().upper()
 
-                        if rail_state in ('ON_RAIL', 'OUT_RAIL'):
+                        if rail_state in ('ON_RAIL', 'OUT_RAIL','EXITING','ENTERING'):
                             self.get_logger().info(
                                 f'현재 레일 상태 =>  [{rail_state}]'
                             )
@@ -298,10 +306,28 @@ class BringUp(Node):
                     dt,
                 )
 
+            if latest_tof_line is not None:
+                self.publish_tof_from_line(latest_tof_line)
+
         except Exception as error:
             self.get_logger().warning(
                 f'Receive error: {error}'
             )
+
+    def publish_tof_from_line(self, tof_line):
+        # 파싱 예시: "TOF: 150.50 mm"
+        try:
+            parts = tof_line.split(':')
+            if len(parts) > 1:
+                # " 150.50 mm" 형태에서 공백을 기준으로 분리하여 숫자만 추출
+                dist_str = parts[1].strip().split(' ')[0]
+                distance_mm = float(dist_str)
+                
+                msg = Float32()
+                msg.data = distance_mm
+                self.pub_tof.publish(msg)
+        except (ValueError, IndexError):
+            self.get_logger().debug(f'Failed to parse TOF data: {tof_line}')
 
     def publish_odom_from_line(
         self,
@@ -500,8 +526,6 @@ class BringUp(Node):
         odom.twist.twist.linear.y = 0.0
         odom.twist.twist.angular.z = angular_velocity
 
-        # Initial covariance values for sensor fusion.
-        # Tune these values from rosbag data.
         pose_covariance = [0.0] * 36
         pose_covariance[0] = 0.10
         pose_covariance[7] = 0.10

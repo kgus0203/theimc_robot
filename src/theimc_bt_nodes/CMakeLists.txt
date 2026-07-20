@@ -15,16 +15,22 @@ find_package(pluginlib REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(yaml_cpp_vendor REQUIRED)
 
 add_library(${PROJECT_NAME} SHARED
+  src/for_each_rail.cpp
+  src/get_rail_pose.cpp
   src/go_to_pose.cpp
   src/publish_rail_command.cpp
   src/rail_approach.cpp
+  src/return_home_requested.cpp
   src/register_nodes.cpp
   src/wait_for_rail_state.cpp
   src/wait_for_mission_trigger.cpp
   src/wait_seconds.cpp
 )
+
+target_link_libraries(${PROJECT_NAME} yaml-cpp)
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE BT_PLUGIN_EXPORT)
 
@@ -42,6 +48,7 @@ ament_target_dependencies(${PROJECT_NAME}
   rclcpp
   rclcpp_action
   std_msgs
+  yaml_cpp_vendor
 )
 
 add_executable(mission_bt_runner src/mission_bt_runner.cpp)
@@ -52,6 +59,7 @@ ament_target_dependencies(mission_bt_runner
   interfaces_pkg
   nav2_behavior_tree
   rclcpp
+  std_msgs
 )
 
 pluginlib_export_plugin_description_file(nav2_behavior_tree plugins.xml)
@@ -69,7 +77,7 @@ install(
 )
 
 install(
-  DIRECTORY launch bt_xml
+  DIRECTORY launch bt_xml config
   DESTINATION share/${PROJECT_NAME}
 )
 
@@ -84,6 +92,7 @@ ament_export_dependencies(
   rclcpp
   rclcpp_action
   std_msgs
+  yaml_cpp_vendor
 )
 
 ament_package()

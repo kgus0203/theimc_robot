@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/theimc_bt_nodes.dir/src/for_each_rail.cpp.o"
+  "CMakeFiles/theimc_bt_nodes.dir/src/for_each_rail.cpp.o.d"
+  "CMakeFiles/theimc_bt_nodes.dir/src/get_rail_pose.cpp.o"
+  "CMakeFiles/theimc_bt_nodes.dir/src/get_rail_pose.cpp.o.d"
   "CMakeFiles/theimc_bt_nodes.dir/src/go_to_pose.cpp.o"
   "CMakeFiles/theimc_bt_nodes.dir/src/go_to_pose.cpp.o.d"
   "CMakeFiles/theimc_bt_nodes.dir/src/publish_rail_command.cpp.o"
@@ -7,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/theimc_bt_nodes.dir/src/rail_approach.cpp.o.d"
   "CMakeFiles/theimc_bt_nodes.dir/src/register_nodes.cpp.o"
   "CMakeFiles/theimc_bt_nodes.dir/src/register_nodes.cpp.o.d"
+  "CMakeFiles/theimc_bt_nodes.dir/src/return_home_requested.cpp.o"
+  "CMakeFiles/theimc_bt_nodes.dir/src/return_home_requested.cpp.o.d"
   "CMakeFiles/theimc_bt_nodes.dir/src/wait_for_mission_trigger.cpp.o"
   "CMakeFiles/theimc_bt_nodes.dir/src/wait_for_mission_trigger.cpp.o.d"
   "CMakeFiles/theimc_bt_nodes.dir/src/wait_for_rail_state.cpp.o"

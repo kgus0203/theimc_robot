@@ -363,6 +363,12 @@ include("/home/jeff/theimc_robot/build/interfaces_pkg/ament_cmake_symlink_instal
 # install("TARGETS" "interfaces_pkg__rosidl_typesupport_c__pyext" "DESTINATION" "local/lib/python3.10/dist-packages/interfaces_pkg")
 include("/home/jeff/theimc_robot/build/interfaces_pkg/ament_cmake_symlink_install_targets_2_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
+# install(FILES "/home/jeff/theimc_robot/build/interfaces_pkg/ament_cmake_index/share/ament_index/resource_index/rust_packages/interfaces_pkg" "DESTINATION" "share/ament_index/resource_index/rust_packages")
+ament_cmake_symlink_install_files("/home/jeff/theimc_robot/src/interfaces_pkg" FILES "/home/jeff/theimc_robot/build/interfaces_pkg/ament_cmake_index/share/ament_index/resource_index/rust_packages/interfaces_pkg" "DESTINATION" "share/ament_index/resource_index/rust_packages")
+
+# install(DIRECTORY "/home/jeff/theimc_robot/build/interfaces_pkg/rosidl_generator_rs/interfaces_pkg/rust" "DESTINATION" "share/interfaces_pkg")
+ament_cmake_symlink_install_directory("/home/jeff/theimc_robot/src/interfaces_pkg" DIRECTORY "/home/jeff/theimc_robot/build/interfaces_pkg/rosidl_generator_rs/interfaces_pkg/rust" "DESTINATION" "share/interfaces_pkg")
+
 # install(FILES "/home/jeff/theimc_robot/build/interfaces_pkg/rosidl_adapter/interfaces_pkg/msg/Point2D.idl" "DESTINATION" "share/interfaces_pkg/msg")
 ament_cmake_symlink_install_files("/home/jeff/theimc_robot/src/interfaces_pkg" FILES "/home/jeff/theimc_robot/build/interfaces_pkg/rosidl_adapter/interfaces_pkg/msg/Point2D.idl" "DESTINATION" "share/interfaces_pkg/msg")
 

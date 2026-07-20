@@ -295,6 +295,14 @@
 /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/interfaces_pkg_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
 /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/interfaces_pkg_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
 /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/interfaces_pkg_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+/home/jeff/theimc_robot/install/interfaces_pkg/share/ament_index/resource_index/rust_packages/interfaces_pkg
+/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/rust/Cargo.toml
+/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/rust/build.rs
+/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/rust/src/action.rs
+/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/rust/src/action/rmw.rs
+/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/rust/src/lib.rs
+/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/rust/src/msg.rs
+/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/rust/src/msg/rmw.rs
 /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/Point2D.idl
 /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/Vector2.idl
 /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/Pose2D.idl

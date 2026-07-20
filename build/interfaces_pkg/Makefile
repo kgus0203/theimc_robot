@@ -405,6 +405,19 @@ interfaces_pkg__py/fast:
 	$(MAKE) $(MAKESILENT) -f interfaces_pkg__py/CMakeFiles/interfaces_pkg__py.dir/build.make interfaces_pkg__py/CMakeFiles/interfaces_pkg__py.dir/build
 .PHONY : interfaces_pkg__py/fast
 
+#=============================================================================
+# Target rules for targets named interfaces_pkg__rs
+
+# Build rule for target.
+interfaces_pkg__rs: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 interfaces_pkg__rs
+.PHONY : interfaces_pkg__rs
+
+# fast build rule for target.
+interfaces_pkg__rs/fast:
+	$(MAKE) $(MAKESILENT) -f interfaces_pkg__rs/CMakeFiles/interfaces_pkg__rs.dir/build.make interfaces_pkg__rs/CMakeFiles/interfaces_pkg__rs.dir/build
+.PHONY : interfaces_pkg__rs/fast
+
 rosidl_generator_c/interfaces_pkg/action/detail/rail_approach__functions.o: rosidl_generator_c/interfaces_pkg/action/detail/rail_approach__functions.c.o
 .PHONY : rosidl_generator_c/interfaces_pkg/action/detail/rail_approach__functions.o
 
@@ -3951,6 +3964,7 @@ help:
 	@echo "... interfaces_pkg"
 	@echo "... interfaces_pkg__cpp"
 	@echo "... interfaces_pkg__py"
+	@echo "... interfaces_pkg__rs"
 	@echo "... interfaces_pkg_uninstall"
 	@echo "... uninstall"
 	@echo "... interfaces_pkg__rosidl_generator_c"

@@ -1,0 +1,56 @@
+[1.644s] Invoking command in '/home/jeff/theimc_robot/build/camera_perception_pkg': PYTHONPATH=/home/jeff/theimc_robot/build/camera_perception_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/jeff/theimc_robot/build/camera_perception_pkg/build
+[2.288s] running develop
+[2.669s] Removing /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera-perception-pkg.egg-link (link to .)
+[2.763s] Invoked command in '/home/jeff/theimc_robot/build/camera_perception_pkg' returned '0': PYTHONPATH=/home/jeff/theimc_robot/build/camera_perception_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/jeff/theimc_robot/build/camera_perception_pkg/build
+[2.764s] Invoking command in '/home/jeff/theimc_robot/src/camera_perception_pkg': PYTHONPATH=/home/jeff/theimc_robot/build/camera_perception_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/camera_perception_pkg build --build-base /home/jeff/theimc_robot/build/camera_perception_pkg/build install --record /home/jeff/theimc_robot/build/camera_perception_pkg/install.log --install-scripts $base/lib/camera_perception_pkg --single-version-externally-managed install_data --force
+[3.349s] running egg_info
+[3.351s] writing ../../build/camera_perception_pkg/camera_perception_pkg.egg-info/PKG-INFO
+[3.352s] writing dependency_links to ../../build/camera_perception_pkg/camera_perception_pkg.egg-info/dependency_links.txt
+[3.352s] writing entry points to ../../build/camera_perception_pkg/camera_perception_pkg.egg-info/entry_points.txt
+[3.353s] writing requirements to ../../build/camera_perception_pkg/camera_perception_pkg.egg-info/requires.txt
+[3.353s] writing top-level names to ../../build/camera_perception_pkg/camera_perception_pkg.egg-info/top_level.txt
+[3.358s] reading manifest file '../../build/camera_perception_pkg/camera_perception_pkg.egg-info/SOURCES.txt'
+[3.359s] writing manifest file '../../build/camera_perception_pkg/camera_perception_pkg.egg-info/SOURCES.txt'
+[3.360s] running build
+[3.361s] running build_py
+[3.362s] creating /home/jeff/theimc_robot/build/camera_perception_pkg/build
+[3.363s] creating /home/jeff/theimc_robot/build/camera_perception_pkg/build/lib
+[3.363s] creating /home/jeff/theimc_robot/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[3.363s] copying camera_perception_pkg/__init__.py -> /home/jeff/theimc_robot/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[3.364s] copying camera_perception_pkg/aruco_detector_node.py -> /home/jeff/theimc_robot/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[3.364s] copying camera_perception_pkg/yolov8_node.py -> /home/jeff/theimc_robot/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[3.364s] copying camera_perception_pkg/rail_info_extractor_node.py -> /home/jeff/theimc_robot/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[3.364s] copying camera_perception_pkg/image_publisher_node.py -> /home/jeff/theimc_robot/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[3.365s] creating /home/jeff/theimc_robot/build/camera_perception_pkg/build/lib/camera_perception_pkg/lib
+[3.365s] copying camera_perception_pkg/lib/__init__.py -> /home/jeff/theimc_robot/build/camera_perception_pkg/build/lib/camera_perception_pkg/lib
+[3.365s] copying camera_perception_pkg/lib/camera_perception_func_lib.py -> /home/jeff/theimc_robot/build/camera_perception_pkg/build/lib/camera_perception_pkg/lib
+[3.366s] running install
+[3.367s] running install_lib
+[3.370s] creating /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[3.370s] copying /home/jeff/theimc_robot/build/camera_perception_pkg/build/lib/camera_perception_pkg/__init__.py -> /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[3.371s] copying /home/jeff/theimc_robot/build/camera_perception_pkg/build/lib/camera_perception_pkg/aruco_detector_node.py -> /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[3.371s] copying /home/jeff/theimc_robot/build/camera_perception_pkg/build/lib/camera_perception_pkg/yolov8_node.py -> /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[3.371s] creating /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lib
+[3.371s] copying /home/jeff/theimc_robot/build/camera_perception_pkg/build/lib/camera_perception_pkg/lib/__init__.py -> /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lib
+[3.371s] copying /home/jeff/theimc_robot/build/camera_perception_pkg/build/lib/camera_perception_pkg/lib/camera_perception_func_lib.py -> /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lib
+[3.372s] copying /home/jeff/theimc_robot/build/camera_perception_pkg/build/lib/camera_perception_pkg/rail_info_extractor_node.py -> /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[3.372s] copying /home/jeff/theimc_robot/build/camera_perception_pkg/build/lib/camera_perception_pkg/image_publisher_node.py -> /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[3.375s] byte-compiling /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/__init__.py to __init__.cpython-310.pyc
+[3.375s] byte-compiling /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/aruco_detector_node.py to aruco_detector_node.cpython-310.pyc
+[3.376s] byte-compiling /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/yolov8_node.py to yolov8_node.cpython-310.pyc
+[3.380s] byte-compiling /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lib/__init__.py to __init__.cpython-310.pyc
+[3.381s] byte-compiling /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lib/camera_perception_func_lib.py to camera_perception_func_lib.cpython-310.pyc
+[3.384s] byte-compiling /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/rail_info_extractor_node.py to rail_info_extractor_node.cpython-310.pyc
+[3.388s] byte-compiling /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/image_publisher_node.py to image_publisher_node.cpython-310.pyc
+[3.392s] running install_data
+[3.393s] copying resource/camera_perception_pkg -> /home/jeff/theimc_robot/install/camera_perception_pkg/share/ament_index/resource_index/packages
+[3.393s] copying package.xml -> /home/jeff/theimc_robot/install/camera_perception_pkg/share/camera_perception_pkg
+[3.393s] running install_egg_info
+[3.398s] Copying ../../build/camera_perception_pkg/camera_perception_pkg.egg-info to /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg-0.0.0-py3.10.egg-info
+[3.400s] running install_scripts
+[3.448s] Installing aruco_detector_node script to /home/jeff/theimc_robot/install/camera_perception_pkg/lib/camera_perception_pkg
+[3.449s] Installing image_publisher_node script to /home/jeff/theimc_robot/install/camera_perception_pkg/lib/camera_perception_pkg
+[3.449s] Installing rail_info_extractor_node script to /home/jeff/theimc_robot/install/camera_perception_pkg/lib/camera_perception_pkg
+[3.449s] Installing yolov8_node script to /home/jeff/theimc_robot/install/camera_perception_pkg/lib/camera_perception_pkg
+[3.457s] writing list of installed files to '/home/jeff/theimc_robot/build/camera_perception_pkg/install.log'
+[3.530s] Invoked command in '/home/jeff/theimc_robot/src/camera_perception_pkg' returned '0': PYTHONPATH=/home/jeff/theimc_robot/build/camera_perception_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/camera_perception_pkg build --build-base /home/jeff/theimc_robot/build/camera_perception_pkg/build install --record /home/jeff/theimc_robot/build/camera_perception_pkg/install.log --install-scripts $base/lib/camera_perception_pkg --single-version-externally-managed install_data --force

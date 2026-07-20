@@ -176,7 +176,7 @@
   </link>
 
   <!-- camera_rgb_frame (optical frame) -->
-  <link name="camera_rgb_frame"/>
+  <link name="camera_color_optical_frame"/>
 
   <!-- camera mount joint -->
   <joint name="camera_joint" type="fixed">
@@ -186,10 +186,10 @@
   </joint>
 
   <!-- optical frame joint -->
-  <joint name="camera_rgb_joint" type="fixed">
+  <joint name="camera_color_optical_joint" type="fixed">
     <parent link="camera_link"/>
-    <child link="camera_rgb_frame"/>
-    <origin xyz="0 0 0" rpy="0 1.57 0"/>
+    <child link="camera_color_optical_frame"/>
+    <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708"/>
   </joint>
 
   <!-- joints -->

@@ -1,0 +1,446 @@
+[0.000000] (-) TimerEvent: {}
+[0.000962] (-) JobUnselected: {'identifier': 'camera_perception_pkg'}
+[0.001130] (-) JobUnselected: {'identifier': 'debug_pkg'}
+[0.001239] (-) JobUnselected: {'identifier': 'decision_making_pkg'}
+[0.001337] (-) JobUnselected: {'identifier': 'interfaces_pkg'}
+[0.001427] (-) JobUnselected: {'identifier': 'localizer_server'}
+[0.001536] (-) JobUnselected: {'identifier': 'sllidar_ros2'}
+[0.001627] (-) JobUnselected: {'identifier': 'theimc_description'}
+[0.001714] (-) JobUnselected: {'identifier': 'theimc_navigation2'}
+[0.001799] (-) JobUnselected: {'identifier': 'theimc_teleop'}
+[0.001913] (theimc_bringup) JobQueued: {'identifier': 'theimc_bringup', 'dependencies': OrderedDict()}
+[0.002013] (theimc_bt_nodes) JobQueued: {'identifier': 'theimc_bt_nodes', 'dependencies': OrderedDict([('interfaces_pkg', '/home/jeff/theimc_robot/install/interfaces_pkg'), ('theimc_navigation2', '/home/jeff/theimc_robot/install/theimc_navigation2')])}
+[0.002126] (theimc_bringup) JobStarted: {'identifier': 'theimc_bringup'}
+[0.022863] (theimc_bt_nodes) JobStarted: {'identifier': 'theimc_bt_nodes'}
+[0.098236] (-) TimerEvent: {}
+[0.199002] (-) TimerEvent: {}
+[0.299979] (-) TimerEvent: {}
+[0.400746] (-) TimerEvent: {}
+[0.501503] (-) TimerEvent: {}
+[0.602276] (-) TimerEvent: {}
+[0.649043] (theimc_bt_nodes) JobProgress: {'identifier': 'theimc_bt_nodes', 'progress': 'cmake'}
+[0.652274] (theimc_bt_nodes) JobProgress: {'identifier': 'theimc_bt_nodes', 'progress': 'build'}
+[0.654589] (theimc_bt_nodes) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jeff/theimc_robot/build/theimc_bt_nodes', '--', '-j6', '-l6'], 'cwd': '/home/jeff/theimc_robot/build/theimc_bt_nodes', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jeff'), ('SSH_CLIENT', '192.168.0.10 54058 22'), ('LC_TIME', 'en_US.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/jeff/theimc_robot/install/theimc_navigation2/lib:/home/jeff/theimc_robot/install/interfaces_pkg/lib:/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jeff'), ('OLDPWD', '/home/jeff'), ('SSH_TTY', '/dev/pts/10'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'en_US.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLCON_PREFIX_PATH', '/home/jeff/theimc_robot/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'jeff'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '29'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/jeff/.local/bin:/usr/local/cuda/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'en_US.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('ROS_DOMAIN_ID', '20'), ('AMENT_PREFIX_PATH', '/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('PWD', '/home/jeff/theimc_robot/build/theimc_bt_nodes'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.0.10 54058 192.168.0.74 22'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jeff/theimc_robot/build/theimc_teleop:/home/jeff/theimc_robot/install/theimc_teleop/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/theimc_bringup:/home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/localizer_server:/home/jeff/theimc_robot/install/localizer_server/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/decision_making_pkg:/home/jeff/theimc_robot/install/decision_making_pkg/lib/python3.10/site-packages:/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages:/home/jeff/theimc_robot/build/debug_pkg:/home/jeff/theimc_robot/install/debug_pkg/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/camera_perception_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble')]), 'shell': False}
+[0.702443] (-) TimerEvent: {}
+[0.728481] (theimc_bt_nodes) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.802861] (-) TimerEvent: {}
+[0.903478] (-) TimerEvent: {}
+[1.004086] (-) TimerEvent: {}
+[1.035633] (theimc_bt_nodes) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[1.066912] (theimc_bt_nodes) StdoutLine: {'line': b'-- Found ament_index_cpp: 1.4.1 (/opt/ros/humble/share/ament_index_cpp/cmake)\n'}
+[1.071273] (theimc_bt_nodes) StdoutLine: {'line': b'-- Found interfaces_pkg: 0.0.0 (/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake)\n'}
+[1.104222] (-) TimerEvent: {}
+[1.162309] (theimc_bt_nodes) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[1.168712] (theimc_bt_nodes) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[1.183642] (theimc_bt_nodes) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[1.204417] (-) TimerEvent: {}
+[1.205680] (theimc_bt_nodes) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.229975] (theimc_bt_nodes) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.304831] (-) TimerEvent: {}
+[1.369903] (theimc_bt_nodes) StdoutLine: {'line': b'-- Found nav2_behavior_tree: 1.1.20 (/opt/ros/humble/share/nav2_behavior_tree/cmake)\n'}
+[1.405869] (-) TimerEvent: {}
+[1.433864] (theimc_bt_nodes) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.437624] (theimc_bt_nodes) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.506001] (-) TimerEvent: {}
+[1.606617] (-) TimerEvent: {}
+[1.651620] (theimc_bt_nodes) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.706825] (-) TimerEvent: {}
+[1.807474] (-) TimerEvent: {}
+[1.908110] (-) TimerEvent: {}
+[2.008741] (-) TimerEvent: {}
+[2.009729] (theimc_bt_nodes) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[2.012706] (theimc_bt_nodes) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[2.103606] (theimc_bt_nodes) StdoutLine: {'line': b'-- Found pluginlib: 5.1.4 (/opt/ros/humble/share/pluginlib/cmake)\n'}
+[2.108903] (-) TimerEvent: {}
+[2.133221] (theimc_bt_nodes) StdoutLine: {'line': b'-- Found yaml_cpp_vendor: 8.0.2 (/opt/ros/humble/share/yaml_cpp_vendor/cmake)\n'}
+[2.179142] (theimc_bringup) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/jeff/theimc_robot/build/theimc_bringup/build', '--no-deps', 'symlink_data'], 'cwd': '/home/jeff/theimc_robot/build/theimc_bringup', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'jeff', 'SSH_CLIENT': '192.168.0.10 54058 22', 'LC_TIME': 'en_US.UTF-8', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/home/jeff/theimc_robot/install/theimc_navigation2/lib:/home/jeff/theimc_robot/install/interfaces_pkg/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'MOTD_SHOWN': 'pam', 'HOME': '/home/jeff', 'OLDPWD': '/home/jeff', 'SSH_TTY': '/dev/pts/10', 'ROS_PYTHON_VERSION': '3', 'LC_MONETARY': 'en_US.UTF-8', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/jeff/theimc_robot/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'jeff', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '29', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/jeff/.local/bin:/usr/local/cuda/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'LC_ADDRESS': 'en_US.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'ROS_DOMAIN_ID': '20', 'AMENT_PREFIX_PATH': '/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'en_US.UTF-8', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'PWD': '/home/jeff/theimc_robot/build/theimc_bringup', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.0.10 54058 192.168.0.74 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/jeff/theimc_robot/build/theimc_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/theimc_teleop:/home/jeff/theimc_robot/install/theimc_teleop/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/theimc_bringup:/home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/localizer_server:/home/jeff/theimc_robot/install/localizer_server/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/decision_making_pkg:/home/jeff/theimc_robot/install/decision_making_pkg/lib/python3.10/site-packages:/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages:/home/jeff/theimc_robot/build/debug_pkg:/home/jeff/theimc_robot/install/debug_pkg/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/camera_perception_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/interfaces_pkg'}, 'shell': False}
+[2.209078] (-) TimerEvent: {}
+[2.309795] (-) TimerEvent: {}
+[2.385374] (theimc_bt_nodes) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.409959] (-) TimerEvent: {}
+[2.510636] (-) TimerEvent: {}
+[2.552869] (theimc_bt_nodes) StdoutLine: {'line': b'-- Generating done\n'}
+[2.573422] (theimc_bt_nodes) StdoutLine: {'line': b'-- Build files have been written to: /home/jeff/theimc_robot/build/theimc_bt_nodes\n'}
+[2.610890] (-) TimerEvent: {}
+[2.653375] (theimc_bt_nodes) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target mission_bt_runner\x1b[0m\n'}
+[2.664141] (theimc_bt_nodes) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target theimc_bt_nodes\x1b[0m\n'}
+[2.695587] (theimc_bt_nodes) StdoutLine: {'line': b'[ 15%] Built target mission_bt_runner\n'}
+[2.711045] (-) TimerEvent: {}
+[2.753136] (theimc_bt_nodes) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/theimc_bt_nodes.dir/src/register_nodes.cpp.o\x1b[0m\n'}
+[2.753618] (theimc_bt_nodes) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/theimc_bt_nodes.dir/src/return_home_requested.cpp.o\x1b[0m\n'}
+[2.811243] (-) TimerEvent: {}
+[2.831197] (theimc_bringup) StdoutLine: {'line': b'running develop\n'}
+[2.911413] (-) TimerEvent: {}
+[3.012067] (-) TimerEvent: {}
+[3.112718] (-) TimerEvent: {}
+[3.213316] (-) TimerEvent: {}
+[3.240606] (theimc_bringup) StdoutLine: {'line': b'running egg_info\n'}
+[3.241111] (theimc_bringup) StdoutLine: {'line': b'writing theimc_bringup.egg-info/PKG-INFO\n'}
+[3.241286] (theimc_bringup) StdoutLine: {'line': b'writing dependency_links to theimc_bringup.egg-info/dependency_links.txt\n'}
+[3.241439] (theimc_bringup) StdoutLine: {'line': b'writing entry points to theimc_bringup.egg-info/entry_points.txt\n'}
+[3.244299] (theimc_bringup) StdoutLine: {'line': b'writing requirements to theimc_bringup.egg-info/requires.txt\n'}
+[3.244670] (theimc_bringup) StdoutLine: {'line': b'writing top-level names to theimc_bringup.egg-info/top_level.txt\n'}
+[3.245708] (theimc_bringup) StdoutLine: {'line': b"reading manifest file 'theimc_bringup.egg-info/SOURCES.txt'\n"}
+[3.248303] (theimc_bringup) StdoutLine: {'line': b"writing manifest file 'theimc_bringup.egg-info/SOURCES.txt'\n"}
+[3.252331] (theimc_bringup) StdoutLine: {'line': b'running build_ext\n'}
+[3.253101] (theimc_bringup) StdoutLine: {'line': b'Creating /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc-bringup.egg-link (link to .)\n'}
+[3.255283] (theimc_bringup) StdoutLine: {'line': b'Installing bringup_node script to /home/jeff/theimc_robot/install/theimc_bringup/lib/theimc_bringup\n'}
+[3.255764] (theimc_bringup) StdoutLine: {'line': b'Installing isaac_vslam_odom_adapter_node script to /home/jeff/theimc_robot/install/theimc_bringup/lib/theimc_bringup\n'}
+[3.256046] (theimc_bringup) StdoutLine: {'line': b'Installing last_pose_manager_node script to /home/jeff/theimc_robot/install/theimc_bringup/lib/theimc_bringup\n'}
+[3.257012] (theimc_bringup) StdoutLine: {'line': b'Installing robot_agent_node script to /home/jeff/theimc_robot/install/theimc_bringup/lib/theimc_bringup\n'}
+[3.257302] (theimc_bringup) StdoutLine: {'line': b'\n'}
+[3.257456] (theimc_bringup) StdoutLine: {'line': b'Installed /home/jeff/theimc_robot/build/theimc_bringup\n'}
+[3.257900] (theimc_bringup) StdoutLine: {'line': b'running symlink_data\n'}
+[3.313490] (-) TimerEvent: {}
+[3.354345] (theimc_bringup) CommandEnded: {'returncode': 0}
+[3.414084] (-) TimerEvent: {}
+[3.417323] (theimc_bringup) JobEnded: {'identifier': 'theimc_bringup', 'rc': 0}
+[3.514313] (-) TimerEvent: {}
+[3.615840] (-) TimerEvent: {}
+[3.716641] (-) TimerEvent: {}
+[3.817462] (-) TimerEvent: {}
+[3.918288] (-) TimerEvent: {}
+[4.019126] (-) TimerEvent: {}
+[4.119942] (-) TimerEvent: {}
+[4.220762] (-) TimerEvent: {}
+[4.321569] (-) TimerEvent: {}
+[4.422376] (-) TimerEvent: {}
+[4.523214] (-) TimerEvent: {}
+[4.624031] (-) TimerEvent: {}
+[4.724857] (-) TimerEvent: {}
+[4.825654] (-) TimerEvent: {}
+[4.926353] (-) TimerEvent: {}
+[5.027050] (-) TimerEvent: {}
+[5.127890] (-) TimerEvent: {}
+[5.228580] (-) TimerEvent: {}
+[5.329335] (-) TimerEvent: {}
+[5.430097] (-) TimerEvent: {}
+[5.530849] (-) TimerEvent: {}
+[5.631574] (-) TimerEvent: {}
+[5.732301] (-) TimerEvent: {}
+[5.833057] (-) TimerEvent: {}
+[5.933778] (-) TimerEvent: {}
+[6.034503] (-) TimerEvent: {}
+[6.135268] (-) TimerEvent: {}
+[6.235945] (-) TimerEvent: {}
+[6.336668] (-) TimerEvent: {}
+[6.437425] (-) TimerEvent: {}
+[6.538151] (-) TimerEvent: {}
+[6.638926] (-) TimerEvent: {}
+[6.739857] (-) TimerEvent: {}
+[6.840479] (-) TimerEvent: {}
+[6.941090] (-) TimerEvent: {}
+[7.041721] (-) TimerEvent: {}
+[7.142372] (-) TimerEvent: {}
+[7.243089] (-) TimerEvent: {}
+[7.343777] (-) TimerEvent: {}
+[7.444462] (-) TimerEvent: {}
+[7.545148] (-) TimerEvent: {}
+[7.645833] (-) TimerEvent: {}
+[7.746501] (-) TimerEvent: {}
+[7.847144] (-) TimerEvent: {}
+[7.947849] (-) TimerEvent: {}
+[8.048467] (-) TimerEvent: {}
+[8.149089] (-) TimerEvent: {}
+[8.249745] (-) TimerEvent: {}
+[8.350414] (-) TimerEvent: {}
+[8.451164] (-) TimerEvent: {}
+[8.551864] (-) TimerEvent: {}
+[8.652557] (-) TimerEvent: {}
+[8.753229] (-) TimerEvent: {}
+[8.853920] (-) TimerEvent: {}
+[8.954605] (-) TimerEvent: {}
+[9.055326] (-) TimerEvent: {}
+[9.156008] (-) TimerEvent: {}
+[9.256706] (-) TimerEvent: {}
+[9.357379] (-) TimerEvent: {}
+[9.458231] (-) TimerEvent: {}
+[9.558891] (-) TimerEvent: {}
+[9.659597] (-) TimerEvent: {}
+[9.760284] (-) TimerEvent: {}
+[9.860994] (-) TimerEvent: {}
+[9.961686] (-) TimerEvent: {}
+[10.062396] (-) TimerEvent: {}
+[10.163110] (-) TimerEvent: {}
+[10.263794] (-) TimerEvent: {}
+[10.364473] (-) TimerEvent: {}
+[10.465150] (-) TimerEvent: {}
+[10.565832] (-) TimerEvent: {}
+[10.666520] (-) TimerEvent: {}
+[10.767217] (-) TimerEvent: {}
+[10.867900] (-) TimerEvent: {}
+[10.968590] (-) TimerEvent: {}
+[11.069269] (-) TimerEvent: {}
+[11.169946] (-) TimerEvent: {}
+[11.270634] (-) TimerEvent: {}
+[11.371337] (-) TimerEvent: {}
+[11.472024] (-) TimerEvent: {}
+[11.572709] (-) TimerEvent: {}
+[11.673393] (-) TimerEvent: {}
+[11.774096] (-) TimerEvent: {}
+[11.874836] (-) TimerEvent: {}
+[11.975529] (-) TimerEvent: {}
+[12.076188] (-) TimerEvent: {}
+[12.176843] (-) TimerEvent: {}
+[12.277537] (-) TimerEvent: {}
+[12.378262] (-) TimerEvent: {}
+[12.478966] (-) TimerEvent: {}
+[12.579675] (-) TimerEvent: {}
+[12.680329] (-) TimerEvent: {}
+[12.781038] (-) TimerEvent: {}
+[12.881707] (-) TimerEvent: {}
+[12.982463] (-) TimerEvent: {}
+[13.083171] (-) TimerEvent: {}
+[13.183860] (-) TimerEvent: {}
+[13.284518] (-) TimerEvent: {}
+[13.385322] (-) TimerEvent: {}
+[13.485968] (-) TimerEvent: {}
+[13.586602] (-) TimerEvent: {}
+[13.687264] (-) TimerEvent: {}
+[13.787903] (-) TimerEvent: {}
+[13.888536] (-) TimerEvent: {}
+[13.989142] (-) TimerEvent: {}
+[14.089762] (-) TimerEvent: {}
+[14.190480] (-) TimerEvent: {}
+[14.291151] (-) TimerEvent: {}
+[14.391796] (-) TimerEvent: {}
+[14.492438] (-) TimerEvent: {}
+[14.593080] (-) TimerEvent: {}
+[14.693719] (-) TimerEvent: {}
+[14.794362] (-) TimerEvent: {}
+[14.895033] (-) TimerEvent: {}
+[14.995694] (-) TimerEvent: {}
+[15.096358] (-) TimerEvent: {}
+[15.197020] (-) TimerEvent: {}
+[15.297663] (-) TimerEvent: {}
+[15.398298] (-) TimerEvent: {}
+[15.498965] (-) TimerEvent: {}
+[15.599593] (-) TimerEvent: {}
+[15.700219] (-) TimerEvent: {}
+[15.800841] (-) TimerEvent: {}
+[15.901464] (-) TimerEvent: {}
+[16.002087] (-) TimerEvent: {}
+[16.102711] (-) TimerEvent: {}
+[16.203363] (-) TimerEvent: {}
+[16.303970] (-) TimerEvent: {}
+[16.404592] (-) TimerEvent: {}
+[16.505264] (-) TimerEvent: {}
+[16.605889] (-) TimerEvent: {}
+[16.706528] (-) TimerEvent: {}
+[16.807200] (-) TimerEvent: {}
+[16.907845] (-) TimerEvent: {}
+[17.008496] (-) TimerEvent: {}
+[17.109142] (-) TimerEvent: {}
+[17.209800] (-) TimerEvent: {}
+[17.310446] (-) TimerEvent: {}
+[17.411132] (-) TimerEvent: {}
+[17.511772] (-) TimerEvent: {}
+[17.612430] (-) TimerEvent: {}
+[17.713067] (-) TimerEvent: {}
+[17.813724] (-) TimerEvent: {}
+[17.914393] (-) TimerEvent: {}
+[18.015084] (-) TimerEvent: {}
+[18.115771] (-) TimerEvent: {}
+[18.216457] (-) TimerEvent: {}
+[18.317152] (-) TimerEvent: {}
+[18.417829] (-) TimerEvent: {}
+[18.518524] (-) TimerEvent: {}
+[18.619221] (-) TimerEvent: {}
+[18.719917] (-) TimerEvent: {}
+[18.820605] (-) TimerEvent: {}
+[18.921348] (-) TimerEvent: {}
+[19.022007] (-) TimerEvent: {}
+[19.122671] (-) TimerEvent: {}
+[19.223302] (-) TimerEvent: {}
+[19.323937] (-) TimerEvent: {}
+[19.424560] (-) TimerEvent: {}
+[19.525209] (-) TimerEvent: {}
+[19.625854] (-) TimerEvent: {}
+[19.726490] (-) TimerEvent: {}
+[19.827147] (-) TimerEvent: {}
+[19.927801] (-) TimerEvent: {}
+[20.028452] (-) TimerEvent: {}
+[20.129133] (-) TimerEvent: {}
+[20.229760] (-) TimerEvent: {}
+[20.330404] (-) TimerEvent: {}
+[20.431050] (-) TimerEvent: {}
+[20.531668] (-) TimerEvent: {}
+[20.632298] (-) TimerEvent: {}
+[20.732961] (-) TimerEvent: {}
+[20.833592] (-) TimerEvent: {}
+[20.934249] (-) TimerEvent: {}
+[21.034889] (-) TimerEvent: {}
+[21.135528] (-) TimerEvent: {}
+[21.236190] (-) TimerEvent: {}
+[21.336789] (-) TimerEvent: {}
+[21.437401] (-) TimerEvent: {}
+[21.538005] (-) TimerEvent: {}
+[21.638598] (-) TimerEvent: {}
+[21.739415] (-) TimerEvent: {}
+[21.840188] (-) TimerEvent: {}
+[21.940946] (-) TimerEvent: {}
+[22.041678] (-) TimerEvent: {}
+[22.142430] (-) TimerEvent: {}
+[22.243221] (-) TimerEvent: {}
+[22.344006] (-) TimerEvent: {}
+[22.444791] (-) TimerEvent: {}
+[22.545456] (-) TimerEvent: {}
+[22.646291] (-) TimerEvent: {}
+[22.747102] (-) TimerEvent: {}
+[22.847853] (-) TimerEvent: {}
+[22.948577] (-) TimerEvent: {}
+[23.049237] (-) TimerEvent: {}
+[23.150001] (-) TimerEvent: {}
+[23.250797] (-) TimerEvent: {}
+[23.351452] (-) TimerEvent: {}
+[23.452237] (-) TimerEvent: {}
+[23.553037] (-) TimerEvent: {}
+[23.653821] (-) TimerEvent: {}
+[23.754623] (-) TimerEvent: {}
+[23.855478] (-) TimerEvent: {}
+[23.956283] (-) TimerEvent: {}
+[24.057046] (-) TimerEvent: {}
+[24.157858] (-) TimerEvent: {}
+[24.258678] (-) TimerEvent: {}
+[24.359511] (-) TimerEvent: {}
+[24.460355] (-) TimerEvent: {}
+[24.561126] (-) TimerEvent: {}
+[24.661994] (-) TimerEvent: {}
+[24.762817] (-) TimerEvent: {}
+[24.863631] (-) TimerEvent: {}
+[24.964374] (-) TimerEvent: {}
+[25.065057] (-) TimerEvent: {}
+[25.165836] (-) TimerEvent: {}
+[25.266646] (-) TimerEvent: {}
+[25.367434] (-) TimerEvent: {}
+[25.468202] (-) TimerEvent: {}
+[25.568964] (-) TimerEvent: {}
+[25.669769] (-) TimerEvent: {}
+[25.770566] (-) TimerEvent: {}
+[25.871386] (-) TimerEvent: {}
+[25.972177] (-) TimerEvent: {}
+[26.072947] (-) TimerEvent: {}
+[26.173702] (-) TimerEvent: {}
+[26.274482] (-) TimerEvent: {}
+[26.375301] (-) TimerEvent: {}
+[26.476069] (-) TimerEvent: {}
+[26.576849] (-) TimerEvent: {}
+[26.677634] (-) TimerEvent: {}
+[26.778428] (-) TimerEvent: {}
+[26.879240] (-) TimerEvent: {}
+[26.980052] (-) TimerEvent: {}
+[27.080876] (-) TimerEvent: {}
+[27.181688] (-) TimerEvent: {}
+[27.282500] (-) TimerEvent: {}
+[27.383322] (-) TimerEvent: {}
+[27.484123] (-) TimerEvent: {}
+[27.584920] (-) TimerEvent: {}
+[27.685743] (-) TimerEvent: {}
+[27.786564] (-) TimerEvent: {}
+[27.887384] (-) TimerEvent: {}
+[27.988179] (-) TimerEvent: {}
+[28.088996] (-) TimerEvent: {}
+[28.189798] (-) TimerEvent: {}
+[28.290573] (-) TimerEvent: {}
+[28.391409] (-) TimerEvent: {}
+[28.492312] (-) TimerEvent: {}
+[28.593142] (-) TimerEvent: {}
+[28.693937] (-) TimerEvent: {}
+[28.794769] (-) TimerEvent: {}
+[28.895533] (-) TimerEvent: {}
+[28.907448] (theimc_bt_nodes) StdoutLine: {'line': b'[ 38%] \x1b[32m\x1b[1mLinking CXX shared library libtheimc_bt_nodes.so\x1b[0m\n'}
+[28.995696] (-) TimerEvent: {}
+[29.096384] (-) TimerEvent: {}
+[29.197071] (-) TimerEvent: {}
+[29.297729] (-) TimerEvent: {}
+[29.398387] (-) TimerEvent: {}
+[29.499072] (-) TimerEvent: {}
+[29.599803] (-) TimerEvent: {}
+[29.700696] (-) TimerEvent: {}
+[29.801623] (-) TimerEvent: {}
+[29.902428] (-) TimerEvent: {}
+[30.003322] (-) TimerEvent: {}
+[30.104243] (-) TimerEvent: {}
+[30.205117] (-) TimerEvent: {}
+[30.306319] (-) TimerEvent: {}
+[30.407204] (-) TimerEvent: {}
+[30.508120] (-) TimerEvent: {}
+[30.608987] (-) TimerEvent: {}
+[30.709856] (-) TimerEvent: {}
+[30.810749] (-) TimerEvent: {}
+[30.911641] (-) TimerEvent: {}
+[31.012473] (-) TimerEvent: {}
+[31.113292] (-) TimerEvent: {}
+[31.214100] (-) TimerEvent: {}
+[31.315005] (-) TimerEvent: {}
+[31.415848] (-) TimerEvent: {}
+[31.516682] (-) TimerEvent: {}
+[31.617509] (-) TimerEvent: {}
+[31.718310] (-) TimerEvent: {}
+[31.819340] (-) TimerEvent: {}
+[31.920125] (-) TimerEvent: {}
+[32.020905] (-) TimerEvent: {}
+[32.121688] (-) TimerEvent: {}
+[32.222488] (-) TimerEvent: {}
+[32.323301] (-) TimerEvent: {}
+[32.424106] (-) TimerEvent: {}
+[32.524917] (-) TimerEvent: {}
+[32.625703] (-) TimerEvent: {}
+[32.726522] (-) TimerEvent: {}
+[32.827363] (-) TimerEvent: {}
+[32.928209] (-) TimerEvent: {}
+[33.029129] (-) TimerEvent: {}
+[33.129965] (-) TimerEvent: {}
+[33.230782] (-) TimerEvent: {}
+[33.331602] (-) TimerEvent: {}
+[33.370953] (theimc_bt_nodes) StdoutLine: {'line': b'[100%] Built target theimc_bt_nodes\n'}
+[33.400576] (theimc_bt_nodes) CommandEnded: {'returncode': 0}
+[33.402873] (theimc_bt_nodes) JobProgress: {'identifier': 'theimc_bt_nodes', 'progress': 'install'}
+[33.427540] (theimc_bt_nodes) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/jeff/theimc_robot/build/theimc_bt_nodes'], 'cwd': '/home/jeff/theimc_robot/build/theimc_bt_nodes', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jeff'), ('SSH_CLIENT', '192.168.0.10 54058 22'), ('LC_TIME', 'en_US.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/jeff/theimc_robot/install/theimc_navigation2/lib:/home/jeff/theimc_robot/install/interfaces_pkg/lib:/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jeff'), ('OLDPWD', '/home/jeff'), ('SSH_TTY', '/dev/pts/10'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'en_US.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLCON_PREFIX_PATH', '/home/jeff/theimc_robot/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'jeff'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '29'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/jeff/.local/bin:/usr/local/cuda/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'en_US.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('ROS_DOMAIN_ID', '20'), ('AMENT_PREFIX_PATH', '/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('PWD', '/home/jeff/theimc_robot/build/theimc_bt_nodes'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.0.10 54058 192.168.0.74 22'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jeff/theimc_robot/build/theimc_teleop:/home/jeff/theimc_robot/install/theimc_teleop/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/theimc_bringup:/home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/localizer_server:/home/jeff/theimc_robot/install/localizer_server/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/decision_making_pkg:/home/jeff/theimc_robot/install/decision_making_pkg/lib/python3.10/site-packages:/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages:/home/jeff/theimc_robot/build/debug_pkg:/home/jeff/theimc_robot/install/debug_pkg/lib/python3.10/site-packages:/home/jeff/theimc_robot/build/camera_perception_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble')]), 'shell': False}
+[33.432175] (-) TimerEvent: {}
+[33.447810] (theimc_bt_nodes) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[33.448882] (theimc_bt_nodes) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[33.449397] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes//plugins.xml\n'}
+[33.450020] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/lib/libtheimc_bt_nodes.so\n'}
+[33.450895] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/lib/theimc_bt_nodes/mission_bt_runner\n'}
+[33.451480] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/for_each_rail.hpp\n'}
+[33.452227] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/get_rail_pose.hpp\n'}
+[33.452705] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/go_to_pose.hpp\n'}
+[33.452913] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/publish_rail_command.hpp\n'}
+[33.453097] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/rail_approach.hpp\n'}
+[33.453271] (theimc_bt_nodes) StdoutLine: {'line': b'-- Symlinking: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/return_home_requested.hpp\n'}
+[33.471353] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/wait_for_mission_trigger.hpp\n'}
+[33.471892] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/wait_for_rail_state.hpp\n'}
+[33.472105] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/wait_seconds.hpp\n'}
+[33.472513] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/launch/__pycache__/mission_bt_with_nav2.launch.cpython-310.pyc\n'}
+[33.472832] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/launch/mission_bt_runner.launch.py\n'}
+[33.473282] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/bt_xml/one_rail.xml\n'}
+[33.473592] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/bt_xml/one_routine.xml\n'}
+[33.473922] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/bt_xml/simple_home_rail_3times_bt.xml\n'}
+[33.474264] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/bt_xml/theimc_bt.xml\n'}
+[33.474521] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/config/rails.yaml\n'}
+[33.474916] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/environment/library_path.sh\n'}
+[33.475314] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/environment/library_path.dsv\n'}
+[33.475671] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/ament_index/resource_index/package_run_dependencies/theimc_bt_nodes\n'}
+[33.476109] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/ament_index/resource_index/parent_prefix_path/theimc_bt_nodes\n'}
+[33.476457] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/environment/ament_prefix_path.sh\n'}
+[33.476780] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/environment/ament_prefix_path.dsv\n'}
+[33.477129] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/environment/path.sh\n'}
+[33.477485] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/environment/path.dsv\n'}
+[33.477810] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/local_setup.bash\n'}
+[33.478156] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/local_setup.sh\n'}
+[33.478453] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/local_setup.zsh\n'}
+[33.478831] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/local_setup.dsv\n'}
+[33.479124] (theimc_bt_nodes) StdoutLine: {'line': b'-- Symlinking: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/package.dsv\n'}
+[33.501258] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/ament_index/resource_index/packages/theimc_bt_nodes\n'}
+[33.501877] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/ament_index/resource_index/nav2_behavior_tree__pluginlib__plugin/theimc_bt_nodes\n'}
+[33.502276] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[33.502657] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[33.503072] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[33.503406] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/cmake/theimc_bt_nodesConfig.cmake\n'}
+[33.503687] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/cmake/theimc_bt_nodesConfig-version.cmake\n'}
+[33.503977] (theimc_bt_nodes) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/package.xml\n'}
+[33.509862] (theimc_bt_nodes) CommandEnded: {'returncode': 0}
+[33.532335] (-) TimerEvent: {}
+[33.562670] (theimc_bt_nodes) JobEnded: {'identifier': 'theimc_bt_nodes', 'rc': 0}
+[33.565217] (-) EventReactorShutdown: {}

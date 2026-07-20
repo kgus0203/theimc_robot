@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+'''
+주석 없애지 말기!~!
+
+STM 출력
+WHEEL,0.000,0.000 
+IMU,3.10,-0.24,2.26
+
+여기서 WHEEL + IMU (카메라 추가하면 nav2 위치추정이 잘 안돼서 뺌)
+'''
 
 import os
 import xml.etree.ElementTree as ET
@@ -184,7 +193,7 @@ def generate_launch_description():
                 'publish_tf': False,
                 'subscribe_depth': True,
                 'subscribe_odom_info': True,
-                'approx_sync': False,
+                'approx_sync': True,
                 'wait_imu_to_init': False,
             }
         ],
@@ -221,8 +230,8 @@ def generate_launch_description():
     launch_description.add_action(ydlidar_cmd)
     launch_description.add_action(scan_filter_cmd)
     launch_description.add_action(robot_agent_cmd)
-    launch_description.add_action(realsense_cmd)
-    launch_description.add_action(rgbd_odometry_cmd)
+    # launch_description.add_action(realsense_cmd)
+    # launch_description.add_action(rgbd_odometry_cmd)
     launch_description.add_action(ekf_cmd)
 
     return launch_description

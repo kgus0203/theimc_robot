@@ -1,0 +1,655 @@
+[0.090s] Invoking command in '/home/jeff/theimc_robot/build/interfaces_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake /home/jeff/theimc_robot/src/interfaces_pkg -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jeff/theimc_robot/install/interfaces_pkg
+[2.145s] -- The C compiler identification is GNU 11.4.0
+[2.146s] -- The CXX compiler identification is GNU 11.4.0
+[2.146s] -- Detecting C compiler ABI info
+[2.146s] -- Detecting C compiler ABI info - done
+[2.146s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.146s] -- Detecting C compile features
+[2.146s] -- Detecting C compile features - done
+[2.147s] -- Detecting CXX compiler ABI info
+[2.147s] -- Detecting CXX compiler ABI info - done
+[2.147s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.147s] -- Detecting CXX compile features
+[2.147s] -- Detecting CXX compile features - done
+[2.147s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[2.147s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[2.147s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[2.148s] -- Found rosidl_default_generators: 1.2.1 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[2.148s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.148s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[2.148s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.148s] -- Found std_msgs: 4.9.1 (/opt/ros/humble/share/std_msgs/cmake)
+[2.148s] -- Found geometry_msgs: 4.9.1 (/opt/ros/humble/share/geometry_msgs/cmake)
+[3.516s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[4.581s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[5.782s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.874s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[5.879s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[5.971s] -- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[5.972s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[5.972s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[5.972s] -- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.10.so
+[6.046s] -- Found PythonExtra: .so  
+[6.609s] -- Configuring done
+[6.771s] -- Generating done
+[6.806s] -- Build files have been written to: /home/jeff/theimc_robot/build/interfaces_pkg
+[7.192s] Invoked command in '/home/jeff/theimc_robot/build/interfaces_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake /home/jeff/theimc_robot/src/interfaces_pkg -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jeff/theimc_robot/install/interfaces_pkg
+[7.194s] Invoking command in '/home/jeff/theimc_robot/build/interfaces_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --build /home/jeff/theimc_robot/build/interfaces_pkg -- -j6 -l6
+[7.395s] [  1%] [34m[1mGenerating Rust code for ROS interfaces[0m
+[7.401s] [  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[7.486s] [  1%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[7.527s] [  1%] Built target ament_cmake_python_symlink_interfaces_pkg
+[10.106s] running egg_info
+[10.110s] creating interfaces_pkg.egg-info
+[10.117s] writing interfaces_pkg.egg-info/PKG-INFO
+[10.120s] writing dependency_links to interfaces_pkg.egg-info/dependency_links.txt
+[10.123s] writing top-level names to interfaces_pkg.egg-info/top_level.txt
+[10.127s] writing manifest file 'interfaces_pkg.egg-info/SOURCES.txt'
+[10.156s] reading manifest file 'interfaces_pkg.egg-info/SOURCES.txt'
+[10.169s] writing manifest file 'interfaces_pkg.egg-info/SOURCES.txt'
+[10.606s] [  1%] Built target ament_cmake_python_build_interfaces_pkg_egg
+[13.751s] [  1%] Built target interfaces_pkg__rs
+[19.784s] [  2%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/msg/detail/point2_d__functions.c.o[0m
+[19.829s] [  2%] Built target interfaces_pkg__cpp
+[19.931s] [  2%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/msg/detail/bounding_box3_d__functions.c.o[0m
+[20.099s] [  3%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/msg/detail/bounding_box2_d__functions.c.o[0m
+[20.247s] [  4%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/msg/detail/pose2_d__functions.c.o[0m
+[20.386s] [  5%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/msg/detail/mask__functions.c.o[0m
+[20.546s] [  5%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/msg/detail/key_point2_d__functions.c.o[0m
+[20.679s] [  6%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/msg/detail/key_point2_d_array__functions.c.o[0m
+[20.841s] [  7%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/msg/detail/key_point3_d__functions.c.o[0m
+[20.995s] [  7%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/msg/detail/key_point3_d_array__functions.c.o[0m
+[21.150s] [  8%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/msg/detail/detection__functions.c.o[0m
+[21.281s] [  8%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/msg/detail/detection_array__functions.c.o[0m
+[21.428s] [  9%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/msg/detail/lane_info__functions.c.o[0m
+[21.573s] [ 10%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/msg/detail/rail_info__functions.c.o[0m
+[21.715s] [ 10%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/msg/detail/motion_command__functions.c.o[0m
+[21.859s] [ 11%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/msg/detail/target_point__functions.c.o[0m
+[21.984s] [ 11%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/msg/detail/path_planning_result__functions.c.o[0m
+[22.136s] [ 12%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/action/detail/rail_approach__functions.c.o[0m
+[22.533s] [ 12%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_c.dir/rosidl_generator_c/interfaces_pkg/msg/detail/vector2__functions.c.o[0m
+[22.654s] [ 13%] [32m[1mLinking C shared library libinterfaces_pkg__rosidl_generator_c.so[0m
+[22.772s] [ 13%] Built target interfaces_pkg__rosidl_generator_c
+[22.796s] [ 14%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[25.699s] [ 14%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/msg/point2_d__type_support.cpp.o[0m
+[26.428s] [ 15%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/msg/vector2__type_support.cpp.o[0m
+[27.161s] [ 15%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/msg/pose2_d__type_support.cpp.o[0m
+[27.964s] [ 16%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/msg/bounding_box2_d__type_support.cpp.o[0m
+[28.695s] [ 17%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/msg/bounding_box3_d__type_support.cpp.o[0m
+[29.450s] [ 17%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/msg/mask__type_support.cpp.o[0m
+[30.268s] [ 18%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/msg/key_point2_d__type_support.cpp.o[0m
+[31.052s] [ 18%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/msg/key_point2_d_array__type_support.cpp.o[0m
+[31.722s] [ 19%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/msg/key_point3_d__type_support.cpp.o[0m
+[32.507s] [ 20%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/msg/key_point3_d_array__type_support.cpp.o[0m
+[33.282s] [ 20%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/msg/detection__type_support.cpp.o[0m
+[34.141s] [ 21%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/msg/detection_array__type_support.cpp.o[0m
+[34.871s] [ 21%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/msg/lane_info__type_support.cpp.o[0m
+[35.595s] [ 22%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/msg/rail_info__type_support.cpp.o[0m
+[36.348s] [ 23%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/msg/motion_command__type_support.cpp.o[0m
+[37.124s] [ 23%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/msg/target_point__type_support.cpp.o[0m
+[37.906s] [ 24%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/msg/path_planning_result__type_support.cpp.o[0m
+[38.600s] [ 24%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces_pkg/action/rail_approach__type_support.cpp.o[0m
+[40.005s] [ 25%] [32m[1mLinking CXX shared library libinterfaces_pkg__rosidl_typesupport_cpp.so[0m
+[40.148s] [ 25%] Built target interfaces_pkg__rosidl_typesupport_cpp
+[40.182s] [ 26%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[42.795s] [ 26%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/msg/point2_d__type_support.cpp.o[0m
+[42.866s] [ 27%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/msg/vector2__type_support.cpp.o[0m
+[42.942s] [ 27%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/msg/pose2_d__type_support.cpp.o[0m
+[43.019s] [ 28%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/msg/bounding_box2_d__type_support.cpp.o[0m
+[43.096s] [ 28%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/msg/bounding_box3_d__type_support.cpp.o[0m
+[43.175s] [ 29%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/msg/mask__type_support.cpp.o[0m
+[43.250s] [ 30%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/msg/key_point2_d__type_support.cpp.o[0m
+[43.324s] [ 30%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/msg/key_point2_d_array__type_support.cpp.o[0m
+[43.400s] [ 31%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/msg/key_point3_d__type_support.cpp.o[0m
+[43.474s] [ 31%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/msg/key_point3_d_array__type_support.cpp.o[0m
+[43.549s] [ 32%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/msg/detection__type_support.cpp.o[0m
+[43.626s] [ 33%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/msg/detection_array__type_support.cpp.o[0m
+[43.704s] [ 33%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/msg/lane_info__type_support.cpp.o[0m
+[43.778s] [ 34%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/msg/rail_info__type_support.cpp.o[0m
+[43.860s] [ 34%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/msg/motion_command__type_support.cpp.o[0m
+[43.937s] [ 35%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/msg/target_point__type_support.cpp.o[0m
+[44.009s] [ 36%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/msg/path_planning_result__type_support.cpp.o[0m
+[44.085s] [ 36%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces_pkg/action/rail_approach__type_support.cpp.o[0m
+[44.196s] [ 37%] [32m[1mLinking CXX shared library libinterfaces_pkg__rosidl_typesupport_c.so[0m
+[44.300s] [ 37%] Built target interfaces_pkg__rosidl_typesupport_c
+[44.329s] [ 38%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[47.451s] [ 38%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/point2_d__type_support.c.o[0m
+[47.541s] [ 38%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/pose2_d__type_support.c.o[0m
+[47.631s] [ 39%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/bounding_box2_d__type_support.c.o[0m
+[47.719s] [ 39%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/bounding_box3_d__type_support.c.o[0m
+[47.810s] [ 40%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/mask__type_support.c.o[0m
+[47.902s] [ 41%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/key_point2_d__type_support.c.o[0m
+[47.981s] [ 41%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/key_point2_d_array__type_support.c.o[0m
+[48.064s] [ 42%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/key_point3_d__type_support.c.o[0m
+[48.149s] [ 42%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/key_point3_d_array__type_support.c.o[0m
+[48.245s] [ 43%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/detection__type_support.c.o[0m
+[48.336s] [ 44%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/detection_array__type_support.c.o[0m
+[48.435s] [ 44%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/lane_info__type_support.c.o[0m
+[48.525s] [ 45%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/rail_info__type_support.c.o[0m
+[48.620s] [ 45%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/motion_command__type_support.c.o[0m
+[48.702s] [ 46%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/target_point__type_support.c.o[0m
+[48.786s] [ 47%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/path_planning_result__type_support.c.o[0m
+[48.888s] [ 47%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/action/detail/rail_approach__type_support.c.o[0m
+[49.010s] [ 48%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/vector2__type_support.c.o[0m
+[49.096s] [ 49%] [32m[1mLinking C shared library libinterfaces_pkg__rosidl_typesupport_introspection_c.so[0m
+[49.193s] [ 49%] Built target interfaces_pkg__rosidl_typesupport_introspection_c
+[49.219s] [ 50%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[52.756s] [ 50%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/msg/detail/point2_d__type_support_c.cpp.o[0m
+[53.563s] [ 51%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/msg/detail/bounding_box2_d__type_support_c.cpp.o[0m
+[54.344s] [ 51%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/msg/detail/bounding_box3_d__type_support_c.cpp.o[0m
+[55.126s] [ 52%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/msg/detail/mask__type_support_c.cpp.o[0m
+[55.892s] [ 53%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/msg/detail/key_point2_d__type_support_c.cpp.o[0m
+[56.652s] [ 53%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/msg/detail/key_point2_d_array__type_support_c.cpp.o[0m
+[57.429s] [ 54%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/msg/detail/key_point3_d__type_support_c.cpp.o[0m
+[58.186s] [ 54%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/msg/detail/key_point3_d_array__type_support_c.cpp.o[0m
+[58.972s] [ 55%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/msg/detail/detection__type_support_c.cpp.o[0m
+[59.780s] [ 56%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/msg/detail/detection_array__type_support_c.cpp.o[0m
+[60.575s] [ 56%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/msg/detail/lane_info__type_support_c.cpp.o[0m
+[61.353s] [ 57%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/msg/detail/rail_info__type_support_c.cpp.o[0m
+[62.142s] [ 57%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/msg/detail/motion_command__type_support_c.cpp.o[0m
+[62.913s] [ 58%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/msg/detail/target_point__type_support_c.cpp.o[0m
+[63.680s] [ 59%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/msg/detail/path_planning_result__type_support_c.cpp.o[0m
+[64.456s] [ 59%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/action/detail/rail_approach__type_support_c.cpp.o[0m
+[65.376s] [ 59%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/msg/detail/pose2_d__type_support_c.cpp.o[0m
+[66.152s] [ 60%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces_pkg/msg/detail/vector2__type_support_c.cpp.o[0m
+[66.910s] [ 61%] [32m[1mLinking CXX shared library libinterfaces_pkg__rosidl_typesupport_fastrtps_c.so[0m
+[67.099s] [ 61%] Built target interfaces_pkg__rosidl_typesupport_fastrtps_c
+[67.127s] [ 62%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[70.102s] [ 63%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/point2_d__type_support.cpp.o[0m
+[70.103s] [ 63%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/vector2__type_support.cpp.o[0m
+[70.981s] [ 64%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/bounding_box3_d__type_support.cpp.o[0m
+[70.992s] [ 64%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/mask__type_support.cpp.o[0m
+[71.858s] [ 65%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/key_point2_d__type_support.cpp.o[0m
+[71.955s] [ 65%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/key_point2_d_array__type_support.cpp.o[0m
+[72.747s] [ 66%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/bounding_box2_d__type_support.cpp.o[0m
+[72.747s] [ 67%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/key_point3_d__type_support.cpp.o[0m
+[72.925s] [ 68%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/key_point3_d_array__type_support.cpp.o[0m
+[73.665s] [ 68%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/pose2_d__type_support.cpp.o[0m
+[73.678s] [ 68%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/detection__type_support.cpp.o[0m
+[73.768s] [ 69%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/detection_array__type_support.cpp.o[0m
+[74.011s] [ 69%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/lane_info__type_support.cpp.o[0m
+[74.734s] [ 70%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/rail_info__type_support.cpp.o[0m
+[74.744s] [ 71%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/motion_command__type_support.cpp.o[0m
+[74.848s] [ 71%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/target_point__type_support.cpp.o[0m
+[75.225s] [ 72%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/path_planning_result__type_support.cpp.o[0m
+[75.620s] [ 72%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces_pkg/action/detail/rail_approach__type_support.cpp.o[0m
+[77.111s] [ 73%] [32m[1mLinking CXX shared library libinterfaces_pkg__rosidl_typesupport_introspection_cpp.so[0m
+[77.310s] [ 73%] Built target interfaces_pkg__rosidl_typesupport_introspection_cpp
+[77.348s] [ 74%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[80.244s] [ 75%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/msg/detail/dds_fastrtps/point2_d__type_support.cpp.o[0m
+[80.245s] [ 75%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/msg/detail/dds_fastrtps/pose2_d__type_support.cpp.o[0m
+[80.246s] [ 75%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/msg/detail/dds_fastrtps/bounding_box2_d__type_support.cpp.o[0m
+[80.252s] [ 76%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/msg/detail/dds_fastrtps/vector2__type_support.cpp.o[0m
+[81.213s] [ 77%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/msg/detail/dds_fastrtps/mask__type_support.cpp.o[0m
+[81.215s] [ 77%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/msg/detail/dds_fastrtps/bounding_box3_d__type_support.cpp.o[0m
+[81.301s] [ 78%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/msg/detail/dds_fastrtps/key_point2_d__type_support.cpp.o[0m
+[81.335s] [ 78%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/msg/detail/dds_fastrtps/key_point2_d_array__type_support.cpp.o[0m
+[81.484s] [ 79%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/msg/detail/dds_fastrtps/key_point3_d__type_support.cpp.o[0m
+[82.360s] [ 80%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/msg/detail/dds_fastrtps/key_point3_d_array__type_support.cpp.o[0m
+[82.365s] [ 80%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/msg/detail/dds_fastrtps/detection__type_support.cpp.o[0m
+[82.531s] [ 81%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/msg/detail/dds_fastrtps/detection_array__type_support.cpp.o[0m
+[82.614s] [ 81%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/msg/detail/dds_fastrtps/lane_info__type_support.cpp.o[0m
+[82.714s] [ 82%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/msg/detail/dds_fastrtps/rail_info__type_support.cpp.o[0m
+[83.708s] [ 83%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/msg/detail/dds_fastrtps/motion_command__type_support.cpp.o[0m
+[83.713s] [ 83%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/msg/detail/dds_fastrtps/target_point__type_support.cpp.o[0m
+[83.808s] [ 84%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/msg/detail/dds_fastrtps/path_planning_result__type_support.cpp.o[0m
+[83.912s] [ 84%] [32mBuilding CXX object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces_pkg/action/detail/dds_fastrtps/rail_approach__type_support.cpp.o[0m
+[85.443s] [ 85%] [32m[1mLinking CXX shared library libinterfaces_pkg__rosidl_typesupport_fastrtps_cpp.so[0m
+[85.644s] [ 85%] Built target interfaces_pkg__rosidl_typesupport_fastrtps_cpp
+[85.695s] [ 85%] Built target interfaces_pkg
+[85.746s] [ 86%] [34m[1mGenerating Python code for ROS interfaces[0m
+[91.653s] [ 86%] Built target interfaces_pkg__py
+[91.700s] [ 87%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/msg/_point2_d_s.c.o[0m
+[91.700s] [ 87%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/msg/_vector2_s.c.o[0m
+[91.701s] [ 87%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/msg/_pose2_d_s.c.o[0m
+[91.962s] [ 88%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/msg/_mask_s.c.o[0m
+[91.963s] [ 88%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/msg/_key_point2_d_s.c.o[0m
+[91.985s] [ 88%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/msg/_key_point2_d_array_s.c.o[0m
+[92.202s] [ 90%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/msg/_key_point3_d_s.c.o[0m
+[92.203s] [ 90%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/msg/_bounding_box3_d_s.c.o[0m
+[92.222s] [ 91%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/msg/_key_point3_d_array_s.c.o[0m
+[92.268s] [ 91%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/msg/_detection_s.c.o[0m
+[92.437s] [ 92%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/msg/_detection_array_s.c.o[0m
+[92.466s] [ 92%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/msg/_lane_info_s.c.o[0m
+[92.498s] [ 93%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/msg/_rail_info_s.c.o[0m
+[92.575s] [ 94%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/msg/_motion_command_s.c.o[0m
+[92.692s] [ 94%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/msg/_target_point_s.c.o[0m
+[92.733s] [ 95%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/msg/_path_planning_result_s.c.o[0m
+[92.802s] [ 95%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/action/_rail_approach_s.c.o[0m
+[92.868s] [ 96%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_generator_py.dir/rosidl_generator_py/interfaces_pkg/msg/_bounding_box2_d_s.c.o[0m
+[93.176s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/interfaces_pkg/libinterfaces_pkg__rosidl_generator_py.so[0m
+[93.286s] [ 97%] Built target interfaces_pkg__rosidl_generator_py
+[93.367s] [ 97%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/interfaces_pkg/_interfaces_pkg_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[93.374s] [ 97%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/interfaces_pkg/_interfaces_pkg_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[93.378s] [ 97%] [32mBuilding C object CMakeFiles/interfaces_pkg__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/interfaces_pkg/_interfaces_pkg_s.ep.rosidl_typesupport_c.c.o[0m
+[93.833s] [ 98%] [32m[1mLinking C shared library rosidl_generator_py/interfaces_pkg/interfaces_pkg_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so[0m
+[93.876s] [ 99%] [32m[1mLinking C shared library rosidl_generator_py/interfaces_pkg/interfaces_pkg_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so[0m
+[93.938s] [100%] [32m[1mLinking C shared library rosidl_generator_py/interfaces_pkg/interfaces_pkg_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so[0m
+[93.939s] [100%] Built target interfaces_pkg__rosidl_typesupport_fastrtps_c__pyext
+[93.983s] [100%] Built target interfaces_pkg__rosidl_typesupport_c__pyext
+[94.046s] [100%] Built target interfaces_pkg__rosidl_typesupport_introspection_c__pyext
+[94.080s] Invoked command in '/home/jeff/theimc_robot/build/interfaces_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --build /home/jeff/theimc_robot/build/interfaces_pkg -- -j6 -l6
+[94.084s] Invoking command in '/home/jeff/theimc_robot/build/interfaces_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --install /home/jeff/theimc_robot/build/interfaces_pkg
+[94.101s] -- Install configuration: ""
+[94.102s] -- Execute custom install script
+[94.103s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/ament_index/resource_index/rosidl_interfaces/interfaces_pkg
+[94.124s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/detail/rail_approach__functions.h
+[94.142s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/detail/rail_approach__struct.h
+[94.160s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/detail/rail_approach__type_support.h
+[94.184s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/rail_approach.h
+[94.206s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/bounding_box2_d.h
+[94.228s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/bounding_box3_d.h
+[94.251s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box2_d__functions.h
+[94.274s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box2_d__struct.h
+[94.294s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box2_d__type_support.h
+[94.318s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box3_d__functions.h
+[94.336s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box3_d__struct.h
+[94.359s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box3_d__type_support.h
+[94.380s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection__functions.h
+[94.403s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection__struct.h
+[94.428s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection__type_support.h
+[94.448s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection_array__functions.h
+[94.468s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection_array__struct.h
+[94.488s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection_array__type_support.h
+[94.510s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d__functions.h
+[94.534s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d__struct.h
+[94.556s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d__type_support.h
+[94.578s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d_array__functions.h
+[94.600s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d_array__struct.h
+[94.625s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d_array__type_support.h
+[94.648s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d__functions.h
+[94.670s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d__struct.h
+[94.694s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d__type_support.h
+[94.718s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d_array__functions.h
+[94.742s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d_array__struct.h
+[94.766s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d_array__type_support.h
+[94.788s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/lane_info__functions.h
+[94.811s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/lane_info__struct.h
+[94.842s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/lane_info__type_support.h
+[94.862s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/mask__functions.h
+[94.881s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/mask__struct.h
+[94.905s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/mask__type_support.h
+[94.926s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/motion_command__functions.h
+[94.950s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/motion_command__struct.h
+[94.970s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/motion_command__type_support.h
+[94.991s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/path_planning_result__functions.h
+[95.014s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/path_planning_result__struct.h
+[95.037s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/path_planning_result__type_support.h
+[95.059s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/point2_d__functions.h
+[95.079s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/point2_d__struct.h
+[95.101s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/point2_d__type_support.h
+[95.123s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/pose2_d__functions.h
+[95.143s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/pose2_d__struct.h
+[95.164s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/pose2_d__type_support.h
+[95.188s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/rail_info__functions.h
+[95.209s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/rail_info__struct.h
+[95.232s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/rail_info__type_support.h
+[95.256s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/target_point__functions.h
+[95.278s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/target_point__struct.h
+[95.299s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/target_point__type_support.h
+[95.322s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/vector2__functions.h
+[95.346s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/vector2__struct.h
+[95.368s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/vector2__type_support.h
+[95.391s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detection.h
+[95.416s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detection_array.h
+[95.440s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/key_point2_d.h
+[95.460s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/key_point2_d_array.h
+[95.483s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/key_point3_d.h
+[95.505s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/key_point3_d_array.h
+[95.527s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/lane_info.h
+[95.548s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/mask.h
+[95.571s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/motion_command.h
+[95.592s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/path_planning_result.h
+[95.614s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/point2_d.h
+[95.643s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/pose2_d.h
+[95.664s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/rail_info.h
+[95.687s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/rosidl_generator_c__visibility_control.h
+[95.709s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/target_point.h
+[95.732s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/vector2.h
+[95.754s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/environment/library_path.sh
+[95.778s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/environment/library_path.dsv
+[95.801s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/detail/rail_approach__rosidl_typesupport_fastrtps_c.h
+[95.826s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box2_d__rosidl_typesupport_fastrtps_c.h
+[95.849s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box3_d__rosidl_typesupport_fastrtps_c.h
+[95.871s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection__rosidl_typesupport_fastrtps_c.h
+[95.893s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection_array__rosidl_typesupport_fastrtps_c.h
+[95.919s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d__rosidl_typesupport_fastrtps_c.h
+[95.942s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d_array__rosidl_typesupport_fastrtps_c.h
+[95.967s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d__rosidl_typesupport_fastrtps_c.h
+[95.991s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d_array__rosidl_typesupport_fastrtps_c.h
+[96.012s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/lane_info__rosidl_typesupport_fastrtps_c.h
+[96.036s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/mask__rosidl_typesupport_fastrtps_c.h
+[96.059s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/motion_command__rosidl_typesupport_fastrtps_c.h
+[96.081s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/path_planning_result__rosidl_typesupport_fastrtps_c.h
+[96.105s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/point2_d__rosidl_typesupport_fastrtps_c.h
+[96.131s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/pose2_d__rosidl_typesupport_fastrtps_c.h
+[96.153s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/rail_info__rosidl_typesupport_fastrtps_c.h
+[96.175s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/target_point__rosidl_typesupport_fastrtps_c.h
+[96.196s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/vector2__rosidl_typesupport_fastrtps_c.h
+[96.218s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[96.238s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/detail/rail_approach__rosidl_typesupport_introspection_c.h
+[96.257s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box2_d__rosidl_typesupport_introspection_c.h
+[96.280s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box3_d__rosidl_typesupport_introspection_c.h
+[96.303s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection__rosidl_typesupport_introspection_c.h
+[96.329s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection_array__rosidl_typesupport_introspection_c.h
+[96.351s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d__rosidl_typesupport_introspection_c.h
+[96.373s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d_array__rosidl_typesupport_introspection_c.h
+[96.395s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d__rosidl_typesupport_introspection_c.h
+[96.418s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d_array__rosidl_typesupport_introspection_c.h
+[96.441s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/lane_info__rosidl_typesupport_introspection_c.h
+[96.461s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/mask__rosidl_typesupport_introspection_c.h
+[96.480s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/motion_command__rosidl_typesupport_introspection_c.h
+[96.509s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/path_planning_result__rosidl_typesupport_introspection_c.h
+[96.530s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/point2_d__rosidl_typesupport_introspection_c.h
+[96.550s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/pose2_d__rosidl_typesupport_introspection_c.h
+[96.572s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/rail_info__rosidl_typesupport_introspection_c.h
+[96.594s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/target_point__rosidl_typesupport_introspection_c.h
+[96.613s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/vector2__rosidl_typesupport_introspection_c.h
+[96.636s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[96.660s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/detail/rail_approach__builder.hpp
+[96.683s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/detail/rail_approach__struct.hpp
+[96.705s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/detail/rail_approach__traits.hpp
+[96.729s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/detail/rail_approach__type_support.hpp
+[96.749s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/rail_approach.hpp
+[96.771s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/bounding_box2_d.hpp
+[96.794s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/bounding_box3_d.hpp
+[96.816s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box2_d__builder.hpp
+[96.838s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box2_d__struct.hpp
+[96.863s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box2_d__traits.hpp
+[96.883s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box2_d__type_support.hpp
+[96.906s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box3_d__builder.hpp
+[96.930s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box3_d__struct.hpp
+[96.952s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box3_d__traits.hpp
+[96.978s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box3_d__type_support.hpp
+[96.998s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection__builder.hpp
+[97.024s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection__struct.hpp
+[97.047s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection__traits.hpp
+[97.068s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection__type_support.hpp
+[97.091s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection_array__builder.hpp
+[97.118s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection_array__struct.hpp
+[97.140s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection_array__traits.hpp
+[97.163s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection_array__type_support.hpp
+[97.189s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d__builder.hpp
+[97.210s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d__struct.hpp
+[97.232s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d__traits.hpp
+[97.256s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d__type_support.hpp
+[97.279s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d_array__builder.hpp
+[97.301s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d_array__struct.hpp
+[97.325s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d_array__traits.hpp
+[97.346s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d_array__type_support.hpp
+[97.369s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d__builder.hpp
+[97.391s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d__struct.hpp
+[97.415s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d__traits.hpp
+[97.442s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d__type_support.hpp
+[97.462s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d_array__builder.hpp
+[97.483s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d_array__struct.hpp
+[97.505s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d_array__traits.hpp
+[97.533s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d_array__type_support.hpp
+[97.554s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/lane_info__builder.hpp
+[97.583s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/lane_info__struct.hpp
+[97.604s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/lane_info__traits.hpp
+[97.629s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/lane_info__type_support.hpp
+[97.654s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/mask__builder.hpp
+[97.677s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/mask__struct.hpp
+[97.698s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/mask__traits.hpp
+[97.718s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/mask__type_support.hpp
+[97.744s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/motion_command__builder.hpp
+[97.767s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/motion_command__struct.hpp
+[97.789s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/motion_command__traits.hpp
+[97.810s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/motion_command__type_support.hpp
+[97.834s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/path_planning_result__builder.hpp
+[97.854s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/path_planning_result__struct.hpp
+[97.877s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/path_planning_result__traits.hpp
+[97.899s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/path_planning_result__type_support.hpp
+[97.924s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/point2_d__builder.hpp
+[97.945s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/point2_d__struct.hpp
+[97.970s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/point2_d__traits.hpp
+[97.992s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/point2_d__type_support.hpp
+[98.016s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/pose2_d__builder.hpp
+[98.040s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/pose2_d__struct.hpp
+[98.062s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/pose2_d__traits.hpp
+[98.083s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/pose2_d__type_support.hpp
+[98.105s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/rail_info__builder.hpp
+[98.126s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/rail_info__struct.hpp
+[98.147s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/rail_info__traits.hpp
+[98.170s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/rail_info__type_support.hpp
+[98.192s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/target_point__builder.hpp
+[98.212s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/target_point__struct.hpp
+[98.239s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/target_point__traits.hpp
+[98.260s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/target_point__type_support.hpp
+[98.282s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/vector2__builder.hpp
+[98.304s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/vector2__struct.hpp
+[98.328s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/vector2__traits.hpp
+[98.349s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/vector2__type_support.hpp
+[98.371s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detection.hpp
+[98.395s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detection_array.hpp
+[98.416s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/key_point2_d.hpp
+[98.439s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/key_point2_d_array.hpp
+[98.460s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/key_point3_d.hpp
+[98.480s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/key_point3_d_array.hpp
+[98.502s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/lane_info.hpp
+[98.526s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/mask.hpp
+[98.549s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/motion_command.hpp
+[98.574s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/path_planning_result.hpp
+[98.598s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/point2_d.hpp
+[98.621s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/pose2_d.hpp
+[98.644s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/rail_info.hpp
+[98.667s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/rosidl_generator_cpp__visibility_control.hpp
+[98.688s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/target_point.hpp
+[98.711s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/vector2.hpp
+[98.738s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/detail/rail_approach__rosidl_typesupport_fastrtps_cpp.hpp
+[98.759s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box2_d__rosidl_typesupport_fastrtps_cpp.hpp
+[98.781s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box3_d__rosidl_typesupport_fastrtps_cpp.hpp
+[98.802s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection__rosidl_typesupport_fastrtps_cpp.hpp
+[98.824s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection_array__rosidl_typesupport_fastrtps_cpp.hpp
+[98.847s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d__rosidl_typesupport_fastrtps_cpp.hpp
+[98.870s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d_array__rosidl_typesupport_fastrtps_cpp.hpp
+[98.892s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d__rosidl_typesupport_fastrtps_cpp.hpp
+[98.914s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d_array__rosidl_typesupport_fastrtps_cpp.hpp
+[98.936s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/lane_info__rosidl_typesupport_fastrtps_cpp.hpp
+[98.959s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/mask__rosidl_typesupport_fastrtps_cpp.hpp
+[98.981s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/motion_command__rosidl_typesupport_fastrtps_cpp.hpp
+[99.002s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/path_planning_result__rosidl_typesupport_fastrtps_cpp.hpp
+[99.028s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/point2_d__rosidl_typesupport_fastrtps_cpp.hpp
+[99.047s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/pose2_d__rosidl_typesupport_fastrtps_cpp.hpp
+[99.066s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/rail_info__rosidl_typesupport_fastrtps_cpp.hpp
+[99.085s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/target_point__rosidl_typesupport_fastrtps_cpp.hpp
+[99.106s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/vector2__rosidl_typesupport_fastrtps_cpp.hpp
+[99.126s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[99.148s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/detail/rail_approach__rosidl_typesupport_introspection_cpp.hpp
+[99.170s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box2_d__rosidl_typesupport_introspection_cpp.hpp
+[99.193s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/bounding_box3_d__rosidl_typesupport_introspection_cpp.hpp
+[99.216s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection__rosidl_typesupport_introspection_cpp.hpp
+[99.240s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/detection_array__rosidl_typesupport_introspection_cpp.hpp
+[99.262s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d__rosidl_typesupport_introspection_cpp.hpp
+[99.285s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point2_d_array__rosidl_typesupport_introspection_cpp.hpp
+[99.310s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d__rosidl_typesupport_introspection_cpp.hpp
+[99.334s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/key_point3_d_array__rosidl_typesupport_introspection_cpp.hpp
+[99.355s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/lane_info__rosidl_typesupport_introspection_cpp.hpp
+[99.380s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/mask__rosidl_typesupport_introspection_cpp.hpp
+[99.402s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/motion_command__rosidl_typesupport_introspection_cpp.hpp
+[99.426s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/path_planning_result__rosidl_typesupport_introspection_cpp.hpp
+[99.446s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/point2_d__rosidl_typesupport_introspection_cpp.hpp
+[99.468s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/pose2_d__rosidl_typesupport_introspection_cpp.hpp
+[99.490s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/rail_info__rosidl_typesupport_introspection_cpp.hpp
+[99.517s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/target_point__rosidl_typesupport_introspection_cpp.hpp
+[99.540s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/detail/vector2__rosidl_typesupport_introspection_cpp.hpp
+[99.562s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/environment/pythonpath.sh
+[99.584s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/environment/pythonpath.dsv
+[99.607s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg-0.0.0-py3.10.egg-info/PKG-INFO
+[99.627s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg-0.0.0-py3.10.egg-info/SOURCES.txt
+[99.650s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg-0.0.0-py3.10.egg-info/dependency_links.txt
+[99.670s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg-0.0.0-py3.10.egg-info/top_level.txt
+[99.699s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/__init__.py
+[99.721s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/_interfaces_pkg_s.ep.rosidl_typesupport_c.c
+[99.742s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/_interfaces_pkg_s.ep.rosidl_typesupport_fastrtps_c.c
+[99.762s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/_interfaces_pkg_s.ep.rosidl_typesupport_introspection_c.c
+[99.784s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/action/__init__.py
+[99.806s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/action/_rail_approach.py
+[99.827s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/action/_rail_approach_s.c
+[99.851s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/interfaces_pkg_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[99.871s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/interfaces_pkg_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[99.890s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/interfaces_pkg_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[99.918s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/libinterfaces_pkg__rosidl_generator_py.so
+[99.941s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/__init__.py
+[99.964s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_bounding_box2_d.py
+[99.985s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_bounding_box2_d_s.c
+[100.006s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_bounding_box3_d.py
+[100.031s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_bounding_box3_d_s.c
+[100.053s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_detection.py
+[100.075s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_detection_array.py
+[100.097s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_detection_array_s.c
+[100.119s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_detection_s.c
+[100.143s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_key_point2_d.py
+[100.166s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_key_point2_d_array.py
+[100.189s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_key_point2_d_array_s.c
+[100.210s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_key_point2_d_s.c
+[100.232s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_key_point3_d.py
+[100.254s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_key_point3_d_array.py
+[100.275s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_key_point3_d_array_s.c
+[100.304s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_key_point3_d_s.c
+[100.327s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_lane_info.py
+[100.348s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_lane_info_s.c
+[100.371s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_mask.py
+[100.394s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_mask_s.c
+[100.414s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_motion_command.py
+[100.439s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_motion_command_s.c
+[100.460s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_path_planning_result.py
+[100.481s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_path_planning_result_s.c
+[100.504s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_point2_d.py
+[100.526s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_point2_d_s.c
+[100.548s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_pose2_d.py
+[100.570s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_pose2_d_s.c
+[100.591s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_rail_info.py
+[100.610s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_rail_info_s.c
+[100.634s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_target_point.py
+[100.654s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_target_point_s.c
+[100.675s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_vector2.py
+[100.697s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_vector2_s.c
+[100.724s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/interfaces_pkg_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[100.725s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/interfaces_pkg_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[100.727s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/interfaces_pkg_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[100.728s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/ament_index/resource_index/rust_packages/interfaces_pkg
+[100.751s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/rust/Cargo.toml
+[100.775s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/rust/build.rs
+[100.797s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/rust/src/action.rs
+[100.817s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/rust/src/action/rmw.rs
+[100.841s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/rust/src/lib.rs
+[100.864s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/rust/src/msg.rs
+[100.887s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/rust/src/msg/rmw.rs
+[100.911s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/Point2D.idl
+[100.933s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/Vector2.idl
+[100.956s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/Pose2D.idl
+[100.980s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/BoundingBox2D.idl
+[101.000s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/BoundingBox3D.idl
+[101.021s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/Mask.idl
+[101.044s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/KeyPoint2D.idl
+[101.064s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/KeyPoint2DArray.idl
+[101.084s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/KeyPoint3D.idl
+[101.105s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/KeyPoint3DArray.idl
+[101.128s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/Detection.idl
+[101.149s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/DetectionArray.idl
+[101.171s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/LaneInfo.idl
+[101.193s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/RailInfo.idl
+[101.215s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/MotionCommand.idl
+[101.239s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/TargetPoint.idl
+[101.260s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/PathPlanningResult.idl
+[101.280s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/action/RailApproach.idl
+[101.304s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/Point2D.msg
+[101.329s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/Vector2.msg
+[101.350s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/Pose2D.msg
+[101.374s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/BoundingBox2D.msg
+[101.395s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/BoundingBox3D.msg
+[101.413s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/Mask.msg
+[101.434s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/KeyPoint2D.msg
+[101.455s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/KeyPoint2DArray.msg
+[101.478s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/KeyPoint3D.msg
+[101.500s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/KeyPoint3DArray.msg
+[101.525s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/Detection.msg
+[101.547s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/DetectionArray.msg
+[101.572s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/LaneInfo.msg
+[101.595s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/RailInfo.msg
+[101.617s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/MotionCommand.msg
+[101.642s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/TargetPoint.msg
+[101.667s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/msg/PathPlanningResult.msg
+[101.687s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/action/RailApproach.action
+[101.710s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/ament_index/resource_index/package_run_dependencies/interfaces_pkg
+[101.735s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/ament_index/resource_index/parent_prefix_path/interfaces_pkg
+[101.757s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/environment/ament_prefix_path.sh
+[101.784s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/environment/ament_prefix_path.dsv
+[101.808s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/environment/path.sh
+[101.832s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/environment/path.dsv
+[101.857s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/local_setup.bash
+[101.880s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/local_setup.sh
+[101.905s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/local_setup.zsh
+[101.928s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/local_setup.dsv
+[101.950s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/package.dsv
+[101.973s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/ament_index/resource_index/packages/interfaces_pkg
+[101.998s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/rosidl_cmake-extras.cmake
+[102.021s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/ament_cmake_export_dependencies-extras.cmake
+[102.047s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/ament_cmake_export_include_directories-extras.cmake
+[102.071s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/ament_cmake_export_libraries-extras.cmake
+[102.095s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/ament_cmake_export_targets-extras.cmake
+[102.120s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[102.144s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[102.165s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/interfaces_pkgConfig.cmake
+[102.189s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/interfaces_pkgConfig-version.cmake
+[102.210s] -- Symlinking: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/package.xml
+[102.237s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/lib/libinterfaces_pkg__rosidl_generator_c.so
+[102.239s] -- Set runtime path of "/home/jeff/theimc_robot/install/interfaces_pkg/lib/libinterfaces_pkg__rosidl_generator_c.so" to ""
+[102.240s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/lib/libinterfaces_pkg__rosidl_typesupport_fastrtps_c.so
+[102.242s] -- Set runtime path of "/home/jeff/theimc_robot/install/interfaces_pkg/lib/libinterfaces_pkg__rosidl_typesupport_fastrtps_c.so" to ""
+[102.243s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/lib/libinterfaces_pkg__rosidl_typesupport_introspection_c.so
+[102.247s] -- Set runtime path of "/home/jeff/theimc_robot/install/interfaces_pkg/lib/libinterfaces_pkg__rosidl_typesupport_introspection_c.so" to ""
+[102.247s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/lib/libinterfaces_pkg__rosidl_typesupport_c.so
+[102.248s] -- Set runtime path of "/home/jeff/theimc_robot/install/interfaces_pkg/lib/libinterfaces_pkg__rosidl_typesupport_c.so" to ""
+[102.248s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/lib/libinterfaces_pkg__rosidl_typesupport_fastrtps_cpp.so
+[102.251s] -- Set runtime path of "/home/jeff/theimc_robot/install/interfaces_pkg/lib/libinterfaces_pkg__rosidl_typesupport_fastrtps_cpp.so" to ""
+[102.251s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/lib/libinterfaces_pkg__rosidl_typesupport_introspection_cpp.so
+[102.254s] -- Set runtime path of "/home/jeff/theimc_robot/install/interfaces_pkg/lib/libinterfaces_pkg__rosidl_typesupport_introspection_cpp.so" to ""
+[102.254s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/lib/libinterfaces_pkg__rosidl_typesupport_cpp.so
+[102.255s] -- Set runtime path of "/home/jeff/theimc_robot/install/interfaces_pkg/lib/libinterfaces_pkg__rosidl_typesupport_cpp.so" to ""
+[102.411s] Listing '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg'...
+[102.411s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/__init__.py'...
+[102.411s] Listing '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/action'...
+[102.412s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/action/__init__.py'...
+[102.412s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/action/_rail_approach.py'...
+[102.412s] Listing '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg'...
+[102.412s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/__init__.py'...
+[102.412s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_bounding_box2_d.py'...
+[102.413s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_bounding_box3_d.py'...
+[102.413s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_detection.py'...
+[102.413s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_detection_array.py'...
+[102.413s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_key_point2_d.py'...
+[102.413s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_key_point2_d_array.py'...
+[102.414s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_key_point3_d.py'...
+[102.414s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_key_point3_d_array.py'...
+[102.414s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_lane_info.py'...
+[102.414s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_mask.py'...
+[102.414s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_motion_command.py'...
+[102.415s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_path_planning_result.py'...
+[102.415s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_point2_d.py'...
+[102.415s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_pose2_d.py'...
+[102.416s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_rail_info.py'...
+[102.416s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_target_point.py'...
+[102.416s] Compiling '/home/jeff/theimc_robot/install/interfaces_pkg/local/lib/python3.10/dist-packages/interfaces_pkg/msg/_vector2.py'...
+[102.429s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/lib/libinterfaces_pkg__rosidl_generator_py.so
+[102.430s] -- Set runtime path of "/home/jeff/theimc_robot/install/interfaces_pkg/lib/libinterfaces_pkg__rosidl_generator_py.so" to ""
+[102.431s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/export_interfaces_pkg__rosidl_generator_cExport.cmake
+[102.432s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/export_interfaces_pkg__rosidl_generator_cExport-noconfig.cmake
+[102.432s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/export_interfaces_pkg__rosidl_typesupport_fastrtps_cExport.cmake
+[102.433s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/export_interfaces_pkg__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[102.439s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/interfaces_pkg__rosidl_typesupport_introspection_cExport.cmake
+[102.440s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/interfaces_pkg__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[102.440s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/interfaces_pkg__rosidl_typesupport_cExport.cmake
+[102.441s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/interfaces_pkg__rosidl_typesupport_cExport-noconfig.cmake
+[102.441s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/export_interfaces_pkg__rosidl_generator_cppExport.cmake
+[102.442s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/export_interfaces_pkg__rosidl_typesupport_fastrtps_cppExport.cmake
+[102.442s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/export_interfaces_pkg__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[102.443s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/interfaces_pkg__rosidl_typesupport_introspection_cppExport.cmake
+[102.443s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/interfaces_pkg__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[102.445s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/interfaces_pkg__rosidl_typesupport_cppExport.cmake
+[102.446s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/interfaces_pkg__rosidl_typesupport_cppExport-noconfig.cmake
+[102.447s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/export_interfaces_pkg__rosidl_generator_pyExport.cmake
+[102.447s] -- Installing: /home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake/export_interfaces_pkg__rosidl_generator_pyExport-noconfig.cmake
+[102.455s] Invoked command in '/home/jeff/theimc_robot/build/interfaces_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --install /home/jeff/theimc_robot/build/interfaces_pkg

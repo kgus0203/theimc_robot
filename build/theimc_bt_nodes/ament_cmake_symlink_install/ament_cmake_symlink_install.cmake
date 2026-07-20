@@ -324,8 +324,8 @@ include("/home/jeff/theimc_robot/build/theimc_bt_nodes/ament_cmake_symlink_insta
 # install(DIRECTORY "include/" "DESTINATION" "include")
 ament_cmake_symlink_install_directory("/home/jeff/theimc_robot/src/theimc_bt_nodes" DIRECTORY "include/" "DESTINATION" "include")
 
-# install(DIRECTORY "launch" "bt_xml" "DESTINATION" "share/theimc_bt_nodes")
-ament_cmake_symlink_install_directory("/home/jeff/theimc_robot/src/theimc_bt_nodes" DIRECTORY "launch" "bt_xml" "DESTINATION" "share/theimc_bt_nodes")
+# install(DIRECTORY "launch" "bt_xml" "config" "DESTINATION" "share/theimc_bt_nodes")
+ament_cmake_symlink_install_directory("/home/jeff/theimc_robot/src/theimc_bt_nodes" DIRECTORY "launch" "bt_xml" "config" "DESTINATION" "share/theimc_bt_nodes")
 
 # install(FILES "/opt/ros/humble/lib/python3.10/site-packages/ament_package/template/environment_hook/library_path.sh" "DESTINATION" "share/theimc_bt_nodes/environment")
 ament_cmake_symlink_install_files("/home/jeff/theimc_robot/src/theimc_bt_nodes" FILES "/opt/ros/humble/lib/python3.10/site-packages/ament_package/template/environment_hook/library_path.sh" "DESTINATION" "share/theimc_bt_nodes/environment")

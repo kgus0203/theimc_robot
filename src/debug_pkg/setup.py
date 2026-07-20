@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
             'yolov8_visualizer_node = debug_pkg.yolov8_visualizer_node:main',	
             'check_odom_straight_node = debug_pkg.check_odom_straight:main',
+            'ekf_test_cmd_sequence = debug_pkg.ekf_test_cmd_sequence:main',
         ],
     },
 )

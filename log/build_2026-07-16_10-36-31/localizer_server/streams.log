@@ -1,0 +1,24 @@
+[4.401s] Invoking command in '/home/jeff/theimc_robot/build/localizer_server': PYTHONPATH=/home/jeff/theimc_robot/build/localizer_server/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/localizer_server/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/localizer_server/build --no-deps symlink_data
+[5.298s] running develop
+[5.886s] running egg_info
+[5.886s] creating localizer_server.egg-info
+[5.893s] writing localizer_server.egg-info/PKG-INFO
+[5.894s] writing dependency_links to localizer_server.egg-info/dependency_links.txt
+[5.894s] writing entry points to localizer_server.egg-info/entry_points.txt
+[5.894s] writing requirements to localizer_server.egg-info/requires.txt
+[5.894s] writing top-level names to localizer_server.egg-info/top_level.txt
+[5.894s] writing manifest file 'localizer_server.egg-info/SOURCES.txt'
+[5.909s] reading manifest file 'localizer_server.egg-info/SOURCES.txt'
+[5.913s] writing manifest file 'localizer_server.egg-info/SOURCES.txt'
+[5.921s] running build_ext
+[5.923s] Creating /home/jeff/theimc_robot/install/localizer_server/lib/python3.10/site-packages/localizer-server.egg-link (link to .)
+[5.928s] Installing global_localization script to /home/jeff/theimc_robot/install/localizer_server/lib/localizer_server
+[5.932s] 
+[5.932s] Installed /home/jeff/theimc_robot/build/localizer_server
+[5.933s] running symlink_data
+[5.934s] creating /home/jeff/theimc_robot/install/localizer_server/share/ament_index
+[5.936s] creating /home/jeff/theimc_robot/install/localizer_server/share/ament_index/resource_index
+[5.940s] creating /home/jeff/theimc_robot/install/localizer_server/share/ament_index/resource_index/packages
+[5.942s] symbolically linking /home/jeff/theimc_robot/build/localizer_server/resource/localizer_server -> /home/jeff/theimc_robot/install/localizer_server/share/ament_index/resource_index/packages
+[5.943s] symbolically linking /home/jeff/theimc_robot/build/localizer_server/package.xml -> /home/jeff/theimc_robot/install/localizer_server/share/localizer_server
+[6.265s] Invoked command in '/home/jeff/theimc_robot/build/localizer_server' returned '0': PYTHONPATH=/home/jeff/theimc_robot/build/localizer_server/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/localizer_server/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/localizer_server/build --no-deps symlink_data

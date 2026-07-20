@@ -1,9 +1,35 @@
+import os
+
+from launch.actions import SetEnvironmentVariable
 from launch import LaunchDescription
 from launch_ros.actions import Node
 
 
 def generate_launch_description():
+    nvidia_site_packages = '/home/jeff/.local/lib/python3.10/site-packages/nvidia'
+    cuda_library_paths = [
+        f'{nvidia_site_packages}/cuda_runtime/lib',
+        f'{nvidia_site_packages}/cublas/lib',
+        f'{nvidia_site_packages}/cusparse/lib',
+        f'{nvidia_site_packages}/cusparselt/lib',
+        f'{nvidia_site_packages}/cudnn/lib',
+        f'{nvidia_site_packages}/cufft/lib',
+        f'{nvidia_site_packages}/curand/lib',
+        f'{nvidia_site_packages}/cusolver/lib',
+        f'{nvidia_site_packages}/nccl/lib',
+        f'{nvidia_site_packages}/nvtx/lib',
+        f'{nvidia_site_packages}/cuda_cupti/lib',
+        f'{nvidia_site_packages}/cuda_nvrtc/lib',
+        f'{nvidia_site_packages}/nvjitlink/lib',
+    ]
+    ld_library_path = ':'.join(
+        cuda_library_paths + [os.environ.get('LD_LIBRARY_PATH', '')]
+    )
+
     return LaunchDescription([
+        SetEnvironmentVariable('LD_LIBRARY_PATH', ld_library_path),
+        SetEnvironmentVariable('MPLCONFIGDIR', '/tmp/matplotlib'),
+        SetEnvironmentVariable('YOLO_CONFIG_DIR', '/tmp/Ultralytics'),
         Node(
             package='camera_perception_pkg',
             executable='image_publisher_node',

@@ -3,9 +3,8 @@
 
 CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_robot/src/theimc_bt_nodes/src/mission_bt_runner.cpp \
   /usr/include/stdc-predef.h \
-  /usr/include/c++/11/chrono \
-  /usr/include/c++/11/ratio \
-  /usr/include/c++/11/type_traits \
+  /usr/include/c++/11/atomic \
+  /usr/include/c++/11/bits/atomic_base.h \
   /usr/include/aarch64-linux-gnu/c++/11/bits/c++config.h \
   /usr/include/aarch64-linux-gnu/c++/11/bits/os_defines.h \
   /usr/include/features.h \
@@ -18,7 +17,6 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
   /usr/include/aarch64-linux-gnu/gnu/stubs-lp64.h \
   /usr/include/aarch64-linux-gnu/c++/11/bits/cpu_defines.h \
   /usr/include/c++/11/pstl/pstl_config.h \
-  /usr/include/c++/11/cstdint \
   /usr/lib/gcc/aarch64-linux-gnu/11/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/aarch64-linux-gnu/bits/libc-header-start.h \
@@ -28,6 +26,12 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
   /usr/include/aarch64-linux-gnu/bits/wchar.h \
   /usr/include/aarch64-linux-gnu/bits/stdint-intn.h \
   /usr/include/aarch64-linux-gnu/bits/stdint-uintn.h \
+  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/11/bits/move.h \
+  /usr/include/c++/11/type_traits \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/cstdint \
   /usr/include/c++/11/limits \
   /usr/include/c++/11/ctime \
   /usr/include/time.h \
@@ -55,7 +59,6 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
   /usr/include/c++/11/bits/functexcept.h \
   /usr/include/c++/11/bits/exception_defines.h \
   /usr/include/c++/11/bits/stl_pair.h \
-  /usr/include/c++/11/bits/move.h \
   /usr/include/c++/11/bits/stl_iterator_base_types.h \
   /usr/include/c++/11/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/11/bits/concept_check.h \
@@ -136,8 +139,6 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
   /usr/include/c++/11/bits/cxxabi_init_exception.h \
   /usr/include/c++/11/bits/nested_exception.h \
   /usr/include/c++/11/bits/shared_ptr_atomic.h \
-  /usr/include/c++/11/bits/atomic_base.h \
-  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
   /usr/include/c++/11/backward/auto_ptr.h \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/pstl/execution_defs.h \
@@ -289,7 +290,6 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
   /opt/ros/humble/include/behaviortree_cpp_v3/controls/if_then_else_node.h \
   /opt/ros/humble/include/behaviortree_cpp_v3/controls/while_do_else_node.h \
   /opt/ros/humble/include/behaviortree_cpp_v3/action_node.h \
-  /usr/include/c++/11/atomic \
   /usr/include/c++/11/thread \
   /usr/include/c++/11/bits/std_thread.h \
   /usr/include/c++/11/bits/this_thread_sleep.h \
@@ -765,8 +765,20 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
   /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/static_storage.hpp \
   /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/thread_safe_synchronization.hpp \
   /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/detail/write_preferring_read_write_lock.hpp \
-  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_template.hpp
+  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_template.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/bool.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__builder.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__traits.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__type_support.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
 
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__type_support.hpp:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__traits.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/thread_safe_synchronization.hpp:
 
@@ -819,6 +831,8 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_base_interface_traits.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/create_timer.hpp:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__struct.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__type_support.hpp:
 
@@ -1088,6 +1102,8 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 
 /opt/ros/humble/include/rclcpp/rclcpp/detail/cpp_callback_trampoline.hpp:
 
+/opt/ros/humble/include/std_msgs/std_msgs/msg/bool.hpp:
+
 /usr/include/aarch64-linux-gnu/c++/11/bits/error_constants.h:
 
 /usr/include/c++/11/ratio:
@@ -1244,14 +1260,6 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 
 /usr/include/c++/11/string:
 
-/opt/ros/humble/include/rcpputils/rcpputils/thread_safety_annotations.hpp:
-
-/usr/include/aarch64-linux-gnu/bits/types/__fpos_t.h:
-
-/usr/include/c++/11/bits/atomic_lockfree_defines.h:
-
-/usr/include/aarch64-linux-gnu/bits/typesizes.h:
-
 /usr/include/c++/11/bits/nested_exception.h:
 
 /opt/ros/humble/include/rmw/rmw/publisher_options.h:
@@ -1282,37 +1290,23 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 
 /opt/ros/humble/include/rcpputils/rcpputils/visibility_control.hpp:
 
-/usr/include/aarch64-linux-gnu/bits/byteswap.h:
+/opt/ros/humble/include/rclcpp/rclcpp/node_impl.hpp:
 
-/usr/include/c++/11/bits/codecvt.h:
+/usr/include/aarch64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
-/opt/ros/humble/include/rmw/rmw/events_statuses/liveliness_lost.h:
-
-/usr/include/c++/11/bits/concept_check.h:
-
-/usr/include/asm-generic/bitsperlong.h:
-
-/usr/include/c++/11/debug/assertions.h:
-
-/opt/ros/humble/include/tracetools/tracetools/config.h:
+/usr/include/c++/11/bits/erase_if.h:
 
 /usr/include/stdint.h:
 
 /usr/include/c++/11/bits/ptr_traits.h:
 
-/usr/include/c++/11/bits/erase_if.h:
+/usr/include/aarch64-linux-gnu/bits/types/__sigset_t.h:
 
 /usr/include/c++/11/memory:
 
 /opt/ros/humble/include/rmw/rmw/serialized_message.h:
 
 /usr/include/aarch64-linux-gnu/bits/pthreadtypes.h:
-
-/usr/include/aarch64-linux-gnu/bits/fp-fast.h:
-
-/usr/include/c++/11/bits/exception_defines.h:
-
-/opt/ros/humble/include/rclcpp/rclcpp/event.hpp:
 
 /usr/include/c++/11/bits/shared_ptr_atomic.h:
 
@@ -1352,10 +1346,6 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 
 /usr/include/c++/11/bits/streambuf_iterator.h:
 
-/opt/ros/humble/include/rclcpp/rclcpp/experimental/buffers/ring_buffer_implementation.hpp:
-
-/usr/include/c++/11/bits/ostream.tcc:
-
 /usr/include/aarch64-linux-gnu/asm/sve_context.h:
 
 /usr/include/aarch64-linux-gnu/bits/types/timer_t.h:
@@ -1366,25 +1356,19 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 
 /usr/include/aarch64-linux-gnu/bits/sigstack.h:
 
-/usr/include/aarch64-linux-gnu/bits/endian.h:
+/usr/include/c++/11/cstdint:
 
-/opt/ros/humble/include/rcutils/rcutils/logging_macros.h:
+/usr/include/c++/11/pstl/glue_memory_defs.h:
 
-/usr/include/aarch64-linux-gnu/c++/11/bits/os_defines.h:
+/usr/include/c++/11/csignal:
 
-/opt/ros/humble/include/rcl/rcl/publisher.h:
+/usr/include/c++/11/ext/type_traits.h:
 
-/opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/detail/metrics_message__struct.hpp:
+/usr/include/c++/11/bits/vector.tcc:
 
-/usr/include/aarch64-linux-gnu/c++/11/bits/c++locale.h:
+/usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h:
 
-/usr/include/aarch64-linux-gnu/bits/types/clock_t.h:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__traits.hpp:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_type__struct.hpp:
-
-/usr/include/c++/11/bits/quoted_string.h:
+/usr/include/c++/11/bits/stl_pair.h:
 
 /usr/include/c++/11/exception:
 
@@ -1416,21 +1400,27 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 
 /opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:
 
-/usr/include/c++/11/bits/move.h:
+/usr/include/aarch64-linux-gnu/bits/endian.h:
 
-/usr/include/c++/11/bits/hash_bytes.h:
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__struct.hpp:
 
-/usr/include/c++/11/ostream:
+/usr/include/c++/11/bits/atomic_futex.h:
 
-/usr/include/c++/11/iterator:
+/usr/include/c++/11/cstring:
 
-/home/jeff/theimc_robot/src/theimc_bt_nodes/src/mission_bt_runner.cpp:
+/usr/include/c++/11/bits/std_mutex.h:
 
-/usr/include/c++/11/bits/range_access.h:
+/usr/include/aarch64-linux-gnu/bits/libc-header-start.h:
 
-/usr/include/c++/11/bits/unique_ptr.h:
+/usr/include/aarch64-linux-gnu/bits/byteswap.h:
 
-/opt/ros/humble/include/behaviortree_cpp_v3/utils/safe_any.hpp:
+/usr/include/c++/11/bits/codecvt.h:
+
+/opt/ros/humble/include/rmw/rmw/events_statuses/liveliness_lost.h:
+
+/usr/include/c++/11/bits/concept_check.h:
+
+/usr/include/asm-generic/bitsperlong.h:
 
 /usr/include/c++/11/sstream:
 
@@ -1439,6 +1429,14 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 /usr/include/c++/11/iosfwd:
 
 /usr/include/aarch64-linux-gnu/bits/stdint-intn.h:
+
+/opt/ros/humble/include/rcpputils/rcpputils/thread_safety_annotations.hpp:
+
+/usr/include/aarch64-linux-gnu/bits/types/__fpos_t.h:
+
+/usr/include/c++/11/bits/atomic_lockfree_defines.h:
+
+/usr/include/aarch64-linux-gnu/bits/typesizes.h:
 
 /usr/include/c++/11/bits/locale_classes.tcc:
 
@@ -1449,6 +1447,8 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_type__traits.hpp:
 
 /opt/ros/humble/include/behaviortree_cpp_v3/decorators/keep_running_until_failure_node.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:
 
 /usr/include/c++/11/streambuf:
 
@@ -1476,7 +1476,35 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 
 /usr/include/features.h:
 
-/usr/include/c++/11/bits/atomic_base.h:
+/opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__type_support.hpp:
+
+/opt/ros/humble/include/rcutils/rcutils/types/array_list.h:
+
+/opt/ros/humble/include/rcpputils/rcpputils/filesystem_helper.hpp:
+
+/usr/include/c++/11/cstddef:
+
+/opt/ros/humble/include/rcutils/rcutils/logging_macros.h:
+
+/usr/include/aarch64-linux-gnu/c++/11/bits/os_defines.h:
+
+/opt/ros/humble/include/rcl/rcl/publisher.h:
+
+/opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/detail/metrics_message__struct.hpp:
+
+/usr/include/aarch64-linux-gnu/c++/11/bits/c++locale.h:
+
+/usr/include/aarch64-linux-gnu/bits/types/clock_t.h:
+
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__traits.hpp:
+
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_type__struct.hpp:
+
+/usr/include/c++/11/bits/quoted_string.h:
+
+/usr/include/c++/11/limits:
+
+/usr/include/aarch64-linux-gnu/c++/11/bits/cpu_defines.h:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_event__struct.hpp:
 
@@ -1486,45 +1514,7 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 
 /usr/include/aarch64-linux-gnu/bits/types/sigval_t.h:
 
-/opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__type_support.hpp:
-
-/opt/ros/humble/include/rcutils/rcutils/types/array_list.h:
-
-/opt/ros/humble/include/rcpputils/rcpputils/filesystem_helper.hpp:
-
-/usr/include/c++/11/cstddef:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__struct.hpp:
-
-/usr/include/c++/11/bits/atomic_futex.h:
-
-/usr/include/c++/11/cstring:
-
-/usr/include/c++/11/bits/std_mutex.h:
-
-/usr/include/aarch64-linux-gnu/bits/libc-header-start.h:
-
-/usr/include/c++/11/pstl/glue_memory_defs.h:
-
-/usr/include/c++/11/csignal:
-
-/usr/include/c++/11/ext/type_traits.h:
-
-/usr/include/c++/11/bits/vector.tcc:
-
-/usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h:
-
-/usr/include/c++/11/bits/stl_pair.h:
-
-/usr/include/aarch64-linux-gnu/bits/select.h:
-
-/usr/include/c++/11/tuple:
-
-/opt/ros/humble/include/rcl/rcl/network_flow_endpoints.h:
-
-/usr/include/aarch64-linux-gnu/bits/timesize.h:
-
-/usr/include/c++/11/bits/string_view.tcc:
+/usr/include/c++/11/bits/atomic_base.h:
 
 /usr/include/c++/11/bits/stl_function.h:
 
@@ -1540,25 +1530,33 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 
 /opt/ros/humble/include/rcl/rcl/event_callback.h:
 
-/usr/include/asm-generic/errno-base.h:
+/usr/include/aarch64-linux-gnu/bits/fp-fast.h:
 
-/opt/ros/humble/include/rmw/rmw/subscription_options.h:
+/usr/include/c++/11/bits/exception_defines.h:
 
-/usr/include/pthread.h:
+/opt/ros/humble/include/rclcpp/rclcpp/event.hpp:
 
-/usr/include/aarch64-linux-gnu/c++/11/bits/cpu_defines.h:
+/usr/include/asm-generic/int-ll64.h:
 
-/usr/include/c++/11/limits:
+/usr/include/c++/11/atomic:
 
-/usr/include/c++/11/ext/new_allocator.h:
+/usr/include/aarch64-linux-gnu/bits/select.h:
 
-/usr/include/aarch64-linux-gnu/bits/flt-eval-method.h:
+/usr/include/c++/11/tuple:
 
-/usr/include/c++/11/backward/auto_ptr.h:
+/opt/ros/humble/include/rcl/rcl/network_flow_endpoints.h:
 
-/usr/include/c++/11/bits/stl_uninitialized.h:
+/usr/include/aarch64-linux-gnu/bits/timesize.h:
 
-/usr/include/c++/11/cstdint:
+/usr/include/aarch64-linux-gnu/bits/pthread_stack_min-dynamic.h:
+
+/usr/include/c++/11/pstl/pstl_config.h:
+
+/usr/include/c++/11/bits/string_view.tcc:
+
+/usr/include/c++/11/bits/hash_bytes.h:
+
+/usr/include/c++/11/bits/move.h:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/floating_point_range__traits.hpp:
 
@@ -1597,6 +1595,36 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 /usr/include/unistd.h:
 
 /usr/include/c++/11/cwchar:
+
+/usr/include/c++/11/ostream:
+
+/usr/include/c++/11/iterator:
+
+/home/jeff/theimc_robot/src/theimc_bt_nodes/src/mission_bt_runner.cpp:
+
+/usr/include/c++/11/bits/range_access.h:
+
+/usr/include/c++/11/bits/unique_ptr.h:
+
+/opt/ros/humble/include/behaviortree_cpp_v3/utils/safe_any.hpp:
+
+/usr/include/asm-generic/errno-base.h:
+
+/opt/ros/humble/include/rmw/rmw/subscription_options.h:
+
+/usr/include/pthread.h:
+
+/usr/include/c++/11/ext/new_allocator.h:
+
+/usr/include/aarch64-linux-gnu/bits/flt-eval-method.h:
+
+/usr/include/c++/11/backward/auto_ptr.h:
+
+/usr/include/c++/11/bits/stl_uninitialized.h:
+
+/opt/ros/humble/include/tracetools/tracetools/config.h:
+
+/usr/include/c++/11/debug/assertions.h:
 
 /usr/include/c++/11/bits/predefined_ops.h:
 
@@ -1643,12 +1671,6 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 /usr/include/aarch64-linux-gnu/bits/sched.h:
 
 /usr/include/c++/11/bits/istream.tcc:
-
-/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:
-
-/usr/include/c++/11/pstl/pstl_config.h:
-
-/usr/include/aarch64-linux-gnu/bits/pthread_stack_min-dynamic.h:
 
 /usr/include/c++/11/bits/algorithmfwd.h:
 
@@ -1730,6 +1752,8 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 
 /usr/include/aarch64-linux-gnu/bits/signal_ext.h:
 
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__builder.hpp:
+
 /usr/include/c++/11/tr1/beta_function.tcc:
 
 /usr/include/aarch64-linux-gnu/bits/waitstatus.h:
@@ -1772,11 +1796,9 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 
 /opt/ros/humble/include/rcl/rcl/guard_condition.h:
 
-/usr/include/aarch64-linux-gnu/bits/types/__sigset_t.h:
+/opt/ros/humble/include/rclcpp/rclcpp/experimental/buffers/ring_buffer_implementation.hpp:
 
-/opt/ros/humble/include/rclcpp/rclcpp/node_impl.hpp:
-
-/usr/include/aarch64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
+/usr/include/c++/11/bits/ostream.tcc:
 
 /usr/include/aarch64-linux-gnu/c++/11/bits/cxxabi_tweaks.h:
 
@@ -1829,10 +1851,6 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 /opt/ros/humble/include/behaviortree_cpp_v3/controls/while_do_else_node.h:
 
 /usr/include/aarch64-linux-gnu/bits/procfs.h:
-
-/usr/include/asm-generic/int-ll64.h:
-
-/usr/include/c++/11/atomic:
 
 /usr/include/aarch64-linux-gnu/bits/stdio_lim.h:
 
@@ -1964,9 +1982,9 @@ CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o: /home/jeff/theimc_
 
 /usr/include/aarch64-linux-gnu/sys/ucontext.h:
 
-/usr/include/features-time64.h:
-
 /usr/include/c++/11/system_error:
+
+/usr/include/features-time64.h:
 
 /usr/include/aarch64-linux-gnu/bits/procfs-prregset.h:
 

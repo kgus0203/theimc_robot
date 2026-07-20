@@ -223,11 +223,11 @@ class RailApproachActionServer(Node):
         self.success_pub.publish(msg)
         self.get_logger().info('[RAIL_ACTION] success published: true')
 
-    def publish_detected(self):
-        cmd_msg = String()
-        cmd_msg.data = 'DETECTED'
-        self.pub_rail_cmd.publish(cmd_msg)
-        self.get_logger().info('[RAIL_ACTION] rail cmd published: DETECTED')
+    # def publish_detected(self):
+    #     cmd_msg = String()
+    #     cmd_msg.data = 'DETECTED'
+    #     self.pub_rail_cmd.publish(cmd_msg)
+    #     self.get_logger().info('[RAIL_ACTION] rail cmd published: DETECTED')
 
     def execute_callback(self, goal_handle):
         self.get_logger().info('[RAIL_ACTION] execute start')
@@ -371,7 +371,7 @@ class RailApproachActionServer(Node):
                     )
                 elif close_enough:
                     self.stop_robot()
-                    self.publish_detected()
+                    # self.publish_detected()
                     self.publish_success()
                     goal_handle.succeed()
 
@@ -395,7 +395,7 @@ class RailApproachActionServer(Node):
                     pulse_end_time = None
                 elif close_enough:
                     self.stop_robot()
-                    self.publish_detected()
+                    # self.publish_detected()
                     self.publish_success()
                     goal_handle.succeed()
 

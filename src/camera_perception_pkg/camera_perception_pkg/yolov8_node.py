@@ -56,14 +56,14 @@ class Yolov8Node(LifecycleNode):
         # 딥러닝 모델 pt 파일명 작성
         #self.declare_parameter("model", "yolov8m.pt")
         # self.declare_parameter("model", "best.pt")
-        self.declare_parameter("model","/home/jeff/theimc_robot/src/camera_perception_pkg/test/best_260624.pt")
+        self.declare_parameter("model","/home/jeff/theimc_robot/src/camera_perception_pkg/test/best.pt")
         
         # 추론 하드웨어 선택 (cpu / gpu) 
         # self.declare_parameter("device", "cpu")
         self.declare_parameter("device", "cuda:0")
         #----------------------------------------------
         
-        self.declare_parameter("threshold", 0.65)
+        self.declare_parameter("threshold", 0.5)
         self.declare_parameter("enable", False)
         self.declare_parameter("perception_enable_topic", "/rail_perception_enable")
         self.declare_parameter("image_reliability",

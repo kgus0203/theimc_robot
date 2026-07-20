@@ -1,6 +1,18 @@
 <?xml version="1.0"?>
 <library path="theimc_bt_nodes">
   <class
+    name="theimc_bt_nodes/ForEachRail"
+    type="theimc_bt_nodes::ForEachRail"
+    base_class_type="BT::TreeNode">
+    <description>Iterates one child over a validated list of selected rails.</description>
+  </class>
+  <class
+    name="theimc_bt_nodes/GetRailPose"
+    type="theimc_bt_nodes::GetRailPose"
+    base_class_type="BT::TreeNode">
+    <description>Loads a selected rail approach pose from rails.yaml.</description>
+  </class>
+  <class
     name="theimc_bt_nodes/GoToPose"
     type="theimc_bt_nodes::GoToPose"
     base_class_type="BT::TreeNode">
@@ -17,6 +29,12 @@
     type="theimc_bt_nodes::RailApproach"
     base_class_type="BT::TreeNode">
     <description>BehaviorTree.CPP node that sends a RailApproach goal.</description>
+  </class>
+  <class
+    name="theimc_bt_nodes/ReturnHomeRequested"
+    type="theimc_bt_nodes::ReturnHomeRequested"
+    base_class_type="BT::TreeNode">
+    <description>Preempts the active mission when a return-home request is received.</description>
   </class>
   <class
     name="theimc_bt_nodes/WaitForRailState"

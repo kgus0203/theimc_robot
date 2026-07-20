@@ -15,7 +15,7 @@ from geometry_msgs.msg import PoseWithCovarianceStamped, Twist
 from nav2_msgs.action import NavigateToPose
 from action_msgs.msg import GoalStatus
 from std_srvs.srv import Trigger
-from std_msgs.msg import String
+from std_msgs.msg import Bool, String
 
 
 from interfaces_pkg.action import RailApproach
@@ -105,7 +105,8 @@ class RobotAgent(Node):
         # twist_mux를 쓴다면 /cmd_vel_web 입력으로 연결 추천
         self.cmd_vel_pub = self.create_publisher(
             Twist,
-            "/cmd_vel_web",
+            # "/cmd_vel_web",
+            "/cmd_vel",
             10,
         )
 
@@ -114,6 +115,25 @@ class RobotAgent(Node):
         self.rail_cmd_pub = self.create_publisher(
             String,
             "/rail_command",
+            10,
+        )
+
+        # BehaviorTree mission input publishers
+        self.selected_rails_pub = self.create_publisher(
+            String,
+            "/selected_rails",
+            10,
+        )
+
+        self.mission_trigger_pub = self.create_publisher(
+            Bool,
+            "/mission_trigger",
+            10,
+        )
+
+        self.return_home_pub = self.create_publisher(
+            Bool,
+            "/return_home",
             10,
         )
 
@@ -424,9 +444,9 @@ class RobotAgent(Node):
 
             elif cmd_type == "rail_approach":
                 self.handle_rail_approach(
-                    timeout_sec=payload.get("timeout_sec", 60.0),
-                    x_tolerance=payload.get("x_tolerance", 0.08),
-                    angle_tolerance=payload.get("angle_tolerance", 1.0),
+                    timeout_sec=payload.get("timeout_sec", 30.0),
+                    x_tolerance=payload.get("x_tolerance", 0.25),
+                    angle_tolerance=payload.get("angle_tolerance", 5.0),
                     allow_reverse_align=payload.get("allow_reverse_align", True),
                     command_id=command_id,
                     source="single",
@@ -469,6 +489,15 @@ class RobotAgent(Node):
 
             elif cmd_type == "clear_emergency":
                 self.handle_clear_emergency(command_id)
+
+            elif cmd_type == "selected_rails":
+                self.handle_selected_rails(payload, command_id)
+
+            elif cmd_type == "mission_start":
+                self.handle_mission_start(payload, command_id)
+
+            elif cmd_type == "return_home":
+                self.handle_return_home(command_id)
 
             elif cmd_type == "start_routine":
                 self.handle_start_routine(payload, command_id)
@@ -557,6 +586,103 @@ class RobotAgent(Node):
     # BASIC COMMANDS
     # ========================================================
 
+    def get_selected_rails_data(self, payload: dict) -> Optional[str]:
+        data = payload.get("data")
+        if isinstance(data, str) and data.strip():
+            return data.strip()
+
+        selected_rails = payload.get("selected_rails")
+        if isinstance(selected_rails, list):
+            rail_values = [
+                str(rail_id).strip()
+                for rail_id in selected_rails
+                if str(rail_id).strip()
+            ]
+            if rail_values:
+                return ",".join(rail_values)
+
+        # mission_start의 commands 배열만 전달되는 경우도 지원
+        commands = payload.get("commands")
+        if isinstance(commands, list):
+            for command in commands:
+                if not isinstance(command, dict):
+                    continue
+                if command.get("ros_topic") != "/selected_rails":
+                    continue
+                command_data = command.get("data")
+                if isinstance(command_data, str) and command_data.strip():
+                    return command_data.strip()
+
+        return None
+
+    def publish_selected_rails(self, selected_rails: str):
+        msg = String()
+        msg.data = selected_rails
+        self.selected_rails_pub.publish(msg)
+        self.get_logger().info(
+            f"[MISSION] selected rails published: {selected_rails}"
+        )
+
+    def handle_selected_rails(self, payload: dict, command_id=None):
+        selected_rails = self.get_selected_rails_data(payload)
+        if selected_rails is None:
+            self.publish_event("SELECTED_RAILS_REJECTED", {
+                "command_id": command_id,
+                "reason": "selected rails list is empty",
+            })
+            return
+
+        self.publish_selected_rails(selected_rails)
+        self.publish_event("SELECTED_RAILS_PUBLISHED", {
+            "command_id": command_id,
+            "selected_rails": selected_rails,
+        })
+
+    def handle_mission_start(self, payload: dict, command_id=None):
+        selected_rails = self.get_selected_rails_data(payload)
+        if selected_rails is None:
+            self.publish_event("MISSION_START_REJECTED", {
+                "command_id": command_id,
+                "reason": "selected rails list is empty",
+            })
+            return
+
+        # WaitForMissionTrigger가 최신 목록을 먼저 처리할 시간을 준다.
+        self.publish_selected_rails(selected_rails)
+
+        def publish_trigger():
+            msg = Bool()
+            msg.data = True
+            self.mission_trigger_pub.publish(msg)
+            self.get_logger().info(
+                f"[MISSION] start triggered: {selected_rails}"
+            )
+            self.publish_event("MISSION_START_TRIGGERED", {
+                "command_id": command_id,
+                "selected_rails": selected_rails,
+            })
+
+        self.create_timer_once(0.2, publish_trigger)
+
+    def handle_return_home(self, command_id=None):
+        # robot_agent가 직접 실행 중인 명령과 BT 복귀 동작이 충돌하지 않도록 정리
+        self.routine_stop_requested = True
+        self.routine_running = False
+        self.routine_step_active = False
+        self.active_routine = None
+        self.current_step = None
+        self.cancel_nav_goal()
+        self.cancel_rail_goal()
+        self.publish_cmd_vel(0.0, 0.0)
+
+        msg = Bool()
+        msg.data = True
+        self.return_home_pub.publish(msg)
+        self.get_logger().warning("[MISSION] return home requested")
+        self.publish_event("RETURN_HOME_REQUESTED", {
+            "command_id": command_id,
+        })
+
     def handle_initial_pose(self, x: float, y: float, yaw: float, command_id=None):
         msg = PoseWithCovarianceStamped()
         msg.header.frame_id = "map"
@@ -620,9 +746,9 @@ class RobotAgent(Node):
             self.publish_cmd_vel(0.0, 0.0)
 
         self.mode = "EMERGENCY_STOP"
-        self.task_state = "BLOCKED"
+        self.task_state = "EMERGENCY_STOP"
 
-        self.publish_event("EMERGENCY_STOPPED", {
+        self.publish_event("EMERGENCY_STOP", {
             "command_id": command_id,
         })
 

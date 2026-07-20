@@ -1,0 +1,96 @@
+<!-- 
+레일이 1개만 있다고 가정하고 시나리오 테스트 
+나중에 레일이 여러개일 경우에는 레일을 선택하는 로직이 필요함
+0. 이걸 켤 때 내가 대충 홈위치에서 출발한다고 가정
+1. /mission_trigger 토픽을 통해 미션 시작 신호를 받으면 nav2로 레일 앞까지 이동
+2. 1이 성공했다면 ros2 action send_goal /rail_approach interfaces_pkg/action/RailApproach "{timeout_sec: 20.0, x_tolerance: 0.25, angle_tolerance: 5.0, allow_reverse_align: false}"
+3. 레일 정상적으로 올라가지면 ON_RAIL이 STM에서 시리얼로 나옴(레일에서 탈출하면 OUT_RAIL이 나옴) 
+4. 3초 forward 전송 -> stop 전송 -> 5초 대기 -> 2초 back 전송 -> stop 전송 -> 5초 대기 -> back 전송(레일에서 벗어나기 위함) 3번 항목은 전부 /rail_command으로 발행해야함
+5. STM에서 OUT_RAIL -> home 위치로 이동 -> 미션 종료
+
+이걸 mission_trigger들어올 때마다 반복해서 수행하도록 구현
+
+홈위치 : <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
+1번 레일 x: -0.9062973260879517, y: -2.77840256690979
+-->
+
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+
+    <Sequence name="Mission">
+
+      <!-- 미션 시작 신호는 최초 한 번만 대기 -->
+      <WaitForMissionTrigger/>
+
+      <!-- -1 넣으면 내부 루틴 무한 반복 -->
+      <Repeat num_cycles="3">
+
+        <Sequence name="OneRoutine">
+
+          <GoToPose x="-0.90" y="-2.77" yaw="0.0"/>
+
+          <RailApproach
+            timeout_sec="20.0"
+            x_tolerance="0.25"
+            angle_tolerance="5.0"
+            allow_reverse_align="true"/>
+
+          <WaitSeconds seconds="10.0"/>
+
+          <PublishRailCommand command="ON"/>
+
+          <PublishRailCommand command="FORWARD"/>
+          <WaitSeconds seconds="5.0"/>
+
+          <PublishRailCommand command="STOP"/>
+          <WaitSeconds seconds="5.0"/>
+
+          <PublishRailCommand command="BACK"/>
+          <WaitSeconds seconds="5.0"/>
+
+          <PublishRailCommand command="STOP"/>
+          <WaitSeconds seconds="5.0"/>
+
+          <PublishRailCommand command="OUT"/>
+          <WaitSeconds seconds="10.0"/>
+
+          <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
+
+        </Sequence>
+
+      </Repeat>
+
+    </Sequence>
+
+  </BehaviorTree>
+</root>
+
+<!-- 
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <Sequence name="OneRoutine">
+      <WaitForMissionTrigger/>
+      <GoToPose x="-0.90" y="-2.77" yaw="-0.0"/>
+      <RailApproach timeout_sec="20.0" x_tolerance="0.25" angle_tolerance="5.0" allow_reverse_align="true"/>
+      <WaitSeconds seconds="10.0"/>
+      <!-- <WaitForRailState state="ON_RAIL" accept_stale="true" timeout_sec="30.0"/>  -->
+      <PublishRailCommand command="ON"/> <!-- 레일 실탑승에 에러 사항이 많으니 일단 이걸로 상태 강제, 실제로는 ON_RAIL 받을 때까지 기다려야함 -->
+      <PublishRailCommand command="FORWARD"/>
+      <WaitSeconds seconds="5.0"/>
+      <PublishRailCommand command="STOP"/>
+      <WaitSeconds seconds="5.0"/>
+      <PublishRailCommand command="BACK"/>
+      <WaitSeconds seconds="5.0"/>
+      <PublishRailCommand command="STOP"/>
+      <WaitSeconds seconds="5.0"/>
+      <PublishRailCommand command="OUT"/> <!-- 레일 실탑승에 에러 사항이 많으니 일단 이걸로 상태 강제 -->
+      <WaitSeconds seconds="10.0"/>
+      <!-- <BackUp backup_dist="0.5" backup_speed="0.1"/> -->
+      <!-- <PublishRailCommand command="BACK"/> -->
+      <!-- <WaitForRailState state="OUT_RAIL" accept_stale="false" timeout_sec="30.0"/> -->
+      <!-- <PublishRailCommand command="STOP"/> -->
+      <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
+    </Sequence>
+  </BehaviorTree>
+</root>
+ -->

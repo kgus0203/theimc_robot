@@ -63,7 +63,7 @@ class Yolov8Node(LifecycleNode):
         self.declare_parameter("device", "cuda:0")
         #----------------------------------------------
         
-        self.declare_parameter("threshold", 0.65)
+        self.declare_parameter("threshold", 0.5)
         self.declare_parameter("enable", False)
         self.declare_parameter("perception_enable_topic", "/rail_perception_enable")
         self.declare_parameter("image_reliability",

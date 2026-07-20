@@ -1,0 +1,24 @@
+[8.290s] Invoking command in '/home/jeff/theimc_robot/build/theimc_teleop': PYTHONPATH=/home/jeff/theimc_robot/build/theimc_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/theimc_teleop/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/theimc_teleop/build --no-deps symlink_data
+[9.301s] running develop
+[9.976s] running egg_info
+[9.977s] creating theimc_teleop.egg-info
+[9.978s] writing theimc_teleop.egg-info/PKG-INFO
+[9.978s] writing dependency_links to theimc_teleop.egg-info/dependency_links.txt
+[9.978s] writing entry points to theimc_teleop.egg-info/entry_points.txt
+[9.978s] writing requirements to theimc_teleop.egg-info/requires.txt
+[9.984s] writing top-level names to theimc_teleop.egg-info/top_level.txt
+[9.988s] writing manifest file 'theimc_teleop.egg-info/SOURCES.txt'
+[9.998s] reading manifest file 'theimc_teleop.egg-info/SOURCES.txt'
+[10.005s] writing manifest file 'theimc_teleop.egg-info/SOURCES.txt'
+[10.017s] running build_ext
+[10.020s] Creating /home/jeff/theimc_robot/install/theimc_teleop/lib/python3.10/site-packages/theimc-teleop.egg-link (link to .)
+[10.032s] Installing teleop_keyboard script to /home/jeff/theimc_robot/install/theimc_teleop/lib/theimc_teleop
+[10.040s] 
+[10.042s] Installed /home/jeff/theimc_robot/build/theimc_teleop
+[10.047s] running symlink_data
+[10.049s] creating /home/jeff/theimc_robot/install/theimc_teleop/share/ament_index
+[10.052s] creating /home/jeff/theimc_robot/install/theimc_teleop/share/ament_index/resource_index
+[10.054s] creating /home/jeff/theimc_robot/install/theimc_teleop/share/ament_index/resource_index/packages
+[10.055s] symbolically linking /home/jeff/theimc_robot/build/theimc_teleop/resource/theimc_teleop -> /home/jeff/theimc_robot/install/theimc_teleop/share/ament_index/resource_index/packages
+[10.057s] symbolically linking /home/jeff/theimc_robot/build/theimc_teleop/package.xml -> /home/jeff/theimc_robot/install/theimc_teleop/share/theimc_teleop
+[10.240s] Invoked command in '/home/jeff/theimc_robot/build/theimc_teleop' returned '0': PYTHONPATH=/home/jeff/theimc_robot/build/theimc_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/theimc_teleop/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/theimc_teleop/build --no-deps symlink_data

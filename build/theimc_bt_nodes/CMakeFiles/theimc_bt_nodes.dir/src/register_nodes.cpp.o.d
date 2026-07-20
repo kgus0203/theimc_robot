@@ -256,9 +256,7 @@ CMakeFiles/theimc_bt_nodes.dir/src/register_nodes.cpp.o: \
  /usr/include/c++/11/bits/stl_deque.h /usr/include/c++/11/bits/deque.tcc \
  /usr/include/c++/11/bits/stl_queue.h \
  /opt/ros/humble/include/behaviortree_cpp_v3/decorators/delay_node.h \
- /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/go_to_pose.hpp \
- /opt/ros/humble/include/nav2_behavior_tree/bt_action_node.hpp \
- /opt/ros/humble/include/nav2_util/node_utils.hpp \
+ /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/for_each_rail.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp \
  /usr/include/c++/11/csignal /usr/include/signal.h \
  /usr/include/aarch64-linux-gnu/bits/signum-generic.h \
@@ -690,6 +688,10 @@ CMakeFiles/theimc_bt_nodes.dir/src/register_nodes.cpp.o: \
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/thread_safe_synchronization.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/detail/write_preferring_read_write_lock.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_template.hpp \
+ /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/get_rail_pose.hpp \
+ /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/go_to_pose.hpp \
+ /opt/ros/humble/include/nav2_behavior_tree/bt_action_node.hpp \
+ /opt/ros/humble/include/nav2_util/node_utils.hpp \
  /opt/ros/humble/include/rclcpp_action/rclcpp_action/rclcpp_action.hpp \
  /opt/ros/humble/include/rclcpp_action/rclcpp_action/client.hpp \
  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/action_type_support_struct.h \
@@ -803,11 +805,12 @@ CMakeFiles/theimc_bt_nodes.dir/src/register_nodes.cpp.o: \
  /home/jeff/theimc_robot/build/interfaces_pkg/rosidl_generator_cpp/interfaces_pkg/action/detail/rail_approach__traits.hpp \
  /home/jeff/theimc_robot/build/interfaces_pkg/rosidl_generator_cpp/interfaces_pkg/action/detail/rail_approach__type_support.hpp \
  /home/jeff/theimc_robot/build/interfaces_pkg/rosidl_generator_cpp/interfaces_pkg/msg/rosidl_generator_cpp__visibility_control.hpp \
- /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/wait_for_rail_state.hpp \
- /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/wait_for_mission_trigger.hpp \
+ /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/return_home_requested.hpp \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/bool.hpp \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__struct.hpp \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__builder.hpp \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__traits.hpp \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__type_support.hpp \
+ /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/wait_for_rail_state.hpp \
+ /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/wait_for_mission_trigger.hpp \
  /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/wait_seconds.hpp
