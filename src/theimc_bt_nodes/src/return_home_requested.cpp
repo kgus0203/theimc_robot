@@ -1,29 +1,10 @@
 #include "theimc_bt_nodes/return_home_requested.hpp"
 
-#include <algorithm>
-#include <cctype>
+#include <exception>
 #include <string>
 
 namespace theimc_bt_nodes
 {
-namespace
-{
-
-std::string normalize(std::string value)
-{
-  value.erase(
-    std::remove_if(
-      value.begin(), value.end(),
-      [](unsigned char character) {return std::isspace(character);}),
-    value.end());
-  std::transform(
-    value.begin(), value.end(), value.begin(),
-    [](unsigned char character) {return std::toupper(character);});
-  return value;
-}
-
-}  // namespace
-
 ReturnHomeRequested::ReturnHomeRequested(
   const std::string & xml_tag_name,
   const BT::NodeConfiguration & config)
@@ -37,15 +18,6 @@ ReturnHomeRequested::ReturnHomeRequested(
 
   rclcpp::SubscriptionOptions options;
   options.callback_group = callback_group_;
-
-  rail_state_subscription_ = node_->create_subscription<std_msgs::msg::String>(
-    "/rail_state",
-    rclcpp::QoS(10),
-    [this](const std_msgs::msg::String::SharedPtr msg) {
-      std::lock_guard<std::mutex> lock(mutex_);
-      latest_rail_state_ = normalize(msg->data);
-    },
-    options);
 
   return_home_subscription_ = node_->create_subscription<std_msgs::msg::Bool>(
     "/return_home",
@@ -65,7 +37,7 @@ BT::PortsList ReturnHomeRequested::providedPorts()
 {
   return {
     BT::OutputPort<std::string>(
-      "return_mode", "ON_RAIL when the robot must leave the rail, otherwise DIRECT"),
+      "return_mode", "DIRECT, REVERSE_HOME, or EXIT_RAIL_HOME"),
   };
 }
 
@@ -73,24 +45,37 @@ BT::NodeStatus ReturnHomeRequested::tick()
 {
   callback_group_executor_.spin_some();
 
-  std::lock_guard<std::mutex> lock(mutex_);
-  if (!return_home_requested_) {
-    return BT::NodeStatus::FAILURE;
+  {
+    std::lock_guard<std::mutex> lock(mutex_);
+    if (!return_home_requested_) {
+      return BT::NodeStatus::FAILURE;
+    }
+    return_home_requested_ = false;
   }
 
-  const std::string return_mode =
-    latest_rail_state_ == "ON_RAIL" ? "ON_RAIL" : "DIRECT";
+  std::string mission_return_mode = "DIRECT";
+  try {
+    mission_return_mode = config().blackboard->get<std::string>("mission_return_mode");
+  } catch (const std::exception & exception) {
+    RCLCPP_WARN(
+      node_->get_logger(),
+      "mission_return_mode is unavailable (%s); using DIRECT",
+      exception.what());
+  }
+
+  std::string return_mode = "DIRECT";
+  if (mission_return_mode == "REVERSE_HOME" || mission_return_mode == "EXIT_RAIL_HOME") {
+    return_mode = mission_return_mode;
+  }
   if (!setOutput("return_mode", return_mode)) {
     RCLCPP_ERROR(node_->get_logger(), "Failed to write return_mode output");
     return BT::NodeStatus::FAILURE;
   }
 
-  return_home_requested_ = false;
   RCLCPP_WARN(
     node_->get_logger(),
-    "Starting return-home flow: mode=%s, latest_rail_state=%s",
-    return_mode.c_str(),
-    latest_rail_state_.empty() ? "UNKNOWN" : latest_rail_state_.c_str());
+    "Starting return-home flow: mode=%s, mission phase=%s",
+    return_mode.c_str(), mission_return_mode.c_str());
   return BT::NodeStatus::SUCCESS;
 }
 

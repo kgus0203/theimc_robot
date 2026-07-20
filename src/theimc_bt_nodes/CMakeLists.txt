@@ -8,6 +8,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(ament_index_cpp REQUIRED)
 find_package(behaviortree_cpp_v3 REQUIRED)
+find_package(geometry_msgs REQUIRED)
 find_package(interfaces_pkg REQUIRED)
 find_package(nav2_behavior_tree REQUIRED)
 find_package(nav2_msgs REQUIRED)
@@ -18,6 +19,7 @@ find_package(std_msgs REQUIRED)
 find_package(yaml_cpp_vendor REQUIRED)
 
 add_library(${PROJECT_NAME} SHARED
+  src/drive_cmd_vel.cpp
   src/for_each_rail.cpp
   src/get_rail_pose.cpp
   src/go_to_pose.cpp
@@ -42,6 +44,7 @@ target_include_directories(${PROJECT_NAME}
 
 ament_target_dependencies(${PROJECT_NAME}
   behaviortree_cpp_v3
+  geometry_msgs
   interfaces_pkg
   nav2_behavior_tree
   nav2_msgs
@@ -56,6 +59,7 @@ add_executable(mission_bt_runner src/mission_bt_runner.cpp)
 ament_target_dependencies(mission_bt_runner
   ament_index_cpp
   behaviortree_cpp_v3
+  geometry_msgs
   interfaces_pkg
   nav2_behavior_tree
   rclcpp
@@ -86,6 +90,7 @@ ament_export_libraries(${PROJECT_NAME})
 ament_export_dependencies(
   ament_index_cpp
   behaviortree_cpp_v3
+  geometry_msgs
   interfaces_pkg
   nav2_behavior_tree
   nav2_msgs

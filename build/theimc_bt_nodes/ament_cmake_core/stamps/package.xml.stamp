@@ -12,6 +12,7 @@
 
   <depend>ament_index_cpp</depend>
   <depend>behaviortree_cpp_v3</depend>
+  <depend>geometry_msgs</depend>
   <depend>interfaces_pkg</depend>
   <depend>nav2_behavior_tree</depend>
   <depend>nav2_msgs</depend>

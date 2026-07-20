@@ -1,6 +1,13 @@
 package.xml
 setup.cfg
 setup.py
+../../build/theimc_bringup/theimc_bringup.egg-info/PKG-INFO
+../../build/theimc_bringup/theimc_bringup.egg-info/SOURCES.txt
+../../build/theimc_bringup/theimc_bringup.egg-info/dependency_links.txt
+../../build/theimc_bringup/theimc_bringup.egg-info/entry_points.txt
+../../build/theimc_bringup/theimc_bringup.egg-info/requires.txt
+../../build/theimc_bringup/theimc_bringup.egg-info/top_level.txt
+../../build/theimc_bringup/theimc_bringup.egg-info/zip-safe
 launch/bringup_record.launch.py
 launch/camera.launch.py
 launch/isaac_vslam_d435.launch.py
@@ -23,6 +30,7 @@ params/vehicle_scan_filter.yaml
 resource/theimc_bringup
 rviz/theimc_bringup.rviz
 theimc_bringup/__init__.py
+theimc_bringup/aruco_docker_node.py
 theimc_bringup/isaac_vslam_odom_adapter_node.py
 theimc_bringup/last_pose_manager_node.py
 theimc_bringup/robot_agent_node.py

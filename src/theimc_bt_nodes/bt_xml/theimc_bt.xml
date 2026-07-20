@@ -17,6 +17,8 @@
 <root main_tree_to_execute="MainTree">
   <BehaviorTree ID="MainTree">
     <Sequence name="MissionWithReturnHome">
+      <SetBlackboard output_key="mission_return_mode" value="DIRECT"/>
+
       <ReactiveFallback name="ReturnHomeMonitor">
         <ReturnHomeRequested return_mode="{return_mode}"/>
 
@@ -24,7 +26,11 @@
           <WaitForMissionTrigger selected_rails="{selected_rails}"/>
 
           <ForEachRail rail_list="{selected_rails}" current_rail="{rail_id}">
-            <SubTreePlus ID="RailRoutine" rail_id="{rail_id}" __autoremap="1"/>
+            <SubTreePlus
+              ID="RailRoutine"
+              rail_id="{rail_id}"
+              mission_return_mode="{mission_return_mode}"
+              __autoremap="1"/>
           </ForEachRail>
 
           <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
@@ -32,28 +38,46 @@
         </Sequence>
       </ReactiveFallback>
 
-      <Switch2 variable="{return_mode}" case_1="ON_RAIL" case_2="DIRECT">
+      <Switch3
+        variable="{return_mode}"
+        case_1="EXIT_RAIL_HOME"
+        case_2="REVERSE_HOME"
+        case_3="DIRECT">
         <Sequence name="LeaveRailAndReturnHome">
           <PublishRailCommand command="BACK"/>
           <WaitForRailState state="OUT_RAIL" accept_stale="false" timeout_sec="30.0"/>
+          <PublishRailCommand command="OUT"/>
+          <WaitSeconds seconds="10.0"/>
+          <DriveCmdVel linear_x="-0.25" angular_z="0.0" seconds="3.0"/>
+          <SetBlackboard output_key="mission_return_mode" value="DIRECT"/>
           <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
         </Sequence>
+
+        <Sequence name="ReverseAndReturnHome">
+          <DriveCmdVel linear_x="-0.25" angular_z="0.0" seconds="3.0"/>
+          <SetBlackboard output_key="mission_return_mode" value="DIRECT"/>
+          <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
+        </Sequence>
+
         <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
         <AlwaysSuccess/>
-      </Switch2>
+      </Switch3>
     </Sequence>
   </BehaviorTree>
 
   <BehaviorTree ID="RailRoutine">
     <Sequence name="RailRoutineSequence">
+      <SetBlackboard output_key="mission_return_mode" value="DIRECT"/>
       <GetRailPose rail_id="{rail_id}" x="{rail_x}" y="{rail_y}" yaw="{rail_yaw}"/>
       <GoToPose x="{rail_x}" y="{rail_y}" yaw="{rail_yaw}"/>
+      <SetBlackboard output_key="mission_return_mode" value="REVERSE_HOME"/>
       <RailApproach
         timeout_sec="20.0"
         x_tolerance="0.25"
         angle_tolerance="5.0"
         allow_reverse_align="true"/>
 
+      <SetBlackboard output_key="mission_return_mode" value="EXIT_RAIL_HOME"/>
       <WaitSeconds seconds="10.0"/>
       <PublishRailCommand command="ON"/>
       <PublishRailCommand command="FORWARD"/>
@@ -65,7 +89,11 @@
       <PublishRailCommand command="STOP"/>
       <WaitSeconds seconds="5.0"/>
       <PublishRailCommand command="OUT"/>
+      <SetBlackboard output_key="mission_return_mode" value="REVERSE_HOME"/>
       <WaitSeconds seconds="10.0"/>
+      <!-- 안전거리 후진 3초: /cmd_vel linear.x=-0.25 m/s, 완료/halt 시 0 발행 -->
+      <DriveCmdVel linear_x="-0.25" angular_z="0.0" seconds="3.0"/>
+      <SetBlackboard output_key="mission_return_mode" value="DIRECT"/>
     </Sequence>
   </BehaviorTree>
 </root>

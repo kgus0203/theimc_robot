@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/theimc_bt_nodes.dir/src/drive_cmd_vel.cpp.o"
+  "CMakeFiles/theimc_bt_nodes.dir/src/drive_cmd_vel.cpp.o.d"
   "CMakeFiles/theimc_bt_nodes.dir/src/for_each_rail.cpp.o"
   "CMakeFiles/theimc_bt_nodes.dir/src/for_each_rail.cpp.o.d"
   "CMakeFiles/theimc_bt_nodes.dir/src/get_rail_pose.cpp.o"

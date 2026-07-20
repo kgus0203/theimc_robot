@@ -1,4 +1,5 @@
 #include "behaviortree_cpp_v3/bt_factory.h"
+#include "theimc_bt_nodes/drive_cmd_vel.hpp"
 #include "theimc_bt_nodes/for_each_rail.hpp"
 #include "theimc_bt_nodes/get_rail_pose.hpp"
 #include "theimc_bt_nodes/go_to_pose.hpp"
@@ -11,6 +12,7 @@
 
 BT_REGISTER_NODES(factory)
 {
+  factory.registerNodeType<theimc_bt_nodes::DriveCmdVel>("DriveCmdVel");
   factory.registerNodeType<theimc_bt_nodes::ForEachRail>("ForEachRail");
   factory.registerNodeType<theimc_bt_nodes::GetRailPose>("GetRailPose");
   factory.registerNodeType<theimc_bt_nodes::GoToPose>("GoToPose");

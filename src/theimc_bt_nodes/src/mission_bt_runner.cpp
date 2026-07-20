@@ -35,6 +35,7 @@ int main(int argc, char ** argv)
   auto blackboard = BT::Blackboard::create();
   blackboard->set<rclcpp::Node::SharedPtr>("node", node);
   blackboard->set<std::string>("rails_yaml", rails_yaml);
+  blackboard->set<std::string>("mission_return_mode", "DIRECT");
   blackboard->set<std::chrono::milliseconds>("bt_loop_duration", bt_loop_duration);
   blackboard->set<std::chrono::milliseconds>("server_timeout", server_timeout);
   blackboard->set<std::chrono::milliseconds>(

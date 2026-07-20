@@ -16,7 +16,7 @@ class ArucoDetectorNode(Node):
         # --- 파라미터 선언 ---
         self.declare_parameter('image_topic', '/image_raw')
         self.declare_parameter('pose_topic', '/aruco_pose')
-        self.declare_parameter('marker_size', 0.10)  # 마커의 실제 물리적 크기 (단위: 미터, 예: 10cm)
+        self.declare_parameter('marker_size', 0.10)  # 마커의 실제 물리적 크기 (단위: 미터, 10cm)
         self.declare_parameter('marker_id_to_detect', 0)  # 충전 스테이션에 부착된 마커 ID
         self.declare_parameter('camera_frame_id', 'camera_color_optical_frame') # 카메라 프레임
 
@@ -55,7 +55,7 @@ class ArucoDetectorNode(Node):
         # TF 브로드캐스터 생성
         self.tf_broadcaster = TransformBroadcaster(self)
 
-        # ArUco 사전 정의 (image_02bbb9.png 사진을 참고하여 5x5 사전 사용)
+        # ArUco 사전 정의 
         self.aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_5X5_250)
         self.aruco_params = cv2.aruco.DetectorParameters()
         

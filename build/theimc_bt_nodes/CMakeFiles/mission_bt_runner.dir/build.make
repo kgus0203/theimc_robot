@@ -346,8 +346,8 @@ mission_bt_runner: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesup
 mission_bt_runner: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_generator_c.so
 mission_bt_runner: /opt/ros/humble/lib/libtf2.so
 mission_bt_runner: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_c.so
-mission_bt_runner: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_cpp.so
 mission_bt_runner: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_introspection_c.so
+mission_bt_runner: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_cpp.so
 mission_bt_runner: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_introspection_cpp.so
 mission_bt_runner: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_cpp.so
 mission_bt_runner: /opt/ros/humble/lib/libgeometry_msgs__rosidl_generator_py.so

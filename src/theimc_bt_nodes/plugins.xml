@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <library path="theimc_bt_nodes">
   <class
+    name="theimc_bt_nodes/DriveCmdVel"
+    type="theimc_bt_nodes::DriveCmdVel"
+    base_class_type="BT::TreeNode">
+    <description>Publishes a velocity command for a fixed duration and stops safely.</description>
+  </class>
+  <class
     name="theimc_bt_nodes/ForEachRail"
     type="theimc_bt_nodes::ForEachRail"
     base_class_type="BT::TreeNode">

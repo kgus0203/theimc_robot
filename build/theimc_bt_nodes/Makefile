@@ -223,6 +223,30 @@ mission_bt_runner/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mission_bt_runner.dir/build.make CMakeFiles/mission_bt_runner.dir/build
 .PHONY : mission_bt_runner/fast
 
+src/drive_cmd_vel.o: src/drive_cmd_vel.cpp.o
+.PHONY : src/drive_cmd_vel.o
+
+# target to build an object file
+src/drive_cmd_vel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/drive_cmd_vel.cpp.o
+.PHONY : src/drive_cmd_vel.cpp.o
+
+src/drive_cmd_vel.i: src/drive_cmd_vel.cpp.i
+.PHONY : src/drive_cmd_vel.i
+
+# target to preprocess a source file
+src/drive_cmd_vel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/drive_cmd_vel.cpp.i
+.PHONY : src/drive_cmd_vel.cpp.i
+
+src/drive_cmd_vel.s: src/drive_cmd_vel.cpp.s
+.PHONY : src/drive_cmd_vel.s
+
+# target to generate assembly for a file
+src/drive_cmd_vel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/drive_cmd_vel.cpp.s
+.PHONY : src/drive_cmd_vel.cpp.s
+
 src/for_each_rail.o: src/for_each_rail.cpp.o
 .PHONY : src/for_each_rail.o
 
@@ -504,6 +528,9 @@ help:
 	@echo "... uninstall"
 	@echo "... mission_bt_runner"
 	@echo "... theimc_bt_nodes"
+	@echo "... src/drive_cmd_vel.o"
+	@echo "... src/drive_cmd_vel.i"
+	@echo "... src/drive_cmd_vel.s"
 	@echo "... src/for_each_rail.o"
 	@echo "... src/for_each_rail.i"
 	@echo "... src/for_each_rail.s"
