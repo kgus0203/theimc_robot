@@ -1,0 +1,878 @@
+[0.280s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.280s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=6, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffffb33bb0d0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffffb3530e50>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffffb3530e50>>)
+[0.743s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.743s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.743s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.744s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.744s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.744s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.744s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/jeff/theimc_robot'
+[0.744s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.744s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extensions ['ignore', 'ignore_ament_install']
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extension 'ignore'
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extension 'ignore_ament_install'
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extensions ['colcon_pkg']
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extension 'colcon_pkg'
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extensions ['colcon_meta']
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extension 'colcon_meta'
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extensions ['ros']
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extension 'ros'
+[0.772s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extensions ['cmake', 'python']
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extension 'cmake'
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extension 'python'
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extensions ['python_setup_py']
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extension 'python_setup_py'
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(bags/camera_odom) by extensions ['ignore', 'ignore_ament_install']
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(bags/camera_odom) by extension 'ignore'
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(bags/camera_odom) by extension 'ignore_ament_install'
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(bags/camera_odom) by extensions ['colcon_pkg']
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(bags/camera_odom) by extension 'colcon_pkg'
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(bags/camera_odom) by extensions ['colcon_meta']
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(bags/camera_odom) by extension 'colcon_meta'
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(bags/camera_odom) by extensions ['ros']
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(bags/camera_odom) by extension 'ros'
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(bags/camera_odom) by extensions ['cmake', 'python']
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(bags/camera_odom) by extension 'cmake'
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(bags/camera_odom) by extension 'python'
+[0.775s] Level 1:colcon.colcon_core.package_identification:_identify(bags/camera_odom) by extensions ['python_setup_py']
+[0.775s] Level 1:colcon.colcon_core.package_identification:_identify(bags/camera_odom) by extension 'python_setup_py'
+[0.775s] Level 1:colcon.colcon_core.package_identification:_identify(bags/ekf_raw_teleop_01) by extensions ['ignore', 'ignore_ament_install']
+[0.775s] Level 1:colcon.colcon_core.package_identification:_identify(bags/ekf_raw_teleop_01) by extension 'ignore'
+[0.775s] Level 1:colcon.colcon_core.package_identification:_identify(bags/ekf_raw_teleop_01) by extension 'ignore_ament_install'
+[0.775s] Level 1:colcon.colcon_core.package_identification:_identify(bags/ekf_raw_teleop_01) by extensions ['colcon_pkg']
+[0.775s] Level 1:colcon.colcon_core.package_identification:_identify(bags/ekf_raw_teleop_01) by extension 'colcon_pkg'
+[0.775s] Level 1:colcon.colcon_core.package_identification:_identify(bags/ekf_raw_teleop_01) by extensions ['colcon_meta']
+[0.776s] Level 1:colcon.colcon_core.package_identification:_identify(bags/ekf_raw_teleop_01) by extension 'colcon_meta'
+[0.776s] Level 1:colcon.colcon_core.package_identification:_identify(bags/ekf_raw_teleop_01) by extensions ['ros']
+[0.776s] Level 1:colcon.colcon_core.package_identification:_identify(bags/ekf_raw_teleop_01) by extension 'ros'
+[0.776s] Level 1:colcon.colcon_core.package_identification:_identify(bags/ekf_raw_teleop_01) by extensions ['cmake', 'python']
+[0.776s] Level 1:colcon.colcon_core.package_identification:_identify(bags/ekf_raw_teleop_01) by extension 'cmake'
+[0.776s] Level 1:colcon.colcon_core.package_identification:_identify(bags/ekf_raw_teleop_01) by extension 'python'
+[0.776s] Level 1:colcon.colcon_core.package_identification:_identify(bags/ekf_raw_teleop_01) by extensions ['python_setup_py']
+[0.776s] Level 1:colcon.colcon_core.package_identification:_identify(bags/ekf_raw_teleop_01) by extension 'python_setup_py'
+[0.777s] Level 1:colcon.colcon_core.package_identification:_identify(bags/result_wheel_ekf) by extensions ['ignore', 'ignore_ament_install']
+[0.777s] Level 1:colcon.colcon_core.package_identification:_identify(bags/result_wheel_ekf) by extension 'ignore'
+[0.777s] Level 1:colcon.colcon_core.package_identification:_identify(bags/result_wheel_ekf) by extension 'ignore_ament_install'
+[0.777s] Level 1:colcon.colcon_core.package_identification:_identify(bags/result_wheel_ekf) by extensions ['colcon_pkg']
+[0.777s] Level 1:colcon.colcon_core.package_identification:_identify(bags/result_wheel_ekf) by extension 'colcon_pkg'
+[0.777s] Level 1:colcon.colcon_core.package_identification:_identify(bags/result_wheel_ekf) by extensions ['colcon_meta']
+[0.777s] Level 1:colcon.colcon_core.package_identification:_identify(bags/result_wheel_ekf) by extension 'colcon_meta'
+[0.777s] Level 1:colcon.colcon_core.package_identification:_identify(bags/result_wheel_ekf) by extensions ['ros']
+[0.777s] Level 1:colcon.colcon_core.package_identification:_identify(bags/result_wheel_ekf) by extension 'ros'
+[0.778s] Level 1:colcon.colcon_core.package_identification:_identify(bags/result_wheel_ekf) by extensions ['cmake', 'python']
+[0.778s] Level 1:colcon.colcon_core.package_identification:_identify(bags/result_wheel_ekf) by extension 'cmake'
+[0.778s] Level 1:colcon.colcon_core.package_identification:_identify(bags/result_wheel_ekf) by extension 'python'
+[0.778s] Level 1:colcon.colcon_core.package_identification:_identify(bags/result_wheel_ekf) by extensions ['python_setup_py']
+[0.778s] Level 1:colcon.colcon_core.package_identification:_identify(bags/result_wheel_ekf) by extension 'python_setup_py'
+[0.778s] Level 1:colcon.colcon_core.package_identification:_identify(bags/wheel_odom) by extensions ['ignore', 'ignore_ament_install']
+[0.778s] Level 1:colcon.colcon_core.package_identification:_identify(bags/wheel_odom) by extension 'ignore'
+[0.779s] Level 1:colcon.colcon_core.package_identification:_identify(bags/wheel_odom) by extension 'ignore_ament_install'
+[0.779s] Level 1:colcon.colcon_core.package_identification:_identify(bags/wheel_odom) by extensions ['colcon_pkg']
+[0.779s] Level 1:colcon.colcon_core.package_identification:_identify(bags/wheel_odom) by extension 'colcon_pkg'
+[0.779s] Level 1:colcon.colcon_core.package_identification:_identify(bags/wheel_odom) by extensions ['colcon_meta']
+[0.779s] Level 1:colcon.colcon_core.package_identification:_identify(bags/wheel_odom) by extension 'colcon_meta'
+[0.779s] Level 1:colcon.colcon_core.package_identification:_identify(bags/wheel_odom) by extensions ['ros']
+[0.779s] Level 1:colcon.colcon_core.package_identification:_identify(bags/wheel_odom) by extension 'ros'
+[0.779s] Level 1:colcon.colcon_core.package_identification:_identify(bags/wheel_odom) by extensions ['cmake', 'python']
+[0.779s] Level 1:colcon.colcon_core.package_identification:_identify(bags/wheel_odom) by extension 'cmake'
+[0.780s] Level 1:colcon.colcon_core.package_identification:_identify(bags/wheel_odom) by extension 'python'
+[0.780s] Level 1:colcon.colcon_core.package_identification:_identify(bags/wheel_odom) by extensions ['python_setup_py']
+[0.780s] Level 1:colcon.colcon_core.package_identification:_identify(bags/wheel_odom) by extension 'python_setup_py'
+[0.780s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.780s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.780s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.780s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['ignore', 'ignore_ament_install']
+[0.781s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'ignore'
+[0.781s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'ignore_ament_install'
+[0.781s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['colcon_pkg']
+[0.781s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'colcon_pkg'
+[0.781s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['colcon_meta']
+[0.781s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'colcon_meta'
+[0.781s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['ros']
+[0.781s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'ros'
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['cmake', 'python']
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'cmake'
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'python'
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['python_setup_py']
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'python_setup_py'
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(debug) by extensions ['ignore', 'ignore_ament_install']
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(debug) by extension 'ignore'
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(debug) by extension 'ignore_ament_install'
+[0.783s] Level 1:colcon.colcon_core.package_identification:_identify(debug) by extensions ['colcon_pkg']
+[0.783s] Level 1:colcon.colcon_core.package_identification:_identify(debug) by extension 'colcon_pkg'
+[0.783s] Level 1:colcon.colcon_core.package_identification:_identify(debug) by extensions ['colcon_meta']
+[0.783s] Level 1:colcon.colcon_core.package_identification:_identify(debug) by extension 'colcon_meta'
+[0.783s] Level 1:colcon.colcon_core.package_identification:_identify(debug) by extensions ['ros']
+[0.783s] Level 1:colcon.colcon_core.package_identification:_identify(debug) by extension 'ros'
+[0.783s] Level 1:colcon.colcon_core.package_identification:_identify(debug) by extensions ['cmake', 'python']
+[0.783s] Level 1:colcon.colcon_core.package_identification:_identify(debug) by extension 'cmake'
+[0.783s] Level 1:colcon.colcon_core.package_identification:_identify(debug) by extension 'python'
+[0.783s] Level 1:colcon.colcon_core.package_identification:_identify(debug) by extensions ['python_setup_py']
+[0.784s] Level 1:colcon.colcon_core.package_identification:_identify(debug) by extension 'python_setup_py'
+[0.784s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.784s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.784s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.784s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.784s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.785s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.785s] Level 1:colcon.colcon_core.package_identification:_identify(ros_logs) by extensions ['ignore', 'ignore_ament_install']
+[0.785s] Level 1:colcon.colcon_core.package_identification:_identify(ros_logs) by extension 'ignore'
+[0.785s] Level 1:colcon.colcon_core.package_identification:_identify(ros_logs) by extension 'ignore_ament_install'
+[0.785s] Level 1:colcon.colcon_core.package_identification:_identify(ros_logs) by extensions ['colcon_pkg']
+[0.785s] Level 1:colcon.colcon_core.package_identification:_identify(ros_logs) by extension 'colcon_pkg'
+[0.785s] Level 1:colcon.colcon_core.package_identification:_identify(ros_logs) by extensions ['colcon_meta']
+[0.785s] Level 1:colcon.colcon_core.package_identification:_identify(ros_logs) by extension 'colcon_meta'
+[0.786s] Level 1:colcon.colcon_core.package_identification:_identify(ros_logs) by extensions ['ros']
+[0.786s] Level 1:colcon.colcon_core.package_identification:_identify(ros_logs) by extension 'ros'
+[0.786s] Level 1:colcon.colcon_core.package_identification:_identify(ros_logs) by extensions ['cmake', 'python']
+[0.786s] Level 1:colcon.colcon_core.package_identification:_identify(ros_logs) by extension 'cmake'
+[0.786s] Level 1:colcon.colcon_core.package_identification:_identify(ros_logs) by extension 'python'
+[0.786s] Level 1:colcon.colcon_core.package_identification:_identify(ros_logs) by extensions ['python_setup_py']
+[0.786s] Level 1:colcon.colcon_core.package_identification:_identify(ros_logs) by extension 'python_setup_py'
+[0.786s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.787s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.787s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.787s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.787s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.787s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.787s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.787s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.787s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(src/camera_perception_pkg) by extensions ['ignore', 'ignore_ament_install']
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(src/camera_perception_pkg) by extension 'ignore'
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(src/camera_perception_pkg) by extension 'ignore_ament_install'
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(src/camera_perception_pkg) by extensions ['colcon_pkg']
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(src/camera_perception_pkg) by extension 'colcon_pkg'
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(src/camera_perception_pkg) by extensions ['colcon_meta']
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(src/camera_perception_pkg) by extension 'colcon_meta'
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(src/camera_perception_pkg) by extensions ['ros']
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(src/camera_perception_pkg) by extension 'ros'
+[0.795s] DEBUG:colcon.colcon_core.package_identification:Package 'src/camera_perception_pkg' with type 'ros.ament_python' and name 'camera_perception_pkg'
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extensions ['ignore', 'ignore_ament_install']
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extension 'ignore'
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extension 'ignore_ament_install'
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extensions ['colcon_pkg']
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extension 'colcon_pkg'
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extensions ['colcon_meta']
+[0.797s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extension 'colcon_meta'
+[0.797s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extensions ['ros']
+[0.797s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extension 'ros'
+[0.797s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extensions ['cmake', 'python']
+[0.797s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extension 'cmake'
+[0.797s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extension 'python'
+[0.797s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extensions ['python_setup_py']
+[0.797s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extension 'python_setup_py'
+[0.798s] Level 1:colcon.colcon_core.package_identification:_identify(src/debug_pkg) by extensions ['ignore', 'ignore_ament_install']
+[0.798s] Level 1:colcon.colcon_core.package_identification:_identify(src/debug_pkg) by extension 'ignore'
+[0.798s] Level 1:colcon.colcon_core.package_identification:_identify(src/debug_pkg) by extension 'ignore_ament_install'
+[0.798s] Level 1:colcon.colcon_core.package_identification:_identify(src/debug_pkg) by extensions ['colcon_pkg']
+[0.798s] Level 1:colcon.colcon_core.package_identification:_identify(src/debug_pkg) by extension 'colcon_pkg'
+[0.798s] Level 1:colcon.colcon_core.package_identification:_identify(src/debug_pkg) by extensions ['colcon_meta']
+[0.798s] Level 1:colcon.colcon_core.package_identification:_identify(src/debug_pkg) by extension 'colcon_meta'
+[0.799s] Level 1:colcon.colcon_core.package_identification:_identify(src/debug_pkg) by extensions ['ros']
+[0.799s] Level 1:colcon.colcon_core.package_identification:_identify(src/debug_pkg) by extension 'ros'
+[0.800s] DEBUG:colcon.colcon_core.package_identification:Package 'src/debug_pkg' with type 'ros.ament_python' and name 'debug_pkg'
+[0.800s] Level 1:colcon.colcon_core.package_identification:_identify(src/decision_making_pkg) by extensions ['ignore', 'ignore_ament_install']
+[0.801s] Level 1:colcon.colcon_core.package_identification:_identify(src/decision_making_pkg) by extension 'ignore'
+[0.801s] Level 1:colcon.colcon_core.package_identification:_identify(src/decision_making_pkg) by extension 'ignore_ament_install'
+[0.801s] Level 1:colcon.colcon_core.package_identification:_identify(src/decision_making_pkg) by extensions ['colcon_pkg']
+[0.801s] Level 1:colcon.colcon_core.package_identification:_identify(src/decision_making_pkg) by extension 'colcon_pkg'
+[0.801s] Level 1:colcon.colcon_core.package_identification:_identify(src/decision_making_pkg) by extensions ['colcon_meta']
+[0.801s] Level 1:colcon.colcon_core.package_identification:_identify(src/decision_making_pkg) by extension 'colcon_meta'
+[0.801s] Level 1:colcon.colcon_core.package_identification:_identify(src/decision_making_pkg) by extensions ['ros']
+[0.801s] Level 1:colcon.colcon_core.package_identification:_identify(src/decision_making_pkg) by extension 'ros'
+[0.803s] DEBUG:colcon.colcon_core.package_identification:Package 'src/decision_making_pkg' with type 'ros.ament_python' and name 'decision_making_pkg'
+[0.804s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces_pkg) by extensions ['ignore', 'ignore_ament_install']
+[0.804s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces_pkg) by extension 'ignore'
+[0.804s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces_pkg) by extension 'ignore_ament_install'
+[0.804s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces_pkg) by extensions ['colcon_pkg']
+[0.804s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces_pkg) by extension 'colcon_pkg'
+[0.804s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces_pkg) by extensions ['colcon_meta']
+[0.804s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces_pkg) by extension 'colcon_meta'
+[0.805s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces_pkg) by extensions ['ros']
+[0.805s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces_pkg) by extension 'ros'
+[0.806s] DEBUG:colcon.colcon_core.package_identification:Package 'src/interfaces_pkg' with type 'ros.ament_cmake' and name 'interfaces_pkg'
+[0.806s] Level 1:colcon.colcon_core.package_identification:_identify(src/localizer_server) by extensions ['ignore', 'ignore_ament_install']
+[0.806s] Level 1:colcon.colcon_core.package_identification:_identify(src/localizer_server) by extension 'ignore'
+[0.807s] Level 1:colcon.colcon_core.package_identification:_identify(src/localizer_server) by extension 'ignore_ament_install'
+[0.807s] Level 1:colcon.colcon_core.package_identification:_identify(src/localizer_server) by extensions ['colcon_pkg']
+[0.807s] Level 1:colcon.colcon_core.package_identification:_identify(src/localizer_server) by extension 'colcon_pkg'
+[0.807s] Level 1:colcon.colcon_core.package_identification:_identify(src/localizer_server) by extensions ['colcon_meta']
+[0.807s] Level 1:colcon.colcon_core.package_identification:_identify(src/localizer_server) by extension 'colcon_meta'
+[0.807s] Level 1:colcon.colcon_core.package_identification:_identify(src/localizer_server) by extensions ['ros']
+[0.807s] Level 1:colcon.colcon_core.package_identification:_identify(src/localizer_server) by extension 'ros'
+[0.809s] DEBUG:colcon.colcon_core.package_identification:Package 'src/localizer_server' with type 'ros.ament_python' and name 'localizer_server'
+[0.809s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.809s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extension 'ignore'
+[0.809s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extension 'ignore_ament_install'
+[0.809s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extensions ['colcon_pkg']
+[0.809s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extension 'colcon_pkg'
+[0.810s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extensions ['colcon_meta']
+[0.810s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extension 'colcon_meta'
+[0.810s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extensions ['ros']
+[0.810s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extension 'ros'
+[0.811s] DEBUG:colcon.colcon_core.package_identification:Package 'src/sllidar_ros2' with type 'ros.ament_cmake' and name 'sllidar_ros2'
+[0.812s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.812s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bringup) by extension 'ignore'
+[0.812s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bringup) by extension 'ignore_ament_install'
+[0.812s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bringup) by extensions ['colcon_pkg']
+[0.812s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bringup) by extension 'colcon_pkg'
+[0.812s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bringup) by extensions ['colcon_meta']
+[0.812s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bringup) by extension 'colcon_meta'
+[0.812s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bringup) by extensions ['ros']
+[0.812s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bringup) by extension 'ros'
+[0.814s] DEBUG:colcon.colcon_core.package_identification:Package 'src/theimc_bringup' with type 'ros.ament_python' and name 'theimc_bringup'
+[0.814s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bt_nodes) by extensions ['ignore', 'ignore_ament_install']
+[0.815s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bt_nodes) by extension 'ignore'
+[0.815s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bt_nodes) by extension 'ignore_ament_install'
+[0.815s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bt_nodes) by extensions ['colcon_pkg']
+[0.815s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bt_nodes) by extension 'colcon_pkg'
+[0.815s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bt_nodes) by extensions ['colcon_meta']
+[0.815s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bt_nodes) by extension 'colcon_meta'
+[0.815s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bt_nodes) by extensions ['ros']
+[0.815s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_bt_nodes) by extension 'ros'
+[0.818s] DEBUG:colcon.colcon_core.package_identification:Package 'src/theimc_bt_nodes' with type 'ros.ament_cmake' and name 'theimc_bt_nodes'
+[0.818s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_description) by extensions ['ignore', 'ignore_ament_install']
+[0.818s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_description) by extension 'ignore'
+[0.818s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_description) by extension 'ignore_ament_install'
+[0.818s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_description) by extensions ['colcon_pkg']
+[0.819s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_description) by extension 'colcon_pkg'
+[0.819s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_description) by extensions ['colcon_meta']
+[0.819s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_description) by extension 'colcon_meta'
+[0.819s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_description) by extensions ['ros']
+[0.819s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_description) by extension 'ros'
+[0.820s] DEBUG:colcon.colcon_core.package_identification:Package 'src/theimc_description' with type 'ros.ament_cmake' and name 'theimc_description'
+[0.821s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_navigation2) by extensions ['ignore', 'ignore_ament_install']
+[0.821s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_navigation2) by extension 'ignore'
+[0.821s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_navigation2) by extension 'ignore_ament_install'
+[0.821s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_navigation2) by extensions ['colcon_pkg']
+[0.821s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_navigation2) by extension 'colcon_pkg'
+[0.821s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_navigation2) by extensions ['colcon_meta']
+[0.821s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_navigation2) by extension 'colcon_meta'
+[0.822s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_navigation2) by extensions ['ros']
+[0.822s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_navigation2) by extension 'ros'
+[0.824s] DEBUG:colcon.colcon_core.package_identification:Package 'src/theimc_navigation2' with type 'ros.ament_cmake' and name 'theimc_navigation2'
+[0.824s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_teleop) by extensions ['ignore', 'ignore_ament_install']
+[0.824s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_teleop) by extension 'ignore'
+[0.825s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_teleop) by extension 'ignore_ament_install'
+[0.825s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_teleop) by extensions ['colcon_pkg']
+[0.825s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_teleop) by extension 'colcon_pkg'
+[0.825s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_teleop) by extensions ['colcon_meta']
+[0.825s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_teleop) by extension 'colcon_meta'
+[0.825s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_teleop) by extensions ['ros']
+[0.825s] Level 1:colcon.colcon_core.package_identification:_identify(src/theimc_teleop) by extension 'ros'
+[0.827s] DEBUG:colcon.colcon_core.package_identification:Package 'src/theimc_teleop' with type 'ros.ament_python' and name 'theimc_teleop'
+[0.827s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.827s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.827s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.827s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.827s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.911s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.911s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.917s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 11 installed packages in /home/jeff/theimc_robot/install
+[0.920s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 354 installed packages in /opt/ros/humble
+[0.924s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[1.024s] Level 5:colcon.colcon_core.verb:set package 'camera_perception_pkg' build argument 'cmake_args' from command line to 'None'
+[1.024s] Level 5:colcon.colcon_core.verb:set package 'camera_perception_pkg' build argument 'cmake_target' from command line to 'None'
+[1.024s] Level 5:colcon.colcon_core.verb:set package 'camera_perception_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.024s] Level 5:colcon.colcon_core.verb:set package 'camera_perception_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[1.025s] Level 5:colcon.colcon_core.verb:set package 'camera_perception_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[1.025s] Level 5:colcon.colcon_core.verb:set package 'camera_perception_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[1.025s] Level 5:colcon.colcon_core.verb:set package 'camera_perception_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[1.025s] Level 5:colcon.colcon_core.verb:set package 'camera_perception_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[1.025s] Level 5:colcon.colcon_core.verb:set package 'camera_perception_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.025s] DEBUG:colcon.colcon_core.verb:Building package 'camera_perception_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jeff/theimc_robot/build/camera_perception_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jeff/theimc_robot/install/camera_perception_pkg', 'merge_install': False, 'path': '/home/jeff/theimc_robot/src/camera_perception_pkg', 'symlink_install': True, 'test_result_base': None}
+[1.026s] Level 5:colcon.colcon_core.verb:set package 'debug_pkg' build argument 'cmake_args' from command line to 'None'
+[1.026s] Level 5:colcon.colcon_core.verb:set package 'debug_pkg' build argument 'cmake_target' from command line to 'None'
+[1.026s] Level 5:colcon.colcon_core.verb:set package 'debug_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.026s] Level 5:colcon.colcon_core.verb:set package 'debug_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[1.026s] Level 5:colcon.colcon_core.verb:set package 'debug_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[1.026s] Level 5:colcon.colcon_core.verb:set package 'debug_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[1.026s] Level 5:colcon.colcon_core.verb:set package 'debug_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[1.026s] Level 5:colcon.colcon_core.verb:set package 'debug_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[1.026s] Level 5:colcon.colcon_core.verb:set package 'debug_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.026s] DEBUG:colcon.colcon_core.verb:Building package 'debug_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jeff/theimc_robot/build/debug_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jeff/theimc_robot/install/debug_pkg', 'merge_install': False, 'path': '/home/jeff/theimc_robot/src/debug_pkg', 'symlink_install': True, 'test_result_base': None}
+[1.027s] Level 5:colcon.colcon_core.verb:set package 'interfaces_pkg' build argument 'cmake_args' from command line to 'None'
+[1.027s] Level 5:colcon.colcon_core.verb:set package 'interfaces_pkg' build argument 'cmake_target' from command line to 'None'
+[1.027s] Level 5:colcon.colcon_core.verb:set package 'interfaces_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.027s] Level 5:colcon.colcon_core.verb:set package 'interfaces_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[1.027s] Level 5:colcon.colcon_core.verb:set package 'interfaces_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[1.027s] Level 5:colcon.colcon_core.verb:set package 'interfaces_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[1.027s] Level 5:colcon.colcon_core.verb:set package 'interfaces_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[1.027s] Level 5:colcon.colcon_core.verb:set package 'interfaces_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[1.027s] Level 5:colcon.colcon_core.verb:set package 'interfaces_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.027s] DEBUG:colcon.colcon_core.verb:Building package 'interfaces_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jeff/theimc_robot/build/interfaces_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jeff/theimc_robot/install/interfaces_pkg', 'merge_install': False, 'path': '/home/jeff/theimc_robot/src/interfaces_pkg', 'symlink_install': True, 'test_result_base': None}
+[1.028s] Level 5:colcon.colcon_core.verb:set package 'localizer_server' build argument 'cmake_args' from command line to 'None'
+[1.028s] Level 5:colcon.colcon_core.verb:set package 'localizer_server' build argument 'cmake_target' from command line to 'None'
+[1.028s] Level 5:colcon.colcon_core.verb:set package 'localizer_server' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.028s] Level 5:colcon.colcon_core.verb:set package 'localizer_server' build argument 'cmake_clean_cache' from command line to 'False'
+[1.028s] Level 5:colcon.colcon_core.verb:set package 'localizer_server' build argument 'cmake_clean_first' from command line to 'False'
+[1.028s] Level 5:colcon.colcon_core.verb:set package 'localizer_server' build argument 'cmake_force_configure' from command line to 'False'
+[1.028s] Level 5:colcon.colcon_core.verb:set package 'localizer_server' build argument 'ament_cmake_args' from command line to 'None'
+[1.028s] Level 5:colcon.colcon_core.verb:set package 'localizer_server' build argument 'catkin_cmake_args' from command line to 'None'
+[1.028s] Level 5:colcon.colcon_core.verb:set package 'localizer_server' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.028s] DEBUG:colcon.colcon_core.verb:Building package 'localizer_server' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jeff/theimc_robot/build/localizer_server', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jeff/theimc_robot/install/localizer_server', 'merge_install': False, 'path': '/home/jeff/theimc_robot/src/localizer_server', 'symlink_install': True, 'test_result_base': None}
+[1.029s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'cmake_args' from command line to 'None'
+[1.029s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'cmake_target' from command line to 'None'
+[1.029s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.029s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'cmake_clean_cache' from command line to 'False'
+[1.029s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'cmake_clean_first' from command line to 'False'
+[1.029s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'cmake_force_configure' from command line to 'False'
+[1.029s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'ament_cmake_args' from command line to 'None'
+[1.029s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'catkin_cmake_args' from command line to 'None'
+[1.029s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.029s] DEBUG:colcon.colcon_core.verb:Building package 'sllidar_ros2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jeff/theimc_robot/build/sllidar_ros2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jeff/theimc_robot/install/sllidar_ros2', 'merge_install': False, 'path': '/home/jeff/theimc_robot/src/sllidar_ros2', 'symlink_install': True, 'test_result_base': None}
+[1.030s] Level 5:colcon.colcon_core.verb:set package 'theimc_bringup' build argument 'cmake_args' from command line to 'None'
+[1.030s] Level 5:colcon.colcon_core.verb:set package 'theimc_bringup' build argument 'cmake_target' from command line to 'None'
+[1.030s] Level 5:colcon.colcon_core.verb:set package 'theimc_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.030s] Level 5:colcon.colcon_core.verb:set package 'theimc_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[1.030s] Level 5:colcon.colcon_core.verb:set package 'theimc_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[1.030s] Level 5:colcon.colcon_core.verb:set package 'theimc_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[1.030s] Level 5:colcon.colcon_core.verb:set package 'theimc_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[1.030s] Level 5:colcon.colcon_core.verb:set package 'theimc_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[1.030s] Level 5:colcon.colcon_core.verb:set package 'theimc_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.030s] DEBUG:colcon.colcon_core.verb:Building package 'theimc_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jeff/theimc_robot/build/theimc_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jeff/theimc_robot/install/theimc_bringup', 'merge_install': False, 'path': '/home/jeff/theimc_robot/src/theimc_bringup', 'symlink_install': True, 'test_result_base': None}
+[1.031s] Level 5:colcon.colcon_core.verb:set package 'theimc_description' build argument 'cmake_args' from command line to 'None'
+[1.031s] Level 5:colcon.colcon_core.verb:set package 'theimc_description' build argument 'cmake_target' from command line to 'None'
+[1.031s] Level 5:colcon.colcon_core.verb:set package 'theimc_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.031s] Level 5:colcon.colcon_core.verb:set package 'theimc_description' build argument 'cmake_clean_cache' from command line to 'False'
+[1.031s] Level 5:colcon.colcon_core.verb:set package 'theimc_description' build argument 'cmake_clean_first' from command line to 'False'
+[1.031s] Level 5:colcon.colcon_core.verb:set package 'theimc_description' build argument 'cmake_force_configure' from command line to 'False'
+[1.031s] Level 5:colcon.colcon_core.verb:set package 'theimc_description' build argument 'ament_cmake_args' from command line to 'None'
+[1.031s] Level 5:colcon.colcon_core.verb:set package 'theimc_description' build argument 'catkin_cmake_args' from command line to 'None'
+[1.031s] Level 5:colcon.colcon_core.verb:set package 'theimc_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.031s] DEBUG:colcon.colcon_core.verb:Building package 'theimc_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jeff/theimc_robot/build/theimc_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jeff/theimc_robot/install/theimc_description', 'merge_install': False, 'path': '/home/jeff/theimc_robot/src/theimc_description', 'symlink_install': True, 'test_result_base': None}
+[1.032s] Level 5:colcon.colcon_core.verb:set package 'theimc_navigation2' build argument 'cmake_args' from command line to 'None'
+[1.032s] Level 5:colcon.colcon_core.verb:set package 'theimc_navigation2' build argument 'cmake_target' from command line to 'None'
+[1.032s] Level 5:colcon.colcon_core.verb:set package 'theimc_navigation2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.032s] Level 5:colcon.colcon_core.verb:set package 'theimc_navigation2' build argument 'cmake_clean_cache' from command line to 'False'
+[1.032s] Level 5:colcon.colcon_core.verb:set package 'theimc_navigation2' build argument 'cmake_clean_first' from command line to 'False'
+[1.032s] Level 5:colcon.colcon_core.verb:set package 'theimc_navigation2' build argument 'cmake_force_configure' from command line to 'False'
+[1.032s] Level 5:colcon.colcon_core.verb:set package 'theimc_navigation2' build argument 'ament_cmake_args' from command line to 'None'
+[1.032s] Level 5:colcon.colcon_core.verb:set package 'theimc_navigation2' build argument 'catkin_cmake_args' from command line to 'None'
+[1.032s] Level 5:colcon.colcon_core.verb:set package 'theimc_navigation2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.033s] DEBUG:colcon.colcon_core.verb:Building package 'theimc_navigation2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jeff/theimc_robot/build/theimc_navigation2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jeff/theimc_robot/install/theimc_navigation2', 'merge_install': False, 'path': '/home/jeff/theimc_robot/src/theimc_navigation2', 'symlink_install': True, 'test_result_base': None}
+[1.033s] Level 5:colcon.colcon_core.verb:set package 'theimc_teleop' build argument 'cmake_args' from command line to 'None'
+[1.033s] Level 5:colcon.colcon_core.verb:set package 'theimc_teleop' build argument 'cmake_target' from command line to 'None'
+[1.033s] Level 5:colcon.colcon_core.verb:set package 'theimc_teleop' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.033s] Level 5:colcon.colcon_core.verb:set package 'theimc_teleop' build argument 'cmake_clean_cache' from command line to 'False'
+[1.033s] Level 5:colcon.colcon_core.verb:set package 'theimc_teleop' build argument 'cmake_clean_first' from command line to 'False'
+[1.033s] Level 5:colcon.colcon_core.verb:set package 'theimc_teleop' build argument 'cmake_force_configure' from command line to 'False'
+[1.033s] Level 5:colcon.colcon_core.verb:set package 'theimc_teleop' build argument 'ament_cmake_args' from command line to 'None'
+[1.033s] Level 5:colcon.colcon_core.verb:set package 'theimc_teleop' build argument 'catkin_cmake_args' from command line to 'None'
+[1.034s] Level 5:colcon.colcon_core.verb:set package 'theimc_teleop' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.034s] DEBUG:colcon.colcon_core.verb:Building package 'theimc_teleop' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jeff/theimc_robot/build/theimc_teleop', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jeff/theimc_robot/install/theimc_teleop', 'merge_install': False, 'path': '/home/jeff/theimc_robot/src/theimc_teleop', 'symlink_install': True, 'test_result_base': None}
+[1.034s] Level 5:colcon.colcon_core.verb:set package 'decision_making_pkg' build argument 'cmake_args' from command line to 'None'
+[1.034s] Level 5:colcon.colcon_core.verb:set package 'decision_making_pkg' build argument 'cmake_target' from command line to 'None'
+[1.034s] Level 5:colcon.colcon_core.verb:set package 'decision_making_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.034s] Level 5:colcon.colcon_core.verb:set package 'decision_making_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[1.034s] Level 5:colcon.colcon_core.verb:set package 'decision_making_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[1.034s] Level 5:colcon.colcon_core.verb:set package 'decision_making_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[1.034s] Level 5:colcon.colcon_core.verb:set package 'decision_making_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[1.035s] Level 5:colcon.colcon_core.verb:set package 'decision_making_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[1.035s] Level 5:colcon.colcon_core.verb:set package 'decision_making_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.035s] DEBUG:colcon.colcon_core.verb:Building package 'decision_making_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jeff/theimc_robot/build/decision_making_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jeff/theimc_robot/install/decision_making_pkg', 'merge_install': False, 'path': '/home/jeff/theimc_robot/src/decision_making_pkg', 'symlink_install': True, 'test_result_base': None}
+[1.035s] Level 5:colcon.colcon_core.verb:set package 'theimc_bt_nodes' build argument 'cmake_args' from command line to 'None'
+[1.035s] Level 5:colcon.colcon_core.verb:set package 'theimc_bt_nodes' build argument 'cmake_target' from command line to 'None'
+[1.035s] Level 5:colcon.colcon_core.verb:set package 'theimc_bt_nodes' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.035s] Level 5:colcon.colcon_core.verb:set package 'theimc_bt_nodes' build argument 'cmake_clean_cache' from command line to 'False'
+[1.035s] Level 5:colcon.colcon_core.verb:set package 'theimc_bt_nodes' build argument 'cmake_clean_first' from command line to 'False'
+[1.035s] Level 5:colcon.colcon_core.verb:set package 'theimc_bt_nodes' build argument 'cmake_force_configure' from command line to 'False'
+[1.036s] Level 5:colcon.colcon_core.verb:set package 'theimc_bt_nodes' build argument 'ament_cmake_args' from command line to 'None'
+[1.036s] Level 5:colcon.colcon_core.verb:set package 'theimc_bt_nodes' build argument 'catkin_cmake_args' from command line to 'None'
+[1.036s] Level 5:colcon.colcon_core.verb:set package 'theimc_bt_nodes' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.036s] DEBUG:colcon.colcon_core.verb:Building package 'theimc_bt_nodes' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jeff/theimc_robot/build/theimc_bt_nodes', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jeff/theimc_robot/install/theimc_bt_nodes', 'merge_install': False, 'path': '/home/jeff/theimc_robot/src/theimc_bt_nodes', 'symlink_install': True, 'test_result_base': None}
+[1.036s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.038s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.039s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/jeff/theimc_robot/src/interfaces_pkg' with build type 'ament_cmake'
+[1.040s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/jeff/theimc_robot/src/interfaces_pkg'
+[1.048s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.048s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.049s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.058s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/jeff/theimc_robot/src/theimc_navigation2' with build type 'ament_cmake'
+[1.058s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/jeff/theimc_robot/src/theimc_navigation2'
+[1.059s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.059s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.067s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/jeff/theimc_robot/src/camera_perception_pkg' with build type 'ament_python'
+[1.068s] Level 1:colcon.colcon_core.shell:create_environment_hook('camera_perception_pkg', 'ament_prefix_path')
+[1.068s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/camera_perception_pkg/share/camera_perception_pkg/hook/ament_prefix_path.ps1'
+[1.070s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/camera_perception_pkg/share/camera_perception_pkg/hook/ament_prefix_path.dsv'
+[1.071s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/camera_perception_pkg/share/camera_perception_pkg/hook/ament_prefix_path.sh'
+[1.073s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.073s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.081s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/jeff/theimc_robot/src/debug_pkg' with build type 'ament_python'
+[1.081s] Level 1:colcon.colcon_core.shell:create_environment_hook('debug_pkg', 'ament_prefix_path')
+[1.082s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/debug_pkg/share/debug_pkg/hook/ament_prefix_path.ps1'
+[1.083s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/debug_pkg/share/debug_pkg/hook/ament_prefix_path.dsv'
+[1.084s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/debug_pkg/share/debug_pkg/hook/ament_prefix_path.sh'
+[1.085s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.086s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.093s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/jeff/theimc_robot/src/localizer_server' with build type 'ament_python'
+[1.093s] Level 1:colcon.colcon_core.shell:create_environment_hook('localizer_server', 'ament_prefix_path')
+[1.094s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/localizer_server/share/localizer_server/hook/ament_prefix_path.ps1'
+[1.095s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/localizer_server/share/localizer_server/hook/ament_prefix_path.dsv'
+[1.096s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/localizer_server/share/localizer_server/hook/ament_prefix_path.sh'
+[1.097s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.097s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.104s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/jeff/theimc_robot/src/sllidar_ros2' with build type 'ament_cmake'
+[1.105s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/jeff/theimc_robot/src/sllidar_ros2'
+[1.105s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.105s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.127s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeff/theimc_robot/build/interfaces_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --build /home/jeff/theimc_robot/build/interfaces_pkg -- -j6 -l6
+[1.135s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeff/theimc_robot/build/theimc_navigation2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --build /home/jeff/theimc_robot/build/theimc_navigation2 -- -j6 -l6
+[1.762s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/jeff/theimc_robot/src/camera_perception_pkg'
+[1.762s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.763s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.379s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/jeff/theimc_robot/src/debug_pkg'
+[2.380s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.380s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.977s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/jeff/theimc_robot/src/localizer_server'
+[2.978s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.979s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.010s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeff/theimc_robot/build/sllidar_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --build /home/jeff/theimc_robot/build/sllidar_ros2 -- -j6 -l6
+[3.014s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeff/theimc_robot/build/theimc_navigation2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --build /home/jeff/theimc_robot/build/theimc_navigation2 -- -j6 -l6
+[3.035s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeff/theimc_robot/build/theimc_navigation2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --install /home/jeff/theimc_robot/build/theimc_navigation2
+[3.036s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeff/theimc_robot/build/interfaces_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --build /home/jeff/theimc_robot/build/interfaces_pkg -- -j6 -l6
+[3.041s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeff/theimc_robot/build/interfaces_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --install /home/jeff/theimc_robot/build/interfaces_pkg
+[3.099s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(theimc_navigation2)
+[3.126s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_navigation2' for CMake module files
+[3.128s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_navigation2' for CMake config files
+[3.133s] Level 1:colcon.colcon_core.shell:create_environment_hook('theimc_navigation2', 'cmake_prefix_path')
+[3.133s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/hook/cmake_prefix_path.ps1'
+[3.138s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/hook/cmake_prefix_path.dsv'
+[3.140s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/hook/cmake_prefix_path.sh'
+[3.146s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_navigation2/lib'
+[3.147s] Level 1:colcon.colcon_core.shell:create_environment_hook('theimc_navigation2', 'ld_library_path_lib')
+[3.148s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/hook/ld_library_path_lib.ps1'
+[3.152s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/hook/ld_library_path_lib.dsv'
+[3.155s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/hook/ld_library_path_lib.sh'
+[3.160s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_navigation2/bin'
+[3.161s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_navigation2/lib/pkgconfig/theimc_navigation2.pc'
+[3.162s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_navigation2/lib/python3.10/site-packages'
+[3.164s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_navigation2/bin'
+[3.165s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeff/theimc_robot/build/theimc_navigation2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --install /home/jeff/theimc_robot/build/theimc_navigation2
+[3.166s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/package.ps1'
+[3.177s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/package.dsv'
+[3.179s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/package.sh'
+[3.184s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/package.bash'
+[3.186s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/package.zsh'
+[3.190s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeff/theimc_robot/install/theimc_navigation2/share/colcon-core/packages/theimc_navigation2)
+[3.193s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(theimc_navigation2)
+[3.193s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_navigation2' for CMake module files
+[3.196s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_navigation2' for CMake config files
+[3.201s] Level 1:colcon.colcon_core.shell:create_environment_hook('theimc_navigation2', 'cmake_prefix_path')
+[3.202s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/hook/cmake_prefix_path.ps1'
+[3.205s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/hook/cmake_prefix_path.dsv'
+[3.207s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/hook/cmake_prefix_path.sh'
+[3.208s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_navigation2/lib'
+[3.208s] Level 1:colcon.colcon_core.shell:create_environment_hook('theimc_navigation2', 'ld_library_path_lib')
+[3.209s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/hook/ld_library_path_lib.ps1'
+[3.210s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/hook/ld_library_path_lib.dsv'
+[3.211s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/hook/ld_library_path_lib.sh'
+[3.212s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_navigation2/bin'
+[3.212s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_navigation2/lib/pkgconfig/theimc_navigation2.pc'
+[3.213s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_navigation2/lib/python3.10/site-packages'
+[3.214s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_navigation2/bin'
+[3.215s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/package.ps1'
+[3.226s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/package.dsv'
+[3.227s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/package.sh'
+[3.228s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/package.bash'
+[3.229s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/package.zsh'
+[3.230s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeff/theimc_robot/install/theimc_navigation2/share/colcon-core/packages/theimc_navigation2)
+[3.231s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/jeff/theimc_robot/src/theimc_bringup' with build type 'ament_python'
+[3.231s] Level 1:colcon.colcon_core.shell:create_environment_hook('theimc_bringup', 'ament_prefix_path')
+[3.232s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/hook/ament_prefix_path.ps1'
+[3.233s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/hook/ament_prefix_path.dsv'
+[3.234s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/hook/ament_prefix_path.sh'
+[3.235s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.236s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.911s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/jeff/theimc_robot/src/theimc_bringup'
+[3.912s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.912s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.923s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(interfaces_pkg)
+[3.924s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/interfaces_pkg' for CMake module files
+[3.925s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeff/theimc_robot/build/interfaces_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --install /home/jeff/theimc_robot/build/interfaces_pkg
+[3.927s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/interfaces_pkg' for CMake config files
+[3.936s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces_pkg', 'cmake_prefix_path')
+[3.937s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/hook/cmake_prefix_path.ps1'
+[3.939s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/hook/cmake_prefix_path.dsv'
+[3.939s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/hook/cmake_prefix_path.sh'
+[3.941s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/interfaces_pkg/lib'
+[3.941s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces_pkg', 'ld_library_path_lib')
+[3.942s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/hook/ld_library_path_lib.ps1'
+[3.943s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/hook/ld_library_path_lib.dsv'
+[3.944s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/hook/ld_library_path_lib.sh'
+[3.946s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/interfaces_pkg/bin'
+[3.946s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/interfaces_pkg/lib/pkgconfig/interfaces_pkg.pc'
+[3.946s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/interfaces_pkg/lib/python3.10/site-packages'
+[3.947s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/interfaces_pkg/bin'
+[3.948s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/package.ps1'
+[3.950s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/package.dsv'
+[3.951s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/package.sh'
+[3.952s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/package.bash'
+[3.953s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/package.zsh'
+[3.954s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeff/theimc_robot/install/interfaces_pkg/share/colcon-core/packages/interfaces_pkg)
+[3.955s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(interfaces_pkg)
+[3.956s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/interfaces_pkg' for CMake module files
+[3.959s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/interfaces_pkg' for CMake config files
+[3.966s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces_pkg', 'cmake_prefix_path')
+[3.967s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/hook/cmake_prefix_path.ps1'
+[3.969s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/hook/cmake_prefix_path.dsv'
+[3.969s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/hook/cmake_prefix_path.sh'
+[3.971s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/interfaces_pkg/lib'
+[3.971s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces_pkg', 'ld_library_path_lib')
+[3.971s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/hook/ld_library_path_lib.ps1'
+[3.973s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/hook/ld_library_path_lib.dsv'
+[3.974s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/hook/ld_library_path_lib.sh'
+[3.974s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/interfaces_pkg/bin'
+[3.975s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/interfaces_pkg/lib/pkgconfig/interfaces_pkg.pc'
+[3.975s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/interfaces_pkg/lib/python3.10/site-packages'
+[3.976s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/interfaces_pkg/bin'
+[3.977s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/package.ps1'
+[3.979s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/package.dsv'
+[3.980s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/package.sh'
+[3.981s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/package.bash'
+[3.982s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/package.zsh'
+[3.983s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeff/theimc_robot/install/interfaces_pkg/share/colcon-core/packages/interfaces_pkg)
+[3.987s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeff/theimc_robot/build/sllidar_ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --build /home/jeff/theimc_robot/build/sllidar_ros2 -- -j6 -l6
+[3.990s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeff/theimc_robot/build/sllidar_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --install /home/jeff/theimc_robot/build/sllidar_ros2
+[3.991s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: build_clib, egg_info, upload_docs, saveopts, install_egg_info, install_scripts, install_headers, bdist_dumb, bdist, bdist_rpm, alias, install, install_data, build_py, register, symlink_data, easy_install, test, rotate, build_ext, upload, setopt, build, develop, bdist_wheel, clean, install_lib, sdist, dist_info, bdist_egg, build_scripts, check
+[3.994s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/jeff/theimc_robot/src/theimc_description' with build type 'ament_cmake'
+[3.995s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/jeff/theimc_robot/src/theimc_description'
+[3.995s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.996s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.007s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: build_clib, egg_info, upload_docs, saveopts, install_egg_info, install_scripts, install_headers, bdist_dumb, bdist, bdist_rpm, alias, install, install_data, build_py, register, symlink_data, easy_install, test, rotate, build_ext, upload, setopt, build, develop, bdist_wheel, clean, install_lib, sdist, dist_info, bdist_egg, build_scripts, check
+[4.044s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeff/theimc_robot/build/theimc_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --build /home/jeff/theimc_robot/build/theimc_description -- -j6 -l6
+[4.053s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(sllidar_ros2)
+[4.054s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/sllidar_ros2' for CMake module files
+[4.055s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeff/theimc_robot/build/sllidar_ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --install /home/jeff/theimc_robot/build/sllidar_ros2
+[4.056s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/sllidar_ros2' for CMake config files
+[4.057s] Level 1:colcon.colcon_core.shell:create_environment_hook('sllidar_ros2', 'cmake_prefix_path')
+[4.058s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/sllidar_ros2/share/sllidar_ros2/hook/cmake_prefix_path.ps1'
+[4.059s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/sllidar_ros2/share/sllidar_ros2/hook/cmake_prefix_path.dsv'
+[4.060s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/sllidar_ros2/share/sllidar_ros2/hook/cmake_prefix_path.sh'
+[4.062s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/sllidar_ros2/lib'
+[4.062s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/sllidar_ros2/bin'
+[4.062s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/sllidar_ros2/lib/pkgconfig/sllidar_ros2.pc'
+[4.063s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/sllidar_ros2/lib/python3.10/site-packages'
+[4.063s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/sllidar_ros2/bin'
+[4.064s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/sllidar_ros2/share/sllidar_ros2/package.ps1'
+[4.066s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeff/theimc_robot/install/sllidar_ros2/share/sllidar_ros2/package.dsv'
+[4.067s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/sllidar_ros2/share/sllidar_ros2/package.sh'
+[4.068s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/sllidar_ros2/share/sllidar_ros2/package.bash'
+[4.069s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/sllidar_ros2/share/sllidar_ros2/package.zsh'
+[4.070s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeff/theimc_robot/install/sllidar_ros2/share/colcon-core/packages/sllidar_ros2)
+[4.071s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(sllidar_ros2)
+[4.072s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/sllidar_ros2' for CMake module files
+[4.073s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/sllidar_ros2' for CMake config files
+[4.074s] Level 1:colcon.colcon_core.shell:create_environment_hook('sllidar_ros2', 'cmake_prefix_path')
+[4.075s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/sllidar_ros2/share/sllidar_ros2/hook/cmake_prefix_path.ps1'
+[4.076s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/sllidar_ros2/share/sllidar_ros2/hook/cmake_prefix_path.dsv'
+[4.077s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/sllidar_ros2/share/sllidar_ros2/hook/cmake_prefix_path.sh'
+[4.079s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/sllidar_ros2/lib'
+[4.079s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/sllidar_ros2/bin'
+[4.079s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/sllidar_ros2/lib/pkgconfig/sllidar_ros2.pc'
+[4.080s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/sllidar_ros2/lib/python3.10/site-packages'
+[4.080s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/sllidar_ros2/bin'
+[4.081s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/sllidar_ros2/share/sllidar_ros2/package.ps1'
+[4.083s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeff/theimc_robot/install/sllidar_ros2/share/sllidar_ros2/package.dsv'
+[4.084s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/sllidar_ros2/share/sllidar_ros2/package.sh'
+[4.085s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/sllidar_ros2/share/sllidar_ros2/package.bash'
+[4.086s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/sllidar_ros2/share/sllidar_ros2/package.zsh'
+[4.087s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeff/theimc_robot/install/sllidar_ros2/share/colcon-core/packages/sllidar_ros2)
+[4.090s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/jeff/theimc_robot/src/theimc_teleop' with build type 'ament_python'
+[4.090s] Level 1:colcon.colcon_core.shell:create_environment_hook('theimc_teleop', 'ament_prefix_path')
+[4.091s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_teleop/share/theimc_teleop/hook/ament_prefix_path.ps1'
+[4.092s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/theimc_teleop/share/theimc_teleop/hook/ament_prefix_path.dsv'
+[4.093s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_teleop/share/theimc_teleop/hook/ament_prefix_path.sh'
+[4.095s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.095s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.115s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: build_clib, egg_info, upload_docs, saveopts, install_egg_info, install_scripts, install_headers, bdist_dumb, bdist, bdist_rpm, alias, install, install_data, build_py, register, symlink_data, easy_install, test, rotate, build_ext, upload, setopt, build, develop, bdist_wheel, clean, install_lib, sdist, dist_info, bdist_egg, build_scripts, check
+[4.767s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/jeff/theimc_robot/src/theimc_teleop'
+[4.768s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.768s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.780s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools 'develop' options: --optimize, --site-dirs, --no-find-links, --version, --no-deps, --no-user-cfg, --install-layout, --allow-hosts, --user, --quiet, --record, --local-snapshots-ok, --editable, --index-url, --find-links, --dry-run, --always-copy, --script-dir, --build-directory, --always-unzip, --uninstall, --force-installation-into-system-dir, --install-dir, --upgrade, --prefix, --help, --verbose, --exclude-scripts, --egg-path, --zip-ok, --multi-version
+[4.784s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools 'develop' options: --optimize, --site-dirs, --no-find-links, --version, --no-deps, --no-user-cfg, --install-layout, --allow-hosts, --user, --quiet, --record, --local-snapshots-ok, --editable, --index-url, --find-links, --dry-run, --always-copy, --script-dir, --build-directory, --always-unzip, --uninstall, --force-installation-into-system-dir, --install-dir, --upgrade, --prefix, --help, --verbose, --exclude-scripts, --egg-path, --zip-ok, --multi-version
+[4.785s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeff/theimc_robot/build/camera_perception_pkg': PYTHONPATH=/home/jeff/theimc_robot/build/camera_perception_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/camera_perception_pkg/build --no-deps symlink_data
+[4.792s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeff/theimc_robot/build/debug_pkg': PYTHONPATH=/home/jeff/theimc_robot/build/debug_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/debug_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/debug_pkg/build --no-deps symlink_data
+[4.793s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeff/theimc_robot/build/theimc_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --build /home/jeff/theimc_robot/build/theimc_description -- -j6 -l6
+[4.796s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeff/theimc_robot/build/theimc_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --install /home/jeff/theimc_robot/build/theimc_description
+[4.815s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools 'develop' options: --optimize, --site-dirs, --no-find-links, --version, --no-deps, --no-user-cfg, --install-layout, --allow-hosts, --user, --quiet, --record, --local-snapshots-ok, --editable, --index-url, --find-links, --dry-run, --always-copy, --script-dir, --build-directory, --always-unzip, --uninstall, --force-installation-into-system-dir, --install-dir, --upgrade, --prefix, --help, --verbose, --exclude-scripts, --egg-path, --zip-ok, --multi-version
+[4.817s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeff/theimc_robot/build/localizer_server': PYTHONPATH=/home/jeff/theimc_robot/build/localizer_server/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/localizer_server/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/localizer_server/build --no-deps symlink_data
+[4.859s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(theimc_description)
+[4.860s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_description' for CMake module files
+[4.862s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeff/theimc_robot/build/theimc_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --install /home/jeff/theimc_robot/build/theimc_description
+[4.863s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_description' for CMake config files
+[4.864s] Level 1:colcon.colcon_core.shell:create_environment_hook('theimc_description', 'cmake_prefix_path')
+[4.864s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_description/share/theimc_description/hook/cmake_prefix_path.ps1'
+[4.866s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/theimc_description/share/theimc_description/hook/cmake_prefix_path.dsv'
+[4.867s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_description/share/theimc_description/hook/cmake_prefix_path.sh'
+[4.868s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_description/bin'
+[4.868s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_description/lib/pkgconfig/theimc_description.pc'
+[4.869s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_description/lib/python3.10/site-packages'
+[4.870s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_description/bin'
+[4.871s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_description/share/theimc_description/package.ps1'
+[4.876s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeff/theimc_robot/install/theimc_description/share/theimc_description/package.dsv'
+[4.877s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_description/share/theimc_description/package.sh'
+[4.878s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_description/share/theimc_description/package.bash'
+[4.879s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_description/share/theimc_description/package.zsh'
+[4.880s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeff/theimc_robot/install/theimc_description/share/colcon-core/packages/theimc_description)
+[4.881s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(theimc_description)
+[4.882s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_description' for CMake module files
+[4.883s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_description' for CMake config files
+[4.883s] Level 1:colcon.colcon_core.shell:create_environment_hook('theimc_description', 'cmake_prefix_path')
+[4.884s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_description/share/theimc_description/hook/cmake_prefix_path.ps1'
+[4.885s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/theimc_description/share/theimc_description/hook/cmake_prefix_path.dsv'
+[4.886s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_description/share/theimc_description/hook/cmake_prefix_path.sh'
+[4.887s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_description/bin'
+[4.887s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_description/lib/pkgconfig/theimc_description.pc'
+[4.888s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_description/lib/python3.10/site-packages'
+[4.889s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_description/bin'
+[4.889s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_description/share/theimc_description/package.ps1'
+[4.891s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeff/theimc_robot/install/theimc_description/share/theimc_description/package.dsv'
+[4.892s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_description/share/theimc_description/package.sh'
+[4.893s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_description/share/theimc_description/package.bash'
+[4.894s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_description/share/theimc_description/package.zsh'
+[4.895s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeff/theimc_robot/install/theimc_description/share/colcon-core/packages/theimc_description)
+[4.897s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/jeff/theimc_robot/src/decision_making_pkg' with build type 'ament_python'
+[4.897s] Level 1:colcon.colcon_core.shell:create_environment_hook('decision_making_pkg', 'ament_prefix_path')
+[4.898s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/decision_making_pkg/share/decision_making_pkg/hook/ament_prefix_path.ps1'
+[4.900s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/decision_making_pkg/share/decision_making_pkg/hook/ament_prefix_path.dsv'
+[4.901s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/decision_making_pkg/share/decision_making_pkg/hook/ament_prefix_path.sh'
+[4.902s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.902s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.911s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: build_clib, egg_info, upload_docs, saveopts, install_egg_info, install_scripts, install_headers, bdist_dumb, bdist, bdist_rpm, alias, install, install_data, build_py, register, symlink_data, easy_install, test, rotate, build_ext, upload, setopt, build, develop, bdist_wheel, clean, install_lib, sdist, dist_info, bdist_egg, build_scripts, check
+[5.554s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/jeff/theimc_robot/src/decision_making_pkg'
+[5.555s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.555s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.657s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools 'develop' options: --optimize, --site-dirs, --no-find-links, --version, --no-deps, --no-user-cfg, --install-layout, --allow-hosts, --user, --quiet, --record, --local-snapshots-ok, --editable, --index-url, --find-links, --dry-run, --always-copy, --script-dir, --build-directory, --always-unzip, --uninstall, --force-installation-into-system-dir, --install-dir, --upgrade, --prefix, --help, --verbose, --exclude-scripts, --egg-path, --zip-ok, --multi-version
+[5.662s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeff/theimc_robot/build/theimc_bringup': PYTHONPATH=/home/jeff/theimc_robot/build/theimc_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/theimc_bringup/build --no-deps symlink_data
+[5.680s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: build_clib, egg_info, upload_docs, saveopts, install_egg_info, install_scripts, install_headers, bdist_dumb, bdist, bdist_rpm, alias, install, install_data, build_py, register, symlink_data, easy_install, test, rotate, build_ext, upload, setopt, build, develop, bdist_wheel, clean, install_lib, sdist, dist_info, bdist_egg, build_scripts, check
+[5.962s] Level 1:colcon.colcon_core.shell:create_environment_hook('camera_perception_pkg', 'pythonpath_develop')
+[5.963s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/build/camera_perception_pkg/share/camera_perception_pkg/hook/pythonpath_develop.ps1'
+[5.965s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeff/theimc_robot/build/camera_perception_pkg' returned '0': PYTHONPATH=/home/jeff/theimc_robot/build/camera_perception_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/camera_perception_pkg/build --no-deps symlink_data
+[5.966s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/build/camera_perception_pkg/share/camera_perception_pkg/hook/pythonpath_develop.dsv'
+[5.968s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/build/camera_perception_pkg/share/camera_perception_pkg/hook/pythonpath_develop.sh'
+[5.970s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/camera_perception_pkg' for CMake module files
+[5.971s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/camera_perception_pkg' for CMake config files
+[5.972s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/camera_perception_pkg/lib'
+[5.974s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/camera_perception_pkg/bin'
+[5.974s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/camera_perception_pkg/lib/pkgconfig/camera_perception_pkg.pc'
+[5.975s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages'
+[5.975s] Level 1:colcon.colcon_core.shell:create_environment_hook('camera_perception_pkg', 'pythonpath')
+[5.976s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/camera_perception_pkg/share/camera_perception_pkg/hook/pythonpath.ps1'
+[5.977s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/camera_perception_pkg/share/camera_perception_pkg/hook/pythonpath.dsv'
+[5.978s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/camera_perception_pkg/share/camera_perception_pkg/hook/pythonpath.sh'
+[5.980s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/camera_perception_pkg/bin'
+[5.980s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(camera_perception_pkg)
+[5.981s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/camera_perception_pkg/share/camera_perception_pkg/package.ps1'
+[5.982s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeff/theimc_robot/install/camera_perception_pkg/share/camera_perception_pkg/package.dsv'
+[5.983s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/camera_perception_pkg/share/camera_perception_pkg/package.sh'
+[5.985s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/camera_perception_pkg/share/camera_perception_pkg/package.bash'
+[5.986s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/camera_perception_pkg/share/camera_perception_pkg/package.zsh'
+[5.986s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeff/theimc_robot/install/camera_perception_pkg/share/colcon-core/packages/camera_perception_pkg)
+[5.989s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/jeff/theimc_robot/src/theimc_bt_nodes' with build type 'ament_cmake'
+[5.989s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/jeff/theimc_robot/src/theimc_bt_nodes'
+[5.990s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.990s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.002s] Level 1:colcon.colcon_core.shell:create_environment_hook('debug_pkg', 'pythonpath_develop')
+[6.003s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/build/debug_pkg/share/debug_pkg/hook/pythonpath_develop.ps1'
+[6.004s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/build/debug_pkg/share/debug_pkg/hook/pythonpath_develop.dsv'
+[6.005s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeff/theimc_robot/build/debug_pkg' returned '0': PYTHONPATH=/home/jeff/theimc_robot/build/debug_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/debug_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/debug_pkg/build --no-deps symlink_data
+[6.006s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/build/debug_pkg/share/debug_pkg/hook/pythonpath_develop.sh'
+[6.008s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/debug_pkg' for CMake module files
+[6.009s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/debug_pkg' for CMake config files
+[6.010s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/debug_pkg/lib'
+[6.010s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/debug_pkg/bin'
+[6.010s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/debug_pkg/lib/pkgconfig/debug_pkg.pc'
+[6.011s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/debug_pkg/lib/python3.10/site-packages'
+[6.011s] Level 1:colcon.colcon_core.shell:create_environment_hook('debug_pkg', 'pythonpath')
+[6.012s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/debug_pkg/share/debug_pkg/hook/pythonpath.ps1'
+[6.013s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/debug_pkg/share/debug_pkg/hook/pythonpath.dsv'
+[6.014s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/debug_pkg/share/debug_pkg/hook/pythonpath.sh'
+[6.016s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/debug_pkg/bin'
+[6.016s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(debug_pkg)
+[6.017s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/debug_pkg/share/debug_pkg/package.ps1'
+[6.019s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeff/theimc_robot/install/debug_pkg/share/debug_pkg/package.dsv'
+[6.020s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/debug_pkg/share/debug_pkg/package.sh'
+[6.022s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/debug_pkg/share/debug_pkg/package.bash'
+[6.023s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/debug_pkg/share/debug_pkg/package.zsh'
+[6.024s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeff/theimc_robot/install/debug_pkg/share/colcon-core/packages/debug_pkg)
+[6.032s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeff/theimc_robot/build/theimc_bt_nodes': CMAKE_PREFIX_PATH=/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/jeff/theimc_robot/install/theimc_navigation2/lib:/home/jeff/theimc_robot/install/interfaces_pkg/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/jeff/theimc_robot/build/theimc_bt_nodes -- -j6 -l6
+[6.059s] Level 1:colcon.colcon_core.shell:create_environment_hook('localizer_server', 'pythonpath_develop')
+[6.060s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/build/localizer_server/share/localizer_server/hook/pythonpath_develop.ps1'
+[6.061s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeff/theimc_robot/build/localizer_server' returned '0': PYTHONPATH=/home/jeff/theimc_robot/build/localizer_server/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/localizer_server/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/localizer_server/build --no-deps symlink_data
+[6.062s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/build/localizer_server/share/localizer_server/hook/pythonpath_develop.dsv'
+[6.063s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/build/localizer_server/share/localizer_server/hook/pythonpath_develop.sh'
+[6.064s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/localizer_server' for CMake module files
+[6.065s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/localizer_server' for CMake config files
+[6.066s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/localizer_server/lib'
+[6.066s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/localizer_server/bin'
+[6.067s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/localizer_server/lib/pkgconfig/localizer_server.pc'
+[6.067s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/localizer_server/lib/python3.10/site-packages'
+[6.068s] Level 1:colcon.colcon_core.shell:create_environment_hook('localizer_server', 'pythonpath')
+[6.068s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/localizer_server/share/localizer_server/hook/pythonpath.ps1'
+[6.069s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/localizer_server/share/localizer_server/hook/pythonpath.dsv'
+[6.070s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/localizer_server/share/localizer_server/hook/pythonpath.sh'
+[6.072s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/localizer_server/bin'
+[6.072s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(localizer_server)
+[6.073s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/localizer_server/share/localizer_server/package.ps1'
+[6.075s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeff/theimc_robot/install/localizer_server/share/localizer_server/package.dsv'
+[6.076s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/localizer_server/share/localizer_server/package.sh'
+[6.077s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/localizer_server/share/localizer_server/package.bash'
+[6.078s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/localizer_server/share/localizer_server/package.zsh'
+[6.079s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeff/theimc_robot/install/localizer_server/share/colcon-core/packages/localizer_server)
+[6.289s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeff/theimc_robot/build/theimc_bt_nodes' returned '0': CMAKE_PREFIX_PATH=/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/jeff/theimc_robot/install/theimc_navigation2/lib:/home/jeff/theimc_robot/install/interfaces_pkg/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/jeff/theimc_robot/build/theimc_bt_nodes -- -j6 -l6
+[6.293s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeff/theimc_robot/build/theimc_bt_nodes': CMAKE_PREFIX_PATH=/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/jeff/theimc_robot/install/theimc_navigation2/lib:/home/jeff/theimc_robot/install/interfaces_pkg/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/jeff/theimc_robot/build/theimc_bt_nodes
+[6.347s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(theimc_bt_nodes)
+[6.347s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bt_nodes' for CMake module files
+[6.348s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeff/theimc_robot/build/theimc_bt_nodes' returned '0': CMAKE_PREFIX_PATH=/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/jeff/theimc_robot/install/theimc_navigation2/lib:/home/jeff/theimc_robot/install/interfaces_pkg/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/jeff/theimc_robot/build/theimc_bt_nodes
+[6.349s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bt_nodes' for CMake config files
+[6.350s] Level 1:colcon.colcon_core.shell:create_environment_hook('theimc_bt_nodes', 'cmake_prefix_path')
+[6.351s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/hook/cmake_prefix_path.ps1'
+[6.352s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/hook/cmake_prefix_path.dsv'
+[6.353s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/hook/cmake_prefix_path.sh'
+[6.354s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bt_nodes/lib'
+[6.355s] Level 1:colcon.colcon_core.shell:create_environment_hook('theimc_bt_nodes', 'ld_library_path_lib')
+[6.355s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/hook/ld_library_path_lib.ps1'
+[6.356s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/hook/ld_library_path_lib.dsv'
+[6.357s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/hook/ld_library_path_lib.sh'
+[6.358s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bt_nodes/bin'
+[6.358s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bt_nodes/lib/pkgconfig/theimc_bt_nodes.pc'
+[6.358s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bt_nodes/lib/python3.10/site-packages'
+[6.359s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bt_nodes/bin'
+[6.360s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/package.ps1'
+[6.362s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/package.dsv'
+[6.363s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/package.sh'
+[6.364s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/package.bash'
+[6.364s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/package.zsh'
+[6.365s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeff/theimc_robot/install/theimc_bt_nodes/share/colcon-core/packages/theimc_bt_nodes)
+[6.366s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(theimc_bt_nodes)
+[6.367s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bt_nodes' for CMake module files
+[6.369s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bt_nodes' for CMake config files
+[6.370s] Level 1:colcon.colcon_core.shell:create_environment_hook('theimc_bt_nodes', 'cmake_prefix_path')
+[6.370s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/hook/cmake_prefix_path.ps1'
+[6.371s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/hook/cmake_prefix_path.dsv'
+[6.372s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/hook/cmake_prefix_path.sh'
+[6.373s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bt_nodes/lib'
+[6.373s] Level 1:colcon.colcon_core.shell:create_environment_hook('theimc_bt_nodes', 'ld_library_path_lib')
+[6.374s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/hook/ld_library_path_lib.ps1'
+[6.375s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/hook/ld_library_path_lib.dsv'
+[6.375s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/hook/ld_library_path_lib.sh'
+[6.376s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bt_nodes/bin'
+[6.376s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bt_nodes/lib/pkgconfig/theimc_bt_nodes.pc'
+[6.377s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bt_nodes/lib/python3.10/site-packages'
+[6.378s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bt_nodes/bin'
+[6.378s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/package.ps1'
+[6.380s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/package.dsv'
+[6.381s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/package.sh'
+[6.382s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/package.bash'
+[6.383s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/package.zsh'
+[6.384s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeff/theimc_robot/install/theimc_bt_nodes/share/colcon-core/packages/theimc_bt_nodes)
+[6.412s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: build_clib, egg_info, upload_docs, saveopts, install_egg_info, install_scripts, install_headers, bdist_dumb, bdist, bdist_rpm, alias, install, install_data, build_py, register, symlink_data, easy_install, test, rotate, build_ext, upload, setopt, build, develop, bdist_wheel, clean, install_lib, sdist, dist_info, bdist_egg, build_scripts, check
+[6.414s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools 'develop' options: --optimize, --site-dirs, --no-find-links, --version, --no-deps, --no-user-cfg, --install-layout, --allow-hosts, --user, --quiet, --record, --local-snapshots-ok, --editable, --index-url, --find-links, --dry-run, --always-copy, --script-dir, --build-directory, --always-unzip, --uninstall, --force-installation-into-system-dir, --install-dir, --upgrade, --prefix, --help, --verbose, --exclude-scripts, --egg-path, --zip-ok, --multi-version
+[6.419s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeff/theimc_robot/build/theimc_teleop': PYTHONPATH=/home/jeff/theimc_robot/build/theimc_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/theimc_teleop/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/theimc_teleop/build --no-deps symlink_data
+[6.822s] Level 1:colcon.colcon_core.shell:create_environment_hook('theimc_bringup', 'pythonpath_develop')
+[6.823s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/build/theimc_bringup/share/theimc_bringup/hook/pythonpath_develop.ps1'
+[6.824s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeff/theimc_robot/build/theimc_bringup' returned '0': PYTHONPATH=/home/jeff/theimc_robot/build/theimc_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/theimc_bringup/build --no-deps symlink_data
+[6.825s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/build/theimc_bringup/share/theimc_bringup/hook/pythonpath_develop.dsv'
+[6.826s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/build/theimc_bringup/share/theimc_bringup/hook/pythonpath_develop.sh'
+[6.827s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bringup' for CMake module files
+[6.828s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bringup' for CMake config files
+[6.830s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bringup/lib'
+[6.830s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bringup/bin'
+[6.830s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bringup/lib/pkgconfig/theimc_bringup.pc'
+[6.830s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages'
+[6.831s] Level 1:colcon.colcon_core.shell:create_environment_hook('theimc_bringup', 'pythonpath')
+[6.831s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/hook/pythonpath.ps1'
+[6.832s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/hook/pythonpath.dsv'
+[6.833s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/hook/pythonpath.sh'
+[6.835s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_bringup/bin'
+[6.835s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(theimc_bringup)
+[6.835s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/package.ps1'
+[6.837s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/package.dsv'
+[6.838s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/package.sh'
+[6.839s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/package.bash'
+[6.840s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/package.zsh'
+[6.840s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeff/theimc_robot/install/theimc_bringup/share/colcon-core/packages/theimc_bringup)
+[7.061s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools 'develop' options: --optimize, --site-dirs, --no-find-links, --version, --no-deps, --no-user-cfg, --install-layout, --allow-hosts, --user, --quiet, --record, --local-snapshots-ok, --editable, --index-url, --find-links, --dry-run, --always-copy, --script-dir, --build-directory, --always-unzip, --uninstall, --force-installation-into-system-dir, --install-dir, --upgrade, --prefix, --help, --verbose, --exclude-scripts, --egg-path, --zip-ok, --multi-version
+[7.067s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeff/theimc_robot/build/decision_making_pkg': CMAKE_PREFIX_PATH=/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/sllidar_ros2 LD_LIBRARY_PATH=/home/jeff/theimc_robot/install/interfaces_pkg/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/home/jeff/theimc_robot/install/theimc_navigation2/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/jeff/theimc_robot/build/decision_making_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/decision_making_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/decision_making_pkg/build --no-deps symlink_data
+[7.465s] Level 1:colcon.colcon_core.shell:create_environment_hook('theimc_teleop', 'pythonpath_develop')
+[7.466s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/build/theimc_teleop/share/theimc_teleop/hook/pythonpath_develop.ps1'
+[7.467s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeff/theimc_robot/build/theimc_teleop' returned '0': PYTHONPATH=/home/jeff/theimc_robot/build/theimc_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/theimc_teleop/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/theimc_teleop/build --no-deps symlink_data
+[7.469s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/build/theimc_teleop/share/theimc_teleop/hook/pythonpath_develop.dsv'
+[7.471s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/build/theimc_teleop/share/theimc_teleop/hook/pythonpath_develop.sh'
+[7.473s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_teleop' for CMake module files
+[7.475s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_teleop' for CMake config files
+[7.477s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_teleop/lib'
+[7.477s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_teleop/bin'
+[7.477s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_teleop/lib/pkgconfig/theimc_teleop.pc'
+[7.478s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_teleop/lib/python3.10/site-packages'
+[7.478s] Level 1:colcon.colcon_core.shell:create_environment_hook('theimc_teleop', 'pythonpath')
+[7.479s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_teleop/share/theimc_teleop/hook/pythonpath.ps1'
+[7.481s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/theimc_teleop/share/theimc_teleop/hook/pythonpath.dsv'
+[7.482s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/theimc_teleop/share/theimc_teleop/hook/pythonpath.sh'
+[7.485s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/theimc_teleop/bin'
+[7.485s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(theimc_teleop)
+[7.486s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_teleop/share/theimc_teleop/package.ps1'
+[7.489s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeff/theimc_robot/install/theimc_teleop/share/theimc_teleop/package.dsv'
+[7.491s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_teleop/share/theimc_teleop/package.sh'
+[7.492s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_teleop/share/theimc_teleop/package.bash'
+[7.494s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/theimc_teleop/share/theimc_teleop/package.zsh'
+[7.495s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeff/theimc_robot/install/theimc_teleop/share/colcon-core/packages/theimc_teleop)
+[8.098s] Level 1:colcon.colcon_core.shell:create_environment_hook('decision_making_pkg', 'pythonpath_develop')
+[8.099s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/build/decision_making_pkg/share/decision_making_pkg/hook/pythonpath_develop.ps1'
+[8.101s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeff/theimc_robot/build/decision_making_pkg' returned '0': CMAKE_PREFIX_PATH=/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/sllidar_ros2 LD_LIBRARY_PATH=/home/jeff/theimc_robot/install/interfaces_pkg/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/home/jeff/theimc_robot/install/theimc_navigation2/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/jeff/theimc_robot/build/decision_making_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/decision_making_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/decision_making_pkg/build --no-deps symlink_data
+[8.102s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/build/decision_making_pkg/share/decision_making_pkg/hook/pythonpath_develop.dsv'
+[8.103s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/build/decision_making_pkg/share/decision_making_pkg/hook/pythonpath_develop.sh'
+[8.104s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/decision_making_pkg' for CMake module files
+[8.106s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/decision_making_pkg' for CMake config files
+[8.108s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/decision_making_pkg/lib'
+[8.108s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/decision_making_pkg/bin'
+[8.108s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/decision_making_pkg/lib/pkgconfig/decision_making_pkg.pc'
+[8.109s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/decision_making_pkg/lib/python3.10/site-packages'
+[8.110s] Level 1:colcon.colcon_core.shell:create_environment_hook('decision_making_pkg', 'pythonpath')
+[8.110s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/decision_making_pkg/share/decision_making_pkg/hook/pythonpath.ps1'
+[8.112s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeff/theimc_robot/install/decision_making_pkg/share/decision_making_pkg/hook/pythonpath.dsv'
+[8.113s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeff/theimc_robot/install/decision_making_pkg/share/decision_making_pkg/hook/pythonpath.sh'
+[8.114s] Level 1:colcon.colcon_core.environment:checking '/home/jeff/theimc_robot/install/decision_making_pkg/bin'
+[8.114s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(decision_making_pkg)
+[8.116s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/decision_making_pkg/share/decision_making_pkg/package.ps1'
+[8.118s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeff/theimc_robot/install/decision_making_pkg/share/decision_making_pkg/package.dsv'
+[8.119s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/decision_making_pkg/share/decision_making_pkg/package.sh'
+[8.120s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/decision_making_pkg/share/decision_making_pkg/package.bash'
+[8.122s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeff/theimc_robot/install/decision_making_pkg/share/decision_making_pkg/package.zsh'
+[8.123s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeff/theimc_robot/install/decision_making_pkg/share/colcon-core/packages/decision_making_pkg)
+[8.124s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[8.125s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[8.125s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[8.125s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[8.128s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[8.129s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jeff/theimc_robot/install/local_setup.ps1'
+[8.132s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/jeff/theimc_robot/install/_local_setup_util_ps1.py'
+[8.138s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jeff/theimc_robot/install/setup.ps1'
+[8.141s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jeff/theimc_robot/install/local_setup.sh'
+[8.143s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/jeff/theimc_robot/install/_local_setup_util_sh.py'
+[8.144s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jeff/theimc_robot/install/setup.sh'
+[8.149s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jeff/theimc_robot/install/local_setup.bash'
+[8.150s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jeff/theimc_robot/install/setup.bash'
+[8.154s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jeff/theimc_robot/install/local_setup.zsh'
+[8.155s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jeff/theimc_robot/install/setup.zsh'

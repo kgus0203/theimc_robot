@@ -1,0 +1,62 @@
+running develop
+Removing /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc-bringup.egg-link (link to .)
+running egg_info
+writing ../../build/theimc_bringup/theimc_bringup.egg-info/PKG-INFO
+writing dependency_links to ../../build/theimc_bringup/theimc_bringup.egg-info/dependency_links.txt
+writing entry points to ../../build/theimc_bringup/theimc_bringup.egg-info/entry_points.txt
+writing requirements to ../../build/theimc_bringup/theimc_bringup.egg-info/requires.txt
+writing top-level names to ../../build/theimc_bringup/theimc_bringup.egg-info/top_level.txt
+reading manifest file '../../build/theimc_bringup/theimc_bringup.egg-info/SOURCES.txt'
+writing manifest file '../../build/theimc_bringup/theimc_bringup.egg-info/SOURCES.txt'
+running build
+running build_py
+copying theimc_bringup/aruco_docker_node.py -> /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup
+running install
+running install_lib
+creating /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup
+copying /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup/__init__.py -> /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup
+copying /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup/isaac_vslam_odom_adapter_node.py -> /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup
+copying /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup/theimc_bringup.py -> /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup
+copying /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup/aruco_docker_node.py -> /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup
+copying /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup/last_pose_manager_node.py -> /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup
+copying /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup/robot_agent_node.py -> /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup
+byte-compiling /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup/isaac_vslam_odom_adapter_node.py to isaac_vslam_odom_adapter_node.cpython-310.pyc
+byte-compiling /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup/theimc_bringup.py to theimc_bringup.cpython-310.pyc
+byte-compiling /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup/aruco_docker_node.py to aruco_docker_node.cpython-310.pyc
+byte-compiling /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup/last_pose_manager_node.py to last_pose_manager_node.cpython-310.pyc
+byte-compiling /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup/robot_agent_node.py to robot_agent_node.cpython-310.pyc
+running install_data
+copying resource/theimc_bringup -> /home/jeff/theimc_robot/install/theimc_bringup/share/ament_index/resource_index/packages
+copying package.xml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup
+copying launch/isaac_vslam_odom_test.launch.py -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/launch
+copying launch/isaac_vslam_d435.launch.py -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/launch
+copying launch/bringup_record.launch.py -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/launch
+copying launch/test_ekf.launch.py -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/launch
+copying launch/camera.launch.py -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/launch
+copying launch/theimc_bringup.launch.py -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/launch
+copying launch/theimc_bringup_basic.launch.py -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/launch
+copying launch/rail.launch.py -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/launch
+copying params/test_wheel_ekf.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+copying params/ekf.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+copying params/ekf_basic.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+copying params/ekf_isaac_vslam_only.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+copying params/scan_filter.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+copying params/test_wheel_camera_ekf.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+copying params/test_wheel_imu_ekf.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+copying params/test_wheel_camera_imu_ekf.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+copying params/theimc_ydlidar.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+copying params/ekf_jinyoung.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+copying params/vehicle_scan_filter.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+copying rviz/theimc_bringup.rviz -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/rviz
+creating /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/config
+copying config/twist_mux_params.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/config
+running install_egg_info
+Copying ../../build/theimc_bringup/theimc_bringup.egg-info to /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup-7.0.0-py3.10.egg-info
+running install_scripts
+Installing aruco_docker_node script to /home/jeff/theimc_robot/install/theimc_bringup/lib/theimc_bringup
+Installing bringup_node script to /home/jeff/theimc_robot/install/theimc_bringup/lib/theimc_bringup
+Installing isaac_vslam_odom_adapter_node script to /home/jeff/theimc_robot/install/theimc_bringup/lib/theimc_bringup
+Installing last_pose_manager_node script to /home/jeff/theimc_robot/install/theimc_bringup/lib/theimc_bringup
+Installing robot_agent_node script to /home/jeff/theimc_robot/install/theimc_bringup/lib/theimc_bringup
+writing list of installed files to '/home/jeff/theimc_robot/build/theimc_bringup/install.log'

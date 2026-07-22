@@ -1,1 +1,12 @@
-/home/jeff/theimc_robot/build/theimc_bringup/params/scan_filter.yaml
+scan_filter_chain:
+  ros__parameters:
+    filter1:
+      name: angle_filter
+      type: laser_filters/LaserScanAngularBoundsFilter
+      params:
+        lower_angle: -3.14
+        upper_angle: 3.14
+# 0 rad      = 정면
+# +1.57 rad  = 왼쪽
+# -1.57 rad  = 오른쪽
+# ±3.14 rad  = 뒤쪽

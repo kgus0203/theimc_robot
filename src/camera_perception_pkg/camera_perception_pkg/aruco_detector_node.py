@@ -139,7 +139,7 @@ class ArucoDetectorNode(Node):
 
                         # 디버그 로그
                         self.get_logger().info(
-                            f"Marker {marker_id} Found! X:{x:.3f}, Y:{y:.3f}, Z:{z:.3f}",
+                            f"Marker {marker_id} X:{x:.3f}, Y:{y:.3f}, Z:{z:.3f}",
                             throttle_duration_sec=0.5
                         )
 

@@ -1,0 +1,436 @@
+amcl:
+  ros__parameters:
+    use_sim_time: False
+    alpha1: 0.2
+    alpha2: 0.2
+    alpha3: 0.2
+    alpha4: 0.2
+    alpha5: 0.2
+    base_frame_id: "base_footprint"
+    beam_skip_distance: 0.5
+    beam_skip_error_threshold: 0.9
+    beam_skip_threshold: 0.3
+    do_beamskip: false
+    global_frame_id: "map"
+    lambda_short: 0.1
+    laser_likelihood_max_dist: 2.0
+    laser_max_range: 8.0
+    laser_min_range: 0.15
+    laser_model_type: "likelihood_field"
+    max_beams: 60
+    max_particles: 2000
+    min_particles: 500
+    odom_frame_id: "odom"
+    pf_err: 0.05
+    pf_z: 0.99
+    recovery_alpha_fast: 0.0
+    recovery_alpha_slow: 0.0
+    resample_interval: 1
+    robot_model_type: "nav2_amcl::DifferentialMotionModel"
+    save_pose_rate: 0.5
+    sigma_hit: 0.2
+    tf_broadcast: true
+    transform_tolerance: 1.0
+    update_min_a: 0.3
+    update_min_d: 0.25
+    z_hit: 0.5
+    z_max: 0.05
+    z_rand: 0.5
+    z_short: 0.05
+    scan_topic: scan
+
+amcl_map_client:
+  ros__parameters:
+    use_sim_time: False
+
+amcl_rclcpp_node:
+  ros__parameters:
+    use_sim_time: False
+
+bt_navigator:
+  ros__parameters:
+    use_sim_time: False
+    global_frame: map
+    robot_base_frame: base_footprint
+    odom_topic: /odom
+    # default_bt_xml_filename: "custom_button_bt.xml"
+    default_nav_to_pose_bt_xml: "/home/jeff/theimc_robot/src/theimc_navigation2/behavior_trees/nav_to_pose_obstacle_avoidance.xml"
+    default_nav_through_poses_bt_xml: "/home/jeff/theimc_robot/src/theimc_navigation2/behavior_trees/nav_through_poses_no_spin.xml"
+
+    bt_loop_duration: 100
+    default_server_timeout: 20
+    enable_groot_monitoring: True
+    groot_zmq_publisher_port: 1666
+    groot_zmq_server_port: 1667
+    plugin_lib_names:
+    - nav2_compute_path_to_pose_action_bt_node
+    - nav2_compute_path_through_poses_action_bt_node
+    - nav2_smooth_path_action_bt_node
+    - nav2_follow_path_action_bt_node
+    # - nav2_spin_action_bt_node
+    - nav2_wait_action_bt_node
+    - nav2_assisted_teleop_action_bt_node
+    - nav2_back_up_action_bt_node
+    - nav2_drive_on_heading_bt_node
+    - nav2_clear_costmap_service_bt_node
+    - nav2_is_stuck_condition_bt_node
+    - nav2_goal_reached_condition_bt_node
+    - nav2_goal_updated_condition_bt_node
+    - nav2_globally_updated_goal_condition_bt_node
+    - nav2_is_path_valid_condition_bt_node
+    - nav2_initial_pose_received_condition_bt_node
+    - nav2_reinitialize_global_localization_service_bt_node
+    - nav2_rate_controller_bt_node
+    - nav2_distance_controller_bt_node
+    - nav2_speed_controller_bt_node
+    - nav2_truncate_path_action_bt_node
+    - nav2_truncate_path_local_action_bt_node
+    - nav2_goal_updater_node_bt_node
+    - nav2_recovery_node_bt_node
+    - nav2_pipeline_sequence_bt_node
+    - nav2_round_robin_node_bt_node
+    - nav2_transform_available_condition_bt_node
+    - nav2_time_expired_condition_bt_node
+    - nav2_path_expiring_timer_condition
+    - nav2_distance_traveled_condition_bt_node
+    - nav2_single_trigger_bt_node
+    - nav2_goal_updated_controller_bt_node
+    - nav2_is_battery_low_condition_bt_node
+    - nav2_navigate_through_poses_action_bt_node
+    - nav2_navigate_to_pose_action_bt_node
+    - nav2_remove_passed_goals_action_bt_node
+    - nav2_planner_selector_bt_node
+    - nav2_controller_selector_bt_node
+    - nav2_goal_checker_selector_bt_node
+    - nav2_controller_cancel_bt_node
+    - nav2_path_longer_on_approach_bt_node
+    - nav2_wait_cancel_bt_node
+    # - nav2_spin_cancel_bt_node
+    - nav2_back_up_cancel_bt_node
+    - nav2_assisted_teleop_cancel_bt_node
+    - nav2_drive_on_heading_cancel_bt_node
+    - check_button_condition_plugin
+
+bt_navigator_rclcpp_node:
+  ros__parameters:
+    use_sim_time: False
+
+controller_server:
+  ros__parameters:
+    # Publish directly because twist_mux is not installed on this system.
+    cmd_vel_topic: /cmd_vel
+    use_sim_time: False
+    controller_frequency: 10.0
+
+    # 너무 작은 cmd_vel을 0으로 잘라먹지 않도록 낮춤
+    min_x_velocity_threshold: 0.001
+    min_y_velocity_threshold: 0.001
+    min_theta_velocity_threshold: 0.001
+
+    # goal 중간 실패를 조금 덜 민감하게
+    # Allow fast replanning to replace a collision-blocked path before aborting.
+    failure_tolerance: 3.0
+
+    progress_checker_plugin: "progress_checker"
+    goal_checker_plugins: ["precise_goal_checker"]
+    current_goal_checker: "precise_goal_checker"
+    controller_plugins: ["FollowPath"]
+
+    precise_goal_checker:
+      plugin: "nav2_controller::SimpleGoalChecker"
+      xy_goal_tolerance: 0.25
+      yaw_goal_tolerance: 0.25 # 1.57 # 90도
+      stateful: True
+
+    progress_checker:
+      plugin: "nav2_controller::SimpleProgressChecker"
+      required_movement_radius: 0.03
+      movement_time_allowance: 20.0
+
+    PathHandler:
+      plugin: "nav2_controller::FeasiblePathHandler"
+      prune_distance: 1.0
+      enforce_path_inversion: False
+      enforce_path_rotation: False
+      inversion_xy_tolerance: 0.2
+      inversion_yaw_tolerance: 0.4
+      minimum_rotation_angle: 0.25
+      reject_unit_path: False
+
+    FollowPath:
+      plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
+
+      desired_linear_vel: 0.18
+
+      # Follow tight avoidance bends without cutting across obstacle costs.
+      lookahead_dist: 0.30
+      min_lookahead_dist: 0.25
+      max_lookahead_dist: 0.50
+      lookahead_time: 1.0
+      use_velocity_scaled_lookahead_dist: false
+
+      # 도착지점 빙글빙글 방지
+      # Follow forward/reverse cusps generated by the Reeds-Shepp planner.
+      # This must be false when allow_reversing is enabled.
+      use_rotate_to_heading: false
+      rotate_to_heading_min_angle: 0.2 # 제자리 회전을 발동시키는 각도 기준 (0.35는 약 20도) 오차가 이 값보다 크면 일단 제자리에서 방향부터 맞추게 됨
+      rotate_to_heading_angular_vel: 0.3 # 제자리 회전할 때 얼마나 빠르게 돌지
+
+      max_angular_accel: 1.0
+      max_angular_decel: 1.0
+
+      allow_reversing: true
+
+      # Obstacle-aware speed control (enabled in this derived config)
+      use_cost_regulated_linear_velocity_scaling: true
+      use_regulated_linear_velocity_scaling: true
+      cost_scaling_dist: 0.10
+      cost_scaling_gain: 1.0
+      inflation_cost_scaling_factor: 5.0
+      regulated_linear_scaling_min_radius: 1.2
+      regulated_linear_scaling_min_speed: 0.05
+      min_approach_linear_velocity: 0.08
+
+      # Predict collisions along the commanded path using the local costmap.
+      use_collision_detection: true
+      # Keep collision checking active, but avoid rejecting a safe tight curve
+      # solely because of an overly long projected arc.
+      max_allowed_time_to_collision_up_to_carrot: 0.8
+
+controller_server_rclcpp_node:
+  ros__parameters:
+    use_sim_time: False
+
+smoother_server:
+  ros__parameters:
+    use_sim_time: False
+    smoother_plugins: ["simple_smoother"]
+    simple_smoother:
+      plugin: "nav2_smoother::SimpleSmoother"
+      tolerance: 1.0e-10
+      max_its: 1000
+      do_refinement: True
+
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      update_frequency: 10.0
+      publish_frequency: 5.0
+      global_frame: odom
+      robot_base_frame: base_footprint
+      use_sim_time: False
+      rolling_window: true
+      width: 3
+      height: 3
+      resolution: 0.06
+      transform_tolerance: 0.5
+      # footprint: "[[-0.35, -0.35], [-0.35, 0.35], [0.35, 0.35], [0.35, -0.35]]"
+      # footprint_padding: 0.1
+      robot_radius: 0.6 # 판떼기가 90에 바퀴가 나와있어서 좀 크게(0.5) -> 판 대각선 길이가 60cm이상이라 0.6으로 수정
+      # Physical radius 0.6 m + 0.05 m obstacle clearance.
+      footprint_padding: 0.05
+
+      plugins: ["obstacle_layer", "inflation_layer"]
+
+      filters: ["keepout_filter"]
+      keepout_filter:
+       plugin: "nav2_costmap_2d::KeepoutFilter"
+       enabled: True
+       filter_info_topic: "/costmap_filter_info"
+
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        cost_scaling_factor: 5.0
+        # 0.65 m hard footprint plus a 0.10 m traversable preference band.
+        inflation_radius: 0.75
+
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: True
+        observation_sources: scan
+        footprint_clearing_enabled: true
+        scan:
+          topic: /scan
+          max_obstacle_height: 2.0
+          clearing: True
+          marking: True
+          data_type: "LaserScan"
+          raytrace_max_range: 4.5
+          raytrace_min_range: 0.15
+          obstacle_max_range: 3.5
+          obstacle_min_range: 0.15
+
+      stvl_layer:
+        plugin: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"
+        enabled: true
+        publish_voxel_map: true
+        voxel_size: 0.05
+        voxel_decay: 1.0
+        observation_sources: pointcloud
+        pointcloud:
+          data_type: PointCloud2
+          topic: /points
+          reliability: 2
+          marking: true
+          clearing: true
+          obstacle_max_range: 2.5
+          obstacle_min_range: 0.2
+
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      # Faster obstacle updates for newly appearing obstacles.
+      update_frequency: 5.0
+      publish_frequency: 1.0
+      global_frame: map
+      robot_base_frame: base_footprint
+      use_sim_time: False
+      # footprint: "[[-0.35, -0.35], [-0.35, 0.35], [0.35, 0.35], [0.35, -0.35]]"
+      # footprint: "[[0.35, 0.25], [0.35, -0.25], [-0.35, -0.25], [-0.35, 0.25]]"
+      robot_radius: 0.6 # obstacle-avoidance model: circular robot with 0.6 m radius
+      # Enforce 0.05 m clearance in planning, not merely as a soft cost.
+      footprint_padding: 0.05
+      transform_tolerance: 0.5
+      resolution: 0.06
+      track_unknown_space: true
+
+      plugins:
+        ["static_layer", "obstacle_layer", "inflation_layer"]
+
+      filters:
+        ["keepout_filter", "keepout_inflation_layer"]
+
+      keepout_filter:
+        plugin: "nav2_costmap_2d::KeepoutFilter"
+        enabled: true
+        filter_info_topic: "/costmap_filter_info"
+
+      # Keepout Filter가 적용된 후 실행
+      keepout_inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        enabled: true
+        inflation_radius: 0.75
+        cost_scaling_factor: 3.0
+
+      # 기존 실제 장애물용 Inflation
+      # inflation_layer:
+      #   plugin: "nav2_costmap_2d::InflationLayer"
+      #   enabled: true
+      #   inflation_radius: 0.75
+      #   cost_scaling_factor: 3.0
+
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+        map_subscribe_transient_local: True
+
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: True
+        observation_sources: scan
+        footprint_clearing_enabled: true
+        scan:
+          topic: /scan
+          max_obstacle_height: 2.0
+          clearing: True
+          marking: True
+          data_type: "LaserScan"
+          raytrace_max_range: 4.5
+          raytrace_min_range: 0.15
+          obstacle_max_range: 3.5
+          obstacle_min_range: 0.15
+
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        cost_scaling_factor: 3.0
+        # Keep the hard radius at 0.65 m and prefer paths up to 0.75 m away.
+        inflation_radius: 0.75
+
+      always_send_full_costmap: True
+
+map_server:
+  ros__parameters:
+    use_sim_time: False
+    yaml_filename: "map.yaml"
+
+map_saver:
+  ros__parameters:
+    use_sim_time: False
+    save_map_timeout: 5.0
+    free_thresh_default: 0.25
+    occupied_thresh_default: 0.65
+    map_subscribe_transient_local: True
+
+planner_server:
+  ros__parameters:
+    expected_planner_frequency: 20.0
+    use_sim_time: False
+
+    planner_plugins: ["GridBased"]
+
+    GridBased:
+      # Hybrid-A* with Reeds-Shepp motion primitives searches both
+      # forward and reverse maneuvers.
+      plugin: "nav2_smac_planner/SmacPlannerHybrid"
+      tolerance: 0.5
+      downsample_costmap: false
+      downsampling_factor: 1
+      allow_unknown: true
+      max_iterations: 1000000
+      max_on_approach_iterations: 1000
+      max_planning_time: 5.0
+      motion_model_for_search: "REEDS_SHEPP"
+      angle_quantization_bins: 72
+      analytic_expansion_ratio: 3.5
+      analytic_expansion_max_length: 3.0
+      minimum_turning_radius: 0.6
+      # Permit useful curved reversing maneuvers while still preferring forward.
+      reverse_penalty: 1.2
+      change_penalty: 0.0
+      non_straight_penalty: 1.2
+      cost_penalty: 2.0
+      retrospective_penalty: 0.015
+      lookup_table_size: 20.0
+      cache_obstacle_heuristic: false
+      debug_visualizations: false
+      
+planner_server_rclcpp_node:
+  ros__parameters:
+    use_sim_time: False
+
+behavior_server:
+  ros__parameters:
+    # twist_mux is not installed; send recovery BackUp commands directly.
+    cmd_vel_topic: /cmd_vel
+    costmap_topic: local_costmap/costmap_raw
+    footprint_topic: local_costmap/published_footprint
+    cycle_frequency: 10.0
+
+    behavior_plugins: ["backup", "wait"]
+
+    backup:
+      plugin: "nav2_behaviors/BackUp"
+
+    wait:
+      plugin: "nav2_behaviors/Wait"
+
+    global_frame: odom
+    robot_base_frame: base_footprint
+    transform_tolerance: 1.0
+    use_sim_time: False
+    simulate_ahead_time: 2.0
+    max_rotational_vel: 0.3
+    min_rotational_vel: 0.1
+
+robot_state_publisher:
+  ros__parameters:
+    use_sim_time: False
+
+waypoint_follower:
+  ros__parameters:
+    loop_rate: 2000
+    stop_on_failure: true
+    waypoint_task_executor_plugin: "wait_at_waypoint"
+    wait_at_waypoint:
+      plugin: "nav2_waypoint_follower::WaitAtWaypoint"
+      enabled: True
+      waypoint_pause_duration: 200

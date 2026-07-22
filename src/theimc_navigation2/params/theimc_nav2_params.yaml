@@ -213,7 +213,7 @@ local_costmap:
       transform_tolerance: 0.5
       # footprint: "[[-0.35, -0.35], [-0.35, 0.35], [0.35, 0.35], [0.35, -0.35]]"
       # footprint_padding: 0.1
-      robot_radius: 0.5 # 판떼기가 90에 바퀴가 나와있어서 좀 크게
+      robot_radius: 0.6 # 판떼기가 90에 바퀴가 나와있어서 좀 크게(0.5) -> 판 대각선 길이가 60cm이상이라 0.6으로 수정
 
       plugins: ["obstacle_layer", "inflation_layer"]
 

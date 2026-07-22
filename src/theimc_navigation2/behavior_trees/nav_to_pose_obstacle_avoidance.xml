@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <!--
+      Continuously replace the path when a new obstacle is observed.  If the
+      obstacle is already inside the controller's collision horizon, back away
+      a short distance and retry planning instead of aborting immediately.
+    -->
+    <RecoveryNode number_of_retries="4" name="NavigateWithObstacleRecovery">
+      <PipelineSequence name="NavigateWithFastReplanning">
+        <RateController hz="5.0">
+          <RecoveryNode number_of_retries="1" name="PlanPath">
+            <ComputePathToPose goal="{goal}" path="{path}" planner_id="GridBased"/>
+            <ClearEntireCostmap
+              name="ClearGlobalCostmap"
+              service_name="global_costmap/clear_entirely_global_costmap"/>
+          </RecoveryNode>
+        </RateController>
+
+        <FollowPath
+          path="{path}"
+          controller_id="FollowPath"
+          goal_checker_id="precise_goal_checker"/>
+      </PipelineSequence>
+
+      <ReactiveFallback name="ObstacleRecoveryFallback">
+        <GoalUpdated/>
+        <RoundRobin name="ObstacleRecoveryActions">
+          <BackUp backup_dist="0.25" backup_speed="0.05"/>
+          <Wait wait_duration="1.0"/>
+          <ClearEntireCostmap
+            name="ClearLocalCostmap"
+            service_name="local_costmap/clear_entirely_local_costmap"/>
+        </RoundRobin>
+      </ReactiveFallback>
+    </RecoveryNode>
+  </BehaviorTree>
+</root>

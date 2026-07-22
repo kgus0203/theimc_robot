@@ -10,6 +10,9 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 
 from launch_ros.actions import Node
 
+from launch.actions import GroupAction
+from launch_ros.actions import SetRemap
+
 
 ARGUMENTS = [
     DeclareLaunchArgument(
@@ -181,14 +184,21 @@ def generate_launch_description():
     # params_nav2_map을 직접 넘겨서
     # launch configuration 'map' does not exist 에러를 피함
     # ---------------------------------------------------------
-    nav2_bringup_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([launch_nav2_bringup]),
-        launch_arguments={
-            'use_sim_time': use_sim_time,
-            'map': params_nav2_map,
-            'params_file': params_nav2,
-            'autostart': 'true'
-        }.items()
+    nav2_bringup_launch = GroupAction(
+        actions=[
+            # 이 그룹 안에서 실행되는 모든 노드의 '/cmd_vel' 출력을 '/nav_vel'로 강제 변경!
+            SetRemap(src='/cmd_vel', dst='/nav_vel'),
+            
+            IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([launch_nav2_bringup]),
+                launch_arguments={
+                    'use_sim_time': use_sim_time,
+                    'map': params_nav2_map,
+                    'params_file': params_nav2,
+                    'autostart': 'true'
+                }.items()
+            )
+        ]
     )
 
     # ---------------------------------------------------------
