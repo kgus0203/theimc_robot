@@ -138,10 +138,10 @@ class ArucoDetectorNode(Node):
                         self.tf_broadcaster.sendTransform(t)
 
                         # 디버그 로그
-                        self.get_logger().info(
-                            f"Marker {marker_id} X:{x:.3f}, Y:{y:.3f}, Z:{z:.3f}",
-                            throttle_duration_sec=0.5
-                        )
+                        # self.get_logger().info(
+                        #     f"Marker {marker_id} X:{x:.3f}, Y:{y:.3f}, Z:{z:.3f}",
+                        #     throttle_duration_sec=0.5
+                        # )
 
                         # 카메라 피드 시각화
                         cv2.drawFrameAxes(cv_image, self.camera_matrix, self.dist_coeffs, rvec, tvec, 0.05)

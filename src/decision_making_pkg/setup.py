@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
             'rail_pd_controller_node = decision_making_pkg.rail_pd_controller_node:main',
             'rail_approach_action_server_node = decision_making_pkg.rail_approach_action_server_node:main',
+            'aruco_docker_node = decision_making_pkg.aruco_docker_node:main',
         ],
     },
 )

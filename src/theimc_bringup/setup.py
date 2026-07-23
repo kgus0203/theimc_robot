@@ -39,7 +39,6 @@ setup(
             'robot_agent_node = theimc_bringup.robot_agent_node:main',
             'last_pose_manager_node = theimc_bringup.last_pose_manager_node:main',
             'isaac_vslam_odom_adapter_node = theimc_bringup.isaac_vslam_odom_adapter_node:main',
-            'aruco_docker_node = theimc_bringup.aruco_docker_node:main',
         ],
     }, 
 )

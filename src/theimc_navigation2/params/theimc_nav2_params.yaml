@@ -117,72 +117,200 @@ bt_navigator_rclcpp_node:
 
 controller_server:
   ros__parameters:
-    cmd_vel_topic: /cmd_vel # 이렇게 들어가고 mux에서 cmd_vel이 나감 
-    use_sim_time: False
+    cmd_vel_topic: /cmd_vel
+    use_sim_time: false
+
+    # 기존 주기 유지
     controller_frequency: 10.0
 
-    # 너무 작은 cmd_vel을 0으로 잘라먹지 않도록 낮춤
     min_x_velocity_threshold: 0.001
     min_y_velocity_threshold: 0.001
     min_theta_velocity_threshold: 0.001
 
-    # goal 중간 실패를 조금 덜 민감하게
     failure_tolerance: 0.5
 
     progress_checker_plugin: "progress_checker"
     goal_checker_plugins: ["precise_goal_checker"]
-    current_goal_checker: "precise_goal_checker"
     controller_plugins: ["FollowPath"]
 
     precise_goal_checker:
       plugin: "nav2_controller::SimpleGoalChecker"
       xy_goal_tolerance: 0.25
-      yaw_goal_tolerance: 0.25 # 1.57 # 90도
-      stateful: True
+      yaw_goal_tolerance: 0.5
+      stateful: true
 
     progress_checker:
       plugin: "nav2_controller::SimpleProgressChecker"
       required_movement_radius: 0.03
       movement_time_allowance: 20.0
 
-    PathHandler:
-      plugin: "nav2_controller::FeasiblePathHandler"
-      prune_distance: 1.0
-      enforce_path_inversion: False
-      enforce_path_rotation: False
-      inversion_xy_tolerance: 0.2
-      inversion_yaw_tolerance: 0.4
-      minimum_rotation_angle: 0.25
-      reject_unit_path: False
-
     FollowPath:
-      plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
+      plugin: "nav2_mppi_controller::MPPIController"
 
-      desired_linear_vel: 0.18
+      # =========================
+      # 예측 모델
+      # =========================
 
-      lookahead_dist: 0.55
-      min_lookahead_dist: 0.45
-      max_lookahead_dist: 0.70
-      lookahead_time: 1.5
-      use_velocity_scaled_lookahead_dist: false
+      # 30 × 0.1초 = 3초 예측
+      time_steps: 30
 
-      # 도착지점 빙글빙글 방지
-      use_rotate_to_heading: true
-      rotate_to_heading_min_angle: 0.2 # 제자리 회전을 발동시키는 각도 기준 (0.35는 약 20도) 오차가 이 값보다 크면 일단 제자리에서 방향부터 맞추게 됨
-      rotate_to_heading_angular_vel: 0.3 # 제자리 회전할 때 얼마나 빠르게 돌지
+      # controller_frequency 10Hz이므로 한 주기 0.1초
+      model_dt: 0.10
 
-      max_angular_accel: 1.0
-      max_angular_decel: 1.0
+      # Jetson Orin Nano 기준 시작값
+      batch_size: 1000
+      iteration_count: 1
 
-      allow_reversing: false
+      # =========================
+      # 속도 샘플 분산
+      # =========================
 
-      use_cost_regulated_linear_velocity_scaling: false
-      use_regulated_linear_velocity_scaling: false
-      regulated_linear_scaling_min_radius: 1.2
-      regulated_linear_scaling_min_speed: 0.05
-      min_approach_linear_velocity: 0.08
+      # 최대속도가 낮으므로 기본값보다 작게 설정
+      vx_std: 0.08
+      vy_std: 0.00
+      wz_std: 0.15
 
-      use_collision_detection: false
+      # =========================
+      # 속도 제한
+      # =========================
+
+      vx_max: 0.18
+
+      # 후진 궤적 생성 금지
+      vx_min: 0.00
+
+      vy_max: 0.00
+      wz_max: 0.30
+
+      # =========================
+      # 경로 처리
+      # =========================
+
+      prune_distance: 1.20
+      transform_tolerance: 0.30
+
+      temperature: 0.30
+      gamma: 0.015
+
+      motion_model: "DiffDrive"
+
+      # 튜닝할 때만 true
+      visualize: false
+
+      retry_attempt_limit: 1
+
+      # Humble MPPI용
+      reset_period: 1.0
+      regenerate_noises: false
+
+      TrajectoryVisualizer:
+        trajectory_step: 5
+        time_step: 3
+
+      # =========================
+      # 궤적 평가 기준
+      # =========================
+
+      critics:
+        - "ConstraintCritic"
+        - "CostCritic"
+        - "GoalCritic"
+        - "GoalAngleCritic"
+        - "PathAlignCritic"
+        - "PathFollowCritic"
+        - "PathAngleCritic"
+        - "PreferForwardCritic"
+        - "VelocityDeadbandCritic"
+
+      # 속도 및 운동학 제한
+      ConstraintCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 4.0
+
+      # 장애물 회피 핵심
+      CostCritic:
+        enabled: true
+        cost_power: 1
+
+        # 높이면 장애물에서 더 멀어지지만
+        # 너무 높으면 좁은 길에서 멈출 수 있음
+        cost_weight: 4.0
+
+        critical_cost: 300.0
+
+        # robot_radius 또는 footprint 전체를 충돌검사에 사용
+        consider_footprint: true
+
+        collision_cost: 1000000.0
+
+        # 목적지 0.4m 안에서는 장애물 비용 완화
+        near_goal_distance: 0.40
+
+      # 목표 위치 접근
+      GoalCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 5.0
+        threshold_to_consider: 0.80
+
+      # 목표 각도 접근
+      GoalAngleCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 4.0
+        threshold_to_consider: 0.50
+
+      # 평상시 전역 경로를 따라가도록 함
+      # 경로가 장애물로 막히면 비중이 낮아져 우회 가능
+      PathAlignCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 10.0
+
+        max_path_occupancy_ratio: 0.05
+        trajectory_point_step: 3
+        threshold_to_consider: 0.50
+
+        # 저속·짧은 예측거리 기준으로 기본값보다 낮춤
+        offset_from_furthest: 8
+
+        # NavFn 경로는 방향 정보 활용하지 않음
+        use_path_orientations: false
+
+      # 경로 위에서 전방으로 진행
+      PathFollowCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 5.0
+        offset_from_furthest: 4
+        threshold_to_consider: 0.80
+
+      # 경로 진행방향과 로봇 방향 비교
+      PathAngleCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 2.0
+        offset_from_furthest: 4
+        threshold_to_consider: 0.50
+        max_angle_to_furthest: 1.0
+        forward_preference: true
+
+      # 후진 궤적 억제
+      PreferForwardCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 7.0
+        threshold_to_consider: 0.40
+
+      # 실제로 움직이지 못하는 작은 속도 억제
+      VelocityDeadbandCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 20.0
+
+        # [직진, 횡이동, 회전]
+        deadband_velocities: [0.05, 0.0, 0.08]
 
 controller_server_rclcpp_node:
   ros__parameters:
@@ -213,15 +341,20 @@ local_costmap:
       transform_tolerance: 0.5
       # footprint: "[[-0.35, -0.35], [-0.35, 0.35], [0.35, 0.35], [0.35, -0.35]]"
       # footprint_padding: 0.1
-      robot_radius: 0.6 # 판떼기가 90에 바퀴가 나와있어서 좀 크게(0.5) -> 판 대각선 길이가 60cm이상이라 0.6으로 수정
+      footprint: "[[0.35, 0.45],
+                   [0.35, -0.45],
+                   [-0.35, -0.45],
+                   [-0.35, 0.45]]"
+
+      footprint_padding: 0.03
 
       plugins: ["obstacle_layer", "inflation_layer"]
 
-      filters: ["keepout_filter"]
-      keepout_filter:
-       plugin: "nav2_costmap_2d::KeepoutFilter"
-       enabled: True
-       filter_info_topic: "/costmap_filter_info"
+      # filters: ["keepout_filter"]
+      # keepout_filter:
+      #  plugin: "nav2_costmap_2d::KeepoutFilter"
+      #  enabled: True
+      #  filter_info_topic: "/costmap_filter_info"
 
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
@@ -270,36 +403,29 @@ global_costmap:
       use_sim_time: False
       # footprint: "[[-0.35, -0.35], [-0.35, 0.35], [0.35, 0.35], [0.35, -0.35]]"
       # footprint: "[[0.35, 0.25], [0.35, -0.25], [-0.35, -0.25], [-0.35, 0.25]]"
-      robot_radius: 0.5 # 판떼기가 90에 바퀴가 나와있어서 좀 크게
-      # footprint_padding: 0.1
+      footprint: "[[0.35, 0.45],
+                   [0.35, -0.45],
+                   [-0.35, -0.45],
+                   [-0.35, 0.45]]"
+
+      footprint_padding: 0.03
+
       transform_tolerance: 0.5
       resolution: 0.06
       track_unknown_space: true
 
-      plugins:
-        ["static_layer", "obstacle_layer", "inflation_layer"]
+      # static_layer가 정의되어 있었는데 plugins에 빠져 있어서 추가
+      plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
 
-      filters:
-        ["keepout_filter", "keepout_inflation_layer"]
-
+      filters: ["keepout_filter"]
       keepout_filter:
-        plugin: "nav2_costmap_2d::KeepoutFilter"
-        enabled: true
-        filter_info_topic: "/costmap_filter_info"
+       plugin: "nav2_costmap_2d::KeepoutFilter"
+       enabled: True
+       filter_info_topic: "/costmap_filter_info" 
 
-      # Keepout Filter가 적용된 후 실행
-      keepout_inflation_layer:
-        plugin: "nav2_costmap_2d::InflationLayer"
-        enabled: true
-        inflation_radius: 0.55
-        cost_scaling_factor: 3.0
-
-      # 기존 실제 장애물용 Inflation
-      # inflation_layer:
-      #   plugin: "nav2_costmap_2d::InflationLayer"
-      #   enabled: true
-      #   inflation_radius: 0.75
-      #   cost_scaling_factor: 3.0
+# filter_info_topic: "/costmap_filter_info"
+# type: 0
+# mask_topic: "/keepout_filter_mask"
 
       static_layer:
         plugin: "nav2_costmap_2d::StaticLayer"
@@ -323,7 +449,7 @@ global_costmap:
 
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 3.0
+        cost_scaling_factor: 5.0
         inflation_radius: 0.55
 
       always_send_full_costmap: True
@@ -350,7 +476,7 @@ planner_server:
 
     GridBased:
       plugin: "nav2_navfn_planner/NavfnPlanner"
-      tolerance: 0.5
+      tolerance: 0.7
       use_astar: false
       allow_unknown: true
       
@@ -360,7 +486,7 @@ planner_server_rclcpp_node:
 
 behavior_server:
   ros__parameters:
-    cmd_vel_topic: cmd_vel_behavior
+    cmd_vel_topic: /cmd_vel
     costmap_topic: local_costmap/costmap_raw
     footprint_topic: local_costmap/published_footprint
     cycle_frequency: 10.0

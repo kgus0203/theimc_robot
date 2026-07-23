@@ -1,109 +1,119 @@
-from ament_index_python.resources import has_resource
+'''
+카메라랑 관련된 launch는 다 여기서 
+aruco, yolo 등등 ,,,
+'''
+import os
 
-from launch.actions import DeclareLaunchArgument
-from launch.conditions import IfCondition
-from launch.launch_description import LaunchDescription
-from launch.substitutions import LaunchConfiguration
-
-from launch_ros.actions import ComposableNodeContainer
-from launch_ros.descriptions import ComposableNode
+from launch.actions import SetEnvironmentVariable
+from launch import LaunchDescription
+from launch_ros.actions import Node
 
 
-def generate_launch_description() -> LaunchDescription:
-
-    camera_param_name = 'see3cam_cu135'
-    camera_param_default = str(0)
-    camera_param = LaunchConfiguration(
-        camera_param_name,
-        default=camera_param_default,
-    )
-    camera_launch_arg = DeclareLaunchArgument(
-        camera_param_name,
-        default_value=camera_param_default,
-        description='camera ID or name'
-    )
-
-    format_param_name = 'format'
-    format_param_default = str()
-    format_param = LaunchConfiguration(
-        format_param_name,
-        default=format_param_default,
-    )
-    format_launch_arg = DeclareLaunchArgument(
-        format_param_name,
-        default_value=format_param_default,
-        description='pixel format'
-    )
-
-    use_image_view_name = 'use_image_view'
-    use_image_view_default = 'false'
-    use_image_view_param = LaunchConfiguration(use_image_view_name)
-    use_image_view_launch_arg = DeclareLaunchArgument(
-        use_image_view_name,
-        default_value=use_image_view_default,
-        description='Whether to launch image_view (true/false)'
-    )
-
-    width_name = 'width'
-    width_default = '320'
-    width_param = LaunchConfiguration(width_name)
-    width_launch_arg = DeclareLaunchArgument(
-        width_name,
-        default_value=width_default,
-        description='Camera image width'
-    )
-
-    height_name = 'height'
-    height_default = '240'
-    height_param = LaunchConfiguration(height_name)
-    height_launch_arg = DeclareLaunchArgument(
-        height_name,
-        default_value=height_default,
-        description='Camera image height'
-    )
-
-    composable_nodes = [
-        ComposableNode(
-            package='v4l2_camera',
-            plugin='v4l2_camera::V4L2Camera',
-            parameters=[{
-                'camera': camera_param,
-                'sensor_mode': '1640:1232',
-                'width': width_param,
-                'height': height_param,
-                'format': format_param,
-            }],
-            extra_arguments=[{'use_intra_process_comms': True}],
-        ),
-
+def generate_launch_description():
+    nvidia_site_packages = '/home/jeff/.local/lib/python3.10/site-packages/nvidia'
+    cuda_library_paths = [
+        f'{nvidia_site_packages}/cuda_runtime/lib',
+        f'{nvidia_site_packages}/cublas/lib',
+        f'{nvidia_site_packages}/cusparse/lib',
+        f'{nvidia_site_packages}/cusparselt/lib',
+        f'{nvidia_site_packages}/cudnn/lib',
+        f'{nvidia_site_packages}/cufft/lib',
+        f'{nvidia_site_packages}/curand/lib',
+        f'{nvidia_site_packages}/cusolver/lib',
+        f'{nvidia_site_packages}/nccl/lib',
+        f'{nvidia_site_packages}/nvtx/lib',
+        f'{nvidia_site_packages}/cuda_cupti/lib',
+        f'{nvidia_site_packages}/cuda_nvrtc/lib',
+        f'{nvidia_site_packages}/nvjitlink/lib',
     ]
-
-
-
-    if has_resource('packages', 'image_view'):
-        composable_nodes.append(
-            ComposableNode(
-                package='image_view',
-                plugin='image_view::ImageViewNode',
-                remappings=[('/image', '/camera/image_raw')],
-                extra_arguments=[{'use_intra_process_comms': True}],
-                condition=IfCondition(use_image_view_param),
-            )
-        )
-
-    container = ComposableNodeContainer(
-        name='camera_container',
-        namespace='',
-        package='rclcpp_components',
-        executable='component_container',
-        composable_node_descriptions=composable_nodes,
+    ld_library_path = ':'.join(
+        cuda_library_paths + [os.environ.get('LD_LIBRARY_PATH', '')]
     )
 
     return LaunchDescription([
-        camera_launch_arg,
-        format_launch_arg,
-        use_image_view_launch_arg,
-        width_launch_arg,
-        height_launch_arg,
-        container,
+        SetEnvironmentVariable('LD_LIBRARY_PATH', ld_library_path),
+        SetEnvironmentVariable('MPLCONFIGDIR', '/tmp/matplotlib'),
+        SetEnvironmentVariable('YOLO_CONFIG_DIR', '/tmp/Ultralytics'),
+        Node(
+            package='camera_perception_pkg',
+            executable='image_publisher_node',
+            name='image_publisher_node',
+            output='screen',
+        ),
+        ################################################################################################## rail 인식 관련
+        Node(
+            package='camera_perception_pkg',
+            executable='yolov8_node',
+            name='yolov8_node',
+            output='screen',
+        ),
+        Node(
+            package='camera_perception_pkg',
+            executable='rail_info_extractor_node',
+            name='rail_info_extractor_node',
+            output='screen',
+            parameters=[
+                {
+                    # rail_start 검출이 사라지면 0.5초 안에 has_rail=false로 전환
+                    'hold_sec': 0.5,
+                    'ema_alpha_bbox': 0.35,
+                }
+            ],
+        ),
+        Node(
+            package='decision_making_pkg',
+            executable='rail_approach_action_server_node',
+            name='rail_approach_action_server_node',
+            output='screen',
+            parameters=[
+                {
+                    # 레일 인식 결과를 받는 토픽
+                    # rail_info_extractor_node 같은 노드가 이 토픽으로 RailInfo 메시지를 publish해야 함
+                    'rail_info_topic': '/rail_info',
+
+                    # 로봇 속도 명령을 내보낼 토픽
+                    # 지금은 바로 /cmd_vel로 보내므로 실제 로봇이 바로 움직일 수 있음
+                    # Nav2와 같이 쓸 경우에는 /cmd_vel_rail로 두고 twist_mux를 거쳐 /cmd_vel로 합치는 게 더 안전함
+                    'cmd_vel_topic': '/cmd_vel',
+
+                    # 제어 주기
+                    'control_rate_hz': 20.0,
+
+                    # ALIGN 상태에서 제자리 회전 속도
+                    'angular_speed': 0.08,
+
+                    # PULSE_FORWARD 상태: 짧게 전진
+                    'pulse_linear_speed': 0.08,
+                    'pulse_forward_sec': 0.2,
+
+                    # rail_info가 이 시간 이상 갱신되지 않으면 즉시 정지
+                    'rail_timeout_sec': 0.5,
+
+                    # rail_start bbox 면적이 화면에서 이 비율 이상이면 가까워졌다고 판단
+                    'close_bbox_area_ratio': 0.18,
+
+                    # 성공 알림 토픽
+                    'success_topic': '/rail_approach_success',
+
+                    # 레일 진입 명령 토픽
+                    'rail_command_topic': '/rail_command',
+                }
+            ]
+        ),
+        ################################################################################################## aruco 관련
+        # ArUco 마커 디텍터 노드
+        Node(
+            package='camera_perception_pkg',
+            executable='aruco_detector_node',
+            name='aruco_detector_node',
+            output='screen'
+        ),
+
+        # ArUco 도킹 제어 노드
+        Node(
+            package='decision_making_pkg',
+            executable='aruco_docker_node',
+            name='aruco_docker_node',
+            output='screen'
+        ),
     ])

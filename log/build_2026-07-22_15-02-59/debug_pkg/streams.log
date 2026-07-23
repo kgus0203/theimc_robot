@@ -1,0 +1,19 @@
+[3.632s] Invoking command in '/home/jeff/theimc_robot/build/debug_pkg': PYTHONPATH=/home/jeff/theimc_robot/build/debug_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/debug_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/debug_pkg/build --no-deps symlink_data
+[4.259s] running develop
+[4.654s] running egg_info
+[4.655s] writing debug_pkg.egg-info/PKG-INFO
+[4.656s] writing dependency_links to debug_pkg.egg-info/dependency_links.txt
+[4.656s] writing entry points to debug_pkg.egg-info/entry_points.txt
+[4.657s] writing requirements to debug_pkg.egg-info/requires.txt
+[4.657s] writing top-level names to debug_pkg.egg-info/top_level.txt
+[4.663s] reading manifest file 'debug_pkg.egg-info/SOURCES.txt'
+[4.665s] writing manifest file 'debug_pkg.egg-info/SOURCES.txt'
+[4.669s] running build_ext
+[4.670s] Creating /home/jeff/theimc_robot/install/debug_pkg/lib/python3.10/site-packages/debug-pkg.egg-link (link to .)
+[4.672s] Installing check_odom_straight_node script to /home/jeff/theimc_robot/install/debug_pkg/lib/debug_pkg
+[4.673s] Installing ekf_test_cmd_sequence script to /home/jeff/theimc_robot/install/debug_pkg/lib/debug_pkg
+[4.676s] Installing yolov8_visualizer_node script to /home/jeff/theimc_robot/install/debug_pkg/lib/debug_pkg
+[4.677s] 
+[4.678s] Installed /home/jeff/theimc_robot/build/debug_pkg
+[4.678s] running symlink_data
+[4.813s] Invoked command in '/home/jeff/theimc_robot/build/debug_pkg' returned '0': PYTHONPATH=/home/jeff/theimc_robot/build/debug_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/debug_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/debug_pkg/build --no-deps symlink_data
