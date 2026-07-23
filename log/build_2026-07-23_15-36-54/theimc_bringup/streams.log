@@ -1,0 +1,68 @@
+[1.387s] Invoking command in '/home/jeff/theimc_robot/build/theimc_bringup': PYTHONPATH=/home/jeff/theimc_robot/build/theimc_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/jeff/theimc_robot/build/theimc_bringup/build
+[1.952s] running develop
+[2.318s] Removing /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc-bringup.egg-link (link to .)
+[2.396s] Invoked command in '/home/jeff/theimc_robot/build/theimc_bringup' returned '0': PYTHONPATH=/home/jeff/theimc_robot/build/theimc_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/jeff/theimc_robot/build/theimc_bringup/build
+[2.400s] Invoking command in '/home/jeff/theimc_robot/src/theimc_bringup': PYTHONPATH=/home/jeff/theimc_robot/build/theimc_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/theimc_bringup build --build-base /home/jeff/theimc_robot/build/theimc_bringup/build install --record /home/jeff/theimc_robot/build/theimc_bringup/install.log --install-scripts $base/lib/theimc_bringup --single-version-externally-managed install_data --force
+[2.928s] running egg_info
+[2.929s] writing ../../build/theimc_bringup/theimc_bringup.egg-info/PKG-INFO
+[2.930s] writing dependency_links to ../../build/theimc_bringup/theimc_bringup.egg-info/dependency_links.txt
+[2.930s] writing entry points to ../../build/theimc_bringup/theimc_bringup.egg-info/entry_points.txt
+[2.931s] writing requirements to ../../build/theimc_bringup/theimc_bringup.egg-info/requires.txt
+[2.931s] writing top-level names to ../../build/theimc_bringup/theimc_bringup.egg-info/top_level.txt
+[2.935s] reading manifest file '../../build/theimc_bringup/theimc_bringup.egg-info/SOURCES.txt'
+[2.937s] writing manifest file '../../build/theimc_bringup/theimc_bringup.egg-info/SOURCES.txt'
+[2.937s] running build
+[2.937s] running build_py
+[2.937s] creating /home/jeff/theimc_robot/build/theimc_bringup/build
+[2.938s] creating /home/jeff/theimc_robot/build/theimc_bringup/build/lib
+[2.938s] creating /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup
+[2.938s] copying theimc_bringup/__init__.py -> /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup
+[2.939s] copying theimc_bringup/isaac_vslam_odom_adapter_node.py -> /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup
+[2.939s] copying theimc_bringup/theimc_bringup.py -> /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup
+[2.939s] copying theimc_bringup/last_pose_manager_node.py -> /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup
+[2.940s] copying theimc_bringup/robot_agent_node.py -> /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup
+[2.940s] running install
+[2.940s] running install_lib
+[2.942s] creating /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup
+[2.942s] copying /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup/__init__.py -> /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup
+[2.943s] copying /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup/isaac_vslam_odom_adapter_node.py -> /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup
+[2.943s] copying /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup/theimc_bringup.py -> /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup
+[2.943s] copying /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup/last_pose_manager_node.py -> /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup
+[2.944s] copying /home/jeff/theimc_robot/build/theimc_bringup/build/lib/theimc_bringup/robot_agent_node.py -> /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup
+[2.945s] byte-compiling /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup/__init__.py to __init__.cpython-310.pyc
+[2.946s] byte-compiling /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup/isaac_vslam_odom_adapter_node.py to isaac_vslam_odom_adapter_node.cpython-310.pyc
+[2.948s] byte-compiling /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup/theimc_bringup.py to theimc_bringup.cpython-310.pyc
+[2.954s] byte-compiling /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup/last_pose_manager_node.py to last_pose_manager_node.cpython-310.pyc
+[2.956s] byte-compiling /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup/robot_agent_node.py to robot_agent_node.cpython-310.pyc
+[2.967s] running install_data
+[2.967s] copying resource/theimc_bringup -> /home/jeff/theimc_robot/install/theimc_bringup/share/ament_index/resource_index/packages
+[2.967s] copying package.xml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup
+[2.968s] copying launch/bringup_record.launch.py -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/launch
+[2.968s] copying launch/mission_bt_runner.launch.py -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/launch
+[2.968s] copying launch/camera.launch.py -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/launch
+[2.968s] copying launch/theimc_full.launch.py -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/launch
+[2.969s] copying launch/nav2.launch.py -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/launch
+[2.969s] copying launch/base_bringup_withcam.launch.py -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/launch
+[2.969s] copying launch/base_bringup.launch.py -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/launch
+[2.970s] copying params/test_wheel_ekf.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+[2.970s] copying params/ekf.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+[2.970s] copying params/ekf_basic.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+[2.970s] copying params/ekf_isaac_vslam_only.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+[2.971s] copying params/twist_mux_params.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+[2.971s] copying params/scan_filter.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+[2.971s] copying params/test_wheel_camera_ekf.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+[2.971s] copying params/test_wheel_imu_ekf.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+[2.972s] copying params/test_wheel_camera_imu_ekf.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+[2.972s] copying params/theimc_ydlidar.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+[2.972s] copying params/ekf_jinyoung.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+[2.973s] copying params/vehicle_scan_filter.yaml -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/params
+[2.973s] copying rviz/theimc_bringup.rviz -> /home/jeff/theimc_robot/install/theimc_bringup/share/theimc_bringup/rviz
+[2.973s] running install_egg_info
+[2.977s] Copying ../../build/theimc_bringup/theimc_bringup.egg-info to /home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages/theimc_bringup-7.0.0-py3.10.egg-info
+[2.979s] running install_scripts
+[3.021s] Installing bringup_node script to /home/jeff/theimc_robot/install/theimc_bringup/lib/theimc_bringup
+[3.021s] Installing isaac_vslam_odom_adapter_node script to /home/jeff/theimc_robot/install/theimc_bringup/lib/theimc_bringup
+[3.021s] Installing last_pose_manager_node script to /home/jeff/theimc_robot/install/theimc_bringup/lib/theimc_bringup
+[3.022s] Installing robot_agent_node script to /home/jeff/theimc_robot/install/theimc_bringup/lib/theimc_bringup
+[3.022s] writing list of installed files to '/home/jeff/theimc_robot/build/theimc_bringup/install.log'
+[3.088s] Invoked command in '/home/jeff/theimc_robot/src/theimc_bringup' returned '0': PYTHONPATH=/home/jeff/theimc_robot/build/theimc_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/theimc_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/theimc_bringup build --build-base /home/jeff/theimc_robot/build/theimc_bringup/build install --record /home/jeff/theimc_robot/build/theimc_bringup/install.log --install-scripts $base/lib/theimc_bringup --single-version-externally-managed install_data --force

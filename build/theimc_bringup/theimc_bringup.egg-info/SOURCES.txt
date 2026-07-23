@@ -1,7 +1,15 @@
 package.xml
 setup.cfg
 setup.py
+../../build/theimc_bringup/theimc_bringup.egg-info/PKG-INFO
+../../build/theimc_bringup/theimc_bringup.egg-info/SOURCES.txt
+../../build/theimc_bringup/theimc_bringup.egg-info/dependency_links.txt
+../../build/theimc_bringup/theimc_bringup.egg-info/entry_points.txt
+../../build/theimc_bringup/theimc_bringup.egg-info/requires.txt
+../../build/theimc_bringup/theimc_bringup.egg-info/top_level.txt
+../../build/theimc_bringup/theimc_bringup.egg-info/zip-safe
 launch/base_bringup.launch.py
+launch/base_bringup_withcam.launch.py
 launch/bringup_record.launch.py
 launch/camera.launch.py
 launch/mission_bt_runner.launch.py

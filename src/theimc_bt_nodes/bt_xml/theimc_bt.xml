@@ -12,7 +12,7 @@
 1번 레일 x: -0.9062973260879517, y: -2.77840256690979
 
 +) 레일 진입 전 배터리 노드 필요
--->
+-->1-2 . 배터리 노드에서 배터리 잔량이 20% 이하이면 미션 중단하고 바로 홈으로 복귀하도록 함
 
 <root main_tree_to_execute="MainTree">
   <BehaviorTree ID="MainTree">
@@ -20,7 +20,16 @@
       <SetBlackboard output_key="mission_return_mode" value="DIRECT"/>
 
       <ReactiveFallback name="ReturnHomeMonitor">
-        <ReturnHomeRequested return_mode="{return_mode}"/>
+        <Fallback name="AbortConditions">
+          <!--1-1. Return Home Requested -->
+          <ReturnHomeRequested return_mode="{return_mode}"/>
+          <!--1-2. Battery Low -->
+          <Sequence name="BatteryAbortSequence">
+            <IsBatteryLow threshold="20.0"/>
+            <SetBlackboard output_key="return_mode" value="{mission_return_mode}"/>
+          </Sequence>
+        </Fallback>
+
 
         <Sequence name="MultiRailMission">
           <WaitForMissionTrigger selected_rails="{selected_rails}"/>

@@ -9,6 +9,9 @@
 #include "theimc_bt_nodes/wait_for_rail_state.hpp"
 #include "theimc_bt_nodes/wait_for_mission_trigger.hpp"
 #include "theimc_bt_nodes/wait_seconds.hpp"
+#include "theimc_bt_nodes/is_battery_low.hpp"
+#include "theimc_bt_nodes/save_current_pose.hpp"
+#include "theimc_bt_nodes/wait_for_charge.hpp"
 
 BT_REGISTER_NODES(factory)
 {
@@ -22,4 +25,7 @@ BT_REGISTER_NODES(factory)
   factory.registerNodeType<theimc_bt_nodes::WaitForRailState>("WaitForRailState");
   factory.registerNodeType<theimc_bt_nodes::WaitForMissionTrigger>("WaitForMissionTrigger");
   factory.registerNodeType<theimc_bt_nodes::WaitSeconds>("WaitSeconds");
+  factory.registerNodeType<theimc_bt_nodes::IsBatteryLow>("IsBatteryLow");
+  factory.registerNodeType<theimc_bt_nodes::SaveCurrentPose>("SaveCurrentPose");
+  factory.registerNodeType<theimc_bt_nodes::WaitForCharge>("WaitForCharge");
 }

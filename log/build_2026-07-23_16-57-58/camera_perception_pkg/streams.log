@@ -1,0 +1,20 @@
+[3.740s] Invoking command in '/home/jeff/theimc_robot/build/camera_perception_pkg': PYTHONPATH=/home/jeff/theimc_robot/build/camera_perception_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/camera_perception_pkg/build --no-deps symlink_data
+[4.527s] running develop
+[4.759s] running egg_info
+[4.761s] writing camera_perception_pkg.egg-info/PKG-INFO
+[4.762s] writing dependency_links to camera_perception_pkg.egg-info/dependency_links.txt
+[4.763s] writing entry points to camera_perception_pkg.egg-info/entry_points.txt
+[4.764s] writing requirements to camera_perception_pkg.egg-info/requires.txt
+[4.765s] writing top-level names to camera_perception_pkg.egg-info/top_level.txt
+[4.770s] reading manifest file 'camera_perception_pkg.egg-info/SOURCES.txt'
+[4.772s] writing manifest file 'camera_perception_pkg.egg-info/SOURCES.txt'
+[4.776s] running build_ext
+[4.777s] Creating /home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages/camera-perception-pkg.egg-link (link to .)
+[4.780s] Installing aruco_detector_node script to /home/jeff/theimc_robot/install/camera_perception_pkg/lib/camera_perception_pkg
+[4.781s] Installing image_publisher_node script to /home/jeff/theimc_robot/install/camera_perception_pkg/lib/camera_perception_pkg
+[4.782s] Installing rail_info_extractor_node script to /home/jeff/theimc_robot/install/camera_perception_pkg/lib/camera_perception_pkg
+[4.783s] Installing yolov8_node script to /home/jeff/theimc_robot/install/camera_perception_pkg/lib/camera_perception_pkg
+[4.784s] 
+[4.784s] Installed /home/jeff/theimc_robot/build/camera_perception_pkg
+[4.785s] running symlink_data
+[4.989s] Invoked command in '/home/jeff/theimc_robot/build/camera_perception_pkg' returned '0': PYTHONPATH=/home/jeff/theimc_robot/build/camera_perception_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jeff/theimc_robot/install/camera_perception_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jeff/theimc_robot/build/camera_perception_pkg/build --no-deps symlink_data

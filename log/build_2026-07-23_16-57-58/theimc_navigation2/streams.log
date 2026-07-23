@@ -1,0 +1,53 @@
+[0.071s] Invoking command in '/home/jeff/theimc_robot/build/theimc_navigation2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --build /home/jeff/theimc_robot/build/theimc_navigation2 -- -j6 -l6
+[1.979s] [100%] Built target check_button_condition_plugin
+[1.997s] Invoked command in '/home/jeff/theimc_robot/build/theimc_navigation2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --build /home/jeff/theimc_robot/build/theimc_navigation2 -- -j6 -l6
+[1.999s] Invoking command in '/home/jeff/theimc_robot/build/theimc_navigation2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --install /home/jeff/theimc_robot/build/theimc_navigation2
+[2.022s] -- Install configuration: ""
+[2.022s] -- Execute custom install script
+[2.022s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/lib/libcheck_button_condition_plugin.so
+[2.022s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/lib/theimc_navigation2/button_publisher.py
+[2.023s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/launch/_bringup_all.launch.py
+[2.023s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/launch/_theimc_cmd_mux.launch.py
+[2.023s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/launch/theimc_nav2_without_obstacle.launch.py
+[2.023s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/maps/2f/keepout_map.pgm
+[2.025s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/maps/2f/map.pgm
+[2.025s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/maps/2f/map.png
+[2.026s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/maps/2f/map.yaml
+[2.026s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/maps/__keepout_map.pgm
+[2.028s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/maps/keepout_map.pgm
+[2.029s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/maps/keepout_map.yaml
+[2.031s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/maps/map.pgm
+[2.032s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/maps/map.yaml
+[2.034s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/maps/route_graph.geojson
+[2.035s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/params/keepout_filter.yaml
+[2.036s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/params/theimc_nav2_obstacle_avoidance_params copy.yaml
+[2.038s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/params/theimc_nav2_obstacle_avoidance_params.yaml
+[2.039s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/params/theimc_nav2_params.yaml
+[2.040s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/params/theimc_nav2_params_RPP.yaml
+[2.041s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/params/waypoints.yaml
+[2.041s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/rviz/demo_robot.rviz
+[2.043s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/scripts/button_publisher.py
+[2.045s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/scripts/example_route.py
+[2.045s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/scripts/waypoint_sender.py
+[2.047s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/behavior_trees/custom_button_bt.xml
+[2.048s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/behavior_trees/nav_through_poses_no_spin.xml
+[2.048s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/behavior_trees/nav_to_pose_no_spin.xml
+[2.048s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/behavior_trees/nav_to_pose_obstacle_avoidance.xml
+[2.048s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/behavior_trees/navigate_via_route.xml
+[2.049s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/behavior_trees/navigate_w_replanning_and_recovery.xml
+[2.049s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/ament_index/resource_index/package_run_dependencies/theimc_navigation2
+[2.049s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/ament_index/resource_index/parent_prefix_path/theimc_navigation2
+[2.049s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/environment/ament_prefix_path.sh
+[2.050s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/environment/ament_prefix_path.dsv
+[2.050s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/environment/path.sh
+[2.050s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/environment/path.dsv
+[2.054s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/local_setup.bash
+[2.054s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/local_setup.sh
+[2.058s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/local_setup.zsh
+[2.058s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/local_setup.dsv
+[2.058s] -- Symlinking: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/package.dsv
+[2.117s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/ament_index/resource_index/packages/theimc_navigation2
+[2.117s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/cmake/theimc_navigation2Config.cmake
+[2.117s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/cmake/theimc_navigation2Config-version.cmake
+[2.117s] -- Up-to-date symlink: /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/package.xml
+[2.139s] Invoked command in '/home/jeff/theimc_robot/build/theimc_navigation2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --install /home/jeff/theimc_robot/build/theimc_navigation2

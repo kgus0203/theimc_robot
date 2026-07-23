@@ -30,6 +30,7 @@ add_library(${PROJECT_NAME} SHARED
   src/wait_for_rail_state.cpp
   src/wait_for_mission_trigger.cpp
   src/wait_seconds.cpp
+  src/is_battery_low.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} yaml-cpp)

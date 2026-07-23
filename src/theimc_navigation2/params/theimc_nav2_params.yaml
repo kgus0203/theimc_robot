@@ -53,9 +53,10 @@ bt_navigator:
     global_frame: map
     robot_base_frame: base_footprint
     odom_topic: /odom
-    # default_bt_xml_filename: "custom_button_bt.xml"
-    default_nav_to_pose_bt_xml: "/home/jeff/theimc_robot/src/theimc_navigation2/behavior_trees/nav_to_pose_no_spin.xml"
-    default_nav_through_poses_bt_xml: "/home/jeff/theimc_robot/src/theimc_navigation2/behavior_trees/nav_through_poses_no_spin.xml"
+    # default_nav_to_pose_bt_xml: "/home/jeff/theimc_robot/src/theimc_navigation2/behavior_trees/nav_to_pose_no_spin.xml"
+    # default_nav_through_poses_bt_xml: "/home/jeff/theimc_robot/src/theimc_navigation2/behavior_trees/nav_through_poses_no_spin.xml"
+    default_nav_to_pose_bt_xml: "/opt/ros/humble/share/nav2_bt_navigator/behavior_trees/navigate_to_pose_w_replanning_and_recovery.xml"
+    default_nav_through_poses_bt_xml: "/opt/ros/humble/share/nav2_bt_navigator/behavior_trees/navigate_through_poses_w_replanning_and_recovery.xml"
 
     bt_loop_duration: 100
     default_server_timeout: 20
@@ -67,7 +68,7 @@ bt_navigator:
     - nav2_compute_path_through_poses_action_bt_node
     - nav2_smooth_path_action_bt_node
     - nav2_follow_path_action_bt_node
-    # - nav2_spin_action_bt_node
+    - nav2_spin_action_bt_node
     - nav2_wait_action_bt_node
     - nav2_assisted_teleop_action_bt_node
     - nav2_back_up_action_bt_node
@@ -105,7 +106,7 @@ bt_navigator:
     - nav2_controller_cancel_bt_node
     - nav2_path_longer_on_approach_bt_node
     - nav2_wait_cancel_bt_node
-    # - nav2_spin_cancel_bt_node
+    - nav2_spin_cancel_bt_node
     - nav2_back_up_cancel_bt_node
     - nav2_assisted_teleop_cancel_bt_node
     - nav2_drive_on_heading_cancel_bt_node
@@ -151,14 +152,17 @@ controller_server:
       # 예측 모델
       # =========================
 
-      # 30 × 0.1초 = 3초 예측
-      time_steps: 30
+      # # 30 × 0.1초 = 3초 예측
+      # time_steps: 30
 
-      # controller_frequency 10Hz이므로 한 주기 0.1초
+      # # controller_frequency 10Hz이므로 한 주기 0.1초
+      # model_dt: 0.10
+
+      # # Jetson Orin Nano 기준 시작값
+      # batch_size: 1000
+      time_steps: 50
       model_dt: 0.10
-
-      # Jetson Orin Nano 기준 시작값
-      batch_size: 1000
+      batch_size: 1500
       iteration_count: 1
 
       # =========================
@@ -168,7 +172,7 @@ controller_server:
       # 최대속도가 낮으므로 기본값보다 작게 설정
       vx_std: 0.08
       vy_std: 0.00
-      wz_std: 0.15
+      wz_std: 0.25
 
       # =========================
       # 속도 제한
@@ -180,7 +184,7 @@ controller_server:
       vx_min: 0.00
 
       vy_max: 0.00
-      wz_max: 0.30
+      wz_max: 0.40
 
       # =========================
       # 경로 처리
@@ -341,20 +345,28 @@ local_costmap:
       transform_tolerance: 0.5
       # footprint: "[[-0.35, -0.35], [-0.35, 0.35], [0.35, 0.35], [0.35, -0.35]]"
       # footprint_padding: 0.1
-      footprint: "[[0.35, 0.45],
-                   [0.35, -0.45],
-                   [-0.35, -0.45],
-                   [-0.35, 0.45]]"
+      footprint: "[[0.35, 0.5],
+                   [0.35, -0.5],
+                   [-0.35, -0.5],
+                   [-0.35, 0.5]]"
 
       footprint_padding: 0.03
 
       plugins: ["obstacle_layer", "inflation_layer"]
+    
 
-      # filters: ["keepout_filter"]
-      # keepout_filter:
-      #  plugin: "nav2_costmap_2d::KeepoutFilter"
-      #  enabled: True
-      #  filter_info_topic: "/costmap_filter_info"
+      filters: ["keepout_filter", "keepout_inflation"]
+
+      keepout_filter:
+        plugin: "nav2_costmap_2d::KeepoutFilter"
+        enabled: True
+        filter_info_topic: "/costmap_filter_info"
+
+      keepout_inflation:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        enabled: true
+        inflation_radius: 0.3
+        cost_scaling_factor: 5.0
 
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
@@ -403,10 +415,10 @@ global_costmap:
       use_sim_time: False
       # footprint: "[[-0.35, -0.35], [-0.35, 0.35], [0.35, 0.35], [0.35, -0.35]]"
       # footprint: "[[0.35, 0.25], [0.35, -0.25], [-0.35, -0.25], [-0.35, 0.25]]"
-      footprint: "[[0.35, 0.45],
-                   [0.35, -0.45],
-                   [-0.35, -0.45],
-                   [-0.35, 0.45]]"
+      footprint: "[[0.35, 0.5],
+                   [0.35, -0.5],
+                   [-0.35, -0.5],
+                   [-0.35, 0.5]]"
 
       footprint_padding: 0.03
 
@@ -416,16 +428,18 @@ global_costmap:
 
       # static_layer가 정의되어 있었는데 plugins에 빠져 있어서 추가
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+      filters: ["keepout_filter", "keepout_inflation"]
 
-      filters: ["keepout_filter"]
       keepout_filter:
-       plugin: "nav2_costmap_2d::KeepoutFilter"
-       enabled: True
-       filter_info_topic: "/costmap_filter_info" 
+        plugin: "nav2_costmap_2d::KeepoutFilter"
+        enabled: True
+        filter_info_topic: "/costmap_filter_info"
 
-# filter_info_topic: "/costmap_filter_info"
-# type: 0
-# mask_topic: "/keepout_filter_mask"
+      keepout_inflation:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        enabled: true
+        inflation_radius: 0.3
+        cost_scaling_factor: 5.0
 
       static_layer:
         plugin: "nav2_costmap_2d::StaticLayer"
@@ -487,11 +501,15 @@ planner_server_rclcpp_node:
 behavior_server:
   ros__parameters:
     cmd_vel_topic: /cmd_vel
+
     costmap_topic: local_costmap/costmap_raw
     footprint_topic: local_costmap/published_footprint
     cycle_frequency: 10.0
 
-    behavior_plugins: ["backup", "wait"]
+    behavior_plugins: ["spin", "backup", "wait"]
+
+    spin:
+      plugin: "nav2_behaviors/Spin"
 
     backup:
       plugin: "nav2_behaviors/BackUp"
@@ -502,8 +520,9 @@ behavior_server:
     global_frame: odom
     robot_base_frame: base_footprint
     transform_tolerance: 1.0
-    use_sim_time: False
+    use_sim_time: false
     simulate_ahead_time: 2.0
+
     max_rotational_vel: 0.3
     min_rotational_vel: 0.1
 

@@ -319,6 +319,30 @@ src/go_to_pose.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/go_to_pose.cpp.s
 .PHONY : src/go_to_pose.cpp.s
 
+src/is_battery_low.o: src/is_battery_low.cpp.o
+.PHONY : src/is_battery_low.o
+
+# target to build an object file
+src/is_battery_low.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/is_battery_low.cpp.o
+.PHONY : src/is_battery_low.cpp.o
+
+src/is_battery_low.i: src/is_battery_low.cpp.i
+.PHONY : src/is_battery_low.i
+
+# target to preprocess a source file
+src/is_battery_low.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/is_battery_low.cpp.i
+.PHONY : src/is_battery_low.cpp.i
+
+src/is_battery_low.s: src/is_battery_low.cpp.s
+.PHONY : src/is_battery_low.s
+
+# target to generate assembly for a file
+src/is_battery_low.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/is_battery_low.cpp.s
+.PHONY : src/is_battery_low.cpp.s
+
 src/mission_bt_runner.o: src/mission_bt_runner.cpp.o
 .PHONY : src/mission_bt_runner.o
 
@@ -540,6 +564,9 @@ help:
 	@echo "... src/go_to_pose.o"
 	@echo "... src/go_to_pose.i"
 	@echo "... src/go_to_pose.s"
+	@echo "... src/is_battery_low.o"
+	@echo "... src/is_battery_low.i"
+	@echo "... src/is_battery_low.s"
 	@echo "... src/mission_bt_runner.o"
 	@echo "... src/mission_bt_runner.i"
 	@echo "... src/mission_bt_runner.s"

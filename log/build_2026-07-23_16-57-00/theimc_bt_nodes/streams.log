@@ -1,0 +1,35 @@
+[0.054s] Invoking command in '/home/jeff/theimc_robot/build/theimc_bt_nodes': CMAKE_PREFIX_PATH=/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/jeff/theimc_robot/install/theimc_navigation2/lib:/home/jeff/theimc_robot/install/interfaces_pkg/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/jeff/theimc_robot/build/theimc_bt_nodes -- -j6 -l6
+[0.142s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.446s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.474s] -- Found ament_index_cpp: 1.4.1 (/opt/ros/humble/share/ament_index_cpp/cmake)
+[0.478s] -- Found geometry_msgs: 4.9.1 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.542s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.551s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.564s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.588s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.621s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.706s] -- Found interfaces_pkg: 0.0.0 (/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake)
+[0.788s] -- Found nav2_behavior_tree: 1.1.20 (/opt/ros/humble/share/nav2_behavior_tree/cmake)
+[0.861s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.866s] -- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.084s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.486s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[1.490s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.600s] -- Found pluginlib: 5.1.4 (/opt/ros/humble/share/pluginlib/cmake)
+[1.636s] -- Found yaml_cpp_vendor: 8.0.2 (/opt/ros/humble/share/yaml_cpp_vendor/cmake)
+[1.897s] -- Configuring done
+[2.107s] -- Generating done
+[2.128s] -- Build files have been written to: /home/jeff/theimc_robot/build/theimc_bt_nodes
+[2.210s] Consolidate compiler generated dependencies of target mission_bt_runner
+[2.243s] [ 13%] Built target mission_bt_runner
+[2.287s] Consolidate compiler generated dependencies of target theimc_bt_nodes
+[2.339s] [ 26%] Building CXX object CMakeFiles/theimc_bt_nodes.dir/src/register_nodes.cpp.o
+[2.339s] [ 26%] Building CXX object CMakeFiles/theimc_bt_nodes.dir/src/is_battery_low.cpp.o
+[8.992s] /home/jeff/theimc_robot/src/theimc_bt_nodes/src/register_nodes.cpp:12:1: error: ‘include’ does not name a type
+[8.993s]    12 | include "theimc_bt_nodes/is_battery_low.hpp"
+[8.993s]       | ^~~~~~~
+[11.231s] gmake[2]: *** [CMakeFiles/theimc_bt_nodes.dir/build.make:174: CMakeFiles/theimc_bt_nodes.dir/src/register_nodes.cpp.o] Error 1
+[11.232s] gmake[2]: *** Waiting for unfinished jobs....
+[22.081s] gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/theimc_bt_nodes.dir/all] Error 2
+[22.082s] gmake: *** [Makefile:146: all] Error 2
+[32.344s] Invoked command in '/home/jeff/theimc_robot/build/theimc_bt_nodes' returned '2': CMAKE_PREFIX_PATH=/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/jeff/theimc_robot/install/theimc_navigation2/lib:/home/jeff/theimc_robot/install/interfaces_pkg/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/jeff/theimc_robot/build/theimc_bt_nodes -- -j6 -l6

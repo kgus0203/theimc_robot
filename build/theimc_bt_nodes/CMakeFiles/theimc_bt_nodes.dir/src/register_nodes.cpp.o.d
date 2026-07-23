@@ -821,4 +821,11 @@ CMakeFiles/theimc_bt_nodes.dir/src/register_nodes.cpp.o: \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__type_support.hpp \
  /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/wait_for_rail_state.hpp \
  /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/wait_for_mission_trigger.hpp \
- /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/wait_seconds.hpp
+ /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/wait_seconds.hpp \
+ /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/is_battery_low.hpp \
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/battery_state.hpp \
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/battery_state__struct.hpp \
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/battery_state__builder.hpp \
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/battery_state__traits.hpp \
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/battery_state__type_support.hpp \
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
