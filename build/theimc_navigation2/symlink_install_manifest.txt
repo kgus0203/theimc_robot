@@ -19,6 +19,7 @@
 /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/params/theimc_nav2_obstacle_avoidance_params.yaml.bak-before-mppi-20260724
 /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/params/theimc_nav2_params.yaml
 /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/params/theimc_nav2_params_RPP.yaml
+/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/params/theimc_nav2_params_mppi.yaml
 /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/params/waypoints.yaml
 /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/rviz/demo_robot.rviz
 /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/scripts/button_publisher.py

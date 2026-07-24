@@ -38,7 +38,7 @@ def generate_launch_description():
     params_nav2 = PathJoinSubstitution([
         pkg_share_navigation2,
         'params',
-        'theimc_nav2_obstacle_avoidance_params.yaml'
+        'theimc_nav2_params_mppi.yaml'
     ])
 
     keepout_map_yaml = os.path.join(

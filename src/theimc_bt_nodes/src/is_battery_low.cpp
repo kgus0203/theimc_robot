@@ -19,7 +19,7 @@ IsBatteryLow::IsBatteryLow(
 BT::PortsList IsBatteryLow::providedPorts() {
     return {
 
-        BT::InputPort<double>("threshold", 20.0, "Battery percentage threshold to consider low")
+        BT::InputPort<double>("threshold", 20.0, "Battery percentage threshold to consider low"),
         BT::InputPort<double>("recovery_threshold", 90.0, "Battery percentage threshold to consider recovered")
     };
 }

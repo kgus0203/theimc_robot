@@ -17,35 +17,65 @@
 <root main_tree_to_execute="MainTree">
   <BehaviorTree ID="MainTree">
     <Sequence name="MissionWithReturnHome">
+
+      <!-- 초기 변수 설정 -->
       <SetBlackboard output_key="mission_return_mode" value="DIRECT"/>
+      <SetBlackboard output_key="last_executed_index" value="0"/>
+      <SetBlackboard output_key="return_mode" value="MISSION_COMPLETE"/>
+      <!-- 1. 미션 트리거 대기 -->
+      <WaitForMissionTrigger selected_rails="{selected_rails}"/>
+      <!-- 2. 실시간 모니터링 및 미션 수행 -->
+      <ForceSuccess>
+        <ReactiveFallback name="ReturnHomeMonitor">
 
-      <ReactiveFallback name="ReturnHomeMonitor">
-        <Fallback name="AbortConditions">
-          <!--1-1. Return Home Requested -->
-          <ReturnHomeRequested return_mode="{return_mode}"/>
-          <!--1-2. Battery Low -->
-          <Sequence name="BatteryAbortSequence">
-            <IsBatteryLow threshold="20.0"/>
-            <SetBlackboard output_key="return_mode" value="{mission_return_mode}"/>
+          <Sequence name="LowBatteryRecovery">
+            <IsBatteryLow threshold="20.0" recovery_threshold="90.0"/>
+            <!-- 중단 시점의 목표 레일 좌표 및 현재 로봇 좌표 저장 -->
+            <SaveCurrentPose save_x="{resume_x}" save_y="{resume_y}" save_yaw="{resume_yaw}"/>
+            <!-- 현재 상태에 따라 레일에서 안전하게 빠져나오기 -->
+            <Switch3 variable="{mission_return_mode}" case_1="EXIT_RAIL_HOME" case_2="REVERSE_HOME" case_3="DIRECT">
+              <Sequence name="LeaveRailSafely">
+                <PublishRailCommand command="BACK"/>
+                <WaitForRailState state="OUT_RAIL" accept_stale="false" timeout_sec="30.0"/>
+                <PublishRailCommand command="OUT"/>
+                <WaitSeconds seconds="10.0"/>
+                <DriveCmdVel linear_x="-0.25" angular_z="0.0" seconds="3.0"/>
+              </Sequence>
+              <Sequence name="ReverseSafely">
+                <DriveCmdVel linear_x="-0.25" angular_z="0.0" seconds="3.0"/>
+              </Sequence>
+              <AlwaysSuccess/>
+            </Switch3>
+
+            <!-- 홈으로 이동하여 충전 대기 -->
+            <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
+            <WaitForCharge target_battery="90.0"/>
+
+            <!-- 충전 완료 후, 아까 작업이 중단되었던 위치 근처(레일 진입 전)로 복귀 -->
+            <SetBlackboard output_key="mission_return_mode" value="DIRECT"/>
+            <GoToPose x="{resume_x}" y="{resume_y}" yaw="{resume_yaw}"/>
           </Sequence>
-        </Fallback>
 
 
-        <Sequence name="MultiRailMission">
-          <WaitForMissionTrigger selected_rails="{selected_rails}"/>
+          <Sequence name="MultiRailMission">
+            <Inverter>
+              <ReturnHomeRequested return_mode="{return_mode}"/>
+            </Inverter>
 
-          <ForEachRail rail_list="{selected_rails}" current_rail="{rail_id}">
-            <SubTreePlus
-              ID="RailRoutine"
-              rail_id="{rail_id}"
-              mission_return_mode="{mission_return_mode}"
-              __autoremap="1"/>
-          </ForEachRail>
+            <ForEachRail rail_list="{selected_rails}" current_rail="{rail_id}" 
+              start_index="{last_executed_index}" last_executed_index="{last_executed_index}">
+              <SubTreePlus
+                ID="RailRoutine"
+                rail_id="{rail_id}"
+                mission_return_mode="{mission_return_mode}"
+                __autoremap="1"/>
+            </ForEachRail>
 
-          <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
-          <SetBlackboard output_key="return_mode" value="MISSION_COMPLETE"/>
-        </Sequence>
-      </ReactiveFallback>
+            <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
+            <SetBlackboard output_key="return_mode" value="MISSION_COMPLETE"/>
+          </Sequence>
+        </ReactiveFallback>
+      </ForceSuccess>
 
       <Switch3
         variable="{return_mode}"

@@ -5,7 +5,7 @@ set(theimc_navigation2_BUILD_DEPENDS "rclcpp" "rclpy" "std_msgs" "navigation2" "
 set(theimc_navigation2_BUILDTOOL_DEPENDS "ament_cmake")
 set(theimc_navigation2_BUILD_EXPORT_DEPENDS "rclcpp" "rclpy" "std_msgs" "navigation2" "nav2_bringup" "nav2_behavior_tree" "behaviortree_cpp_v3" "pluginlib" "slam_toolbox" "robot_state_publisher" "rviz2")
 set(theimc_navigation2_BUILDTOOL_EXPORT_DEPENDS )
-set(theimc_navigation2_EXEC_DEPENDS "rclcpp" "rclpy" "std_msgs" "navigation2" "nav2_bringup" "nav2_behavior_tree" "behaviortree_cpp_v3" "pluginlib" "slam_toolbox" "robot_state_publisher" "rviz2")
+set(theimc_navigation2_EXEC_DEPENDS "nav2_mppi_controller" "rclcpp" "rclpy" "std_msgs" "navigation2" "nav2_bringup" "nav2_behavior_tree" "behaviortree_cpp_v3" "pluginlib" "slam_toolbox" "robot_state_publisher" "rviz2")
 set(theimc_navigation2_TEST_DEPENDS "ament_lint_auto" "ament_lint_common")
 set(theimc_navigation2_GROUP_DEPENDS )
 set(theimc_navigation2_MEMBER_OF_GROUPS )

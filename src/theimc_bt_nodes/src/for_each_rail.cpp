@@ -52,7 +52,9 @@ BT::PortsList ForEachRail::providedPorts()
   return {
     BT::InputPort<std::string>("selected_rails", "Comma-separated rail IDs"),
     BT::InputPort<std::string>("rail_list", "Alias for selected_rails"),
+    BT::InputPort<int>("start_index", 0, "Index to resume from after interruption"),
     BT::OutputPort<int>("current_rail", "Rail ID currently being executed"),
+    BT::OutputPort<int>("last_executed_index", "To save progress"),
   };
 }
 
@@ -142,11 +144,23 @@ bool ForEachRail::initializeRailList()
   }
 
   rail_ids_ = std::move(parsed_ids);
-  current_index_ = 0;
+
+  int start_idx=0;
+  if (!getInput("start_index", start_idx)) {
+    start_idx = 0;
+  }
+
+  if (start_idx < 0 || static_cast<std::size_t>(start_idx) >= rail_ids_.size()) {
+    RCLCPP_WARN(node_->get_logger(), "ForEachRail start_index %d is out of bounds. Defaulting to 0.", start_idx);
+    start_idx = 0;
+  }
+
+  current_index_ = static_cast<std::size_t>(start_idx);
   initialized_ = true;
+
   RCLCPP_INFO(
-    node_->get_logger(), "ForEachRail selected rails: [%s] (%zu total)",
-    joinRailIds(rail_ids_).c_str(), rail_ids_.size());
+    node_->get_logger(), "ForEachRail selected rails: [%s] (%zu total). Starting from index %d",
+    joinRailIds(rail_ids_).c_str(), rail_ids_.size(), start_idx);
   return true;
 }
 
@@ -168,6 +182,10 @@ BT::NodeStatus ForEachRail::tick()
   const int rail_id = rail_ids_[current_index_];
   if (!setOutput("current_rail", rail_id)) {
     RCLCPP_ERROR(node_->get_logger(), "ForEachRail failed to write current_rail output");
+    return BT::NodeStatus::FAILURE;
+  }
+  if (!setOutput("last_executed_index", static_cast<int>(current_index_))) {
+    RCLCPP_ERROR(node_->get_logger(), "ForEachRail failed to write last_executed_index output");
     return BT::NodeStatus::FAILURE;
   }
 
@@ -195,6 +213,8 @@ BT::NodeStatus ForEachRail::tick()
     rail_id, current_index_ + 1, rail_ids_.size());
   resetChild();
   ++current_index_;
+
+  setOutput("last_executed_index", static_cast<int>(current_index_));
 
   if (current_index_ == rail_ids_.size()) {
     RCLCPP_INFO(
