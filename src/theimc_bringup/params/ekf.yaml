@@ -14,7 +14,7 @@ ekf_filter_node:
     base_link_frame: base_footprint
     world_frame: odom
 
-    transform_time_offset: 0.0
+    transform_time_offset: 0.03
     transform_timeout: 0.1
 
     # State vector order:

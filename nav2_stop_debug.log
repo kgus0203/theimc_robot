@@ -1,0 +1,14 @@
+[INFO] [launch]: All log files can be found below /home/jeff/.ros/log/2026-07-24-14-18-18-525350-ubuntu-82471
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [map_server-1]: process started with pid [82473]
+[INFO] [costmap_filter_info_server-2]: process started with pid [82475]
+[costmap_filter_info_server-2] [INFO] [1784870298.698582969] [costmap_filter_info_server]: This is costmap filter info publisher
+[map_server-1] [INFO] [1784870298.798067546] [filter_mask_server]: 
+[map_server-1] 	filter_mask_server lifecycle node launched. 
+[map_server-1] 	Waiting on external lifecycle transitions to activate
+[map_server-1] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[map_server-1] [INFO] [1784870298.798384548] [filter_mask_server]: Creating
+[costmap_filter_info_server-2] [INFO] [1784870298.837143804] [costmap_filter_info_server]: 
+[costmap_filter_info_server-2] 	costmap_filter_info_server lifecycle node launched. 
+[costmap_filter_info_server-2] 	Waiting on external lifecycle transitions to activate
+[costmap_filter_info_server-2] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
