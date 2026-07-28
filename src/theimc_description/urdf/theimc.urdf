@@ -182,7 +182,7 @@
   <joint name="camera_joint" type="fixed">
     <parent link="base_link"/>
     <child link="camera_link"/>
-    <origin xyz="0.41 0 0.10" rpy="0 0 0"/>
+    <origin xyz="0.41 0 0.01" rpy="0 0 0"/>
   </joint>
 
   <!-- optical frame joint -->
@@ -196,7 +196,7 @@
   <joint name="base_joint" type="fixed">
     <parent link="base_footprint"/>
     <child link="base_link"/>
-    <origin rpy="0 0 0" xyz="0.0 0.0 0.33"/>
+    <origin rpy="0 0 0" xyz="0.0 0.0 0.17"/>
   </joint>
 
   <joint name="wheel_left_joint" type="continuous">

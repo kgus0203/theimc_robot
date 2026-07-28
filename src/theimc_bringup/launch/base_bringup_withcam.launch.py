@@ -210,6 +210,7 @@ def generate_launch_description():
                 'frame_id': 'base_footprint',
                 'odom_frame_id': 'odom',
                 'publish_tf': False,
+                'Reg/Force3DoF': True,
                 'subscribe_depth': True,
                 'subscribe_odom_info': True,
                 'approx_sync': True,

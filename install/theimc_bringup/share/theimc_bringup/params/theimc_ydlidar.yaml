@@ -1,1 +1,10 @@
-/home/jeff/theimc_robot/build/theimc_bringup/params/theimc_ydlidar.yaml
+ydlidar_node:
+  ros__parameters:
+    serial_port: /dev/lidar_link    
+    frame_id: laser_frame
+    baudrate: 100000    
+    inverted: false
+    scan_mode: DenseBoost
+    channel_type: serial
+    angel_compensate: true
+    scan_mod: scan_mode

@@ -807,12 +807,12 @@ CMakeFiles/theimc_bt_nodes.dir/src/register_nodes.cpp.o: \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__type_support.hpp \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
  /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/rail_approach.hpp \
- /home/jeff/theimc_robot/build/interfaces_pkg/rosidl_generator_cpp/interfaces_pkg/action/rail_approach.hpp \
- /home/jeff/theimc_robot/build/interfaces_pkg/rosidl_generator_cpp/interfaces_pkg/action/detail/rail_approach__struct.hpp \
- /home/jeff/theimc_robot/build/interfaces_pkg/rosidl_generator_cpp/interfaces_pkg/action/detail/rail_approach__builder.hpp \
- /home/jeff/theimc_robot/build/interfaces_pkg/rosidl_generator_cpp/interfaces_pkg/action/detail/rail_approach__traits.hpp \
- /home/jeff/theimc_robot/build/interfaces_pkg/rosidl_generator_cpp/interfaces_pkg/action/detail/rail_approach__type_support.hpp \
- /home/jeff/theimc_robot/build/interfaces_pkg/rosidl_generator_cpp/interfaces_pkg/msg/rosidl_generator_cpp__visibility_control.hpp \
+ /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/rail_approach.hpp \
+ /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/detail/rail_approach__struct.hpp \
+ /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/detail/rail_approach__builder.hpp \
+ /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/detail/rail_approach__traits.hpp \
+ /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/action/detail/rail_approach__type_support.hpp \
+ /home/jeff/theimc_robot/install/interfaces_pkg/include/interfaces_pkg/interfaces_pkg/msg/rosidl_generator_cpp__visibility_control.hpp \
  /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/return_home_requested.hpp \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/bool.hpp \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__struct.hpp \
@@ -828,4 +828,58 @@ CMakeFiles/theimc_bt_nodes.dir/src/register_nodes.cpp.o: \
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/battery_state__builder.hpp \
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/battery_state__traits.hpp \
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/battery_state__type_support.hpp \
- /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
+ /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/save_current_pose.hpp \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/buffer.h \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/buffer.hpp \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/async_buffer_interface.hpp \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.hpp \
+ /opt/ros/humble/include/tf2/tf2/buffer_core.hpp \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/Transform.hpp \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/Matrix3x3.hpp \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/Vector3.hpp \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/Scalar.hpp \
+ /usr/include/c++/11/math.h /usr/include/c++/11/cfloat \
+ /usr/lib/gcc/aarch64-linux-gnu/11/include/float.h \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/MinMax.hpp \
+ /opt/ros/humble/include/tf2/tf2/visibility_control.h \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/Quaternion.hpp \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/QuadWord.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/transform_stamped.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__struct.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__struct.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__builder.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__traits.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__traits.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__type_support.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/velocity_stamped.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/velocity_stamped__struct.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/velocity_stamped__builder.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/velocity_stamped__traits.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/velocity_stamped__type_support.hpp \
+ /opt/ros/humble/include/tf2/tf2/buffer_core_interface.hpp \
+ /opt/ros/humble/include/tf2/tf2/time.hpp \
+ /opt/ros/humble/include/tf2/tf2/exceptions.hpp \
+ /opt/ros/humble/include/tf2/tf2/transform_storage.hpp \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/Vector3.hpp \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/Quaternion.hpp \
+ /opt/ros/humble/include/tf2/tf2/transform_datatypes.hpp \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.hpp \
+ /opt/ros/humble/include/tf2/tf2/convert.hpp \
+ /opt/ros/humble/include/tf2/tf2/impl/convert.hpp \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/create_timer_interface.hpp \
+ /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/frame_graph.hpp \
+ /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__struct.hpp \
+ /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__builder.hpp \
+ /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__traits.hpp \
+ /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__type_support.hpp \
+ /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/transform_listener.h \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/transform_listener.hpp \
+ /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/tf_message.hpp \
+ /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__struct.hpp \
+ /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__builder.hpp \
+ /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__traits.hpp \
+ /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__type_support.hpp \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/qos.hpp \
+ /home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/wait_for_charge.hpp

@@ -17,6 +17,7 @@ find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(yaml_cpp_vendor REQUIRED)
+find_package(sensor_msgs REQUIRED)
 
 add_library(${PROJECT_NAME} SHARED
   src/drive_cmd_vel.cpp
@@ -31,6 +32,8 @@ add_library(${PROJECT_NAME} SHARED
   src/wait_for_mission_trigger.cpp
   src/wait_seconds.cpp
   src/is_battery_low.cpp
+  src/wait_for_charge.cpp
+  src/save_current_pose.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} yaml-cpp)

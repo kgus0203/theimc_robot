@@ -1,1 +1,4 @@
-/home/jeff/theimc_robot/src/interfaces_pkg/msg/Pose2D.msg
+# 2D position in pixel coordinates
+
+interfaces_pkg/Point2D position
+float64 theta

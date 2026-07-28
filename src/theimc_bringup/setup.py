@@ -30,7 +30,7 @@ setup(
         'Programming Language :: Python',
         'Topic :: Software Development',
     ],
-    description='ROS2 Humble Packages for Slampibot',    
+    description='ROS2 Humble Packages for Slampibot',
     license='Apache License, Version 2.0',
     tests_require=['pytest'],
     entry_points={
@@ -39,6 +39,7 @@ setup(
             'robot_agent_node = theimc_bringup.robot_agent_node:main',
             'last_pose_manager_node = theimc_bringup.last_pose_manager_node:main',
             'isaac_vslam_odom_adapter_node = theimc_bringup.isaac_vslam_odom_adapter_node:main',
+            'rtabmap_pose_validator_node = theimc_bringup.rtabmap_pose_validator_node:main',
         ],
-    }, 
+    },
 )

@@ -463,6 +463,54 @@ src/return_home_requested.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/return_home_requested.cpp.s
 .PHONY : src/return_home_requested.cpp.s
 
+src/save_current_pose.o: src/save_current_pose.cpp.o
+.PHONY : src/save_current_pose.o
+
+# target to build an object file
+src/save_current_pose.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.o
+.PHONY : src/save_current_pose.cpp.o
+
+src/save_current_pose.i: src/save_current_pose.cpp.i
+.PHONY : src/save_current_pose.i
+
+# target to preprocess a source file
+src/save_current_pose.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.i
+.PHONY : src/save_current_pose.cpp.i
+
+src/save_current_pose.s: src/save_current_pose.cpp.s
+.PHONY : src/save_current_pose.s
+
+# target to generate assembly for a file
+src/save_current_pose.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.s
+.PHONY : src/save_current_pose.cpp.s
+
+src/wait_for_charge.o: src/wait_for_charge.cpp.o
+.PHONY : src/wait_for_charge.o
+
+# target to build an object file
+src/wait_for_charge.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.o
+.PHONY : src/wait_for_charge.cpp.o
+
+src/wait_for_charge.i: src/wait_for_charge.cpp.i
+.PHONY : src/wait_for_charge.i
+
+# target to preprocess a source file
+src/wait_for_charge.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.i
+.PHONY : src/wait_for_charge.cpp.i
+
+src/wait_for_charge.s: src/wait_for_charge.cpp.s
+.PHONY : src/wait_for_charge.s
+
+# target to generate assembly for a file
+src/wait_for_charge.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_bt_nodes.dir/build.make CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.s
+.PHONY : src/wait_for_charge.cpp.s
+
 src/wait_for_mission_trigger.o: src/wait_for_mission_trigger.cpp.o
 .PHONY : src/wait_for_mission_trigger.o
 
@@ -582,6 +630,12 @@ help:
 	@echo "... src/return_home_requested.o"
 	@echo "... src/return_home_requested.i"
 	@echo "... src/return_home_requested.s"
+	@echo "... src/save_current_pose.o"
+	@echo "... src/save_current_pose.i"
+	@echo "... src/save_current_pose.s"
+	@echo "... src/wait_for_charge.o"
+	@echo "... src/wait_for_charge.i"
+	@echo "... src/wait_for_charge.s"
 	@echo "... src/wait_for_mission_trigger.o"
 	@echo "... src/wait_for_mission_trigger.i"
 	@echo "... src/wait_for_mission_trigger.s"

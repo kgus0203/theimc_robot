@@ -35,8 +35,9 @@ BT::NodeStatus SaveCurrentPose::tick()
 
   try {
     // Look up the latest transform from the global frame to the robot base frame
+    // tf2::TimePointZero에는 tf2::durationFromSec를 사용해야 컴파일 에러가 발생하지 않습니다.
     transform_stamped = tf_buffer_->lookupTransform(
-      global_frame_, robot_base_frame_, tf2::TimePointZero, rclcpp::Duration::from_seconds(1.0));
+      global_frame_, robot_base_frame_, tf2::TimePointZero, tf2::durationFromSec(1.0));
   } catch (const tf2::TransformException & ex) {
     RCLCPP_ERROR(
       node_->get_logger(),

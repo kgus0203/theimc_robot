@@ -1,1 +1,4 @@
-/home/jeff/theimc_robot/src/interfaces_pkg/msg/Point2D.msg
+# 2D point in pixel coordinates
+
+float64 x
+float64 y

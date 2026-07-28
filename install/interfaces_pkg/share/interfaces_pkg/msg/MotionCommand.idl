@@ -1,1 +1,16 @@
-/home/jeff/theimc_robot/build/interfaces_pkg/rosidl_adapter/interfaces_pkg/msg/MotionCommand.idl
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from interfaces_pkg/msg/MotionCommand.msg
+// generated code does not contain a copyright notice
+
+
+module interfaces_pkg {
+  module msg {
+    struct MotionCommand {
+      int32 steering;
+
+      int32 left_speed;
+
+      int32 right_speed;
+    };
+  };
+};

@@ -1,1 +1,2 @@
-/home/jeff/theimc_robot/src/interfaces_pkg/msg/TargetPoint.msg
+int64 target_x
+int64 target_y

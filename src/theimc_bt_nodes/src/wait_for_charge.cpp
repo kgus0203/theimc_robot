@@ -1,4 +1,8 @@
 #include "theimc_bt_nodes/wait_for_charge.hpp"
+#include <behaviortree_cpp_v3/behavior_tree.h>
+#include <rclcpp/rclcpp.hpp>
+#include <mutex>
+#include <sensor_msgs/msg/battery_state.hpp>
 
 namespace theimc_bt_nodes {
 

@@ -1,1 +1,4 @@
-/home/jeff/theimc_robot/src/interfaces_pkg/msg/Vector2.msg
+# 2D size in pixel
+
+float64 x
+float64 y

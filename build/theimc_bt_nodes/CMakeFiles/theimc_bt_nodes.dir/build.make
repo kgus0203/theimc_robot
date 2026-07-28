@@ -237,6 +237,34 @@ CMakeFiles/theimc_bt_nodes.dir/src/is_battery_low.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/theimc_bt_nodes.dir/src/is_battery_low.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeff/theimc_robot/src/theimc_bt_nodes/src/is_battery_low.cpp -o CMakeFiles/theimc_bt_nodes.dir/src/is_battery_low.cpp.s
 
+CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.o: CMakeFiles/theimc_bt_nodes.dir/flags.make
+CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.o: /home/jeff/theimc_robot/src/theimc_bt_nodes/src/wait_for_charge.cpp
+CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.o: CMakeFiles/theimc_bt_nodes.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeff/theimc_robot/build/theimc_bt_nodes/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.o -MF CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.o.d -o CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.o -c /home/jeff/theimc_robot/src/theimc_bt_nodes/src/wait_for_charge.cpp
+
+CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeff/theimc_robot/src/theimc_bt_nodes/src/wait_for_charge.cpp > CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.i
+
+CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeff/theimc_robot/src/theimc_bt_nodes/src/wait_for_charge.cpp -o CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.s
+
+CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.o: CMakeFiles/theimc_bt_nodes.dir/flags.make
+CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.o: /home/jeff/theimc_robot/src/theimc_bt_nodes/src/save_current_pose.cpp
+CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.o: CMakeFiles/theimc_bt_nodes.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeff/theimc_robot/build/theimc_bt_nodes/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.o -MF CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.o.d -o CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.o -c /home/jeff/theimc_robot/src/theimc_bt_nodes/src/save_current_pose.cpp
+
+CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeff/theimc_robot/src/theimc_bt_nodes/src/save_current_pose.cpp > CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.i
+
+CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeff/theimc_robot/src/theimc_bt_nodes/src/save_current_pose.cpp -o CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.s
+
 # Object files for target theimc_bt_nodes
 theimc_bt_nodes_OBJECTS = \
 "CMakeFiles/theimc_bt_nodes.dir/src/drive_cmd_vel.cpp.o" \
@@ -250,7 +278,9 @@ theimc_bt_nodes_OBJECTS = \
 "CMakeFiles/theimc_bt_nodes.dir/src/wait_for_rail_state.cpp.o" \
 "CMakeFiles/theimc_bt_nodes.dir/src/wait_for_mission_trigger.cpp.o" \
 "CMakeFiles/theimc_bt_nodes.dir/src/wait_seconds.cpp.o" \
-"CMakeFiles/theimc_bt_nodes.dir/src/is_battery_low.cpp.o"
+"CMakeFiles/theimc_bt_nodes.dir/src/is_battery_low.cpp.o" \
+"CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.o" \
+"CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.o"
 
 # External object files for target theimc_bt_nodes
 theimc_bt_nodes_EXTERNAL_OBJECTS =
@@ -267,6 +297,8 @@ libtheimc_bt_nodes.so: CMakeFiles/theimc_bt_nodes.dir/src/wait_for_rail_state.cp
 libtheimc_bt_nodes.so: CMakeFiles/theimc_bt_nodes.dir/src/wait_for_mission_trigger.cpp.o
 libtheimc_bt_nodes.so: CMakeFiles/theimc_bt_nodes.dir/src/wait_seconds.cpp.o
 libtheimc_bt_nodes.so: CMakeFiles/theimc_bt_nodes.dir/src/is_battery_low.cpp.o
+libtheimc_bt_nodes.so: CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.o
+libtheimc_bt_nodes.so: CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.o
 libtheimc_bt_nodes.so: CMakeFiles/theimc_bt_nodes.dir/build.make
 libtheimc_bt_nodes.so: /opt/ros/humble/lib/libbehaviortree_cpp_v3.so
 libtheimc_bt_nodes.so: /home/jeff/theimc_robot/install/interfaces_pkg/lib/libinterfaces_pkg__rosidl_typesupport_fastrtps_c.so
@@ -609,7 +641,7 @@ libtheimc_bt_nodes.so: /opt/ros/humble/lib/librcpputils.so
 libtheimc_bt_nodes.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libtheimc_bt_nodes.so: /opt/ros/humble/lib/librcutils.so
 libtheimc_bt_nodes.so: CMakeFiles/theimc_bt_nodes.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jeff/theimc_robot/build/theimc_bt_nodes/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX shared library libtheimc_bt_nodes.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jeff/theimc_robot/build/theimc_bt_nodes/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX shared library libtheimc_bt_nodes.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/theimc_bt_nodes.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

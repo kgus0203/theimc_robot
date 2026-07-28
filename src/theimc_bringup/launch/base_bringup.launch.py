@@ -55,7 +55,7 @@ def generate_launch_description():
         [pkg_share_bringup, 'params', 'vehicle_scan_filter.yaml']
     )
     params_ekf = PathJoinSubstitution(
-        [pkg_share_bringup, 'params', 'ekf.yaml']
+        [pkg_share_bringup, 'params', 'ekf_jinyoung.yaml']
     )
     params_twist_mux = PathJoinSubstitution(
         [pkg_share_bringup, 'params', 'twist_mux_params.yaml']
@@ -187,7 +187,19 @@ def generate_launch_description():
             'enable_accel': 'false',
             'unite_imu_method': '0',
             'enable_sync': 'true',
+            'depth_module.depth_profile': '848x480x30',
+            'rgb_camera.color_profile': '640x480x30',
+            'depth_module.visual_preset': '3',
+            'depth_module.emitter_enabled': '1',
+            'depth_module.enable_auto_exposure': 'true',   
+            'disparity_filter.enable': 'false',
+            'spatial_filter.enable': 'true',
+            # 'decimation_filter.enable': 'true',
+            'decimation_filter.filter_magnitude': '2',
             'align_depth.enable': 'true',
+            'hole_filling_filter.enable': 'false',
+            'clip_distance': '2.5',
+            'temporal_filter.enable': 'true',
             'publish_tf': 'true',
             'initial_reset': 'true',
             'use_sim_time': use_sim_time,
@@ -250,8 +262,8 @@ def generate_launch_description():
     launch_description.add_action(ydlidar_cmd)
     launch_description.add_action(scan_filter_cmd)
     launch_description.add_action(robot_agent_cmd)
-    # launch_description.add_action(realsense_cmd)
-    # launch_description.add_action(rgbd_odometry_cmd)
+    launch_description.add_action(realsense_cmd)
+    launch_description.add_action(rgbd_odometry_cmd)
     launch_description.add_action(ekf_cmd)
 
     return launch_description
