@@ -1,14 +1,1 @@
-// generated from rosidl_adapter/resource/msg.idl.em
-// with input from interfaces_pkg/msg/TargetPoint.msg
-// generated code does not contain a copyright notice
-
-
-module interfaces_pkg {
-  module msg {
-    struct TargetPoint {
-      int64 target_x;
-
-      int64 target_y;
-    };
-  };
-};
+/home/jeff/theimc_robot/build/interfaces_pkg/rosidl_adapter/interfaces_pkg/msg/TargetPoint.idl

@@ -39,3 +39,10 @@ theimc_bringup/last_pose_manager_node.py
 theimc_bringup/robot_agent_node.py
 theimc_bringup/rtabmap_pose_validator_node.py
 theimc_bringup/theimc_bringup.py
+theimc_bringup.egg-info/PKG-INFO
+theimc_bringup.egg-info/SOURCES.txt
+theimc_bringup.egg-info/dependency_links.txt
+theimc_bringup.egg-info/entry_points.txt
+theimc_bringup.egg-info/requires.txt
+theimc_bringup.egg-info/top_level.txt
+theimc_bringup.egg-info/zip-safe

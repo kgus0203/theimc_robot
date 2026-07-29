@@ -1,3 +1,1 @@
-int32 steering
-int32 left_speed
-int32 right_speed
+/home/jeff/theimc_robot/src/interfaces_pkg/msg/MotionCommand.msg

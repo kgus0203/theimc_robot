@@ -1,3 +1,1 @@
-# represents all the keypoints for human pose estimation
-
-interfaces_pkg/KeyPoint2D[] data
+/home/jeff/theimc_robot/src/interfaces_pkg/msg/KeyPoint2DArray.msg

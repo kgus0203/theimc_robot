@@ -119,15 +119,15 @@ def generate_launch_description():
             'RGBD/NeighborLinkRefining': 'false',
             'RGBD/ProximityBySpace': 'false',
             'Grid/Sensor': '1',
-            'Grid/RangeMax': '2.5',
-            'Grid/NoiseFilteringRadius': '0.05',
-            'Grid/NoiseFilteringMinNeighbors': '5',
-            'Vis/MaxDepth': '2.5',
-            'Kp/MaxDepth': '2.5'
+            'Grid/RangeMax': '2.0',
+            'Grid/NoiseFilteringRadius': '0.08',
+            'Grid/NoiseFilteringMinNeighbors': '8',
+            'Vis/MaxDepth': '2.0',
+            'Kp/MaxDepth': '2.0'
         }],
         remappings=[
             ('rgbd_image', '/rtabmap/rgbd_image'),
-            ('odom', '/camera/odom'),
+            ('odom', '/odom'),
         ],
     )
 

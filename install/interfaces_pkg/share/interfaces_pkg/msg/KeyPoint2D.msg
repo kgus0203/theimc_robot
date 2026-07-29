@@ -1,10 +1,1 @@
-# one keypoint for human pose estimation
-
-# id of the keypoint
-int32 id
-
-# 2D point in pixels
-interfaces_pkg/Point2D point
-
-# conf of the keypoint
-float64 score
+/home/jeff/theimc_robot/src/interfaces_pkg/msg/KeyPoint2D.msg

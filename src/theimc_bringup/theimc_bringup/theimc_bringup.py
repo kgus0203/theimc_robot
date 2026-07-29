@@ -257,6 +257,7 @@ class BringUp(Node):
                     .decode('utf-8', errors='ignore')
                     .strip()
                 )
+                # print(f"Received from STM32: {line}")
                 # self.get_logger().info(f'serial line =>  [{line}]')
                 if self.use_stm_odom and 'ODOM' in line:
                     latest_odom_line = line

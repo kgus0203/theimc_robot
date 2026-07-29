@@ -1,2 +1,1 @@
-float32 slope
-interfaces_pkg/TargetPoint[] target_points
+/home/jeff/theimc_robot/src/interfaces_pkg/msg/LaneInfo.msg
