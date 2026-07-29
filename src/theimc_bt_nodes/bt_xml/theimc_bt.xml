@@ -27,9 +27,10 @@
       <!-- 2. 실시간 모니터링 및 미션 수행 -->
       <ForceSuccess>
         <ReactiveFallback name="ReturnHomeMonitor">
-
+          <!-- 배터리 20% 이하 감지 시 미션 중단 및 홈 복귀 -->
           <Sequence name="LowBatteryRecovery">
             <IsBatteryLow threshold="20.0" recovery_threshold="90.0"/>
+            
             <!-- 중단 시점의 목표 레일 좌표 및 현재 로봇 좌표 저장 -->
             <SaveCurrentPose save_x="{resume_x}" save_y="{resume_y}" save_yaw="{resume_yaw}"/>
             <!-- 현재 상태에 따라 레일에서 안전하게 빠져나오기 -->
