@@ -210,6 +210,19 @@ check_button_condition_plugin/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_button_condition_plugin.dir/build.make CMakeFiles/check_button_condition_plugin.dir/build
 .PHONY : check_button_condition_plugin/fast
 
+#=============================================================================
+# Target rules for targets named theimc_speed_limit_panel
+
+# Build rule for target.
+theimc_speed_limit_panel: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 theimc_speed_limit_panel
+.PHONY : theimc_speed_limit_panel
+
+# fast build rule for target.
+theimc_speed_limit_panel/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_speed_limit_panel.dir/build.make CMakeFiles/theimc_speed_limit_panel.dir/build
+.PHONY : theimc_speed_limit_panel/fast
+
 src/check_button_condition.o: src/check_button_condition.cpp.o
 .PHONY : src/check_button_condition.o
 
@@ -234,6 +247,30 @@ src/check_button_condition.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_button_condition_plugin.dir/build.make CMakeFiles/check_button_condition_plugin.dir/src/check_button_condition.cpp.s
 .PHONY : src/check_button_condition.cpp.s
 
+src/speed_limit_panel.o: src/speed_limit_panel.cpp.o
+.PHONY : src/speed_limit_panel.o
+
+# target to build an object file
+src/speed_limit_panel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_speed_limit_panel.dir/build.make CMakeFiles/theimc_speed_limit_panel.dir/src/speed_limit_panel.cpp.o
+.PHONY : src/speed_limit_panel.cpp.o
+
+src/speed_limit_panel.i: src/speed_limit_panel.cpp.i
+.PHONY : src/speed_limit_panel.i
+
+# target to preprocess a source file
+src/speed_limit_panel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_speed_limit_panel.dir/build.make CMakeFiles/theimc_speed_limit_panel.dir/src/speed_limit_panel.cpp.i
+.PHONY : src/speed_limit_panel.cpp.i
+
+src/speed_limit_panel.s: src/speed_limit_panel.cpp.s
+.PHONY : src/speed_limit_panel.s
+
+# target to generate assembly for a file
+src/speed_limit_panel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/theimc_speed_limit_panel.dir/build.make CMakeFiles/theimc_speed_limit_panel.dir/src/speed_limit_panel.cpp.s
+.PHONY : src/speed_limit_panel.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -250,9 +287,13 @@ help:
 	@echo "... theimc_navigation2_uninstall"
 	@echo "... uninstall"
 	@echo "... check_button_condition_plugin"
+	@echo "... theimc_speed_limit_panel"
 	@echo "... src/check_button_condition.o"
 	@echo "... src/check_button_condition.i"
 	@echo "... src/check_button_condition.s"
+	@echo "... src/speed_limit_panel.o"
+	@echo "... src/speed_limit_panel.i"
+	@echo "... src/speed_limit_panel.s"
 .PHONY : help
 
 

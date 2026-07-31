@@ -315,8 +315,14 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install("TARGETS" "check_button_condition_plugin" "DESTINATION" "lib")
+# install(FILES "rviz_plugins.xml" "DESTINATION" "share/theimc_navigation2/")
+ament_cmake_symlink_install_files("/home/jeff/theimc_robot/src/theimc_navigation2" FILES "rviz_plugins.xml" "DESTINATION" "share/theimc_navigation2/")
+
+# install("TARGETS" "check_button_condition_plugin" "theimc_speed_limit_panel" "DESTINATION" "lib")
 include("/home/jeff/theimc_robot/build/theimc_navigation2/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+
+# install(DIRECTORY "include/" "DESTINATION" "include")
+ament_cmake_symlink_install_directory("/home/jeff/theimc_robot/src/theimc_navigation2" DIRECTORY "include/" "DESTINATION" "include")
 
 # install(PROGRAMS "scripts/button_publisher.py" "DESTINATION" "lib/theimc_navigation2")
 ament_cmake_symlink_install_programs("/home/jeff/theimc_robot/src/theimc_navigation2" PROGRAMS "scripts/button_publisher.py" "DESTINATION" "lib/theimc_navigation2")
@@ -359,6 +365,9 @@ ament_cmake_symlink_install_files("/home/jeff/theimc_robot/src/theimc_navigation
 
 # install(FILES "/home/jeff/theimc_robot/build/theimc_navigation2/ament_cmake_index/share/ament_index/resource_index/packages/theimc_navigation2" "DESTINATION" "share/ament_index/resource_index/packages")
 ament_cmake_symlink_install_files("/home/jeff/theimc_robot/src/theimc_navigation2" FILES "/home/jeff/theimc_robot/build/theimc_navigation2/ament_cmake_index/share/ament_index/resource_index/packages/theimc_navigation2" "DESTINATION" "share/ament_index/resource_index/packages")
+
+# install(FILES "/home/jeff/theimc_robot/build/theimc_navigation2/ament_cmake_index/share/ament_index/resource_index/rviz_common__pluginlib__plugin/theimc_navigation2" "DESTINATION" "share/ament_index/resource_index/rviz_common__pluginlib__plugin")
+ament_cmake_symlink_install_files("/home/jeff/theimc_robot/src/theimc_navigation2" FILES "/home/jeff/theimc_robot/build/theimc_navigation2/ament_cmake_index/share/ament_index/resource_index/rviz_common__pluginlib__plugin/theimc_navigation2" "DESTINATION" "share/ament_index/resource_index/rviz_common__pluginlib__plugin")
 
 # install(FILES "/home/jeff/theimc_robot/build/theimc_navigation2/ament_cmake_core/theimc_navigation2Config.cmake" "/home/jeff/theimc_robot/build/theimc_navigation2/ament_cmake_core/theimc_navigation2Config-version.cmake" "DESTINATION" "share/theimc_navigation2/cmake")
 ament_cmake_symlink_install_files("/home/jeff/theimc_robot/src/theimc_navigation2" FILES "/home/jeff/theimc_robot/build/theimc_navigation2/ament_cmake_core/theimc_navigation2Config.cmake" "/home/jeff/theimc_robot/build/theimc_navigation2/ament_cmake_core/theimc_navigation2Config-version.cmake" "DESTINATION" "share/theimc_navigation2/cmake")

@@ -172,7 +172,7 @@ controller_server:
       batch_size: 500
       iteration_count: 1
 
-      vx_max: 0.25
+      vx_max: 0.45
 
       # 필요한 상황에서는 저속 후진 허용
       vx_min: -0.05

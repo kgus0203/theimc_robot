@@ -1,4 +1,7 @@
+/home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2//rviz_plugins.xml
 /home/jeff/theimc_robot/install/theimc_navigation2/lib/libcheck_button_condition_plugin.so
+/home/jeff/theimc_robot/install/theimc_navigation2/lib/libtheimc_speed_limit_panel.so
+/home/jeff/theimc_robot/install/theimc_navigation2/include/theimc_navigation2/speed_limit_panel.hpp
 /home/jeff/theimc_robot/install/theimc_navigation2/lib/theimc_navigation2/button_publisher.py
 /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/launch/_bringup_all.launch.py
 /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/launch/_theimc_cmd_mux.launch.py
@@ -45,6 +48,7 @@
 /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/local_setup.dsv
 /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/package.dsv
 /home/jeff/theimc_robot/install/theimc_navigation2/share/ament_index/resource_index/packages/theimc_navigation2
+/home/jeff/theimc_robot/install/theimc_navigation2/share/ament_index/resource_index/rviz_common__pluginlib__plugin/theimc_navigation2
 /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/cmake/theimc_navigation2Config.cmake
 /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/cmake/theimc_navigation2Config-version.cmake
 /home/jeff/theimc_robot/install/theimc_navigation2/share/theimc_navigation2/package.xml

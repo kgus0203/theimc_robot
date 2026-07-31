@@ -38,7 +38,7 @@ ekf_filter_node:
     odom0_queue_size: 20
     odom0_twist_rejection_threshold: 5.0
 
-    # 2) Camera odom은 일단 EKF에서 제외
+    # 2) Camera odom은 RTAB odometry를 다시 사용할 때 활성화
     # odom1: /camera/odom
 
     # 3) IMU는 z축 각속도만 사용

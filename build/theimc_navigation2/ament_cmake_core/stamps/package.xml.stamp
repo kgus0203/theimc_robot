@@ -16,6 +16,7 @@
   <depend>rclcpp</depend>
   <depend>rclpy</depend>
   <depend>std_msgs</depend>
+  <depend>nav2_msgs</depend>
 
   <!-- navigation -->
   <depend>navigation2</depend>
@@ -31,6 +32,7 @@
   <depend>slam_toolbox</depend>
   <depend>robot_state_publisher</depend>
   <depend>rviz2</depend>
+  <depend>rviz_common</depend>
 
   <!-- test -->
   <test_depend>ament_lint_auto</test_depend>

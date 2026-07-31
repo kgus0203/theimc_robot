@@ -1,0 +1,8 @@
+<library path="theimc_speed_limit_panel">
+  <class
+    name="theimc_navigation2/Speed Limit"
+    type="theimc_navigation2::SpeedLimitPanel"
+    base_class_type="rviz_common::Panel">
+    <description>Adjust the Nav2 maximum linear speed through /speed_limit.</description>
+  </class>
+</library>

@@ -14,8 +14,12 @@ find_package(nav2_bringup REQUIRED)
 # [추가됨] C++ BT 플러그인을 빌드하기 위한 패키지들
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(nav2_msgs REQUIRED)
 find_package(behaviortree_cpp_v3 REQUIRED)
 find_package(nav2_behavior_tree REQUIRED)
+find_package(pluginlib REQUIRED)
+find_package(rviz_common REQUIRED)
+find_package(Qt5 REQUIRED COMPONENTS Widgets)
 
 # =======================================================
 # 2. 커스텀 C++ BT 플러그인 빌드
@@ -31,12 +35,30 @@ ament_target_dependencies(check_button_condition_plugin
   nav2_behavior_tree
 )
 
+add_library(theimc_speed_limit_panel SHARED src/speed_limit_panel.cpp)
+target_include_directories(theimc_speed_limit_panel PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+ament_target_dependencies(theimc_speed_limit_panel
+  nav2_msgs
+  pluginlib
+  rclcpp
+  rviz_common
+)
+target_link_libraries(theimc_speed_limit_panel Qt5::Widgets)
+pluginlib_export_plugin_description_file(rviz_common rviz_plugins.xml)
+
 # =======================================================
 # 3. 설치 (Install) 설정
 # =======================================================
 # [추가됨] 플러그인 라이브러리를 Nav2가 찾을 수 있도록 lib 폴더에 설치
-install(TARGETS check_button_condition_plugin
+install(TARGETS check_button_condition_plugin theimc_speed_limit_panel
   DESTINATION lib
+)
+
+install(DIRECTORY include/
+  DESTINATION include
 )
 
 # [추가됨] 파이썬 스크립트를 ros2 run으로 실행할 수 있도록 설치

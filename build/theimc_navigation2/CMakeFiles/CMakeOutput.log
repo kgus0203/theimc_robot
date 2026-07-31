@@ -483,3 +483,99 @@ int main(void)
   return 0;
 }
 
+Determining if the function XOpenDisplay exists in the /usr/lib/aarch64-linux-gnu/libX11.so;/usr/lib/aarch64-linux-gnu/libXext.so passed with the following output:
+Change Dir: /home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3644a/fast && gmake[1]: Entering directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_3644a.dir/build.make CMakeFiles/cmTC_3644a.dir/build
+gmake[2]: Entering directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3644a.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay -o CMakeFiles/cmTC_3644a.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_3644a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3644a.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=XOpenDisplay CMakeFiles/cmTC_3644a.dir/CheckFunctionExists.c.o -o cmTC_3644a  /usr/lib/aarch64-linux-gnu/libX11.so /usr/lib/aarch64-linux-gnu/libXext.so 
+gmake[2]: Leaving directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_35876/fast && gmake[1]: Entering directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_35876.dir/build.make CMakeFiles/cmTC_35876.dir/build
+gmake[2]: Entering directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_35876.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname -o CMakeFiles/cmTC_35876.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_35876
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_35876.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=gethostbyname CMakeFiles/cmTC_35876.dir/CheckFunctionExists.c.o -o cmTC_35876 
+gmake[2]: Leaving directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1a317/fast && gmake[1]: Entering directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_1a317.dir/build.make CMakeFiles/cmTC_1a317.dir/build
+gmake[2]: Entering directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1a317.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect -o CMakeFiles/cmTC_1a317.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1a317
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1a317.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=connect CMakeFiles/cmTC_1a317.dir/CheckFunctionExists.c.o -o cmTC_1a317 
+gmake[2]: Leaving directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4ada9/fast && gmake[1]: Entering directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_4ada9.dir/build.make CMakeFiles/cmTC_4ada9.dir/build
+gmake[2]: Entering directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4ada9.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove -o CMakeFiles/cmTC_4ada9.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_4ada9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4ada9.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=remove CMakeFiles/cmTC_4ada9.dir/CheckFunctionExists.c.o -o cmTC_4ada9 
+gmake[2]: Leaving directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_12633/fast && gmake[1]: Entering directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_12633.dir/build.make CMakeFiles/cmTC_12633.dir/build
+gmake[2]: Entering directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_12633.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat -o CMakeFiles/cmTC_12633.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_12633
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_12633.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=shmat CMakeFiles/cmTC_12633.dir/CheckFunctionExists.c.o -o cmTC_12633 
+gmake[2]: Leaving directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ce43f/fast && gmake[1]: Entering directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_ce43f.dir/build.make CMakeFiles/cmTC_ce43f.dir/build
+gmake[2]: Entering directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ce43f.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -o CMakeFiles/cmTC_ce43f.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ce43f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ce43f.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=IceConnectionNumber CMakeFiles/cmTC_ce43f.dir/CheckFunctionExists.c.o -o cmTC_ce43f  -lICE 
+gmake[2]: Leaving directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory '/home/jeff/theimc_robot/build/theimc_navigation2/CMakeFiles/CMakeTmp'
+
+
+
