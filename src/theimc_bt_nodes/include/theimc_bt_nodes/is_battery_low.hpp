@@ -29,6 +29,7 @@ private:
   std::mutex mutex_;
   double current_battery_{100.0};
   bool is_battery_low_{false};
+  bool has_received_msg_{false};
 };
 
 }  // namespace theimc_bt_nodes

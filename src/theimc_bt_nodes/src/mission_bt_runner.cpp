@@ -3,6 +3,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <thread>
 
 #include "ament_index_cpp/get_package_share_directory.hpp"
 #include "behaviortree_cpp_v3/bt_factory.h"
@@ -51,6 +52,9 @@ int main(int argc, char ** argv)
         RCLCPP_WARN(node->get_logger(), "Mission halt requested on /mission_halt");
       }
     });
+  rclcpp::executors::MultiThreadedExecutor executor;
+  executor.add_node(node);
+  std::thread spin_thread([&executor]() { executor.spin(); });
 
   try {
     nav2_behavior_tree::BehaviorTreeEngine engine({
@@ -71,8 +75,9 @@ int main(int argc, char ** argv)
     while (rclcpp::ok()) {
       auto status = BT::NodeStatus::RUNNING;
       bool mission_halted = false;
+
       while (rclcpp::ok() && status == BT::NodeStatus::RUNNING) {
-        rclcpp::spin_some(node);
+
         if (halt_requested.exchange(false)) {
           tree.haltTree();
           mission_halted = true;
@@ -110,8 +115,11 @@ int main(int argc, char ** argv)
     RCLCPP_INFO(node->get_logger(), "Mission BT stopped");
   } catch (const std::exception & exception) {
     RCLCPP_FATAL(node->get_logger(), "Mission BT error: %s", exception.what());
-    rclcpp::shutdown();
-    return 1;
+  }
+
+  executor.cancel();
+  if(spin_thread.joinable()) {
+    spin_thread.join();
   }
 
   rclcpp::shutdown();

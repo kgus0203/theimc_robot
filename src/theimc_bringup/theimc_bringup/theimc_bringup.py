@@ -100,6 +100,8 @@ class BringUp(Node):
 
         self.last_cmd_time = time.time()
 
+        self.is_on_rail = False
+
         qos_profile = QoSProfile(
             depth=20,
             reliability=ReliabilityPolicy.RELIABLE,
@@ -277,6 +279,12 @@ class BringUp(Node):
                             self.get_logger().info(
                                 f'현재 레일 상태 =>  [{rail_state}]'
                             )
+
+                            if rail_state in ('ON_RAIL', 'ENTERING'):
+                                self.is_on_rail = True
+                            elif rail_state in ('OUT_RAIL', 'EXITING'):
+                                self.is_on_rail = False
+
                             state_msg = String()
                             state_msg.data = rail_state
                             self.pub_rail_state.publish(state_msg)
@@ -294,19 +302,22 @@ class BringUp(Node):
                     timestamp_now,
                     latest_imu_line,
                 )
+            if self.is_on_rail:
+                self.publish_zero_odometry(timestamp_now,dt)
+            else:
 
-            if latest_odom_line is not None:
-                self.publish_odom_from_line(
-                    timestamp_now,
-                    latest_odom_line,
-                    dt,
-                )
-            elif latest_wheel_line is not None:
-                self.publish_wheel_odom_from_line(
-                    timestamp_now,
-                    latest_wheel_line,
-                    dt,
-                )
+                if latest_odom_line is not None:
+                    self.publish_odom_from_line(
+                        timestamp_now,
+                        latest_odom_line,
+                        dt,
+                    )
+                elif latest_wheel_line is not None:
+                    self.publish_wheel_odom_from_line(
+                        timestamp_now,
+                        latest_wheel_line,
+                        dt,
+                    )
 
             if latest_tof_line is not None:
                 self.publish_tof_from_line(latest_tof_line)
@@ -315,6 +326,14 @@ class BringUp(Node):
             self.get_logger().warning(
                 f'Receive error: {error}'
             )
+
+    def publish_zero_odometry(self, timestamp_now, dt):
+        self.publish_odometry(
+            timestamp_now,0.0,0.0,)
+        self.update_joint_states(
+            timestamp_now, 0.0,0.0, dt)
+        self.timestamp_previous = timestamp_now
+
 
     def publish_tof_from_line(self, tof_line):
         # 파싱 예시: "TOF: 150.50 mm"
@@ -388,6 +407,11 @@ class BringUp(Node):
 
         except (ValueError, IndexError):
             return
+
+        if abs(right_velocity) < 0.01:
+            right_velocity = 0.0
+        if abs(left_velocity) < 0.01:
+            left_velocity = 0.0
 
         if dt <= 0.0:
             dt = 0.001
