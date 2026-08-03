@@ -1,76 +1,131 @@
+import threading
 import time
 
 import rclpy
-from rclpy.node import Node
-from rclpy.action import ActionServer, GoalResponse, CancelResponse
-
 from geometry_msgs.msg import Twist
-from std_msgs.msg import Bool, String
-
-from interfaces_pkg.msg import RailInfo
-from interfaces_pkg.action import RailApproach
-
+from rclpy.action import ActionServer, CancelResponse, GoalResponse
 from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
+from rclpy.node import Node
+from std_msgs.msg import Bool
+
+from interfaces_pkg.action import RailApproach
+from interfaces_pkg.msg import RailInfo
 
 
 class RailApproachActionServer(Node):
+    """
+    레일 시작점 접근용 단순 상태 머신.
+
+    흐름:
+        SEARCH
+          -> ALIGN_CENTER
+          -> STEP_FORWARD
+          -> ALIGN_ANGLE
+          -> 다시 ALIGN_CENTER
+          -> 가까워지면 FINAL_CHECK
+          -> 필요하면 BACKUP
+          -> SUCCESS
+
+    핵심 원칙:
+    - 중심과 각도를 동시에 섞어서 제어하지 않는다.
+    - 연속 회전 대신 짧게 움직이고 다시 인식한다.
+    - 가까울수록 허용 오차와 움직임 시간을 줄인다.
+    - 가까운 상태에서 크게 틀어지면 후퇴 후 재정렬한다.
+    """
+
     def __init__(self):
         super().__init__('rail_approach_action_server_node')
 
         self.cb_group = ReentrantCallbackGroup()
+        self._goal_lock = threading.Lock()
+        self._goal_active = False
 
-        self.declare_parameter('perception_enable_topic', '/rail_perception_enable')
-        self.perception_enable_topic = self.get_parameter(
-            'perception_enable_topic'
-        ).get_parameter_value().string_value
-
-        # ===== Parameters =====
+        # ---------- ROS topics ----------
+        self.declare_parameter(
+            'perception_enable_topic',
+            '/rail_perception_enable'
+        )
         self.declare_parameter('rail_info_topic', '/rail_info')
         self.declare_parameter('cmd_vel_topic', '/cmd_vel_rail')
-
-        self.declare_parameter('control_rate_hz', 20.0)
-
-        self.declare_parameter('pulse_linear_speed', 0.1) # 찔끔찔끔 직진
-        self.declare_parameter('pulse_forward_sec', 1.0)
-
-        self.declare_parameter('angular_speed', 0.08)
-
-        self.declare_parameter('min_angular_speed', 0.08)
-        self.declare_parameter('min_linear_speed', 0.05)
-
-        self.declare_parameter('rail_timeout_sec', 0.5)
         self.declare_parameter('success_topic', '/rail_approach_success')
-        self.declare_parameter('rail_command_topic', '/rail_command')
 
-        # ===== Read parameters =====
+        # ---------- Main tuning values ----------
+        self.declare_parameter('control_rate_hz', 20.0)
+        self.declare_parameter('rail_timeout_sec', 0.5)
+
+        self.declare_parameter('turn_speed', 0.08)
+        self.declare_parameter('forward_speed', 0.08)
+        self.declare_parameter('backup_speed', 0.05)
+
+        self.declare_parameter('settle_sec', 0.15)
+        self.declare_parameter('backup_sec', 0.50)
+        self.declare_parameter('success_hold_sec', 0.40)
+
+        # goal 값이 0 이하일 때 사용할 기본 허용 오차
+        # x_error는 화면 반폭 기준 정규화 값이다.
+        self.declare_parameter('default_x_tolerance', 0.03)
+        self.declare_parameter('default_angle_tolerance', 0.8)
+
+        # near 상태에서 이보다 크게 틀어지면 후퇴
+        self.declare_parameter('recovery_x_error', 0.10)
+        self.declare_parameter('recovery_angle_error', 3.0)
+
+        self.perception_enable_topic = self.get_parameter(
+            'perception_enable_topic'
+        ).value
         self.rail_info_topic = self.get_parameter('rail_info_topic').value
         self.cmd_vel_topic = self.get_parameter('cmd_vel_topic').value
+        self.success_topic = self.get_parameter('success_topic').value
 
-        self.control_rate_hz = float(self.get_parameter('control_rate_hz').value)
-
-        self.pulse_linear_speed = float(
-            self.get_parameter('pulse_linear_speed').value
+        self.control_rate_hz = float(
+            self.get_parameter('control_rate_hz').value
         )
-        self.pulse_forward_sec = float(
-            self.get_parameter('pulse_forward_sec').value
-        )
-
-        self.angular_speed = float(self.get_parameter('angular_speed').value)
-        self.rail_timeout_sec = float(self.get_parameter('rail_timeout_sec').value)
-        self.success_topic = str(self.get_parameter('success_topic').value)
-        self.rail_command_topic = str(
-            self.get_parameter('rail_command_topic').value
+        self.rail_timeout_sec = float(
+            self.get_parameter('rail_timeout_sec').value
         )
 
-        # ===== Runtime state =====
+        self.turn_speed = float(self.get_parameter('turn_speed').value)
+        self.forward_speed = float(self.get_parameter('forward_speed').value)
+        self.backup_speed = float(self.get_parameter('backup_speed').value)
+
+        self.settle_sec = float(self.get_parameter('settle_sec').value)
+        self.backup_sec = float(self.get_parameter('backup_sec').value)
+        self.success_hold_sec = float(
+            self.get_parameter('success_hold_sec').value
+        )
+
+        self.default_x_tolerance = float(
+            self.get_parameter('default_x_tolerance').value
+        )
+        self.default_angle_tolerance = float(
+            self.get_parameter('default_angle_tolerance').value
+        )
+        self.recovery_x_error = float(
+            self.get_parameter('recovery_x_error').value
+        )
+        self.recovery_angle_error = float(
+            self.get_parameter('recovery_angle_error').value
+        )
+
+        # ---------- Latest perception ----------
         self.latest_rail_info = None
         self.latest_rail_time = None
 
-        # ===== ROS I/O =====
+        # ---------- ROS I/O ----------
         self.perception_enable_pub = self.create_publisher(
             Bool,
             self.perception_enable_topic,
+            10
+        )
+        self.cmd_pub = self.create_publisher(
+            Twist,
+            self.cmd_vel_topic,
+            10
+        )
+        self.success_pub = self.create_publisher(
+            Bool,
+            self.success_topic,
             10
         )
 
@@ -80,12 +135,6 @@ class RailApproachActionServer(Node):
             self.rail_info_callback,
             10,
             callback_group=self.cb_group
-        )
-
-        self.cmd_pub = self.create_publisher(
-            Twist,
-            self.cmd_vel_topic,
-            10
         )
 
         self.action_server = ActionServer(
@@ -98,357 +147,512 @@ class RailApproachActionServer(Node):
             callback_group=self.cb_group
         )
 
-        self.min_angular_speed = float(
-            self.get_parameter('min_angular_speed').value
-        )
-        self.min_linear_speed = float(
-            self.get_parameter('min_linear_speed').value
-        )
-
-        self.success_pub = self.create_publisher(
-            Bool,
-            self.success_topic,
-            10
-        )
-        self.pub_rail_cmd = self.create_publisher(
-            String,
-            self.rail_command_topic,
-            10
-        )
-
         self.get_logger().info('[RAIL_ACTION] ready')
-        self.get_logger().info(f'[RAIL_ACTION] subscribe: {self.rail_info_topic}')
-        self.get_logger().info(f'[RAIL_ACTION] publish  : {self.cmd_vel_topic}')
-        self.get_logger().info('[RAIL_ACTION] action   : /rail_approach')
-        self.get_logger().info(f'[RAIL_ACTION] success  : {self.success_topic}')
-        self.get_logger().info(f'[RAIL_ACTION] rail cmd : {self.rail_command_topic}')
+        self.get_logger().info(
+            f'[RAIL_ACTION] rail info : {self.rail_info_topic}'
+        )
+        self.get_logger().info(
+            f'[RAIL_ACTION] cmd_vel   : {self.cmd_vel_topic}'
+        )
+        self.get_logger().info('[RAIL_ACTION] action    : /rail_approach')
 
-    def set_perception_enable(self, enable: bool):
+    # ------------------------------------------------------------------
+    # ROS callbacks
+    # ------------------------------------------------------------------
+
+    def rail_info_callback(self, msg):
+        self.latest_rail_info = msg
+        self.latest_rail_time = time.monotonic()
+
+    def goal_callback(self, goal_request):
+        with self._goal_lock:
+            if self._goal_active:
+                self.get_logger().warn(
+                    '[RAIL_ACTION] another goal is already running'
+                )
+                return GoalResponse.REJECT
+
+            self._goal_active = True
+
+        self.get_logger().info(
+            '[RAIL_ACTION] goal accepted '
+            f'timeout={goal_request.timeout_sec:.2f}, '
+            f'x_tol={goal_request.x_tolerance:.3f}, '
+            f'angle_tol={goal_request.angle_tolerance:.3f}'
+        )
+        return GoalResponse.ACCEPT
+
+    def cancel_callback(self, _goal_handle):
+        self.get_logger().warn('[RAIL_ACTION] cancel requested')
+        self.stop_robot()
+        return CancelResponse.ACCEPT
+
+    # ------------------------------------------------------------------
+    # Basic helpers
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def get_field(msg, name, default_value):
+        return getattr(msg, name, default_value)
+
+    @staticmethod
+    def normalize_distance(value):
+        distance = str(value).strip().lower()
+
+        if distance in ('near', 'close'):
+            return 'near'
+        if distance in ('middle', 'mid'):
+            return 'middle'
+        return 'far'
+
+    def set_perception_enable(self, enable):
         msg = Bool()
-        msg.data = enable
+        msg.data = bool(enable)
 
-        # subscriber가 순간적으로 못 받을 수도 있어서 여러 번 publish
+        # 인식 노드가 순간적으로 놓치는 것을 줄이기 위해 짧게 반복 송신
         for _ in range(3):
             self.perception_enable_pub.publish(msg)
             time.sleep(0.02)
 
-        if enable:
-            self.get_logger().info('[RAIL_ACTION] Perception ENABLED')
-        else:
-            self.get_logger().info('[RAIL_ACTION] Perception DISABLED')
-
-    def rail_info_callback(self, msg):
-        self.latest_rail_info = msg
-        self.latest_rail_time = time.time()
-
-    def goal_callback(self, goal_request):
-        self.get_logger().info(
-            '[RAIL_ACTION] goal received '
-            f'timeout={goal_request.timeout_sec}, '
-            f'x_tol={goal_request.x_tolerance}, '
-            f'angle_tol={goal_request.angle_tolerance}'
-        )
-        return GoalResponse.ACCEPT
-
-    def cancel_callback(self, goal_handle):
-        self.get_logger().warn('[RAIL_ACTION] cancel requested')
-        self.stop_robot()
-        self.set_perception_enable(False)
-        return CancelResponse.ACCEPT
-
     def stop_robot(self):
         cmd = Twist()
-        for _ in range(5):
+
+        for _ in range(3):
             self.cmd_pub.publish(cmd)
-            time.sleep(0.02)
-
-    def clamp(self, value, min_value, max_value):
-        return max(min_value, min(max_value, value))
-
-    def apply_min_abs_speed(self, value, min_abs_value):
-        if abs(value) < 1e-6:
-            return 0.0
-
-        if abs(value) >= min_abs_value:
-            return value
-
-        if value > 0.0:
-            return min_abs_value
-        return -min_abs_value
-        
-    def get_angle_turn_speed(self, angle_error):
-        if abs(angle_error) < 1e-6:
-            return 0.0
-
-        if angle_error > 0.0:
-            return self.angular_speed
-        return -self.angular_speed
-
-    def get_x_turn_speed(self, x_error):
-        if abs(x_error) < 1e-6:
-            return 0.0
-
-        # x_error > 0 means the rail is on the right side of the image.
-        if x_error > 0.0:
-            return -self.angular_speed
-        return self.angular_speed
-
-    def get_proportional_turn_speed(self, angle_error, x_error, k_angle, k_x):
-        angular = k_angle * angle_error - k_x * x_error
-        angular = self.apply_min_abs_speed(angular, self.min_angular_speed)
-        return self.clamp(angular, -self.angular_speed, self.angular_speed)
-
-    def get_field(self, msg, name, default_value):
-        if hasattr(msg, name):
-            return getattr(msg, name)
-        return default_value
-
-    def is_rail_info_alive(self):
-        if self.latest_rail_info is None or self.latest_rail_time is None:
-            return False
-
-        age = time.time() - self.latest_rail_time
-        return age <= self.rail_timeout_sec
-
-    def fill_feedback(self, feedback_msg, goal_handle, state, x_error, angle_error, distance):
-        feedback_msg.state = state
-        feedback_msg.x_error = float(x_error)
-        feedback_msg.angle_error = float(angle_error)
-        feedback_msg.distance = str(distance)
-        goal_handle.publish_feedback(feedback_msg)
+            time.sleep(0.01)
 
     def publish_success(self):
         msg = Bool()
         msg.data = True
         self.success_pub.publish(msg)
-        self.get_logger().info('[RAIL_ACTION] success published: true')
 
-    # def publish_detected(self):
-    #     cmd_msg = String()
-    #     cmd_msg.data = 'DETECTED'
-    #     self.pub_rail_cmd.publish(cmd_msg)
-    #     self.get_logger().info('[RAIL_ACTION] rail cmd published: DETECTED')
+    def get_valid_rail(self):
+        if self.latest_rail_info is None or self.latest_rail_time is None:
+            return None
+
+        age = time.monotonic() - self.latest_rail_time
+        if age > self.rail_timeout_sec:
+            return None
+
+        if not bool(self.get_field(self.latest_rail_info, 'has_rail', False)):
+            return None
+
+        return self.latest_rail_info
+
+    def extract_errors(self, rail):
+        rail_cx = float(self.get_field(rail, 'rail_cx', 0.0))
+        img_cx = float(self.get_field(rail, 'img_cx', 0.0))
+        img_width = float(self.get_field(rail, 'img_width', 0.0))
+
+        if img_width <= 0.0:
+            x_error = 0.0
+        else:
+            # 양수: 레일이 화면 오른쪽
+            # 음수: 레일이 화면 왼쪽
+            x_error = (rail_cx - img_cx) / (img_width / 2.0)
+
+        angle_error = float(self.get_field(rail, 'angle_deg', 0.0))
+        distance = self.normalize_distance(
+            self.get_field(rail, 'distance', 'far')
+        )
+
+        return x_error, angle_error, distance
+
+    # ------------------------------------------------------------------
+    # Distance-dependent settings
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def center_tolerance(distance, near_tolerance):
+        return {
+            'far': max(near_tolerance, 0.12),
+            'middle': max(near_tolerance, 0.06),
+            'near': near_tolerance,
+        }[distance]
+
+    @staticmethod
+    def angle_tolerance(distance, near_tolerance):
+        return {
+            'far': max(near_tolerance, 1.2),
+            'middle': max(near_tolerance, 0.8),
+            'near': near_tolerance,
+        }[distance]
+
+    @staticmethod
+    def forward_duration(distance):
+        return {
+            'far': 0.80,
+            'middle': 0.45,
+            'near': 0.20,
+        }[distance]
+
+    @staticmethod
+    def turn_duration(distance):
+        return {
+            'far': 0.18,
+            'middle': 0.12,
+            'near': 0.08,
+        }[distance]
+
+    def turn_for_center(self, x_error):
+        # 레일이 화면 오른쪽이면 로봇은 오른쪽 회전
+        return -self.turn_speed if x_error > 0.0 else self.turn_speed
+
+    def turn_for_angle(self, angle_error):
+        # 기존 코드의 angle 부호 기준을 유지한다.
+        return self.turn_speed if angle_error > 0.0 else -self.turn_speed
+
+    # ------------------------------------------------------------------
+    # Motion and feedback
+    # ------------------------------------------------------------------
+
+    def publish_feedback(
+        self,
+        goal_handle,
+        state,
+        x_error,
+        angle_error,
+        distance
+    ):
+        feedback = RailApproach.Feedback()
+        feedback.state = str(state)
+        feedback.x_error = float(x_error)
+        feedback.angle_error = float(angle_error)
+        feedback.distance = str(distance)
+        goal_handle.publish_feedback(feedback)
+
+    def run_motion(
+        self,
+        goal_handle,
+        deadline,
+        linear_x=0.0,
+        angular_z=0.0,
+        duration=0.0,
+        require_rail=True
+    ):
+        """
+        짧은 이동 명령을 실행한 뒤 정지한다.
+
+        반환값:
+            ok, canceled, timeout, shutdown, rail_lost
+        """
+        cmd = Twist()
+        cmd.linear.x = float(linear_x)
+        cmd.angular.z = float(angular_z)
+
+        period = 1.0 / self.control_rate_hz
+        end_time = time.monotonic() + max(0.0, duration)
+
+        while time.monotonic() < end_time:
+            if goal_handle.is_cancel_requested:
+                self.stop_robot()
+                return 'canceled'
+
+            if time.monotonic() >= deadline:
+                self.stop_robot()
+                return 'timeout'
+
+            if not rclpy.ok():
+                self.stop_robot()
+                return 'shutdown'
+
+            if require_rail and self.get_valid_rail() is None:
+                self.stop_robot()
+                return 'rail_lost'
+
+            self.cmd_pub.publish(cmd)
+            time.sleep(period)
+
+        self.stop_robot()
+
+        # 움직임 직후 영상이 안정될 시간을 짧게 준다.
+        settle_end = time.monotonic() + self.settle_sec
+        while time.monotonic() < settle_end:
+            if goal_handle.is_cancel_requested:
+                return 'canceled'
+
+            if time.monotonic() >= deadline:
+                return 'timeout'
+
+            if not rclpy.ok():
+                return 'shutdown'
+
+            time.sleep(period)
+
+        return 'ok'
+
+    # ------------------------------------------------------------------
+    # Main action
+    # ------------------------------------------------------------------
 
     def execute_callback(self, goal_handle):
         self.get_logger().info('[RAIL_ACTION] execute start')
-
-        # Action이 실제 시작되면 YOLO/레일 인식 ON
         self.set_perception_enable(True)
-    
+
         goal = goal_handle.request
 
-        timeout_sec = float(goal.timeout_sec)
-        x_tolerance = float(goal.x_tolerance)
-        angle_tolerance = float(goal.angle_tolerance)
-
-        if timeout_sec <= 0.0:
-            timeout_sec = 20.0
-
-        if x_tolerance <= 0.0:
-            x_tolerance = 0.25
-
-        if angle_tolerance <= 0.0:
-            angle_tolerance = 5.0
-
-        pulse_angle_tolerance = max(angle_tolerance + 3.0, angle_tolerance * 1.6)
-        pulse_x_tolerance = max(x_tolerance + 0.15, x_tolerance * 1.6)
-        forward_start_x_tolerance = max(x_tolerance, 0.35)
-        close_x_tolerance = forward_start_x_tolerance
-
-        forward_linear_speed = forward_linear_speed = max(
-            self.pulse_linear_speed * 0.8,
-            self.min_linear_speed
+        timeout_sec = (
+            float(goal.timeout_sec)
+            if float(goal.timeout_sec) > 0.0
+            else 30.0
         )
-        forward_k_angle = 0.01
-        forward_k_x = 0.16
-        align_k_angle = 0.008
-        align_k_x = 0.10
+        near_x_tolerance = (
+            float(goal.x_tolerance)
+            if float(goal.x_tolerance) > 0.0
+            else self.default_x_tolerance
+        )
+        near_angle_tolerance = (
+            float(goal.angle_tolerance)
+            if float(goal.angle_tolerance) > 0.0
+            else self.default_angle_tolerance
+        )
 
-        start_time = time.time()
+        deadline = time.monotonic() + timeout_sec
+        period = 1.0 / self.control_rate_hz
 
-        rate_period = 1.0 / self.control_rate_hz
         state = 'SEARCH'
-        pulse_end_time = None
+        stable_since = None
 
-        feedback_msg = RailApproach.Feedback()
         result = RailApproach.Result()
 
-        while rclpy.ok():
-            now = time.time()
-
-            # ===== Cancel =====
-            if goal_handle.is_cancel_requested:
-                self.stop_robot()
+        def finish_terminal(status):
+            if status == 'canceled':
                 goal_handle.canceled()
-
                 result.success = False
                 result.reason = 'canceled'
-
-                self.get_logger().warn('[RAIL_ACTION] canceled')
                 return result
 
-            # ===== Timeout =====
-            if now - start_time > timeout_sec:
-                self.stop_robot()
+            if status == 'timeout':
                 goal_handle.abort()
-
                 result.success = False
                 result.reason = 'timeout'
-
-                self.get_logger().error('[RAIL_ACTION] failed: timeout')
                 return result
 
-            rail_alive = self.is_rail_info_alive()
-            rail = self.latest_rail_info if rail_alive else None
-            has_rail = bool(self.get_field(rail, 'has_rail', False)) if rail else False
+            if status == 'shutdown':
+                goal_handle.abort()
+                result.success = False
+                result.reason = 'rclpy_shutdown'
+                return result
 
-            if not rail_alive or not has_rail:
-                state = 'SEARCH'
-                pulse_end_time = None
-                cmd = Twist()
-                self.cmd_pub.publish(cmd)
+            return None
 
-                self.fill_feedback(
-                    feedback_msg,
+        try:
+            while rclpy.ok():
+                now = time.monotonic()
+
+                if goal_handle.is_cancel_requested:
+                    goal_handle.canceled()
+                    result.success = False
+                    result.reason = 'canceled'
+                    return result
+
+                if now >= deadline:
+                    goal_handle.abort()
+                    result.success = False
+                    result.reason = 'timeout'
+                    return result
+
+                rail = self.get_valid_rail()
+
+                if rail is None:
+                    state = 'SEARCH'
+                    stable_since = None
+                    self.stop_robot()
+
+                    self.publish_feedback(
+                        goal_handle,
+                        state,
+                        0.0,
+                        0.0,
+                        'unknown'
+                    )
+                    time.sleep(period)
+                    continue
+
+                x_error, angle_error, distance = self.extract_errors(rail)
+
+                x_tol = self.center_tolerance(
+                    distance,
+                    near_x_tolerance
+                )
+                angle_tol = self.angle_tolerance(
+                    distance,
+                    near_angle_tolerance
+                )
+
+                self.publish_feedback(
                     goal_handle,
                     state,
-                    0.0,
-                    0.0,
-                    'unknown'
+                    x_error,
+                    angle_error,
+                    distance
                 )
 
                 self.get_logger().info(
-                    f'[RAIL_ACTION][{state}] rail missing, stop'
+                    f'[RAIL_ACTION][{state}] '
+                    f'distance={distance}, '
+                    f'x={x_error:.3f}/{x_tol:.3f}, '
+                    f'angle={angle_error:.3f}/{angle_tol:.3f}'
                 )
 
-                time.sleep(rate_period)
-                continue
+                if state == 'SEARCH':
+                    state = 'ALIGN_CENTER'
+                    continue
 
-            rail_cx = float(self.get_field(rail, 'rail_cx', 0.0))
-            img_cx = float(self.get_field(rail, 'img_cx', 0.0))
-            img_width = float(self.get_field(rail, 'img_width', 1.0))
-
-            # x_error 계산
-            # rail_cx == img_cx -> 0
-            # rail_cx > img_cx  -> 양수, 레일이 화면 오른쪽
-            # rail_cx < img_cx  -> 음수, 레일이 화면 왼쪽
-            if img_width > 0.0:
-                x_error = (rail_cx - img_cx) / (img_width / 2.0)
-            else:
-                x_error = 0.0
-
-            angle_error = float(self.get_field(rail, 'angle_deg', 0.0))
-            distance = str(self.get_field(rail, 'distance', 'far'))
-
-            abs_x = abs(x_error)
-            abs_angle = abs(angle_error)
-            angle_ok = abs_angle <= angle_tolerance
-            x_ok = abs_x <= x_tolerance
-            forward_start_x_ok = abs_x <= forward_start_x_tolerance
-            pulse_angle_ok = abs_angle <= pulse_angle_tolerance
-            pulse_x_ok = abs_x <= pulse_x_tolerance
-            close_enough = distance == 'near' and abs_x <= close_x_tolerance
-
-            cmd = Twist()
-
-            if state == 'SEARCH':
-                state = 'ALIGN'
-
-            if state == 'ALIGN':
-                if not angle_ok:
-                    cmd.angular.z = self.get_proportional_turn_speed(
-                        angle_error,
-                        x_error,
-                        align_k_angle,
-                        align_k_x
+                # 가까운 상태에서 크게 틀어졌다면 제자리 회전하지 않고 후퇴
+                if (
+                    distance == 'near'
+                    and state not in ('BACKUP', 'FINAL_CHECK')
+                    and (
+                        abs(x_error) > self.recovery_x_error
+                        or abs(angle_error) > self.recovery_angle_error
                     )
-                elif not forward_start_x_ok:
-                    cmd.angular.z = self.get_proportional_turn_speed(
-                        0.0,
-                        x_error,
-                        align_k_angle,
-                        align_k_x
-                    )
-                elif close_enough:
-                    self.stop_robot()
-                    # self.publish_detected()
-                    self.publish_success()
-                    goal_handle.succeed()
+                ):
+                    state = 'BACKUP'
+                    continue
 
-                    result.success = True
-                    result.reason = 'rail_approach_success'
-                    return result
-                else:
-                    state = 'PULSE_FORWARD'
-                    pulse_end_time = now + self.pulse_forward_sec
-                    cmd.linear.x = forward_linear_speed
-                    cmd.angular.z = self.get_proportional_turn_speed(
-                        angle_error,
-                        x_error,
-                        forward_k_angle,
-                        forward_k_x
+                if state == 'ALIGN_CENTER':
+                    if abs(x_error) > x_tol:
+                        status = self.run_motion(
+                            goal_handle=goal_handle,
+                            deadline=deadline,
+                            angular_z=self.turn_for_center(x_error),
+                            duration=self.turn_duration(distance),
+                            require_rail=True
+                        )
+
+                        terminal = finish_terminal(status)
+                        if terminal is not None:
+                            return terminal
+
+                        if status == 'rail_lost':
+                            state = 'SEARCH'
+                        continue
+
+                    if distance == 'near':
+                        state = 'ALIGN_ANGLE'
+                    else:
+                        state = 'STEP_FORWARD'
+                    continue
+
+                if state == 'STEP_FORWARD':
+                    status = self.run_motion(
+                        goal_handle=goal_handle,
+                        deadline=deadline,
+                        linear_x=self.forward_speed,
+                        duration=self.forward_duration(distance),
+                        require_rail=True
                     )
 
-            elif state == 'PULSE_FORWARD':
-                if not pulse_angle_ok or not pulse_x_ok:
-                    state = 'ALIGN'
-                    pulse_end_time = None
-                elif close_enough:
-                    self.stop_robot()
-                    # self.publish_detected()
-                    self.publish_success()
-                    goal_handle.succeed()
+                    terminal = finish_terminal(status)
+                    if terminal is not None:
+                        return terminal
 
-                    result.success = True
-                    result.reason = 'rail_approach_success'
-                    return result
-                elif pulse_end_time is not None and now < pulse_end_time:
-                    cmd.linear.x = forward_linear_speed
-                    cmd.angular.z = self.clamp(
-                        forward_k_angle * angle_error - forward_k_x * x_error,
-                        -self.angular_speed,
-                        self.angular_speed
+                    state = (
+                        'SEARCH'
+                        if status == 'rail_lost'
+                        else 'ALIGN_ANGLE'
                     )
-                else:
-                    state = 'ALIGN'
-                    pulse_end_time = None
+                    continue
 
-            self.cmd_pub.publish(cmd)
+                if state == 'ALIGN_ANGLE':
+                    if abs(angle_error) > angle_tol:
+                        status = self.run_motion(
+                            goal_handle=goal_handle,
+                            deadline=deadline,
+                            angular_z=self.turn_for_angle(angle_error),
+                            duration=self.turn_duration(distance),
+                            require_rail=True
+                        )
 
-            self.fill_feedback(
-                feedback_msg,
-                goal_handle,
-                state,
-                x_error,
-                angle_error,
-                distance
-            )
+                        terminal = finish_terminal(status)
+                        if terminal is not None:
+                            return terminal
 
-            self.get_logger().info(
-                f'[RAIL_ACTION][{state}] '
-                f'x_err={x_error:.3f}, '
-                f'ang_err={angle_error:.3f}, '
-                f'abs_angle={abs_angle:.3f}, '
-                f'angle_tol={angle_tolerance:.3f}, '
-                f'pulse_angle_tol={pulse_angle_tolerance:.3f}, '
-                f'x_tol={x_tolerance:.3f}, '
-                f'forward_start_x_tol={forward_start_x_tolerance:.3f}, '
-                f'close_x_tol={close_x_tolerance:.3f}, '
-                f'pulse_x_tol={pulse_x_tolerance:.3f}, '
-                f'dist={distance}, '
-                f'close_enough={close_enough}, '
-                f'lin={cmd.linear.x:.3f}, '
-                f'ang={cmd.angular.z:.3f}'
-            )
+                        if status == 'rail_lost':
+                            state = 'SEARCH'
+                        continue
 
-            time.sleep(rate_period)
+                    if distance == 'near':
+                        state = 'FINAL_CHECK'
+                    else:
+                        state = 'ALIGN_CENTER'
+                    continue
 
-        self.stop_robot()
-        goal_handle.abort()
+                if state == 'FINAL_CHECK':
+                    near_ok = (
+                        distance == 'near'
+                        and abs(x_error) <= near_x_tolerance
+                        and abs(angle_error) <= near_angle_tolerance
+                    )
 
-        result.success = False
-        result.reason = 'rclpy_shutdown'
-        return result
+                    if near_ok:
+                        if stable_since is None:
+                            stable_since = now
+
+                        if now - stable_since >= self.success_hold_sec:
+                            self.stop_robot()
+                            self.publish_success()
+                            goal_handle.succeed()
+
+                            result.success = True
+                            result.reason = 'rail_approach_success'
+                            return result
+
+                        time.sleep(period)
+                        continue
+
+                    stable_since = None
+
+                    if distance != 'near':
+                        state = 'ALIGN_CENTER'
+                    elif (
+                        abs(x_error) > self.recovery_x_error
+                        or abs(angle_error) > self.recovery_angle_error
+                    ):
+                        state = 'BACKUP'
+                    elif abs(x_error) > near_x_tolerance:
+                        state = 'ALIGN_CENTER'
+                    else:
+                        state = 'ALIGN_ANGLE'
+
+                    continue
+
+                if state == 'BACKUP':
+                    status = self.run_motion(
+                        goal_handle=goal_handle,
+                        deadline=deadline,
+                        linear_x=-self.backup_speed,
+                        duration=self.backup_sec,
+                        require_rail=False
+                    )
+
+                    terminal = finish_terminal(status)
+                    if terminal is not None:
+                        return terminal
+
+                    state = 'ALIGN_CENTER'
+                    continue
+
+                # 알 수 없는 상태가 생겼을 때 안전하게 초기화
+                self.get_logger().warn(
+                    f'[RAIL_ACTION] unknown state: {state}'
+                )
+                state = 'SEARCH'
+
+            goal_handle.abort()
+            result.success = False
+            result.reason = 'rclpy_shutdown'
+            return result
+
+        finally:
+            self.stop_robot()
+            self.set_perception_enable(False)
+
+            with self._goal_lock:
+                self._goal_active = False
+
+            self.get_logger().info('[RAIL_ACTION] execute finished')
 
 
 def main(args=None):

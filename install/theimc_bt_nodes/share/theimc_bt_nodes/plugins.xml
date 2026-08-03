@@ -1,1 +1,63 @@
-/home/jeff/theimc_robot/src/theimc_bt_nodes/plugins.xml
+<?xml version="1.0"?>
+<library path="theimc_bt_nodes">
+  <class
+    name="theimc_bt_nodes/DriveCmdVel"
+    type="theimc_bt_nodes::DriveCmdVel"
+    base_class_type="BT::TreeNode">
+    <description>Publishes a velocity command for a fixed duration and stops safely.</description>
+  </class>
+  <class
+    name="theimc_bt_nodes/ForEachRail"
+    type="theimc_bt_nodes::ForEachRail"
+    base_class_type="BT::TreeNode">
+    <description>Iterates one child over a validated list of selected rails.</description>
+  </class>
+  <class
+    name="theimc_bt_nodes/GetRailPose"
+    type="theimc_bt_nodes::GetRailPose"
+    base_class_type="BT::TreeNode">
+    <description>Loads a selected rail approach pose from rails.yaml.</description>
+  </class>
+  <class
+    name="theimc_bt_nodes/GoToPose"
+    type="theimc_bt_nodes::GoToPose"
+    base_class_type="BT::TreeNode">
+    <description>BehaviorTree.CPP node that sends a NavigateToPose goal.</description>
+  </class>
+  <class
+    name="theimc_bt_nodes/PublishRailCommand"
+    type="theimc_bt_nodes::PublishRailCommand"
+    base_class_type="BT::TreeNode">
+    <description>BehaviorTree.CPP node that publishes a rail command.</description>
+  </class>
+  <class
+    name="theimc_bt_nodes/RailApproach"
+    type="theimc_bt_nodes::RailApproach"
+    base_class_type="BT::TreeNode">
+    <description>BehaviorTree.CPP node that sends a RailApproach goal.</description>
+  </class>
+  <class
+    name="theimc_bt_nodes/ReturnHomeRequested"
+    type="theimc_bt_nodes::ReturnHomeRequested"
+    base_class_type="BT::TreeNode">
+    <description>Preempts the active mission when a return-home request is received.</description>
+  </class>
+  <class
+    name="theimc_bt_nodes/WaitForRailState"
+    type="theimc_bt_nodes::WaitForRailState"
+    base_class_type="BT::TreeNode">
+    <description>BehaviorTree.CPP node that waits for a rail state.</description>
+  </class>
+  <class
+    name="theimc_bt_nodes/WaitForMissionTrigger"
+    type="theimc_bt_nodes::WaitForMissionTrigger"
+    base_class_type="BT::TreeNode">
+    <description>BehaviorTree.CPP node that waits for a mission trigger.</description>
+  </class>
+  <class
+    name="theimc_bt_nodes/WaitSeconds"
+    type="theimc_bt_nodes::WaitSeconds"
+    base_class_type="BT::TreeNode">
+    <description>BehaviorTree.CPP node that waits for a fixed duration.</description>
+  </class>
+</library>

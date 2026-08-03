@@ -1,0 +1,52 @@
+[01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/src/is_battery_low.cpp:[m[K In constructor ‘[01m[Ktheimc_bt_nodes::IsBatteryLow::IsBatteryLow(const string&, const BT::NodeConfiguration&)[m[K’:
+[01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/src/is_battery_low.cpp:11:5:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[Ktheimc_bt_nodes::IsBatteryLow[m[K’ does not have any field named ‘[01m[Khas_received_battery_state_[m[K’
+   11 |     [01;31m[Khas_received_battery_state_[m[K(false)
+      |     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/src/is_battery_low.cpp:[m[K In lambda function:
+[01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/src/is_battery_low.cpp:27:13:[m[K [01;31m[Kerror: [m[K‘[01m[Khas_received_battery_state_[m[K’ was not declared in this scope
+   27 |             [01;31m[Khas_received_battery_state_[m[K = true;
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/src/is_battery_low.cpp:[m[K In member function ‘[01m[Kvirtual BT::NodeStatus theimc_bt_nodes::IsBatteryLow::tick()[m[K’:
+[01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/src/is_battery_low.cpp:46:10:[m[K [01;31m[Kerror: [m[K‘[01m[Khas_received_battery_state_[m[K’ was not declared in this scope
+   46 |     if (![01;31m[Khas_received_battery_state_[m[K) {
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/src/wait_for_charge.cpp:1[m[K:
+[01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/wait_for_charge.hpp:[m[K In constructor ‘[01m[Ktheimc_bt_nodes::WaitForCharge::WaitForCharge(const string&, const BT::NodeConfiguration&)[m[K’:
+[01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/wait_for_charge.hpp:30:10:[m[K [01;35m[Kwarning: [m[K‘[01m[Ktheimc_bt_nodes::WaitForCharge::has_received_data_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   30 |     bool [01;35m[Khas_received_data_[m[K{false};
+      |          [01;35m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/include/theimc_bt_nodes/wait_for_charge.hpp:28:12:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kdouble theimc_bt_nodes::WaitForCharge::current_battery_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   28 |     double [01;35m[Kcurrent_battery_[m[K{0.0};
+      |            [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/src/wait_for_charge.cpp:9:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+    9 | [01;35m[KWaitForCharge[m[K::WaitForCharge(
+      | [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/src/register_nodes.cpp:[m[K In function ‘[01m[Kvoid BT_RegisterNodesFromPlugin(BT::BehaviorTreeFactory&)[m[K’:
+[01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/src/register_nodes.cpp:33:45:[m[K [01;31m[Kerror: [m[K‘[01m[KToggleDocking[m[K’ is not a member of ‘[01m[Ktheimc_bt_nodes[m[K’
+   33 |   factory.registerNodeType<theimc_bt_nodes::[01;31m[KToggleDocking[m[K>("ToggleDocking");
+      |                                             [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/src/register_nodes.cpp:33:59:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KBT::BehaviorTreeFactory::registerNodeType<<expression error> >(const char [14])[m[K’
+   33 |   [01;31m[Kfactory.registerNodeType<theimc_bt_nodes::ToggleDocking>("ToggleDocking")[m[K;
+      |   [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/src/register_nodes.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/behaviortree_cpp_v3/bt_factory.h:364:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> void BT::BehaviorTreeFactory::registerNodeType(const string&)[m[K’
+  364 |   void [01;36m[KregisterNodeType[m[K(const std::string& ID)
+      |        [01;36m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/opt/ros/humble/include/behaviortree_cpp_v3/bt_factory.h:364:8:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/src/register_nodes.cpp:33:59:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+   33 |   [01;31m[Kfactory.registerNodeType<theimc_bt_nodes::ToggleDocking>("ToggleDocking")[m[K;
+      |   [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/src/register_nodes.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/behaviortree_cpp_v3/bt_factory.h:422:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> void BT::BehaviorTreeFactory::registerNodeType(const string&, BT::PortsList)[m[K’
+  422 |   void [01;36m[KregisterNodeType[m[K(const std::string& ID, PortsList ports)
+      |        [01;36m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/opt/ros/humble/include/behaviortree_cpp_v3/bt_factory.h:422:8:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/jeff/theimc_robot/src/theimc_bt_nodes/src/register_nodes.cpp:33:59:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+   33 |   [01;31m[Kfactory.registerNodeType<theimc_bt_nodes::ToggleDocking>("ToggleDocking")[m[K;
+      |   [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/theimc_bt_nodes.dir/build.make:174: CMakeFiles/theimc_bt_nodes.dir/src/register_nodes.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/theimc_bt_nodes.dir/build.make:230: CMakeFiles/theimc_bt_nodes.dir/src/is_battery_low.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/theimc_bt_nodes.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake: *** [Makefile:146: all] Error 2

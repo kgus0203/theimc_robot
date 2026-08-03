@@ -1,0 +1,121 @@
+[0.029s] Invoking command in '/home/jeff/theimc_robot/build/theimc_bt_nodes': CMAKE_PREFIX_PATH=/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/jeff/theimc_robot/install/theimc_navigation2/lib:/home/jeff/theimc_robot/install/interfaces_pkg/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake /home/jeff/theimc_robot/src/theimc_bt_nodes -DCMAKE_INSTALL_PREFIX=/home/jeff/theimc_robot/install/theimc_bt_nodes
+[0.143s] -- The C compiler identification is GNU 11.4.0
+[0.270s] -- The CXX compiler identification is GNU 11.4.0
+[0.293s] -- Detecting C compiler ABI info
+[0.461s] -- Detecting C compiler ABI info - done
+[0.482s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.483s] -- Detecting C compile features
+[0.484s] -- Detecting C compile features - done
+[0.495s] -- Detecting CXX compiler ABI info
+[0.675s] -- Detecting CXX compiler ABI info - done
+[0.699s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.701s] -- Detecting CXX compile features
+[0.702s] -- Detecting CXX compile features - done
+[0.716s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.150s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.439s] -- Found ament_index_cpp: 1.4.1 (/opt/ros/humble/share/ament_index_cpp/cmake)
+[1.450s] -- Found geometry_msgs: 4.9.1 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.549s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.563s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.585s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.615s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.656s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.742s] -- Found interfaces_pkg: 0.0.0 (/home/jeff/theimc_robot/install/interfaces_pkg/share/interfaces_pkg/cmake)
+[1.837s] -- Found nav2_behavior_tree: 1.1.20 (/opt/ros/humble/share/nav2_behavior_tree/cmake)
+[1.952s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.960s] -- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[2.161s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[2.231s] -- Found FastRTPS: /opt/ros/humble/include  
+[2.319s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.343s] -- Looking for pthread.h
+[2.505s] -- Looking for pthread.h - found
+[2.506s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.680s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[2.684s] -- Found Threads: TRUE  
+[3.189s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[3.192s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[3.192s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[3.312s] -- Found pluginlib: 5.1.4 (/opt/ros/humble/share/pluginlib/cmake)
+[3.353s] -- Found yaml_cpp_vendor: 8.0.2 (/opt/ros/humble/share/yaml_cpp_vendor/cmake)
+[3.615s] -- Configuring done
+[3.779s] -- Generating done
+[3.800s] -- Build files have been written to: /home/jeff/theimc_robot/build/theimc_bt_nodes
+[3.838s] Invoked command in '/home/jeff/theimc_robot/build/theimc_bt_nodes' returned '0': CMAKE_PREFIX_PATH=/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/jeff/theimc_robot/install/theimc_navigation2/lib:/home/jeff/theimc_robot/install/interfaces_pkg/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake /home/jeff/theimc_robot/src/theimc_bt_nodes -DCMAKE_INSTALL_PREFIX=/home/jeff/theimc_robot/install/theimc_bt_nodes
+[3.844s] Invoking command in '/home/jeff/theimc_robot/build/theimc_bt_nodes': CMAKE_PREFIX_PATH=/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/jeff/theimc_robot/install/theimc_navigation2/lib:/home/jeff/theimc_robot/install/interfaces_pkg/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/jeff/theimc_robot/build/theimc_bt_nodes -- -j6 -l6
+[3.964s] [ 11%] [32mBuilding CXX object CMakeFiles/mission_bt_runner.dir/src/mission_bt_runner.cpp.o[0m
+[3.965s] [ 11%] [32mBuilding CXX object CMakeFiles/theimc_bt_nodes.dir/src/for_each_rail.cpp.o[0m
+[3.967s] [ 16%] [32mBuilding CXX object CMakeFiles/theimc_bt_nodes.dir/src/drive_cmd_vel.cpp.o[0m
+[3.973s] [ 22%] [32mBuilding CXX object CMakeFiles/theimc_bt_nodes.dir/src/get_rail_pose.cpp.o[0m
+[3.979s] [ 27%] [32mBuilding CXX object CMakeFiles/theimc_bt_nodes.dir/src/go_to_pose.cpp.o[0m
+[4.000s] [ 33%] [32mBuilding CXX object CMakeFiles/theimc_bt_nodes.dir/src/publish_rail_command.cpp.o[0m
+[16.611s] [ 38%] [32mBuilding CXX object CMakeFiles/theimc_bt_nodes.dir/src/rail_approach.cpp.o[0m
+[18.450s] [ 44%] [32mBuilding CXX object CMakeFiles/theimc_bt_nodes.dir/src/return_home_requested.cpp.o[0m
+[19.606s] [ 50%] [32mBuilding CXX object CMakeFiles/theimc_bt_nodes.dir/src/register_nodes.cpp.o[0m
+[20.620s] [ 55%] [32mBuilding CXX object CMakeFiles/theimc_bt_nodes.dir/src/wait_for_rail_state.cpp.o[0m
+[24.656s] [ 61%] [32mBuilding CXX object CMakeFiles/theimc_bt_nodes.dir/src/wait_for_mission_trigger.cpp.o[0m
+[33.829s] [ 66%] [32m[1mLinking CXX executable mission_bt_runner[0m
+[36.479s] [ 72%] [32mBuilding CXX object CMakeFiles/theimc_bt_nodes.dir/src/wait_seconds.cpp.o[0m
+[36.505s] [ 72%] Built target mission_bt_runner
+[36.536s] [ 77%] [32mBuilding CXX object CMakeFiles/theimc_bt_nodes.dir/src/is_battery_low.cpp.o[0m
+[37.152s] [ 83%] [32mBuilding CXX object CMakeFiles/theimc_bt_nodes.dir/src/wait_for_charge.cpp.o[0m
+[48.039s] [ 88%] [32mBuilding CXX object CMakeFiles/theimc_bt_nodes.dir/src/save_current_pose.cpp.o[0m
+[51.355s] [ 94%] [32mBuilding CXX object CMakeFiles/theimc_bt_nodes.dir/src/toggle_docking.cpp.o[0m
+[64.866s] [100%] [32m[1mLinking CXX shared library libtheimc_bt_nodes.so[0m
+[70.945s] [100%] Built target theimc_bt_nodes
+[70.977s] Invoked command in '/home/jeff/theimc_robot/build/theimc_bt_nodes' returned '0': CMAKE_PREFIX_PATH=/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/jeff/theimc_robot/install/theimc_navigation2/lib:/home/jeff/theimc_robot/install/interfaces_pkg/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/jeff/theimc_robot/build/theimc_bt_nodes -- -j6 -l6
+[71.003s] Invoking command in '/home/jeff/theimc_robot/build/theimc_bt_nodes': CMAKE_PREFIX_PATH=/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/jeff/theimc_robot/install/theimc_navigation2/lib:/home/jeff/theimc_robot/install/interfaces_pkg/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/jeff/theimc_robot/build/theimc_bt_nodes
+[71.020s] -- Install configuration: ""
+[71.020s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/plugins.xml
+[71.021s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/lib/libtheimc_bt_nodes.so
+[71.065s] -- Set runtime path of "/home/jeff/theimc_robot/install/theimc_bt_nodes/lib/libtheimc_bt_nodes.so" to ""
+[71.065s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/lib/theimc_bt_nodes/mission_bt_runner
+[71.074s] -- Set runtime path of "/home/jeff/theimc_robot/install/theimc_bt_nodes/lib/theimc_bt_nodes/mission_bt_runner" to ""
+[71.074s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/include
+[71.074s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes
+[71.075s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/drive_cmd_vel.hpp
+[71.075s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/rail_approach.hpp
+[71.075s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/go_to_pose.hpp
+[71.075s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/publish_rail_command.hpp
+[71.076s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/for_each_rail.hpp
+[71.076s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/wait_for_charge.hpp
+[71.076s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/toggle_docking.hpp
+[71.076s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/wait_for_rail_state.hpp
+[71.077s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/return_home_requested.hpp
+[71.077s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/wait_for_mission_trigger.hpp
+[71.077s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/get_rail_pose.hpp
+[71.077s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/save_current_pose.hpp
+[71.078s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/is_battery_low.hpp
+[71.078s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/include/theimc_bt_nodes/wait_seconds.hpp
+[71.078s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/launch
+[71.078s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/launch/mission_bt_runner.launch.py
+[71.078s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/launch/__pycache__
+[71.079s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/launch/__pycache__/mission_bt_with_nav2.launch.cpython-310.pyc
+[71.079s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/bt_xml
+[71.079s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/bt_xml/theimc_bt.xml
+[71.079s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/bt_xml/simple_home_rail_3times_bt.xml
+[71.080s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/bt_xml/one_routine.xml
+[71.080s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/bt_xml/one_rail.xml
+[71.080s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/config
+[71.081s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/config/rails.yaml
+[71.081s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/environment/library_path.sh
+[71.081s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/environment/library_path.dsv
+[71.081s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/ament_index/resource_index/package_run_dependencies/theimc_bt_nodes
+[71.082s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/ament_index/resource_index/parent_prefix_path/theimc_bt_nodes
+[71.082s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/environment/ament_prefix_path.sh
+[71.082s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/environment/ament_prefix_path.dsv
+[71.083s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/environment/path.sh
+[71.083s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/environment/path.dsv
+[71.083s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/local_setup.bash
+[71.083s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/local_setup.sh
+[71.084s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/local_setup.zsh
+[71.084s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/local_setup.dsv
+[71.084s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/package.dsv
+[71.084s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/ament_index/resource_index/packages/theimc_bt_nodes
+[71.084s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/ament_index/resource_index/nav2_behavior_tree__pluginlib__plugin/theimc_bt_nodes
+[71.085s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/cmake/ament_cmake_export_include_directories-extras.cmake
+[71.085s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/cmake/ament_cmake_export_libraries-extras.cmake
+[71.085s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/cmake/ament_cmake_export_dependencies-extras.cmake
+[71.086s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/cmake/theimc_bt_nodesConfig.cmake
+[71.086s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/cmake/theimc_bt_nodesConfig-version.cmake
+[71.086s] -- Installing: /home/jeff/theimc_robot/install/theimc_bt_nodes/share/theimc_bt_nodes/package.xml
+[71.092s] Invoked command in '/home/jeff/theimc_robot/build/theimc_bt_nodes' returned '0': CMAKE_PREFIX_PATH=/home/jeff/theimc_robot/install/theimc_navigation2:/home/jeff/theimc_robot/install/interfaces_pkg:/home/jeff/theimc_robot/install/theimc_bt_nodes:/home/jeff/theimc_robot/install/theimc_description:/home/jeff/theimc_robot/install/sllidar_ros2:/home/jeff/theimc_robot/install/theimc_teleop:/home/jeff/theimc_robot/install/theimc_bringup:/home/jeff/theimc_robot/install/localizer_server:/home/jeff/theimc_robot/install/decision_making_pkg:/home/jeff/theimc_robot/install/debug_pkg:/home/jeff/theimc_robot/install/camera_perception_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/jeff/theimc_robot/install/theimc_navigation2/lib:/home/jeff/theimc_robot/install/interfaces_pkg/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/home/jeff/theimc_robot/install/theimc_bt_nodes/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/jeff/theimc_robot/build/theimc_bt_nodes
