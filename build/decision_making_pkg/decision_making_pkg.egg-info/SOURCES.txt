@@ -10,6 +10,7 @@ setup.py
 ../../build/decision_making_pkg/decision_making_pkg.egg-info/zip-safe
 decision_making_pkg/__init__.py
 decision_making_pkg/aruco_docker_node.py
+decision_making_pkg/rail_approach_action_server_node copy.py
 decision_making_pkg/rail_approach_action_server_node.py
 decision_making_pkg/rail_pd_controller_node.py
 decision_making_pkg.egg-info/PKG-INFO

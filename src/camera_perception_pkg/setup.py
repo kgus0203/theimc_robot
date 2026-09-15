@@ -22,9 +22,9 @@ setup(
         'console_scripts': [
             'image_publisher_node = camera_perception_pkg.image_publisher_node:main',
             'yolov8_node = camera_perception_pkg.yolov8_node:main',
+            'yolov26_node = camera_perception_pkg.yolov26_node:main',
             'rail_info_extractor_node = camera_perception_pkg.rail_info_extractor_node:main',
             'aruco_detector_node = camera_perception_pkg.aruco_detector_node:main',
-            'aruco_docker_node = camera_perception_pkg.aruco_docker_node:main',
         ],
     },
 )

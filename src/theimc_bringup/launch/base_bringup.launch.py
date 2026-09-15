@@ -43,7 +43,7 @@ ARGUMENTS = [
 
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
-    enable_d435_fusion = LaunchConfiguration('enable_d435i_fusion')
+    # enable_d435_fusion = LaunchConfiguration('enable_d435i_fusion')
 
     pkg_share_bringup = get_package_share_directory('theimc_bringup')
     pkg_share_description = get_package_share_directory('theimc_description')
@@ -169,49 +169,49 @@ def generate_launch_description():
     # Intel RealSense D435 driver.
     # Existing URDF publishes base_link -> camera_link.
     # The RealSense driver publishes camera_link -> internal sensor frames.
-    realsense_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(
-                get_package_share_directory('realsense2_camera'),
-                'launch',
-                'rs_launch.py',
-            )
-        ),
-        condition=IfCondition(enable_d435_fusion),
-        launch_arguments={
-            'camera_namespace': '',
-            'camera_name': 'camera',
-            'enable_color': 'true',
-            'enable_depth': 'true',
-            'enable_gyro': 'false',
-            'enable_accel': 'false',
-            'unite_imu_method': '0',
-            'enable_sync': 'true',
-            'depth_module.depth_profile': '848x480x30',
-            'rgb_camera.color_profile': '848x480x30',
-            # 'depth_module.visual_preset': '3',  # 현재 드라이버에서 미지원
-            # 'depth_module.emitter_enabled': '1',
-            # 'depth_module.enable_auto_exposure': 'true',   
-            # 'depth_module.laser_power': '360',
-            'disparity_filter.enable': 'false',
-            'spatial_filter.enable': 'false',
-            # 'spatial_filter.filter_magnitude': '1',
-            # 'spatial_filter.filter_smooth_alpha': '0.25',
-            # 'spatial_filter.filter_smooth_delta': '3',
-            'decimation_filter.enable': 'false',
-            'decimation_filter.filter_magnitude': '2',
-            'align_depth.enable': 'true',
-            'hole_filling_filter.enable': 'false',
-            'clip_distance': '4.0',
-            'temporal_filter.enable': 'false',
-            # 'temporal_filter.filter_smooth_alpha': '0.6',  # 현재 드라이버에서 미지원
-            # 'temporal_filter.filter_smooth_delta': '15',  # 현재 드라이버에서 미지원
-            'publish_tf': 'true',
-            'pointcloud.enable': 'true',
-            'initial_reset': 'true',
-            'use_sim_time': use_sim_time,
-        }.items(),
-    )
+    # realsense_cmd = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         os.path.join(
+    #             get_package_share_directory('realsense2_camera'),
+    #             'launch',
+    #             'rs_launch.py',
+    #         )
+    #     ),
+    #     condition=IfCondition(enable_d435_fusion),
+    #     launch_arguments={
+    #         'camera_namespace': '',
+    #         'camera_name': 'camera',
+    #         'enable_color': 'true',
+    #         'enable_depth': 'true',
+    #         'enable_gyro': 'false',
+    #         'enable_accel': 'false',
+    #         'unite_imu_method': '0',
+    #         'enable_sync': 'true',
+    #         'depth_module.depth_profile': '848x480x30',
+    #         'rgb_camera.color_profile': '848x480x30',
+    #         # 'depth_module.visual_preset': '3',  # 현재 드라이버에서 미지원
+    #         # 'depth_module.emitter_enabled': '1',
+    #         # 'depth_module.enable_auto_exposure': 'true',   
+    #         # 'depth_module.laser_power': '360',
+    #         'disparity_filter.enable': 'false',
+    #         'spatial_filter.enable': 'false',
+    #         # 'spatial_filter.filter_magnitude': '1',
+    #         # 'spatial_filter.filter_smooth_alpha': '0.25',
+    #         # 'spatial_filter.filter_smooth_delta': '3',
+    #         'decimation_filter.enable': 'false',
+    #         'decimation_filter.filter_magnitude': '2',
+    #         'align_depth.enable': 'true',
+    #         'hole_filling_filter.enable': 'false',
+    #         'clip_distance': '4.0',
+    #         'temporal_filter.enable': 'false',
+    #         # 'temporal_filter.filter_smooth_alpha': '0.6',  # 현재 드라이버에서 미지원
+    #         # 'temporal_filter.filter_smooth_delta': '15',  # 현재 드라이버에서 미지원
+    #         'publish_tf': 'true',
+    #         'pointcloud.enable': 'true',
+    #         'initial_reset': 'true',
+    #         'use_sim_time': use_sim_time,
+    #     }.items(),
+    # )
 
     # RTAB RGB-D visual odometry (currently disabled).
     # It publishes only /camera/odom. It must not publish odom TF because
@@ -271,7 +271,7 @@ def generate_launch_description():
     launch_description.add_action(ydlidar_cmd)
     launch_description.add_action(scan_filter_cmd)
     launch_description.add_action(robot_agent_cmd)
-    launch_description.add_action(realsense_cmd)
+    # launch_description.add_action(realsense_cmd)
     # launch_description.add_action(rgbd_odometry_cmd)  # RTAB odometry disabled
     launch_description.add_action(ekf_cmd)
 

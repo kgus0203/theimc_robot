@@ -1,5 +1,6 @@
 <!-- 
 이건 rail 1개만 대상으로 test 레일 바로 앞에서 테스트
+navigation이랑은 전혀 상관 없음!!!
 -->
 
 <root main_tree_to_execute="MainTree">

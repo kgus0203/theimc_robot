@@ -1,184 +1,774 @@
-<!--
-레일이 12개 있다고 가정하고 시나리오 테스트(현재는 모든 레일의 위치가 같게 해놓음)
-
-0. 이걸 켤 때 내가 대충 홈위치에서 출발한다고 가정, ForEachRail로 대상 rail이 순차적으로 들어옴
-1. /mission_trigger 토픽을 통해 미션 시작 신호를 받으면 nav2로 레일 앞까지 이동
-2. 1이 성공했다면 ros2 action send_goal /rail_approach interfaces_pkg/action/RailApproach "{timeout_sec: 20.0, x_tolerance: 0.25, angle_tolerance: 5.0, allow_reverse_align: false}"
-3. 레일 정상적으로 올라가지면 ON_RAIL이 STM에서 시리얼로 나옴(레일에서 탈출하면 OUT_RAIL이 나옴)
-4. 3초 forward 전송 -> stop 전송 -> 5초 대기 -> 2초 back 전송 -> stop 전송 -> 5초 대기 -> back 전송(레일에서 벗어나기 위함) 3번 항목은 전부 /rail_command으로 발행해야함
-5. STM에서 OUT_RAIL -> home 위치로 이동 -> 미션 종료
-
-홈위치 : <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
-1번 레일 x: -0.9062973260879517, y: -2.77840256690979
-
-+) 레일 진입 전 배터리 노드 필요
--->1-2 . 배터리 노드에서 배터리 잔량이 20% 이하이면 미션 중단하고 바로 홈으로 복귀하도록 함
-
 <root main_tree_to_execute="MainTree">
+
+  <!-- ========================================================= -->
+  <!-- MAIN                                                      -->
+  <!-- ========================================================= -->
   <BehaviorTree ID="MainTree">
     <Sequence name="MissionWithReturnHome">
 
-      <!-- 초기 변수 설정 -->
+      <GetLocationPose
+        location="home"
+        x="{home_x}"
+        y="{home_y}"
+        yaw="{home_yaw}"/>
+
       <SetBlackboard output_key="mission_return_mode" value="DIRECT"/>
       <SetBlackboard output_key="last_executed_index" value="0"/>
       <SetBlackboard output_key="return_mode" value="MISSION_COMPLETE"/>
+      <!-- Mission start/auto-resume gate -->
+      <SetBlackboard output_key="mission_gate" value="WAIT_TRIGGER"/>
 
-      <!-- 실시간 모니터링 및 미션 수행 -->
+      <!--
+        IMPORTANT:
+        WaitForMissionTrigger is intentionally NOT placed here.
+        /return_home must be monitored even before a mission starts.
+      -->
+
       <ForceSuccess>
         <ReactiveFallback name="ReturnHomeMonitor">
 
-          <!-- [우선순위 1] 배터리 20% 이하 감지 시 미션 중단 및 홈 복귀 -> 충전 후 복귀 -->
-          <Sequence name="LowBatteryRecovery">
-            <IsBatteryLow threshold="20.0" recovery_threshold="90.0"/>
-            
-            <!-- 중단 시점의 현재 로봇 좌표 저장 -->
-            <SaveCurrentPose save_x="{resume_x}" save_y="{resume_y}" save_yaw="{resume_yaw}"/>
+          <!-- ================================================= -->
+          <!-- Priority 1: LOW BATTERY                           -->
+          <!-- ================================================= -->
+          <SequenceStar name="LowBatteryRecovery">
 
-            <!-- 로봇이 레일 근처나 위에 있다면 안전하게 탈출 후 귀환 -->
-            <Switch3 variable="{mission_return_mode}" 
-                      case_1="EXIT_RAIL_HOME" 
-                      case_2="REVERSE_HOME" 
-                      case_3="DIRECT">
-              <Sequence name="LeaveRailSafely">
-                <PublishRailCommand command="BACK"/>
-                <WaitForRailState state="OUT_RAIL" accept_stale="false" timeout_sec="30.0"/>
-                <PublishRailCommand command="OUT"/>
-                <WaitSeconds seconds="10.0"/>
-                <DriveCmdVel linear_x="-0.25" angular_z="0.0" seconds="3.0"/>
+            <!--
+              SequenceStar(메모리 시퀀스)가 중요하다.
+              저전력 복구가 시작된 뒤에는 충전 90%가 될 때까지
+              IsBatteryLow를 매 tick 다시 검사하지 않고 현재 복구 단계부터 계속한다.
+            -->
+            <IsBatteryLow
+              threshold="20.0"
+              recovery_threshold="90.0"/>
+
+            <!--
+              IMPORTANT:
+              ReactiveFallback은 상위 우선순위 child를 먼저 tick한 뒤
+              기존 하위 미션(ForEachRail/RailMove)을 halt한다.
+
+              따라서 여기서 바로 BACK을 보내면,
+              직후 RailMoveToDistance::onHalted()의 STOP이 BACK을 덮어쓸 수 있다.
+
+              0.2초 RUNNING을 먼저 반환하여 하위 미션을 완전히 halt/STOP시킨 뒤
+              다음 tick에서 Save -> BACK -> RailExit 순서로 진행한다.
+            -->
+            <DriveCmdVel
+              linear_x="0.0"
+              angular_z="0.0"
+              seconds="0.2"/>
+
+            <Switch3
+              variable="{mission_return_mode}"
+              case_1="EXIT_RAIL_HOME"
+              case_2="REVERSE_HOME"
+              case_3="DIRECT">
+
+              <!-- 레일 위: 정확한 m 저장 -> 안전 탈출 -->
+              <Sequence name="LowBatteryLeaveRail">
+
+                <!-- halt 완료 후 STOP 상태를 다시 확정 -->
+                <PublishRailCommand command="STOP"/>
+
+                <SaveRailProgress
+                  rail_id="{rail_id}"
+                  completed="false"
+                  force="true"
+                  mark_resume="true"
+                  odom_stale_sec="0.5"
+                  saved_progress_m="{saved_progress_m}"/>
+
+                <SubTreePlus
+                  ID="ExitRailAndReverse"
+                  __autoremap="1"/>
+
               </Sequence>
-              <Sequence name="ReverseSafely">
-                <DriveCmdVel linear_x="-0.25" angular_z="0.0" seconds="3.0"/>
-              </Sequence>
+
+              <!-- RailApproach 등의 도중이면 차체만 뒤로 빠짐 -->
+              <DriveCmdVel
+                linear_x="-0.1"
+                angular_z="0.0"
+                seconds="5.0"/>
+
               <AlwaysSuccess/>
               <AlwaysSuccess/>
+
             </Switch3>
 
-            <!-- 1. 충전소 앞(ArUco 마커가 보이는 위치)까지 주행 -->
-            <GoToPose x="-1.93162" y="-2.98803" yaw="3.13067"/>
+            <GoToPose
+              x="{home_x}"
+              y="{home_y}"
+              yaw="{home_yaw}"/>
 
-            <!-- 2. ArUco 정밀 도킹 활성화 (파이썬 서비스 호출) -->
             <ToggleDocking enable="true"/>
 
-            <!-- 3. 충전이 완료될 때까지 대기 (이 동안 Python 노드가 cmd_vel을 쏴서 도킹 완료함) -->
             <WaitForCharge target_battery="90.0"/>
 
-            <!-- 4. 혹시 모를 오작동 방지를 위해 출발 전 도킹 모드 명시적 비활성화 -->
+            <!-- 충전 완료 후 출발 전에 도킹 제어를 반드시 해제 -->
             <ToggleDocking enable="false"/>
 
-            <!-- 충전 완료 후, 아까 작업이 중단되었던 위치 근처(레일 진입 전)로 복귀 -->
-            <SetBlackboard output_key="mission_return_mode" value="DIRECT"/>
-            <GoToPose x="{resume_x}" y="{resume_y}" yaw="{resume_yaw}"/>
-          </Sequence>
+            <SetBlackboard
+              output_key="mission_return_mode"
+              value="DIRECT"/>
 
-          <!-- [우선순위 2] 실제 다중 레일 순회 미션 -->
-          <Sequence name="MultiRailMission">
+            <!--
+              저전력이 '실제 미션 중' 발생했다면 다음 mission branch에서
+              WaitForMissionTrigger를 한 번 우회한다.
+              미션 시작 전 충전이었다면 WAIT_TRIGGER를 그대로 유지한다.
+            -->
+            <Switch3
+              variable="{mission_gate}"
+              case_1="MISSION_ACTIVE"
+              case_2="WAIT_TRIGGER"
+              case_3="AUTO_RESUME">
 
-            <!-- 1. 미션 시작 신호(/mission_trigger) 및 레일 목록을 대기 -->
-            <WaitForMissionTrigger selected_rails="{selected_rails}"/>
+              <SetBlackboard
+                output_key="mission_gate"
+                value="AUTO_RESUME"/>
 
-            <!-- 2. 배터리 차단막 (저전력 시 미션 진입 방지) -->
+              <AlwaysSuccess/>
+              <AlwaysSuccess/>
+              <AlwaysSuccess/>
+
+            </Switch3>
+
+            <!--
+              ReactiveFallback의 다음 분기로 내려가게 한다.
+              AUTO_RESUME 상태이면 아래 WaitTriggerThenMission에서
+              외부 GUI trigger 없이 즉시 미션을 재개한다.
+            -->
             <Inverter>
-              <IsBatteryLow threshold="20.0" recovery_threshold="90.0"/>
-            </Inverter>
-            <!-- 3. 관제 복귀 요청 감시 -->
-            <Inverter>
-              <ReturnHomeRequested return_mode="{return_mode}"/>
+              <AlwaysSuccess/>
             </Inverter>
 
-            <!-- 4. 레일 순회 미션 수행 -->
-            <ForEachRail rail_list="{selected_rails}" 
-                          current_rail="{rail_id}" 
-                          start_index="{last_executed_index}" 
-                          last_executed_index="{last_executed_index}">
-              <SubTreePlus
-                ID="RailRoutine"
-                rail_id="{rail_id}"
-                mission_return_mode="{mission_return_mode}"
-                __autoremap="1"/>
-            </ForEachRail>
+          </SequenceStar>
 
-            <!-- 모든 레일 완료 후 홈 복귀 -->
-            <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
-            <SetBlackboard output_key="return_mode" value="MISSION_COMPLETE"/>
+
+          <!-- ================================================= -->
+          <!-- Priority 2: MANUAL RETURN HOME                    -->
+          <!-- ================================================= -->
+          <ReturnHomeRequested
+            current_mode="{mission_return_mode}"
+            return_mode="{return_mode}"/>
+
+
+          <!-- ================================================= -->
+          <!-- Priority 3: WAIT TRIGGER -> RESUME / NORMAL MISSION -->
+          <!-- /return_home remains reactive while waiting here.   -->
+          <!-- ================================================= -->
+          <Sequence name="WaitTriggerThenMission">
+
+            <!--
+              정상 시작은 GUI trigger를 기다린다.
+              충전 완료 AUTO_RESUME에서는 기존 selected_rails를 유지한 채
+              trigger를 기다리지 않고 바로 미션으로 복귀한다.
+            -->
+            <Switch3
+              variable="{mission_gate}"
+              case_1="AUTO_RESUME"
+              case_2="MISSION_ACTIVE"
+              case_3="WAIT_TRIGGER">
+
+              <!-- 충전 완료 자동 재개 -->
+              <SetBlackboard
+                output_key="mission_gate"
+                value="MISSION_ACTIVE"/>
+
+              <!-- 이미 활성 미션: gate 통과 -->
+              <AlwaysSuccess/>
+
+              <!-- 최초 정상 미션 시작 -->
+              <Sequence name="WaitForNewMissionTrigger">
+                <WaitForMissionTrigger selected_rails="{selected_rails}"/>
+                <SetBlackboard
+                  output_key="mission_gate"
+                  value="MISSION_ACTIVE"/>
+              </Sequence>
+
+              <!-- 예상치 못한 값은 안전하게 새 trigger를 기다림 -->
+              <Sequence name="WaitForNewMissionTriggerDefault">
+                <WaitForMissionTrigger selected_rails="{selected_rails}"/>
+                <SetBlackboard
+                  output_key="mission_gate"
+                  value="MISSION_ACTIVE"/>
+              </Sequence>
+
+            </Switch3>
+
+            <!-- HOME에서 켜진 ArUco docking을 새 미션 시작 전에 반드시 해제 -->
+            <ToggleDocking enable="false"/>
+            <!--
+              RESUME 정책:
+              중단된 Rail을 먼저 정확히 재개하고 완료한 뒤,
+              resume_next_rail_index부터 남아 있는 selected rail을 계속 수행한다.
+              더 이상 수행할 Rail이 없으면 ForEachRail이 즉시 SUCCESS하고 HOME으로 간다.
+            -->
+            <Fallback name="ResumeOrNormalMission">
+
+              <!-- =============================== -->
+              <!-- RESUME: interrupted rail -> HOME -->
+              <!-- =============================== -->
+              <Sequence name="ResumeInterruptedMissionThenContinue">
+
+                <LoadResumeTarget
+                  selected_rails="{selected_rails}"
+                  rail_id="{rail_id}"
+                  progress_m="{resume_progress_m}"
+                  next_rail_index="{resume_next_rail_index}"
+                  resume_stage="{resume_stage}"/>
+
+                <!--
+                  1) 중단됐던 Rail의 저장 위치로 복귀
+                  2) 남은 작업 수행
+                  3) RailExit + 차체 후진
+                  4) Resume pending clear
+                -->
+                <SubTreePlus
+                  ID="ResumeRailRoutine"
+                  rail_id="{rail_id}"
+                  resume_progress_m="{resume_progress_m}"
+                  resume_stage="{resume_stage}"
+                  mission_return_mode="{mission_return_mode}"
+                  __autoremap="1"/>
+
+                <!--
+                  재개한 Rail 바로 다음 index부터 이어서 수행.
+                  예:
+                    selected=[1,2,3], resume rail=2 -> next_index=2 -> rail3 수행
+                    selected=[2],     resume rail=2 -> next_index=1 == size -> 즉시 SUCCESS
+                -->
+                <SetBlackboard
+                  output_key="last_executed_index"
+                  value="{resume_next_rail_index}"/>
+
+                <ForEachRail
+                  rail_list="{selected_rails}"
+                  current_rail="{rail_id}"
+                  start_index="{last_executed_index}"
+                  last_executed_index="{last_executed_index}">
+
+                  <SubTreePlus
+                    ID="RailRoutine"
+                    rail_id="{rail_id}"
+                    mission_return_mode="{mission_return_mode}"
+                    __autoremap="1"/>
+
+                </ForEachRail>
+
+                <!--
+                  위 ForEachRail이 SUCCESS가 되는 경우:
+                  - 남은 Rail을 모두 수행했거나
+                  - 애초에 다음 Rail이 하나도 없는 경우
+                  둘 다 여기서 HOME으로 이동.
+                -->
+                <SetBlackboard
+                  output_key="mission_return_mode"
+                  value="DIRECT"/>
+
+                <SetBlackboard
+                  output_key="return_mode"
+                  value="DIRECT"/>
+
+                <GoToPose
+                  x="{home_x}"
+                  y="{home_y}"
+                  yaw="{home_yaw}"/>
+
+                <ToggleDocking enable="true"/>
+
+                <SetBlackboard
+                  output_key="return_mode"
+                  value="MISSION_COMPLETE"/>
+
+                <SetBlackboard
+                  output_key="mission_gate"
+                  value="WAIT_TRIGGER"/>
+
+                <SetBlackboard
+                  output_key="last_executed_index"
+                  value="0"/>
+
+              </Sequence>
+
+
+              <!-- =============================== -->
+              <!-- NORMAL: selected rails -> HOME  -->
+              <!-- =============================== -->
+              <Sequence name="MultiRailMission">
+
+                <ForEachRail
+                  rail_list="{selected_rails}"
+                  current_rail="{rail_id}"
+                  start_index="{last_executed_index}"
+                  last_executed_index="{last_executed_index}">
+
+                  <SubTreePlus
+                    ID="RailRoutine"
+                    rail_id="{rail_id}"
+                    mission_return_mode="{mission_return_mode}"
+                    __autoremap="1"/>
+
+                </ForEachRail>
+
+                <GoToPose
+                  x="{home_x}"
+                  y="{home_y}"
+                  yaw="{home_yaw}"/>
+
+                <ToggleDocking enable="true"/>
+
+                <SetBlackboard
+                  output_key="return_mode"
+                  value="MISSION_COMPLETE"/>
+
+                <SetBlackboard
+                  output_key="mission_gate"
+                  value="WAIT_TRIGGER"/>
+
+                <SetBlackboard
+                  output_key="last_executed_index"
+                  value="0"/>
+
+              </Sequence>
+
+            </Fallback>
+
           </Sequence>
 
         </ReactiveFallback>
       </ForceSuccess>
 
-      <!-- 3. 외부 복귀 요청 처리 핸들러 -->
+
+      <!-- ===================================================== -->
+      <!-- ReturnHomeRequested result handler                    -->
+      <!-- ===================================================== -->
       <Switch3
         variable="{return_mode}"
         case_1="EXIT_RAIL_HOME"
         case_2="REVERSE_HOME"
         case_3="DIRECT">
 
-        <!-- Case 1: 레일 위에서 긴급 탈출 후 귀환 -->
+        <!-- ON_RAIL / WORKING에서 수동 중단 -->
         <Sequence name="LeaveRailAndReturnHome">
-          <PublishRailCommand command="BACK"/>
-          <WaitForRailState state="OUT_RAIL" accept_stale="false" timeout_sec="30.0"/>
-          <PublishRailCommand command="OUT"/>
-          <WaitSeconds seconds="10.0"/>
-          <DriveCmdVel linear_x="-0.25" angular_z="0.0" seconds="3.0"/>
-          <SetBlackboard output_key="mission_return_mode" value="DIRECT"/>
-          <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
+
+          <!-- BACK 전에 정확한 중단 위치 저장 -->
+          <SaveRailProgress
+            rail_id="{rail_id}"
+            completed="false"
+            force="true"
+            mark_resume="true"
+            odom_stale_sec="0.5"
+            saved_progress_m="{saved_progress_m}"/>
+
+          <SubTreePlus
+            ID="ExitRailAndReverse"
+            __autoremap="1"/>
+
+          <SetBlackboard
+            output_key="mission_return_mode"
+            value="DIRECT"/>
+
+          <GoToPose
+            x="{home_x}"
+            y="{home_y}"
+            yaw="{home_yaw}"/>
+
+          <ToggleDocking enable="true"/>
+
         </Sequence>
 
-        <!-- Case 2: 도킹 접근 중 3초 후진 후 귀환 -->
+
+        <!-- RailApproach 중 취소 -->
         <Sequence name="ReverseAndReturnHome">
-          <DriveCmdVel linear_x="-0.25" angular_z="0.0" seconds="3.0"/>
-          <SetBlackboard output_key="mission_return_mode" value="DIRECT"/>
-          <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
+
+          <DriveCmdVel
+            linear_x="-0.1"
+            angular_z="0.0"
+            seconds="5.0"/>
+
+          <SetBlackboard
+            output_key="mission_return_mode"
+            value="DIRECT"/>
+
+          <GoToPose
+            x="{home_x}"
+            y="{home_y}"
+            yaw="{home_yaw}"/>
+
+          <ToggleDocking enable="true"/>
+
         </Sequence>
 
-        <!-- Case 3: 즉시 홈 주행 -->
-        <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
 
-        <!-- Default Case: MISSION_COMPLETE 등 그 외 상황 시 홈 주행 -->
-        <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
+        <!-- DIRECT -->
+        <Sequence name="DirectReturnHomeAndDock">
+
+          <GoToPose
+            x="{home_x}"
+            y="{home_y}"
+            yaw="{home_yaw}"/>
+
+          <ToggleDocking enable="true"/>
+
+        </Sequence>
+
+        <!-- MISSION_COMPLETE/default -->
+        <AlwaysSuccess/>
+
       </Switch3>
+
     </Sequence>
   </BehaviorTree>
 
+
+  <!-- ========================================================= -->
+  <!-- COMMON ENTRY                                              -->
+  <!-- Timeout policy: Enter/Exit 20s, Work 60s, Resume seek 90s -->
+  <!-- RailEnter = TOF state only                                -->
+  <!-- DriveUntilRailState = main wheel motion only              -->
+  <!-- ========================================================= -->
+  <BehaviorTree ID="EnterRail">
+    <Parallel
+      success_threshold="2"
+      failure_threshold="1">
+
+      <RailEnter
+        enter_tof_mm="140.0"
+        on_rail_tof_mm="160.0"
+        timeout_sec="20.0"
+        tof_stale_sec="0.5"
+        enter_confirm_samples="2"
+        on_rail_confirm_samples="3"/>
+
+      <DriveUntilRailState
+        linear_x="0.1"
+        angular_z="0.0"
+        target_state="ON_RAIL"
+        timeout_sec="20.0"/>
+
+    </Parallel>
+  </BehaviorTree>
+
+  <!-- ========================================================= -->
+  <!-- SAFE ENTRY WRAPPER                                        -->
+  <!-- EnterRail 실패 시 후진 복구 후 반드시 FAILURE 반환          -->
+  <!-- ========================================================= -->
+  <BehaviorTree ID="EnterRailSafe">
+    <Fallback name="EnterRailFailureRecovery">
+
+      <!-- 정상 진입 -->
+      <SubTreePlus
+        ID="EnterRail"
+        __autoremap="1"/>
+
+      <!-- 진입 실패 시 안전 후진 후에도 상위에는 FAILURE 유지 -->
+      <ForceFailure>
+        <Sequence name="EnterRailRecoverySequence">
+
+          <SetBlackboard
+            output_key="mission_return_mode"
+            value="REVERSE_HOME"/>
+
+          <SetBlackboard
+            output_key="return_mode"
+            value="REVERSE_HOME"/>
+
+          <DriveCmdVel
+            linear_x="-0.2"
+            angular_z="0.0"
+            seconds="5.0"/>
+
+        </Sequence>
+      </ForceFailure>
+
+    </Fallback>
+  </BehaviorTree>
+
+
+  <!-- ========================================================= -->
+  <!-- NORMAL RAIL ROUTINE                                       -->
+  <!-- ========================================================= -->
   <BehaviorTree ID="RailRoutine">
     <Sequence name="RailRoutineSequence">
-      <!-- 1. 레일 앞 위치로 이동 -->
-      <SetBlackboard output_key="mission_return_mode" value="DIRECT"/>
-      <GetRailPose rail_id="{rail_id}" x="{rail_x}" y="{rail_y}" yaw="{rail_yaw}"/>
-      <GoToPose x="{rail_x}" y="{rail_y}" yaw="{rail_yaw}"/>
-      <!-- 2. 레일 정밀 도킹 접근 (allow_reverse 속성명 교정) -->
-      <SetBlackboard output_key="mission_return_mode" value="REVERSE_HOME"/>
+
+      <!-- 일반 이동 단계에서 실패하면 DIRECT HOME -->
+      <SetBlackboard
+        output_key="mission_return_mode"
+        value="DIRECT"/>
+
+      <SetBlackboard
+        output_key="return_mode"
+        value="DIRECT"/>
+
+      <GetRailPose
+        rail_id="{rail_id}"
+        x="{rail_x}"
+        y="{rail_y}"
+        yaw="{rail_yaw}"/>
+
+      <GoToPose
+        x="{rail_x}"
+        y="{rail_y}"
+        yaw="{rail_yaw}"/>
+
+
+      <!-- RailApproach / ENTERING 단계 실패 시 후진 후 HOME -->
+      <SetBlackboard
+        output_key="mission_return_mode"
+        value="REVERSE_HOME"/>
+
+      <SetBlackboard
+        output_key="return_mode"
+        value="REVERSE_HOME"/>
+
       <RailApproach
-        timeout_sec="20.0"
+        timeout_sec="60.0"
         x_tolerance="0.25"
-        angle_tolerance="5.0"
+        angle_tolerance="3.0"
         allow_reverse_align="true"/>
-        
-      <!-- 3. 레일 진입 및 STM 시리얼(ON_RAIL) 대기 -->
-      <SetBlackboard output_key="mission_return_mode" value="EXIT_RAIL_HOME"/>
-      <PublishRailCommand command="ON"/>
-      <WaitForRailState state="ON_RAIL" accept_stale="false" timeout_sec="20.0"/>
 
-      <!-- 4. 시나리오 요구 동작: 3초 전진 -> 정지 -> 5초 대기 -> 2초 후진 -> 정지 -> 5초 대기 -->
-      <PublishRailCommand command="FORWARD"/>
-      <WaitSeconds seconds="5.0"/>
-      <PublishRailCommand command="STOP"/>
-      <WaitSeconds seconds="5.0"/>
-      <PublishRailCommand command="BACK"/>
-      <WaitSeconds seconds="5.0"/>
-      <PublishRailCommand command="STOP"/>
-      <WaitSeconds seconds="5.0"/>
 
-      <!-- 5. 레일 탈출 및 STM 시리얼(OUT_RAIL) 확인 -->
-      <PublishRailCommand command="BACK"/>
-      <WaitForRailState state="OUT_RAIL" accept_stale="false" timeout_sec="30.0"/>
-      <PublishRailCommand command="OUT"/>
+      <!--
+        아직 ON_RAIL이 아니므로 EnterRailSafe까지는 REVERSE_HOME 유지.
+        EnterRailSafe가 성공해 ON_RAIL이 된 뒤 EXIT_RAIL_HOME으로 전환.
+      -->
+      <SubTreePlus
+        ID="EnterRailSafe"
+        __autoremap="1"/>
 
-      <!-- 6. 레일에서 완전히 빠져나온 뒤 안전거리 후진 -->
-      <SetBlackboard output_key="mission_return_mode" value="REVERSE_HOME"/>
-      <WaitSeconds seconds="10.0"/>
-      <!-- 안전거리 후진 3초: /cmd_vel linear.x=-0.25 m/s, 완료/halt 시 0 발행 -->
-      <DriveCmdVel linear_x="-0.25" angular_z="0.0" seconds="3.0"/>
-      <SetBlackboard output_key="mission_return_mode" value="DIRECT"/>
+      <SetBlackboard
+        output_key="mission_return_mode"
+        value="EXIT_RAIL_HOME"/>
+
+      <SetBlackboard
+        output_key="return_mode"
+        value="EXIT_RAIL_HOME"/>
+
+
+      <!-- ===================================================== -->
+      <!-- TEST WORKING ROUTINE + LOW BATTERY PREEMPT             -->
+      <!-- ===================================================== -->
+      <!--
+        ReactiveSequence은 RailMove가 RUNNING인 동안에도 매 tick
+        IsBatteryLow를 다시 검사한다.
+
+        battery < 20%:
+          Inverter(IsBatteryLow) => FAILURE
+          -> 실행 중 RailMoveToDistance HALT
+          -> RailMoveToDistance::onHalted() => STOP
+          -> RailRoutine FAILURE
+          -> 최상위 LowBatteryRecovery가 현재 m 저장 후 탈출
+      -->
+      <ReactiveSequence name="LowBatteryGuardedRailWork">
+
+        <Inverter>
+          <IsBatteryLow
+            threshold="20.0"
+            recovery_threshold="90.0"/>
+        </Inverter>
+
+        <Sequence name="RailWorkAndExit">
+
+          <RailMoveToDistance
+            target_m="1.0"
+            tolerance_m="0.05"
+            timeout_sec="60.0"
+            odom_stale_sec="0.5"
+            reached_m="{work_reached_1_m}"/>
+
+          <RailMoveToDistance
+            target_m="2.0"
+            tolerance_m="0.05"
+            timeout_sec="60.0"
+            odom_stale_sec="0.5"
+            reached_m="{work_reached_2_m}"/>
+
+          <RailMoveToDistance
+            target_m="3.0"
+            tolerance_m="0.05"
+            timeout_sec="60.0"
+            odom_stale_sec="0.5"
+            reached_m="{work_reached_3_m}"/>
+
+          <!-- 모든 WORKING 목표 성공 후 공통 탈출 -->
+          <SubTreePlus
+            ID="ExitRailAndReverse"
+            __autoremap="1"/>
+
+        </Sequence>
+
+      </ReactiveSequence>
+
+      <!-- 정상 탈출 완료 후 DIRECT 상태로 복구 -->
+      <SetBlackboard
+        output_key="mission_return_mode"
+        value="DIRECT"/>
+
+      <SetBlackboard
+        output_key="return_mode"
+        value="DIRECT"/>
+
     </Sequence>
   </BehaviorTree>
+
+
+  <!-- ========================================================= -->
+  <!-- RESUME RAIL ROUTINE                                       -->
+  <!-- 미션 수행 버튼 재클릭 -> 중단 Rail/m 복귀 -> 그 위치 STOP -->
+  <!-- ========================================================= -->
+  <BehaviorTree ID="ResumeRailRoutine">
+    <Sequence name="ResumeRailRoutineSequence">
+
+      <!-- Rail까지 이동하는 구간의 실패는 DIRECT HOME -->
+      <SetBlackboard
+        output_key="mission_return_mode"
+        value="DIRECT"/>
+
+      <SetBlackboard
+        output_key="return_mode"
+        value="DIRECT"/>
+
+      <GetRailPose
+        rail_id="{rail_id}"
+        x="{rail_x}"
+        y="{rail_y}"
+        yaw="{rail_yaw}"/>
+
+      <GoToPose
+        x="{rail_x}"
+        y="{rail_y}"
+        yaw="{rail_yaw}"/>
+
+
+      <!-- RailApproach / ENTERING 실패 시 후진 후 HOME -->
+      <SetBlackboard
+        output_key="mission_return_mode"
+        value="REVERSE_HOME"/>
+
+      <SetBlackboard
+        output_key="return_mode"
+        value="REVERSE_HOME"/>
+
+      <RailApproach
+        timeout_sec="60.0"
+        x_tolerance="0.25"
+        angle_tolerance="3.0"
+        allow_reverse_align="true"/>
+
+      <!-- ON_RAIL 성공 전까지 REVERSE_HOME 유지 -->
+      <SubTreePlus
+        ID="EnterRailSafe"
+        __autoremap="1"/>
+
+      <!-- ON_RAIL 이후 실패는 현재 위치 저장 후 안전 탈출 -->
+      <SetBlackboard
+        output_key="mission_return_mode"
+        value="EXIT_RAIL_HOME"/>
+
+      <SetBlackboard
+        output_key="return_mode"
+        value="EXIT_RAIL_HOME"/>
+
+
+      <!--
+        Resume 이동 중에도 저배터리가 다시 발생하면 즉시 STOP.
+        중단 위치 복귀 단계와 남은 작업 모두 같은 guard 아래에 둔다.
+      -->
+      <ReactiveSequence name="LowBatteryGuardedResumeWork">
+
+        <Inverter>
+          <IsBatteryLow
+            threshold="20.0"
+            recovery_threshold="90.0"/>
+        </Inverter>
+
+        <Sequence name="ResumeMoveWorkAndExit">
+
+          <!-- 먼저 정확한 중단 m까지 복귀 -->
+          <RailMoveToDistance
+            target_m="{resume_progress_m}"
+            tolerance_m="0.05"
+            timeout_sec="90.0"
+            odom_stale_sec="0.5"
+            reached_m="{resume_reached_m}"/>
+
+
+          <!-- 저장 거리 기준으로 이미 끝난 WORK 지점은 건너뜀 -->
+          <Switch3
+            variable="{resume_stage}"
+            case_1="WORK_1_TO_3"
+            case_2="WORK_2_TO_3"
+            case_3="WORK_3_ONLY">
+
+            <Sequence name="ResumeWork1To3">
+              <RailMoveToDistance target_m="1.0" tolerance_m="0.05" timeout_sec="60.0" odom_stale_sec="0.5" reached_m="{resume_work_reached_1_m}"/>
+              <RailMoveToDistance target_m="2.0" tolerance_m="0.05" timeout_sec="60.0" odom_stale_sec="0.5" reached_m="{resume_work_reached_2_m}"/>
+              <RailMoveToDistance target_m="3.0" tolerance_m="0.05" timeout_sec="60.0" odom_stale_sec="0.5" reached_m="{resume_work_reached_3_m}"/>
+            </Sequence>
+
+            <Sequence name="ResumeWork2To3">
+              <RailMoveToDistance target_m="2.0" tolerance_m="0.05" timeout_sec="60.0" odom_stale_sec="0.5" reached_m="{resume_work_reached_2_m}"/>
+              <RailMoveToDistance target_m="3.0" tolerance_m="0.05" timeout_sec="60.0" odom_stale_sec="0.5" reached_m="{resume_work_reached_3_m}"/>
+            </Sequence>
+
+            <RailMoveToDistance target_m="3.0" tolerance_m="0.05" timeout_sec="60.0" odom_stale_sec="0.5" reached_m="{resume_work_reached_3_m}"/>
+
+            <!-- EXIT_ONLY: 3m 작업까지 이미 끝난 경우 -->
+            <AlwaysSuccess/>
+
+          </Switch3>
+
+
+          <!-- 남은 WORKING 완료 후 공통 탈출 -->
+          <SubTreePlus
+            ID="ExitRailAndReverse"
+            __autoremap="1"/>
+
+        </Sequence>
+
+      </ReactiveSequence>
+
+      <!-- 정상 탈출 완료 후 DIRECT -->
+      <SetBlackboard
+        output_key="mission_return_mode"
+        value="DIRECT"/>
+
+      <SetBlackboard
+        output_key="return_mode"
+        value="DIRECT"/>
+
+      <!-- 작업 + 탈출까지 성공한 뒤에만 Resume pending 제거 -->
+      <ClearResumeTarget
+        progress_file="/home/jeff/theimc_robot/src/theimc_bt_nodes/config/rail_progress.yaml"/>
+
+    </Sequence>
+  </BehaviorTree>
+
+
+  <!-- ========================================================= -->
+  <!-- COMMON EXIT                                               -->
+  <!-- ========================================================= -->
+  <BehaviorTree ID="ExitRailAndReverse">
+    <Sequence name="ExitRailAndReverseSequence">
+
+      <PublishRailCommand command="BACK"/>
+
+      <RailExit
+        exit_tof_mm="140.0"
+        out_rail_tof_mm="160.0"
+        timeout_sec="30.0"
+        tof_stale_sec="0.5"
+        exit_confirm_samples="2"
+        out_rail_confirm_samples="3"/>
+
+      <PublishRailCommand command="STOP"/>
+
+      <!-- OUT_RAIL 이후 차체 -0.1 m/s로 5초 후진 -->
+      <DriveCmdVel
+        linear_x="-0.1"
+        angular_z="0.0"
+        seconds="5.0"/>
+
+    </Sequence>
+  </BehaviorTree>
+
 </root>

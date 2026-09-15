@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<root main_tree_to_execute="MainTree">
-  <BehaviorTree ID="MainTree">
-    <Sequence name="HomeRailThreeTimes">
-      <WaitForMissionTrigger/>
-      <GoToPose x="-0.5739" y="-0.8692" yaw="-0.0186"/>
-      <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
-      <GoToPose x="-0.5739" y="-0.8692" yaw="-0.0186"/>
-      <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
-      <GoToPose x="-0.5739" y="-0.8692" yaw="-0.0186"/>
-      <GoToPose x="1.2145" y="-0.7806" yaw="3.1125"/>
-      <GoToPose x="-0.5739" y="-0.8692" yaw="-0.0186"/>
-    </Sequence>
-  </BehaviorTree>
-</root>
+/home/jeff/theimc_robot/src/theimc_bt_nodes/bt_xml/simple_home_rail_3times_bt.xml

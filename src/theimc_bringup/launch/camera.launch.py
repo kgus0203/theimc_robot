@@ -43,8 +43,8 @@ def generate_launch_description():
         ################################################################################################## rail 인식 관련
         Node(
             package='camera_perception_pkg',
-            executable='yolov8_node',
-            name='yolov8_node',
+            executable='yolov26_node',
+            name='yolov26_node',
             output='screen',
         ),
         Node(
